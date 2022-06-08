@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
+import 'package:timekeeping/presentation/check_in_check_out/widgets/widgets.dart';
 
 class QrScannerScreen extends StatelessWidget {
   QrScannerScreen({Key? key}) : super(key: key);
@@ -49,12 +50,12 @@ class QrScannerScreen extends StatelessWidget {
       body: MobileScanner(
           allowDuplicates: false,
           controller: cameraController,
-          onDetect: (barcode, args) {
-            if (barcode.rawValue == null) {
+          onDetect: (qrcode, args) {
+            if (qrcode.rawValue == null) {
               debugPrint('Failed to scan Barcode');
             } else {
-              final String code = barcode.rawValue!;
-              debugPrint('Barcode found! $code');
+              final String code = qrcode.rawValue!;
+              showMyDialog(context, code);
             }
           }),
     );

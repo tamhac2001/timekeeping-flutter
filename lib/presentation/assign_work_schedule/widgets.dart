@@ -1,8 +1,37 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../application/work_schedule/assign_work_schedule_form_bloc.dart';
 import '../../presentation/utils/extensions.dart';
+import '../routes/app_router.gr.dart';
+
+const List<TimeOfDay> morningShiftStartTimes = [
+  TimeOfDay(hour: 7, minute: 0),
+  TimeOfDay(hour: 7, minute: 15),
+  TimeOfDay(hour: 7, minute: 30),
+  TimeOfDay(hour: 7, minute: 45),
+  TimeOfDay(hour: 8, minute: 00),
+  TimeOfDay(hour: 8, minute: 15),
+  TimeOfDay(hour: 8, minute: 30),
+  TimeOfDay(hour: 8, minute: 45),
+  TimeOfDay(hour: 9, minute: 0),
+];
+const List<TimeOfDay> morningShiftEndTimes = [
+  TimeOfDay(hour: 11, minute: 0),
+  TimeOfDay(hour: 11, minute: 15),
+  TimeOfDay(hour: 11, minute: 30),
+  TimeOfDay(hour: 11, minute: 45),
+  TimeOfDay(hour: 12, minute: 00),
+];
+const List<TimeOfDay> afternoonShiftStartTimes = [
+  TimeOfDay(hour: 13, minute: 0),
+  TimeOfDay(hour: 13, minute: 15),
+  TimeOfDay(hour: 13, minute: 30),
+  TimeOfDay(hour: 13, minute: 45),
+  TimeOfDay(hour: 14, minute: 00),
+];
+
 Widget buildAssignMorningShift(BuildContext context) {
   return Row(
     mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -41,7 +70,7 @@ Widget buildAssignMorningShift(BuildContext context) {
                             value: timeOfDay,
                             child: Text(timeOfDay.toDisplayText()),
                           ))
-                  .toList(growable: true),
+                  .toList(),
               onChanged: (timeOfDay) {
                 context.read<AssignWorkScheduleFormBloc>().add(
                     AssignWorkScheduleFormEvent.morningShiftEndTimeChanged(
@@ -92,29 +121,3 @@ Widget buildAssignAfternoonShift(BuildContext context) {
     ],
   );
 }
-
-const List<TimeOfDay> morningShiftStartTimes = [
-  TimeOfDay(hour: 7, minute: 0),
-  TimeOfDay(hour: 7, minute: 15),
-  TimeOfDay(hour: 7, minute: 30),
-  TimeOfDay(hour: 7, minute: 45),
-  TimeOfDay(hour: 8, minute: 00),
-  TimeOfDay(hour: 8, minute: 15),
-  TimeOfDay(hour: 8, minute: 30),
-  TimeOfDay(hour: 8, minute: 45),
-  TimeOfDay(hour: 9, minute: 0),
-];
-const List<TimeOfDay> morningShiftEndTimes = [
-  TimeOfDay(hour: 11, minute: 0),
-  TimeOfDay(hour: 11, minute: 15),
-  TimeOfDay(hour: 11, minute: 30),
-  TimeOfDay(hour: 11, minute: 45),
-  TimeOfDay(hour: 12, minute: 00),
-];
-const List<TimeOfDay> afternoonShiftStartTimes = [
-  TimeOfDay(hour: 13, minute: 0),
-  TimeOfDay(hour: 13, minute: 15),
-  TimeOfDay(hour: 13, minute: 30),
-  TimeOfDay(hour: 13, minute: 45),
-  TimeOfDay(hour: 14, minute: 00),
-];

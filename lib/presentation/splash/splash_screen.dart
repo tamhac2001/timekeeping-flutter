@@ -17,7 +17,7 @@ class SplashScreen extends StatelessWidget {
         }, authenticated: (_, __) {
           debugPrint('Authenticated State');
           AutoRouter.of(context)
-              .replace(const HomeScreenRoute());
+              .replace(const AssignWorkScheduleScreenRoute());
         }, unauthenticated: () {
           debugPrint('Unauthenticated State');
           AutoRouter.of(context).replace(const LoginScreenRoute());

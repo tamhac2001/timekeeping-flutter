@@ -4,7 +4,7 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'extensions.dart';
+import '../utils/extensions.dart';
 
 part 'assign_work_schedule_form_event.dart';
 

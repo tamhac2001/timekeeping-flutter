@@ -23,11 +23,15 @@ class SecureStorageRepository {
     return null;
   }
 
-  setAccessToken(String accessToken) async {
+  Future<void> setAccessToken(String accessToken) async {
     await storage.write(key: 'accessToken', value: accessToken);
   }
 
-  setExpireDate(DateTime expireDate) async {
+  Future<void> setExpireDate(DateTime expireDate) async {
     await storage.write(key: 'expireDate', value: expireDate.toIso8601String());
+  }
+
+  Future<void> deleteAll() async {
+    await storage.deleteAll();
   }
 }

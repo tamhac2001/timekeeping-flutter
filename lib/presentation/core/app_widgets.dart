@@ -1,6 +1,6 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 import 'package:flutter/material.dart';
-
 
 class MyBottomAppBar extends StatelessWidget {
   const MyBottomAppBar(
@@ -9,7 +9,7 @@ class MyBottomAppBar extends StatelessWidget {
 
   final int initialActiveIndex;
 
-  final Function(int index) onTap;
+  final void Function(int index) onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -25,4 +25,66 @@ class MyBottomAppBar extends StatelessWidget {
       onTap: onTap,
     );
   }
+}
+
+class TitleText extends StatelessWidget {
+  const TitleText(this.data, {Key? key}) : super(key: key);
+
+  final String data;
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      data,
+      style: Theme.of(context).textTheme.titleLarge,
+    );
+  }
+}
+
+class NormalText extends StatelessWidget {
+  const NormalText(this.data, {Key? key}) : super(key: key);
+
+  final String data;
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      data,
+      style: Theme.of(context).textTheme.subtitle1,
+    );
+  }
+}
+
+SnackBar mySnackBar(String content) {
+  return SnackBar(content: Text(content));
+}
+
+Future<void> showMyDialog(
+  BuildContext context, {
+  required String title,
+  required String text,
+  bool? barrierDismissible = false,
+  List<Widget>? action,
+}) async {
+  return showDialog<void>(
+      context: context,
+      barrierDismissible: barrierDismissible!, // user must tap button!
+      builder: (BuildContext context) => AlertDialog(
+            title: Text(title),
+            content: SingleChildScrollView(
+              child: ListBody(
+                children: <Widget>[
+                  Text(text),
+                ],
+              ),
+            ),
+            actions: action ??
+                [
+                  TextButton(
+                      onPressed: () {
+                        AutoRouter.of(context).pop();
+                      },
+                      child: const Text('OK'))
+                ],
+          ));
 }

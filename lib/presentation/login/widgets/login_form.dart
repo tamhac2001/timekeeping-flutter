@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:timekeeping/presentation/core/app_widgets.dart';
 
 import '../../../application/auth/login_form/login_form_bloc.dart';
 import '../../routes/app_router.gr.dart';
@@ -10,16 +11,31 @@ class LoginForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocListener<LoginFormBloc, LoginFormState>(
+    return BlocConsumer<LoginFormBloc, LoginFormState>(
       listener: (context, state) {
-        if (state.formSubmittedSuccessOrFail != null &&
-            state.formSubmittedSuccessOrFail!) {
-          AutoRouter.of(context).replace(const SplashScreenRoute());
+        if (state.authFailureOrSuccess != null) {
+          state.authFailureOrSuccess!.fold(
+            (failure) => failure.when(
+              serverError: () => showMyDialog(
+                context,
+                title: 'Đăng nhập',
+                text: 'Lỗi khi kết nối đến server',
+              ),
+              invalidEmailAndPassword: () => showMyDialog(
+                context,
+                title: 'Đăng nhập',
+                text: 'Sai email hoặc mật khẩu',
+              ),
+            ),
+            (success) =>
+                AutoRouter.of(context).replace(const SplashScreenRoute()),
+          );
         }
       },
-      child: Padding(
-        padding: const EdgeInsets.all(32.0),
-        child: Form(
+      builder: (context, state) => Form(
+        autovalidateMode: state.showErrorMessages,
+        child: Padding(
+          padding: const EdgeInsets.all(32.0),
           child: ListView(
             children: [
               SizedBox(
@@ -43,11 +59,20 @@ class LoginForm extends StatelessWidget {
                 builder: (context, state) {
                   return TextFormField(
                     decoration: const InputDecoration(
-                        border: OutlineInputBorder(), labelText: 'email'),
+                      border: OutlineInputBorder(),
+                      prefixIcon: Icon(Icons.email),
+                      labelText: 'email',
+                    ),
                     keyboardType: TextInputType.emailAddress,
+                    autocorrect: false,
                     onChanged: (email) => context
                         .read<LoginFormBloc>()
                         .add(LoginFormEvent.emailChanged(email)),
+                    validator: (_) => state.email.value.fold(
+                        (failure) => failure.maybeWhen(
+                            invalidEmail: (_) => 'Email không hợp lệ',
+                            orElse: () => null),
+                        (_) => null),
                   );
                 },
               ),
@@ -60,27 +85,35 @@ class LoginForm extends StatelessWidget {
                 builder: (context, state) {
                   return TextFormField(
                     decoration: const InputDecoration(
-                        border: OutlineInputBorder(), labelText: 'password'),
+                      border: OutlineInputBorder(),
+                      prefixIcon: Icon(Icons.lock),
+                      labelText: 'password',
+                    ),
                     keyboardType: TextInputType.visiblePassword,
+                    autocorrect: false,
                     obscureText: true,
                     onChanged: (password) => context
                         .read<LoginFormBloc>()
                         .add(LoginFormEvent.passwordChanged(password)),
+                    validator: (_) => state.password.value.fold(
+                        (failure) => failure.maybeWhen(
+                            invalidPassword: (_) =>
+                                'Password phải có ít nhất 6 ký tự và dưới 40 ký tự',
+                            orElse: () => null),
+                        (_) => null),
                   );
                 },
               ),
               const SizedBox(
                 height: 32,
               ),
-              SizedBox(
-                child: ElevatedButton(
-                  onPressed: () {
-                    context
-                        .read<LoginFormBloc>()
-                        .add(const LoginFormEvent.login());
-                  },
-                  child: const Text('Login >'),
-                ),
+              ElevatedButton(
+                onPressed: () {
+                  context
+                      .read<LoginFormBloc>()
+                      .add(const LoginFormEvent.login());
+                },
+                child: const Text('Login >'),
               ),
               const SizedBox(
                 height: 32,

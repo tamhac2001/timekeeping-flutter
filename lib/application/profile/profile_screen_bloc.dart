@@ -22,16 +22,16 @@ class ProfileScreenBloc extends Bloc<ProfileScreenEvent, ProfileScreenState> {
       : super(ProfileScreenState.initial()) {
     on<ProfileScreenEvent>((event, emit) async {
       await event.map(
-          userLoaded: (event) {
-            emit(state.copyWith(user: event.user));
-          },
-          profilePictureChanged: (event) async {
-            emit(state.copyWith(isSubmitting: true));
-            final profilePicture = event.profilePicture;
-            await userRepository.updateProfilePicture(profilePicture);
-            emit(state.copyWith(isSubmitting: false));
-          },
-          profilePictureChangedCancelled: (event) {});
+        userLoaded: (event) {
+          emit(state.copyWith(user: event.user));
+        },
+        profilePictureChanged: (event) async {
+          emit(state.copyWith(isSubmitting: true));
+          final profilePicture = event.profilePicture;
+          await userRepository.updateProfilePicture(profilePicture);
+          emit(state.copyWith(isSubmitting: false));
+        },
+      );
     });
   }
 }

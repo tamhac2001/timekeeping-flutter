@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
+import 'package:timekeeping/application/notification/notification_bloc.dart';
+import 'package:timekeeping/infrastructure/schedule/schedule_repository.dart';
 
 import 'application/auth/authentication_bloc.dart';
 import 'application/work_schedule/assign_work_schedule_form_bloc.dart';
-import 'infrastructure/auth/secure_storage_repository.dart';
 import 'infrastructure/auth/authentication_repository.dart';
-import 'infrastructure/auth/fake_authentiacation_api_client.dart';
-import 'infrastructure/auth/i_authentication_api_client.dart';
+import 'infrastructure/auth/fake_authentication_api_client.dart';
+import 'infrastructure/auth/secure_storage_repository.dart';
 import 'presentation/routes/app_router.gr.dart';
 
-void main() {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   runApp(MyApp());
 }
@@ -33,6 +33,9 @@ class MyApp extends StatelessWidget {
               secureStorageRepository:
                   RepositoryProvider.of<SecureStorageRepository>(context),
               authenticationApiClient: FakeAuthenticationApiClient()),
+        ),
+        RepositoryProvider(
+          create: (context) => ScheduleRepository(),
         )
       ],
       child: MultiBlocProvider(
@@ -44,6 +47,13 @@ class MyApp extends StatelessWidget {
           BlocProvider(
             create: (context) => AssignWorkScheduleFormBloc(),
           ),
+          BlocProvider(create: (context) {
+            final notificationBloc = NotificationBloc(
+                scheduleRepository:
+                    RepositoryProvider.of<ScheduleRepository>(context));
+            notificationBloc.add(const NotificationEvent.initialize());
+            return notificationBloc;
+          })
         ],
         child: MaterialApp.router(
           title: 'Flutter Demo',

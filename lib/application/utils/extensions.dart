@@ -1,8 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:timezone/data/latest_all.dart' as tz;
+import 'package:timezone/timezone.dart' as tz;
 
 extension TimeOfDayX on TimeOfDay {
   DateTime toDateTime() {
-    return DateTime(1, 1, 1, hour, minute);
+    final now = DateTime.now();
+    return DateTime(now.year, now.month, now.day, hour, minute);
+  }
+
+  tz.TZDateTime toTZDateTime() {
+    final now = tz.TZDateTime.now(tz.local);
+    tz.TZDateTime scheduledDate =
+        tz.TZDateTime.local(now.year, now.month, now.day, hour, minute);
+    if (scheduledDate.isBefore(now)) {
+      scheduledDate = scheduledDate.add(const Duration(days: 1));
+    }
+    return scheduledDate;
   }
 
   static TimeOfDay getWorkEndTime(TimeOfDay morningShiftStartTime,

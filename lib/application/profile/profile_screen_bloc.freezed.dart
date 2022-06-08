@@ -20,21 +20,18 @@ mixin _$ProfileScreenEvent {
   TResult when<TResult extends Object?>({
     required TResult Function(User user) userLoaded,
     required TResult Function(Uint8List profilePicture) profilePictureChanged,
-    required TResult Function() profilePictureChangedCancelled,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(User user)? userLoaded,
     TResult Function(Uint8List profilePicture)? profilePictureChanged,
-    TResult Function()? profilePictureChangedCancelled,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(User user)? userLoaded,
     TResult Function(Uint8List profilePicture)? profilePictureChanged,
-    TResult Function()? profilePictureChangedCancelled,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -43,24 +40,18 @@ mixin _$ProfileScreenEvent {
     required TResult Function(UserLoaded value) userLoaded,
     required TResult Function(ProfilePictureChanged value)
         profilePictureChanged,
-    required TResult Function(ProfilePictureChangedCancelled value)
-        profilePictureChangedCancelled,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(UserLoaded value)? userLoaded,
     TResult Function(ProfilePictureChanged value)? profilePictureChanged,
-    TResult Function(ProfilePictureChangedCancelled value)?
-        profilePictureChangedCancelled,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(UserLoaded value)? userLoaded,
     TResult Function(ProfilePictureChanged value)? profilePictureChanged,
-    TResult Function(ProfilePictureChangedCancelled value)?
-        profilePictureChangedCancelled,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -167,7 +158,6 @@ class _$UserLoaded with DiagnosticableTreeMixin implements UserLoaded {
   TResult when<TResult extends Object?>({
     required TResult Function(User user) userLoaded,
     required TResult Function(Uint8List profilePicture) profilePictureChanged,
-    required TResult Function() profilePictureChangedCancelled,
   }) {
     return userLoaded(user);
   }
@@ -177,7 +167,6 @@ class _$UserLoaded with DiagnosticableTreeMixin implements UserLoaded {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(User user)? userLoaded,
     TResult Function(Uint8List profilePicture)? profilePictureChanged,
-    TResult Function()? profilePictureChangedCancelled,
   }) {
     return userLoaded?.call(user);
   }
@@ -187,7 +176,6 @@ class _$UserLoaded with DiagnosticableTreeMixin implements UserLoaded {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(User user)? userLoaded,
     TResult Function(Uint8List profilePicture)? profilePictureChanged,
-    TResult Function()? profilePictureChangedCancelled,
     required TResult orElse(),
   }) {
     if (userLoaded != null) {
@@ -202,8 +190,6 @@ class _$UserLoaded with DiagnosticableTreeMixin implements UserLoaded {
     required TResult Function(UserLoaded value) userLoaded,
     required TResult Function(ProfilePictureChanged value)
         profilePictureChanged,
-    required TResult Function(ProfilePictureChangedCancelled value)
-        profilePictureChangedCancelled,
   }) {
     return userLoaded(this);
   }
@@ -213,8 +199,6 @@ class _$UserLoaded with DiagnosticableTreeMixin implements UserLoaded {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(UserLoaded value)? userLoaded,
     TResult Function(ProfilePictureChanged value)? profilePictureChanged,
-    TResult Function(ProfilePictureChangedCancelled value)?
-        profilePictureChangedCancelled,
   }) {
     return userLoaded?.call(this);
   }
@@ -224,8 +208,6 @@ class _$UserLoaded with DiagnosticableTreeMixin implements UserLoaded {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(UserLoaded value)? userLoaded,
     TResult Function(ProfilePictureChanged value)? profilePictureChanged,
-    TResult Function(ProfilePictureChangedCancelled value)?
-        profilePictureChangedCancelled,
     required TResult orElse(),
   }) {
     if (userLoaded != null) {
@@ -324,7 +306,6 @@ class _$ProfilePictureChanged
   TResult when<TResult extends Object?>({
     required TResult Function(User user) userLoaded,
     required TResult Function(Uint8List profilePicture) profilePictureChanged,
-    required TResult Function() profilePictureChangedCancelled,
   }) {
     return profilePictureChanged(profilePicture);
   }
@@ -334,7 +315,6 @@ class _$ProfilePictureChanged
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(User user)? userLoaded,
     TResult Function(Uint8List profilePicture)? profilePictureChanged,
-    TResult Function()? profilePictureChangedCancelled,
   }) {
     return profilePictureChanged?.call(profilePicture);
   }
@@ -344,7 +324,6 @@ class _$ProfilePictureChanged
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(User user)? userLoaded,
     TResult Function(Uint8List profilePicture)? profilePictureChanged,
-    TResult Function()? profilePictureChangedCancelled,
     required TResult orElse(),
   }) {
     if (profilePictureChanged != null) {
@@ -359,8 +338,6 @@ class _$ProfilePictureChanged
     required TResult Function(UserLoaded value) userLoaded,
     required TResult Function(ProfilePictureChanged value)
         profilePictureChanged,
-    required TResult Function(ProfilePictureChangedCancelled value)
-        profilePictureChangedCancelled,
   }) {
     return profilePictureChanged(this);
   }
@@ -370,8 +347,6 @@ class _$ProfilePictureChanged
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(UserLoaded value)? userLoaded,
     TResult Function(ProfilePictureChanged value)? profilePictureChanged,
-    TResult Function(ProfilePictureChangedCancelled value)?
-        profilePictureChangedCancelled,
   }) {
     return profilePictureChanged?.call(this);
   }
@@ -381,8 +356,6 @@ class _$ProfilePictureChanged
   TResult maybeMap<TResult extends Object?>({
     TResult Function(UserLoaded value)? userLoaded,
     TResult Function(ProfilePictureChanged value)? profilePictureChanged,
-    TResult Function(ProfilePictureChangedCancelled value)?
-        profilePictureChangedCancelled,
     required TResult orElse(),
   }) {
     if (profilePictureChanged != null) {
@@ -400,135 +373,6 @@ abstract class ProfilePictureChanged implements ProfileScreenEvent {
   @JsonKey(ignore: true)
   _$$ProfilePictureChangedCopyWith<_$ProfilePictureChanged> get copyWith =>
       throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$ProfilePictureChangedCancelledCopyWith<$Res> {
-  factory _$$ProfilePictureChangedCancelledCopyWith(
-          _$ProfilePictureChangedCancelled value,
-          $Res Function(_$ProfilePictureChangedCancelled) then) =
-      __$$ProfilePictureChangedCancelledCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$ProfilePictureChangedCancelledCopyWithImpl<$Res>
-    extends _$ProfileScreenEventCopyWithImpl<$Res>
-    implements _$$ProfilePictureChangedCancelledCopyWith<$Res> {
-  __$$ProfilePictureChangedCancelledCopyWithImpl(
-      _$ProfilePictureChangedCancelled _value,
-      $Res Function(_$ProfilePictureChangedCancelled) _then)
-      : super(_value, (v) => _then(v as _$ProfilePictureChangedCancelled));
-
-  @override
-  _$ProfilePictureChangedCancelled get _value =>
-      super._value as _$ProfilePictureChangedCancelled;
-}
-
-/// @nodoc
-
-class _$ProfilePictureChangedCancelled
-    with DiagnosticableTreeMixin
-    implements ProfilePictureChangedCancelled {
-  const _$ProfilePictureChangedCancelled();
-
-  @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'ProfileScreenEvent.profilePictureChangedCancelled()';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty(
-        'type', 'ProfileScreenEvent.profilePictureChangedCancelled'));
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ProfilePictureChangedCancelled);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(User user) userLoaded,
-    required TResult Function(Uint8List profilePicture) profilePictureChanged,
-    required TResult Function() profilePictureChangedCancelled,
-  }) {
-    return profilePictureChangedCancelled();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(User user)? userLoaded,
-    TResult Function(Uint8List profilePicture)? profilePictureChanged,
-    TResult Function()? profilePictureChangedCancelled,
-  }) {
-    return profilePictureChangedCancelled?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(User user)? userLoaded,
-    TResult Function(Uint8List profilePicture)? profilePictureChanged,
-    TResult Function()? profilePictureChangedCancelled,
-    required TResult orElse(),
-  }) {
-    if (profilePictureChangedCancelled != null) {
-      return profilePictureChangedCancelled();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UserLoaded value) userLoaded,
-    required TResult Function(ProfilePictureChanged value)
-        profilePictureChanged,
-    required TResult Function(ProfilePictureChangedCancelled value)
-        profilePictureChangedCancelled,
-  }) {
-    return profilePictureChangedCancelled(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(UserLoaded value)? userLoaded,
-    TResult Function(ProfilePictureChanged value)? profilePictureChanged,
-    TResult Function(ProfilePictureChangedCancelled value)?
-        profilePictureChangedCancelled,
-  }) {
-    return profilePictureChangedCancelled?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UserLoaded value)? userLoaded,
-    TResult Function(ProfilePictureChanged value)? profilePictureChanged,
-    TResult Function(ProfilePictureChangedCancelled value)?
-        profilePictureChangedCancelled,
-    required TResult orElse(),
-  }) {
-    if (profilePictureChangedCancelled != null) {
-      return profilePictureChangedCancelled(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class ProfilePictureChangedCancelled implements ProfileScreenEvent {
-  const factory ProfilePictureChangedCancelled() =
-      _$ProfilePictureChangedCancelled;
 }
 
 /// @nodoc

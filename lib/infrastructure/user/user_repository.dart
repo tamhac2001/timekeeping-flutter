@@ -1,16 +1,16 @@
-
 import 'dart:typed_data';
 
 import '../../domain/user/user.dart';
 import 'i_user_api_client.dart';
 
-
-
 class UserRepository {
   final IUserApiClient _apiClient;
   final String _accessToken;
 
-  UserRepository(this._apiClient, this._accessToken);
+  UserRepository(
+      {required IUserApiClient apiClient, required String accessToken})
+      : _apiClient = apiClient,
+        _accessToken = accessToken;
 
   Future<User> getUser() async {
     return User.fromUserDTO(await _apiClient.fetchData(_accessToken));

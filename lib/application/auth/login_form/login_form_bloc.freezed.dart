@@ -610,11 +610,12 @@ abstract class ForgetPassword implements LoginFormEvent {
 
 /// @nodoc
 mixin _$LoginFormState {
-  String get email => throw _privateConstructorUsedError;
-  String get password => throw _privateConstructorUsedError;
+  EmailAddress get email => throw _privateConstructorUsedError;
+  Password get password => throw _privateConstructorUsedError;
   AutovalidateMode get showErrorMessages => throw _privateConstructorUsedError;
   bool get isSubmitting => throw _privateConstructorUsedError;
-  bool? get formSubmittedSuccessOrFail => throw _privateConstructorUsedError;
+  Either<AuthFailure, Unit>? get authFailureOrSuccess =>
+      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $LoginFormStateCopyWith<LoginFormState> get copyWith =>
@@ -627,11 +628,11 @@ abstract class $LoginFormStateCopyWith<$Res> {
           LoginFormState value, $Res Function(LoginFormState) then) =
       _$LoginFormStateCopyWithImpl<$Res>;
   $Res call(
-      {String email,
-      String password,
+      {EmailAddress email,
+      Password password,
       AutovalidateMode showErrorMessages,
       bool isSubmitting,
-      bool? formSubmittedSuccessOrFail});
+      Either<AuthFailure, Unit>? authFailureOrSuccess});
 }
 
 /// @nodoc
@@ -649,17 +650,17 @@ class _$LoginFormStateCopyWithImpl<$Res>
     Object? password = freezed,
     Object? showErrorMessages = freezed,
     Object? isSubmitting = freezed,
-    Object? formSubmittedSuccessOrFail = freezed,
+    Object? authFailureOrSuccess = freezed,
   }) {
     return _then(_value.copyWith(
       email: email == freezed
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
-              as String,
+              as EmailAddress,
       password: password == freezed
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
-              as String,
+              as Password,
       showErrorMessages: showErrorMessages == freezed
           ? _value.showErrorMessages
           : showErrorMessages // ignore: cast_nullable_to_non_nullable
@@ -668,10 +669,10 @@ class _$LoginFormStateCopyWithImpl<$Res>
           ? _value.isSubmitting
           : isSubmitting // ignore: cast_nullable_to_non_nullable
               as bool,
-      formSubmittedSuccessOrFail: formSubmittedSuccessOrFail == freezed
-          ? _value.formSubmittedSuccessOrFail
-          : formSubmittedSuccessOrFail // ignore: cast_nullable_to_non_nullable
-              as bool?,
+      authFailureOrSuccess: authFailureOrSuccess == freezed
+          ? _value.authFailureOrSuccess
+          : authFailureOrSuccess // ignore: cast_nullable_to_non_nullable
+              as Either<AuthFailure, Unit>?,
     ));
   }
 }
@@ -684,11 +685,11 @@ abstract class _$$_LoginFormStateCopyWith<$Res>
       __$$_LoginFormStateCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String email,
-      String password,
+      {EmailAddress email,
+      Password password,
       AutovalidateMode showErrorMessages,
       bool isSubmitting,
-      bool? formSubmittedSuccessOrFail});
+      Either<AuthFailure, Unit>? authFailureOrSuccess});
 }
 
 /// @nodoc
@@ -708,17 +709,17 @@ class __$$_LoginFormStateCopyWithImpl<$Res>
     Object? password = freezed,
     Object? showErrorMessages = freezed,
     Object? isSubmitting = freezed,
-    Object? formSubmittedSuccessOrFail = freezed,
+    Object? authFailureOrSuccess = freezed,
   }) {
     return _then(_$_LoginFormState(
       email: email == freezed
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
-              as String,
+              as EmailAddress,
       password: password == freezed
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
-              as String,
+              as Password,
       showErrorMessages: showErrorMessages == freezed
           ? _value.showErrorMessages
           : showErrorMessages // ignore: cast_nullable_to_non_nullable
@@ -727,10 +728,10 @@ class __$$_LoginFormStateCopyWithImpl<$Res>
           ? _value.isSubmitting
           : isSubmitting // ignore: cast_nullable_to_non_nullable
               as bool,
-      formSubmittedSuccessOrFail: formSubmittedSuccessOrFail == freezed
-          ? _value.formSubmittedSuccessOrFail
-          : formSubmittedSuccessOrFail // ignore: cast_nullable_to_non_nullable
-              as bool?,
+      authFailureOrSuccess: authFailureOrSuccess == freezed
+          ? _value.authFailureOrSuccess
+          : authFailureOrSuccess // ignore: cast_nullable_to_non_nullable
+              as Either<AuthFailure, Unit>?,
     ));
   }
 }
@@ -743,22 +744,22 @@ class _$_LoginFormState implements _LoginFormState {
       required this.password,
       required this.showErrorMessages,
       required this.isSubmitting,
-      required this.formSubmittedSuccessOrFail});
+      required this.authFailureOrSuccess});
 
   @override
-  final String email;
+  final EmailAddress email;
   @override
-  final String password;
+  final Password password;
   @override
   final AutovalidateMode showErrorMessages;
   @override
   final bool isSubmitting;
   @override
-  final bool? formSubmittedSuccessOrFail;
+  final Either<AuthFailure, Unit>? authFailureOrSuccess;
 
   @override
   String toString() {
-    return 'LoginFormState(email: $email, password: $password, showErrorMessages: $showErrorMessages, isSubmitting: $isSubmitting, formSubmittedSuccessOrFail: $formSubmittedSuccessOrFail)';
+    return 'LoginFormState(email: $email, password: $password, showErrorMessages: $showErrorMessages, isSubmitting: $isSubmitting, authFailureOrSuccess: $authFailureOrSuccess)';
   }
 
   @override
@@ -772,8 +773,8 @@ class _$_LoginFormState implements _LoginFormState {
                 .equals(other.showErrorMessages, showErrorMessages) &&
             const DeepCollectionEquality()
                 .equals(other.isSubmitting, isSubmitting) &&
-            const DeepCollectionEquality().equals(
-                other.formSubmittedSuccessOrFail, formSubmittedSuccessOrFail));
+            const DeepCollectionEquality()
+                .equals(other.authFailureOrSuccess, authFailureOrSuccess));
   }
 
   @override
@@ -783,7 +784,7 @@ class _$_LoginFormState implements _LoginFormState {
       const DeepCollectionEquality().hash(password),
       const DeepCollectionEquality().hash(showErrorMessages),
       const DeepCollectionEquality().hash(isSubmitting),
-      const DeepCollectionEquality().hash(formSubmittedSuccessOrFail));
+      const DeepCollectionEquality().hash(authFailureOrSuccess));
 
   @JsonKey(ignore: true)
   @override
@@ -793,22 +794,24 @@ class _$_LoginFormState implements _LoginFormState {
 
 abstract class _LoginFormState implements LoginFormState {
   const factory _LoginFormState(
-      {required final String email,
-      required final String password,
-      required final AutovalidateMode showErrorMessages,
-      required final bool isSubmitting,
-      required final bool? formSubmittedSuccessOrFail}) = _$_LoginFormState;
+          {required final EmailAddress email,
+          required final Password password,
+          required final AutovalidateMode showErrorMessages,
+          required final bool isSubmitting,
+          required final Either<AuthFailure, Unit>? authFailureOrSuccess}) =
+      _$_LoginFormState;
 
   @override
-  String get email => throw _privateConstructorUsedError;
+  EmailAddress get email => throw _privateConstructorUsedError;
   @override
-  String get password => throw _privateConstructorUsedError;
+  Password get password => throw _privateConstructorUsedError;
   @override
   AutovalidateMode get showErrorMessages => throw _privateConstructorUsedError;
   @override
   bool get isSubmitting => throw _privateConstructorUsedError;
   @override
-  bool? get formSubmittedSuccessOrFail => throw _privateConstructorUsedError;
+  Either<AuthFailure, Unit>? get authFailureOrSuccess =>
+      throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$$_LoginFormStateCopyWith<_$_LoginFormState> get copyWith =>
