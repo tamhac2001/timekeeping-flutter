@@ -8,4 +8,6 @@ class AuthFailure with _$AuthFailure {
   const factory AuthFailure.serverError() = ServerError;
 
   const factory AuthFailure.invalidEmailAndPassword() = InvalidEmailAndPassword;
+
+  const factory AuthFailure.employeeNotFound() = EmployeeNotFound;
 }

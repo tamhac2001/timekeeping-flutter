@@ -20,7 +20,7 @@ mixin _$AbsentFormEvent {
   TResult when<TResult extends Object?>({
     required TResult Function(DateTime? startDate) startDatePicked,
     required TResult Function(DateTime? endDate) endDatePicked,
-    required TResult Function(String reason) reasonChanged,
+    required TResult Function(Reason reason) reasonChanged,
     required TResult Function(String noteChanged) noteChanged,
     required TResult Function() formSubmitted,
     required TResult Function() cancelled,
@@ -30,7 +30,7 @@ mixin _$AbsentFormEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(DateTime? startDate)? startDatePicked,
     TResult Function(DateTime? endDate)? endDatePicked,
-    TResult Function(String reason)? reasonChanged,
+    TResult Function(Reason reason)? reasonChanged,
     TResult Function(String noteChanged)? noteChanged,
     TResult Function()? formSubmitted,
     TResult Function()? cancelled,
@@ -40,7 +40,7 @@ mixin _$AbsentFormEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(DateTime? startDate)? startDatePicked,
     TResult Function(DateTime? endDate)? endDatePicked,
-    TResult Function(String reason)? reasonChanged,
+    TResult Function(Reason reason)? reasonChanged,
     TResult Function(String noteChanged)? noteChanged,
     TResult Function()? formSubmitted,
     TResult Function()? cancelled,
@@ -174,7 +174,7 @@ class _$StartDatePicked
   TResult when<TResult extends Object?>({
     required TResult Function(DateTime? startDate) startDatePicked,
     required TResult Function(DateTime? endDate) endDatePicked,
-    required TResult Function(String reason) reasonChanged,
+    required TResult Function(Reason reason) reasonChanged,
     required TResult Function(String noteChanged) noteChanged,
     required TResult Function() formSubmitted,
     required TResult Function() cancelled,
@@ -187,7 +187,7 @@ class _$StartDatePicked
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(DateTime? startDate)? startDatePicked,
     TResult Function(DateTime? endDate)? endDatePicked,
-    TResult Function(String reason)? reasonChanged,
+    TResult Function(Reason reason)? reasonChanged,
     TResult Function(String noteChanged)? noteChanged,
     TResult Function()? formSubmitted,
     TResult Function()? cancelled,
@@ -200,7 +200,7 @@ class _$StartDatePicked
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(DateTime? startDate)? startDatePicked,
     TResult Function(DateTime? endDate)? endDatePicked,
-    TResult Function(String reason)? reasonChanged,
+    TResult Function(Reason reason)? reasonChanged,
     TResult Function(String noteChanged)? noteChanged,
     TResult Function()? formSubmitted,
     TResult Function()? cancelled,
@@ -340,7 +340,7 @@ class _$EndDatePicked with DiagnosticableTreeMixin implements EndDatePicked {
   TResult when<TResult extends Object?>({
     required TResult Function(DateTime? startDate) startDatePicked,
     required TResult Function(DateTime? endDate) endDatePicked,
-    required TResult Function(String reason) reasonChanged,
+    required TResult Function(Reason reason) reasonChanged,
     required TResult Function(String noteChanged) noteChanged,
     required TResult Function() formSubmitted,
     required TResult Function() cancelled,
@@ -353,7 +353,7 @@ class _$EndDatePicked with DiagnosticableTreeMixin implements EndDatePicked {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(DateTime? startDate)? startDatePicked,
     TResult Function(DateTime? endDate)? endDatePicked,
-    TResult Function(String reason)? reasonChanged,
+    TResult Function(Reason reason)? reasonChanged,
     TResult Function(String noteChanged)? noteChanged,
     TResult Function()? formSubmitted,
     TResult Function()? cancelled,
@@ -366,7 +366,7 @@ class _$EndDatePicked with DiagnosticableTreeMixin implements EndDatePicked {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(DateTime? startDate)? startDatePicked,
     TResult Function(DateTime? endDate)? endDatePicked,
-    TResult Function(String reason)? reasonChanged,
+    TResult Function(Reason reason)? reasonChanged,
     TResult Function(String noteChanged)? noteChanged,
     TResult Function()? formSubmitted,
     TResult Function()? cancelled,
@@ -436,7 +436,9 @@ abstract class _$$ReasonChangedCopyWith<$Res> {
   factory _$$ReasonChangedCopyWith(
           _$ReasonChanged value, $Res Function(_$ReasonChanged) then) =
       __$$ReasonChangedCopyWithImpl<$Res>;
-  $Res call({String reason});
+  $Res call({Reason reason});
+
+  $ReasonCopyWith<$Res> get reason;
 }
 
 /// @nodoc
@@ -458,8 +460,15 @@ class __$$ReasonChangedCopyWithImpl<$Res>
       reason == freezed
           ? _value.reason
           : reason // ignore: cast_nullable_to_non_nullable
-              as String,
+              as Reason,
     ));
+  }
+
+  @override
+  $ReasonCopyWith<$Res> get reason {
+    return $ReasonCopyWith<$Res>(_value.reason, (value) {
+      return _then(_value.copyWith(reason: value));
+    });
   }
 }
 
@@ -469,7 +478,7 @@ class _$ReasonChanged with DiagnosticableTreeMixin implements ReasonChanged {
   const _$ReasonChanged(this.reason);
 
   @override
-  final String reason;
+  final Reason reason;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -506,7 +515,7 @@ class _$ReasonChanged with DiagnosticableTreeMixin implements ReasonChanged {
   TResult when<TResult extends Object?>({
     required TResult Function(DateTime? startDate) startDatePicked,
     required TResult Function(DateTime? endDate) endDatePicked,
-    required TResult Function(String reason) reasonChanged,
+    required TResult Function(Reason reason) reasonChanged,
     required TResult Function(String noteChanged) noteChanged,
     required TResult Function() formSubmitted,
     required TResult Function() cancelled,
@@ -519,7 +528,7 @@ class _$ReasonChanged with DiagnosticableTreeMixin implements ReasonChanged {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(DateTime? startDate)? startDatePicked,
     TResult Function(DateTime? endDate)? endDatePicked,
-    TResult Function(String reason)? reasonChanged,
+    TResult Function(Reason reason)? reasonChanged,
     TResult Function(String noteChanged)? noteChanged,
     TResult Function()? formSubmitted,
     TResult Function()? cancelled,
@@ -532,7 +541,7 @@ class _$ReasonChanged with DiagnosticableTreeMixin implements ReasonChanged {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(DateTime? startDate)? startDatePicked,
     TResult Function(DateTime? endDate)? endDatePicked,
-    TResult Function(String reason)? reasonChanged,
+    TResult Function(Reason reason)? reasonChanged,
     TResult Function(String noteChanged)? noteChanged,
     TResult Function()? formSubmitted,
     TResult Function()? cancelled,
@@ -589,9 +598,9 @@ class _$ReasonChanged with DiagnosticableTreeMixin implements ReasonChanged {
 }
 
 abstract class ReasonChanged implements AbsentFormEvent {
-  const factory ReasonChanged(final String reason) = _$ReasonChanged;
+  const factory ReasonChanged(final Reason reason) = _$ReasonChanged;
 
-  String get reason => throw _privateConstructorUsedError;
+  Reason get reason => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$$ReasonChangedCopyWith<_$ReasonChanged> get copyWith =>
       throw _privateConstructorUsedError;
@@ -673,7 +682,7 @@ class _$NoteChanged with DiagnosticableTreeMixin implements NoteChanged {
   TResult when<TResult extends Object?>({
     required TResult Function(DateTime? startDate) startDatePicked,
     required TResult Function(DateTime? endDate) endDatePicked,
-    required TResult Function(String reason) reasonChanged,
+    required TResult Function(Reason reason) reasonChanged,
     required TResult Function(String noteChanged) noteChanged,
     required TResult Function() formSubmitted,
     required TResult Function() cancelled,
@@ -686,7 +695,7 @@ class _$NoteChanged with DiagnosticableTreeMixin implements NoteChanged {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(DateTime? startDate)? startDatePicked,
     TResult Function(DateTime? endDate)? endDatePicked,
-    TResult Function(String reason)? reasonChanged,
+    TResult Function(Reason reason)? reasonChanged,
     TResult Function(String noteChanged)? noteChanged,
     TResult Function()? formSubmitted,
     TResult Function()? cancelled,
@@ -699,7 +708,7 @@ class _$NoteChanged with DiagnosticableTreeMixin implements NoteChanged {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(DateTime? startDate)? startDatePicked,
     TResult Function(DateTime? endDate)? endDatePicked,
-    TResult Function(String reason)? reasonChanged,
+    TResult Function(Reason reason)? reasonChanged,
     TResult Function(String noteChanged)? noteChanged,
     TResult Function()? formSubmitted,
     TResult Function()? cancelled,
@@ -814,7 +823,7 @@ class _$FormSubmitted with DiagnosticableTreeMixin implements FormSubmitted {
   TResult when<TResult extends Object?>({
     required TResult Function(DateTime? startDate) startDatePicked,
     required TResult Function(DateTime? endDate) endDatePicked,
-    required TResult Function(String reason) reasonChanged,
+    required TResult Function(Reason reason) reasonChanged,
     required TResult Function(String noteChanged) noteChanged,
     required TResult Function() formSubmitted,
     required TResult Function() cancelled,
@@ -827,7 +836,7 @@ class _$FormSubmitted with DiagnosticableTreeMixin implements FormSubmitted {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(DateTime? startDate)? startDatePicked,
     TResult Function(DateTime? endDate)? endDatePicked,
-    TResult Function(String reason)? reasonChanged,
+    TResult Function(Reason reason)? reasonChanged,
     TResult Function(String noteChanged)? noteChanged,
     TResult Function()? formSubmitted,
     TResult Function()? cancelled,
@@ -840,7 +849,7 @@ class _$FormSubmitted with DiagnosticableTreeMixin implements FormSubmitted {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(DateTime? startDate)? startDatePicked,
     TResult Function(DateTime? endDate)? endDatePicked,
-    TResult Function(String reason)? reasonChanged,
+    TResult Function(Reason reason)? reasonChanged,
     TResult Function(String noteChanged)? noteChanged,
     TResult Function()? formSubmitted,
     TResult Function()? cancelled,
@@ -949,7 +958,7 @@ class _$Cancelled with DiagnosticableTreeMixin implements Cancelled {
   TResult when<TResult extends Object?>({
     required TResult Function(DateTime? startDate) startDatePicked,
     required TResult Function(DateTime? endDate) endDatePicked,
-    required TResult Function(String reason) reasonChanged,
+    required TResult Function(Reason reason) reasonChanged,
     required TResult Function(String noteChanged) noteChanged,
     required TResult Function() formSubmitted,
     required TResult Function() cancelled,
@@ -962,7 +971,7 @@ class _$Cancelled with DiagnosticableTreeMixin implements Cancelled {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(DateTime? startDate)? startDatePicked,
     TResult Function(DateTime? endDate)? endDatePicked,
-    TResult Function(String reason)? reasonChanged,
+    TResult Function(Reason reason)? reasonChanged,
     TResult Function(String noteChanged)? noteChanged,
     TResult Function()? formSubmitted,
     TResult Function()? cancelled,
@@ -975,7 +984,7 @@ class _$Cancelled with DiagnosticableTreeMixin implements Cancelled {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(DateTime? startDate)? startDatePicked,
     TResult Function(DateTime? endDate)? endDatePicked,
-    TResult Function(String reason)? reasonChanged,
+    TResult Function(Reason reason)? reasonChanged,
     TResult Function(String noteChanged)? noteChanged,
     TResult Function()? formSubmitted,
     TResult Function()? cancelled,
@@ -1037,12 +1046,10 @@ abstract class Cancelled implements AbsentFormEvent {
 
 /// @nodoc
 mixin _$AbsentFormState {
-  DateTime get startDate => throw _privateConstructorUsedError;
-  DateTime? get endDate => throw _privateConstructorUsedError;
-  String get reason => throw _privateConstructorUsedError;
-  String get note => throw _privateConstructorUsedError;
+  AbsentForm get absentForm => throw _privateConstructorUsedError;
   bool get isSubmitting => throw _privateConstructorUsedError;
-  bool? get successOrFail => throw _privateConstructorUsedError;
+  Either<AbsentFailure, Unit>? get failureOrUnit =>
+      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $AbsentFormStateCopyWith<AbsentFormState> get copyWith =>
@@ -1055,12 +1062,11 @@ abstract class $AbsentFormStateCopyWith<$Res> {
           AbsentFormState value, $Res Function(AbsentFormState) then) =
       _$AbsentFormStateCopyWithImpl<$Res>;
   $Res call(
-      {DateTime startDate,
-      DateTime? endDate,
-      String reason,
-      String note,
+      {AbsentForm absentForm,
       bool isSubmitting,
-      bool? successOrFail});
+      Either<AbsentFailure, Unit>? failureOrUnit});
+
+  $AbsentFormCopyWith<$Res> get absentForm;
 }
 
 /// @nodoc
@@ -1074,39 +1080,31 @@ class _$AbsentFormStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? startDate = freezed,
-    Object? endDate = freezed,
-    Object? reason = freezed,
-    Object? note = freezed,
+    Object? absentForm = freezed,
     Object? isSubmitting = freezed,
-    Object? successOrFail = freezed,
+    Object? failureOrUnit = freezed,
   }) {
     return _then(_value.copyWith(
-      startDate: startDate == freezed
-          ? _value.startDate
-          : startDate // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      endDate: endDate == freezed
-          ? _value.endDate
-          : endDate // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
-      reason: reason == freezed
-          ? _value.reason
-          : reason // ignore: cast_nullable_to_non_nullable
-              as String,
-      note: note == freezed
-          ? _value.note
-          : note // ignore: cast_nullable_to_non_nullable
-              as String,
+      absentForm: absentForm == freezed
+          ? _value.absentForm
+          : absentForm // ignore: cast_nullable_to_non_nullable
+              as AbsentForm,
       isSubmitting: isSubmitting == freezed
           ? _value.isSubmitting
           : isSubmitting // ignore: cast_nullable_to_non_nullable
               as bool,
-      successOrFail: successOrFail == freezed
-          ? _value.successOrFail
-          : successOrFail // ignore: cast_nullable_to_non_nullable
-              as bool?,
+      failureOrUnit: failureOrUnit == freezed
+          ? _value.failureOrUnit
+          : failureOrUnit // ignore: cast_nullable_to_non_nullable
+              as Either<AbsentFailure, Unit>?,
     ));
+  }
+
+  @override
+  $AbsentFormCopyWith<$Res> get absentForm {
+    return $AbsentFormCopyWith<$Res>(_value.absentForm, (value) {
+      return _then(_value.copyWith(absentForm: value));
+    });
   }
 }
 
@@ -1118,12 +1116,12 @@ abstract class _$$_AbsentFormStateCopyWith<$Res>
       __$$_AbsentFormStateCopyWithImpl<$Res>;
   @override
   $Res call(
-      {DateTime startDate,
-      DateTime? endDate,
-      String reason,
-      String note,
+      {AbsentForm absentForm,
       bool isSubmitting,
-      bool? successOrFail});
+      Either<AbsentFailure, Unit>? failureOrUnit});
+
+  @override
+  $AbsentFormCopyWith<$Res> get absentForm;
 }
 
 /// @nodoc
@@ -1139,38 +1137,23 @@ class __$$_AbsentFormStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? startDate = freezed,
-    Object? endDate = freezed,
-    Object? reason = freezed,
-    Object? note = freezed,
+    Object? absentForm = freezed,
     Object? isSubmitting = freezed,
-    Object? successOrFail = freezed,
+    Object? failureOrUnit = freezed,
   }) {
     return _then(_$_AbsentFormState(
-      startDate: startDate == freezed
-          ? _value.startDate
-          : startDate // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      endDate: endDate == freezed
-          ? _value.endDate
-          : endDate // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
-      reason: reason == freezed
-          ? _value.reason
-          : reason // ignore: cast_nullable_to_non_nullable
-              as String,
-      note: note == freezed
-          ? _value.note
-          : note // ignore: cast_nullable_to_non_nullable
-              as String,
+      absentForm: absentForm == freezed
+          ? _value.absentForm
+          : absentForm // ignore: cast_nullable_to_non_nullable
+              as AbsentForm,
       isSubmitting: isSubmitting == freezed
           ? _value.isSubmitting
           : isSubmitting // ignore: cast_nullable_to_non_nullable
               as bool,
-      successOrFail: successOrFail == freezed
-          ? _value.successOrFail
-          : successOrFail // ignore: cast_nullable_to_non_nullable
-              as bool?,
+      failureOrUnit: failureOrUnit == freezed
+          ? _value.failureOrUnit
+          : failureOrUnit // ignore: cast_nullable_to_non_nullable
+              as Either<AbsentFailure, Unit>?,
     ));
   }
 }
@@ -1181,29 +1164,20 @@ class _$_AbsentFormState
     with DiagnosticableTreeMixin
     implements _AbsentFormState {
   const _$_AbsentFormState(
-      {required this.startDate,
-      required this.endDate,
-      required this.reason,
-      required this.note,
+      {required this.absentForm,
       required this.isSubmitting,
-      required this.successOrFail});
+      required this.failureOrUnit});
 
   @override
-  final DateTime startDate;
-  @override
-  final DateTime? endDate;
-  @override
-  final String reason;
-  @override
-  final String note;
+  final AbsentForm absentForm;
   @override
   final bool isSubmitting;
   @override
-  final bool? successOrFail;
+  final Either<AbsentFailure, Unit>? failureOrUnit;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'AbsentFormState(startDate: $startDate, endDate: $endDate, reason: $reason, note: $note, isSubmitting: $isSubmitting, successOrFail: $successOrFail)';
+    return 'AbsentFormState(absentForm: $absentForm, isSubmitting: $isSubmitting, failureOrUnit: $failureOrUnit)';
   }
 
   @override
@@ -1211,12 +1185,9 @@ class _$_AbsentFormState
     super.debugFillProperties(properties);
     properties
       ..add(DiagnosticsProperty('type', 'AbsentFormState'))
-      ..add(DiagnosticsProperty('startDate', startDate))
-      ..add(DiagnosticsProperty('endDate', endDate))
-      ..add(DiagnosticsProperty('reason', reason))
-      ..add(DiagnosticsProperty('note', note))
+      ..add(DiagnosticsProperty('absentForm', absentForm))
       ..add(DiagnosticsProperty('isSubmitting', isSubmitting))
-      ..add(DiagnosticsProperty('successOrFail', successOrFail));
+      ..add(DiagnosticsProperty('failureOrUnit', failureOrUnit));
   }
 
   @override
@@ -1224,25 +1195,20 @@ class _$_AbsentFormState
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_AbsentFormState &&
-            const DeepCollectionEquality().equals(other.startDate, startDate) &&
-            const DeepCollectionEquality().equals(other.endDate, endDate) &&
-            const DeepCollectionEquality().equals(other.reason, reason) &&
-            const DeepCollectionEquality().equals(other.note, note) &&
+            const DeepCollectionEquality()
+                .equals(other.absentForm, absentForm) &&
             const DeepCollectionEquality()
                 .equals(other.isSubmitting, isSubmitting) &&
             const DeepCollectionEquality()
-                .equals(other.successOrFail, successOrFail));
+                .equals(other.failureOrUnit, failureOrUnit));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(startDate),
-      const DeepCollectionEquality().hash(endDate),
-      const DeepCollectionEquality().hash(reason),
-      const DeepCollectionEquality().hash(note),
+      const DeepCollectionEquality().hash(absentForm),
       const DeepCollectionEquality().hash(isSubmitting),
-      const DeepCollectionEquality().hash(successOrFail));
+      const DeepCollectionEquality().hash(failureOrUnit));
 
   @JsonKey(ignore: true)
   @override
@@ -1252,25 +1218,18 @@ class _$_AbsentFormState
 
 abstract class _AbsentFormState implements AbsentFormState {
   const factory _AbsentFormState(
-      {required final DateTime startDate,
-      required final DateTime? endDate,
-      required final String reason,
-      required final String note,
-      required final bool isSubmitting,
-      required final bool? successOrFail}) = _$_AbsentFormState;
+          {required final AbsentForm absentForm,
+          required final bool isSubmitting,
+          required final Either<AbsentFailure, Unit>? failureOrUnit}) =
+      _$_AbsentFormState;
 
   @override
-  DateTime get startDate => throw _privateConstructorUsedError;
-  @override
-  DateTime? get endDate => throw _privateConstructorUsedError;
-  @override
-  String get reason => throw _privateConstructorUsedError;
-  @override
-  String get note => throw _privateConstructorUsedError;
+  AbsentForm get absentForm => throw _privateConstructorUsedError;
   @override
   bool get isSubmitting => throw _privateConstructorUsedError;
   @override
-  bool? get successOrFail => throw _privateConstructorUsedError;
+  Either<AbsentFailure, Unit>? get failureOrUnit =>
+      throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$$_AbsentFormStateCopyWith<_$_AbsentFormState> get copyWith =>

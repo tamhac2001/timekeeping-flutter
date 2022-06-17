@@ -20,18 +20,21 @@ mixin _$AuthFailure {
   TResult when<TResult extends Object?>({
     required TResult Function() serverError,
     required TResult Function() invalidEmailAndPassword,
+    required TResult Function() employeeNotFound,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? serverError,
     TResult Function()? invalidEmailAndPassword,
+    TResult Function()? employeeNotFound,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? serverError,
     TResult Function()? invalidEmailAndPassword,
+    TResult Function()? employeeNotFound,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -40,18 +43,21 @@ mixin _$AuthFailure {
     required TResult Function(ServerError value) serverError,
     required TResult Function(InvalidEmailAndPassword value)
         invalidEmailAndPassword,
+    required TResult Function(EmployeeNotFound value) employeeNotFound,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(ServerError value)? serverError,
     TResult Function(InvalidEmailAndPassword value)? invalidEmailAndPassword,
+    TResult Function(EmployeeNotFound value)? employeeNotFound,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ServerError value)? serverError,
     TResult Function(InvalidEmailAndPassword value)? invalidEmailAndPassword,
+    TResult Function(EmployeeNotFound value)? employeeNotFound,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -121,6 +127,7 @@ class _$ServerError with DiagnosticableTreeMixin implements ServerError {
   TResult when<TResult extends Object?>({
     required TResult Function() serverError,
     required TResult Function() invalidEmailAndPassword,
+    required TResult Function() employeeNotFound,
   }) {
     return serverError();
   }
@@ -130,6 +137,7 @@ class _$ServerError with DiagnosticableTreeMixin implements ServerError {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? serverError,
     TResult Function()? invalidEmailAndPassword,
+    TResult Function()? employeeNotFound,
   }) {
     return serverError?.call();
   }
@@ -139,6 +147,7 @@ class _$ServerError with DiagnosticableTreeMixin implements ServerError {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? serverError,
     TResult Function()? invalidEmailAndPassword,
+    TResult Function()? employeeNotFound,
     required TResult orElse(),
   }) {
     if (serverError != null) {
@@ -153,6 +162,7 @@ class _$ServerError with DiagnosticableTreeMixin implements ServerError {
     required TResult Function(ServerError value) serverError,
     required TResult Function(InvalidEmailAndPassword value)
         invalidEmailAndPassword,
+    required TResult Function(EmployeeNotFound value) employeeNotFound,
   }) {
     return serverError(this);
   }
@@ -162,6 +172,7 @@ class _$ServerError with DiagnosticableTreeMixin implements ServerError {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(ServerError value)? serverError,
     TResult Function(InvalidEmailAndPassword value)? invalidEmailAndPassword,
+    TResult Function(EmployeeNotFound value)? employeeNotFound,
   }) {
     return serverError?.call(this);
   }
@@ -171,6 +182,7 @@ class _$ServerError with DiagnosticableTreeMixin implements ServerError {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ServerError value)? serverError,
     TResult Function(InvalidEmailAndPassword value)? invalidEmailAndPassword,
+    TResult Function(EmployeeNotFound value)? employeeNotFound,
     required TResult orElse(),
   }) {
     if (serverError != null) {
@@ -238,6 +250,7 @@ class _$InvalidEmailAndPassword
   TResult when<TResult extends Object?>({
     required TResult Function() serverError,
     required TResult Function() invalidEmailAndPassword,
+    required TResult Function() employeeNotFound,
   }) {
     return invalidEmailAndPassword();
   }
@@ -247,6 +260,7 @@ class _$InvalidEmailAndPassword
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? serverError,
     TResult Function()? invalidEmailAndPassword,
+    TResult Function()? employeeNotFound,
   }) {
     return invalidEmailAndPassword?.call();
   }
@@ -256,6 +270,7 @@ class _$InvalidEmailAndPassword
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? serverError,
     TResult Function()? invalidEmailAndPassword,
+    TResult Function()? employeeNotFound,
     required TResult orElse(),
   }) {
     if (invalidEmailAndPassword != null) {
@@ -270,6 +285,7 @@ class _$InvalidEmailAndPassword
     required TResult Function(ServerError value) serverError,
     required TResult Function(InvalidEmailAndPassword value)
         invalidEmailAndPassword,
+    required TResult Function(EmployeeNotFound value) employeeNotFound,
   }) {
     return invalidEmailAndPassword(this);
   }
@@ -279,6 +295,7 @@ class _$InvalidEmailAndPassword
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(ServerError value)? serverError,
     TResult Function(InvalidEmailAndPassword value)? invalidEmailAndPassword,
+    TResult Function(EmployeeNotFound value)? employeeNotFound,
   }) {
     return invalidEmailAndPassword?.call(this);
   }
@@ -288,6 +305,7 @@ class _$InvalidEmailAndPassword
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ServerError value)? serverError,
     TResult Function(InvalidEmailAndPassword value)? invalidEmailAndPassword,
+    TResult Function(EmployeeNotFound value)? employeeNotFound,
     required TResult orElse(),
   }) {
     if (invalidEmailAndPassword != null) {
@@ -299,4 +317,124 @@ class _$InvalidEmailAndPassword
 
 abstract class InvalidEmailAndPassword implements AuthFailure {
   const factory InvalidEmailAndPassword() = _$InvalidEmailAndPassword;
+}
+
+/// @nodoc
+abstract class _$$EmployeeNotFoundCopyWith<$Res> {
+  factory _$$EmployeeNotFoundCopyWith(
+          _$EmployeeNotFound value, $Res Function(_$EmployeeNotFound) then) =
+      __$$EmployeeNotFoundCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$EmployeeNotFoundCopyWithImpl<$Res>
+    extends _$AuthFailureCopyWithImpl<$Res>
+    implements _$$EmployeeNotFoundCopyWith<$Res> {
+  __$$EmployeeNotFoundCopyWithImpl(
+      _$EmployeeNotFound _value, $Res Function(_$EmployeeNotFound) _then)
+      : super(_value, (v) => _then(v as _$EmployeeNotFound));
+
+  @override
+  _$EmployeeNotFound get _value => super._value as _$EmployeeNotFound;
+}
+
+/// @nodoc
+
+class _$EmployeeNotFound
+    with DiagnosticableTreeMixin
+    implements EmployeeNotFound {
+  const _$EmployeeNotFound();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'AuthFailure.employeeNotFound()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty('type', 'AuthFailure.employeeNotFound'));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$EmployeeNotFound);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() serverError,
+    required TResult Function() invalidEmailAndPassword,
+    required TResult Function() employeeNotFound,
+  }) {
+    return employeeNotFound();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? serverError,
+    TResult Function()? invalidEmailAndPassword,
+    TResult Function()? employeeNotFound,
+  }) {
+    return employeeNotFound?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? serverError,
+    TResult Function()? invalidEmailAndPassword,
+    TResult Function()? employeeNotFound,
+    required TResult orElse(),
+  }) {
+    if (employeeNotFound != null) {
+      return employeeNotFound();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ServerError value) serverError,
+    required TResult Function(InvalidEmailAndPassword value)
+        invalidEmailAndPassword,
+    required TResult Function(EmployeeNotFound value) employeeNotFound,
+  }) {
+    return employeeNotFound(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(ServerError value)? serverError,
+    TResult Function(InvalidEmailAndPassword value)? invalidEmailAndPassword,
+    TResult Function(EmployeeNotFound value)? employeeNotFound,
+  }) {
+    return employeeNotFound?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ServerError value)? serverError,
+    TResult Function(InvalidEmailAndPassword value)? invalidEmailAndPassword,
+    TResult Function(EmployeeNotFound value)? employeeNotFound,
+    required TResult orElse(),
+  }) {
+    if (employeeNotFound != null) {
+      return employeeNotFound(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class EmployeeNotFound implements AuthFailure {
+  const factory EmployeeNotFound() = _$EmployeeNotFound;
 }

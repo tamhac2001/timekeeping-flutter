@@ -1,13 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:timekeeping/application/notification/notification_bloc.dart';
-import 'package:timekeeping/infrastructure/schedule/schedule_repository.dart';
+import 'package:timekeeping/infrastructure/timekeeping/timekeeping_api_client.dart';
+import 'package:timekeeping/infrastructure/timekeeping/timekeeping_repository.dart';
 
 import 'application/auth/authentication_bloc.dart';
-import 'application/work_schedule/assign_work_schedule_form_bloc.dart';
+import 'application/notification/notification_bloc.dart';
+import 'infrastructure/absent/absent_repository.dart';
+import 'infrastructure/absent/api/absent_api_client.dart';
+import 'infrastructure/auth/authentication_api_client.dart';
 import 'infrastructure/auth/authentication_repository.dart';
-import 'infrastructure/auth/fake_authentication_api_client.dart';
-import 'infrastructure/auth/secure_storage_repository.dart';
+import 'infrastructure/employee/employee_api_client.dart';
+import 'infrastructure/employee/employee_repository.dart';
+import 'infrastructure/secure_storage/secure_storage_repository.dart';
+
 import 'presentation/routes/app_router.gr.dart';
 
 Future<void> main() async {
@@ -25,35 +30,45 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiRepositoryProvider(
       providers: [
-        RepositoryProvider(
+        RepositoryProvider<SecureStorageRepository>(
           create: (context) => SecureStorageRepository(),
         ),
-        RepositoryProvider(
-          create: (context) => AuthenticationRepository(
-              secureStorageRepository:
-                  RepositoryProvider.of<SecureStorageRepository>(context),
-              authenticationApiClient: FakeAuthenticationApiClient()),
-        ),
-        RepositoryProvider(
-          create: (context) => ScheduleRepository(),
-        )
+        RepositoryProvider<AuthenticationRepository>(
+            create: (context) => AuthenticationRepository(
+                  apiClient: AuthenticationApiClient(),
+                  storage:
+                      RepositoryProvider.of<SecureStorageRepository>(context),
+                )),
+        RepositoryProvider<EmployeeRepository>(
+            create: (context) => EmployeeRepository(
+                  apiClient: const EmployeeApiClient(),
+                  storage:
+                      RepositoryProvider.of<SecureStorageRepository>(context),
+                )),
+        RepositoryProvider<TimekeepingRepository>(
+            create: (context) => TimekeepingRepository(
+                apiClient: TimekeepingApiClient(),
+                storage:
+                    RepositoryProvider.of<SecureStorageRepository>(context))),
+        RepositoryProvider<AbsentRepository>(
+            create: (context) => AbsentRepository(
+                apiClient: AbsentApiClient(),
+                storage:
+                    RepositoryProvider.of<SecureStorageRepository>(context))),
       ],
       child: MultiBlocProvider(
         providers: [
           BlocProvider(
             create: (context) => AuthenticationBloc(
-                RepositoryProvider.of<AuthenticationRepository>(context)),
+                authenticationRepository:
+                    RepositoryProvider.of<AuthenticationRepository>(context),
+                employeeRepository:
+                    RepositoryProvider.of<EmployeeRepository>(context)),
           ),
-          BlocProvider(
-            create: (context) => AssignWorkScheduleFormBloc(),
-          ),
-          BlocProvider(create: (context) {
-            final notificationBloc = NotificationBloc(
-                scheduleRepository:
-                    RepositoryProvider.of<ScheduleRepository>(context));
-            notificationBloc.add(const NotificationEvent.initialize());
-            return notificationBloc;
-          })
+          BlocProvider<NotificationBloc>(
+              create: (context) => NotificationBloc(
+                  storage:
+                      RepositoryProvider.of<SecureStorageRepository>(context))),
         ],
         child: MaterialApp.router(
           title: 'Flutter Demo',

@@ -3,20 +3,19 @@ part of 'absent_form_bloc.dart';
 @freezed
 class AbsentFormState with _$AbsentFormState {
   const factory AbsentFormState({
-    required DateTime startDate,
-    required DateTime? endDate,
-    required String reason,
-    required String note,
+    required AbsentForm absentForm,
     required bool isSubmitting,
-    required bool? successOrFail,
+    required Either<AbsentFailure, Unit>? failureOrUnit,
   }) = _AbsentFormState;
 
   factory AbsentFormState.initial() => AbsentFormState(
-        startDate: DateTime.now(),
-        endDate: null,
-        reason: 'benh',
-        note: '',
-        isSubmitting: true,
-        successOrFail: null,
+        absentForm: AbsentForm(
+          startDate: DateTime.now(),
+          endDate: DateTime.now(),
+          reason: const Reason.ill(),
+          note: '',
+        ),
+        isSubmitting: false,
+        failureOrUnit: null,
       );
 }

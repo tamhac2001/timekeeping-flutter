@@ -7,8 +7,8 @@ import 'package:timekeeping/domain/auth/email_address.dart';
 import 'package:timekeeping/domain/auth/password.dart';
 import 'package:timekeeping/infrastructure/auth/authentication_repository.dart';
 import 'package:timekeeping/infrastructure/auth/i_authentication_api_client.dart';
-import 'package:timekeeping/infrastructure/auth/secure_storage_repository.dart';
-import 'package:timekeeping/infrastructure/user/i_user_api_client.dart';
+import 'package:timekeeping/infrastructure/secure_storage/secure_storage_repository.dart';
+import 'package:timekeeping/infrastructure/user/i_employee_api_client.dart';
 
 import '../lib/main.dart' as app;
 

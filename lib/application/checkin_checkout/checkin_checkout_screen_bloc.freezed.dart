@@ -20,18 +20,24 @@ mixin _$CheckinCheckoutScreenEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() clockTick,
     required TResult Function() updateNextCheckTime,
+    required TResult Function() getSchedule,
+    required TResult Function() qrScanned,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? clockTick,
     TResult Function()? updateNextCheckTime,
+    TResult Function()? getSchedule,
+    TResult Function()? qrScanned,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? clockTick,
     TResult Function()? updateNextCheckTime,
+    TResult Function()? getSchedule,
+    TResult Function()? qrScanned,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -39,18 +45,24 @@ mixin _$CheckinCheckoutScreenEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(ClockTick value) clockTick,
     required TResult Function(UpdateNextCheckTime value) updateNextCheckTime,
+    required TResult Function(GetSchedule value) getSchedule,
+    required TResult Function(QrScanned value) qrScanned,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(ClockTick value)? clockTick,
     TResult Function(UpdateNextCheckTime value)? updateNextCheckTime,
+    TResult Function(GetSchedule value)? getSchedule,
+    TResult Function(QrScanned value)? qrScanned,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ClockTick value)? clockTick,
     TResult Function(UpdateNextCheckTime value)? updateNextCheckTime,
+    TResult Function(GetSchedule value)? getSchedule,
+    TResult Function(QrScanned value)? qrScanned,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -123,6 +135,8 @@ class _$ClockTick with DiagnosticableTreeMixin implements ClockTick {
   TResult when<TResult extends Object?>({
     required TResult Function() clockTick,
     required TResult Function() updateNextCheckTime,
+    required TResult Function() getSchedule,
+    required TResult Function() qrScanned,
   }) {
     return clockTick();
   }
@@ -132,6 +146,8 @@ class _$ClockTick with DiagnosticableTreeMixin implements ClockTick {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? clockTick,
     TResult Function()? updateNextCheckTime,
+    TResult Function()? getSchedule,
+    TResult Function()? qrScanned,
   }) {
     return clockTick?.call();
   }
@@ -141,6 +157,8 @@ class _$ClockTick with DiagnosticableTreeMixin implements ClockTick {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? clockTick,
     TResult Function()? updateNextCheckTime,
+    TResult Function()? getSchedule,
+    TResult Function()? qrScanned,
     required TResult orElse(),
   }) {
     if (clockTick != null) {
@@ -154,6 +172,8 @@ class _$ClockTick with DiagnosticableTreeMixin implements ClockTick {
   TResult map<TResult extends Object?>({
     required TResult Function(ClockTick value) clockTick,
     required TResult Function(UpdateNextCheckTime value) updateNextCheckTime,
+    required TResult Function(GetSchedule value) getSchedule,
+    required TResult Function(QrScanned value) qrScanned,
   }) {
     return clockTick(this);
   }
@@ -163,6 +183,8 @@ class _$ClockTick with DiagnosticableTreeMixin implements ClockTick {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(ClockTick value)? clockTick,
     TResult Function(UpdateNextCheckTime value)? updateNextCheckTime,
+    TResult Function(GetSchedule value)? getSchedule,
+    TResult Function(QrScanned value)? qrScanned,
   }) {
     return clockTick?.call(this);
   }
@@ -172,6 +194,8 @@ class _$ClockTick with DiagnosticableTreeMixin implements ClockTick {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ClockTick value)? clockTick,
     TResult Function(UpdateNextCheckTime value)? updateNextCheckTime,
+    TResult Function(GetSchedule value)? getSchedule,
+    TResult Function(QrScanned value)? qrScanned,
     required TResult orElse(),
   }) {
     if (clockTick != null) {
@@ -237,6 +261,8 @@ class _$UpdateNextCheckTime
   TResult when<TResult extends Object?>({
     required TResult Function() clockTick,
     required TResult Function() updateNextCheckTime,
+    required TResult Function() getSchedule,
+    required TResult Function() qrScanned,
   }) {
     return updateNextCheckTime();
   }
@@ -246,6 +272,8 @@ class _$UpdateNextCheckTime
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? clockTick,
     TResult Function()? updateNextCheckTime,
+    TResult Function()? getSchedule,
+    TResult Function()? qrScanned,
   }) {
     return updateNextCheckTime?.call();
   }
@@ -255,6 +283,8 @@ class _$UpdateNextCheckTime
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? clockTick,
     TResult Function()? updateNextCheckTime,
+    TResult Function()? getSchedule,
+    TResult Function()? qrScanned,
     required TResult orElse(),
   }) {
     if (updateNextCheckTime != null) {
@@ -268,6 +298,8 @@ class _$UpdateNextCheckTime
   TResult map<TResult extends Object?>({
     required TResult Function(ClockTick value) clockTick,
     required TResult Function(UpdateNextCheckTime value) updateNextCheckTime,
+    required TResult Function(GetSchedule value) getSchedule,
+    required TResult Function(QrScanned value) qrScanned,
   }) {
     return updateNextCheckTime(this);
   }
@@ -277,6 +309,8 @@ class _$UpdateNextCheckTime
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(ClockTick value)? clockTick,
     TResult Function(UpdateNextCheckTime value)? updateNextCheckTime,
+    TResult Function(GetSchedule value)? getSchedule,
+    TResult Function(QrScanned value)? qrScanned,
   }) {
     return updateNextCheckTime?.call(this);
   }
@@ -286,6 +320,8 @@ class _$UpdateNextCheckTime
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ClockTick value)? clockTick,
     TResult Function(UpdateNextCheckTime value)? updateNextCheckTime,
+    TResult Function(GetSchedule value)? getSchedule,
+    TResult Function(QrScanned value)? qrScanned,
     required TResult orElse(),
   }) {
     if (updateNextCheckTime != null) {
@@ -300,6 +336,254 @@ abstract class UpdateNextCheckTime implements CheckinCheckoutScreenEvent {
 }
 
 /// @nodoc
+abstract class _$$GetScheduleCopyWith<$Res> {
+  factory _$$GetScheduleCopyWith(
+          _$GetSchedule value, $Res Function(_$GetSchedule) then) =
+      __$$GetScheduleCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$GetScheduleCopyWithImpl<$Res>
+    extends _$CheckinCheckoutScreenEventCopyWithImpl<$Res>
+    implements _$$GetScheduleCopyWith<$Res> {
+  __$$GetScheduleCopyWithImpl(
+      _$GetSchedule _value, $Res Function(_$GetSchedule) _then)
+      : super(_value, (v) => _then(v as _$GetSchedule));
+
+  @override
+  _$GetSchedule get _value => super._value as _$GetSchedule;
+}
+
+/// @nodoc
+
+class _$GetSchedule with DiagnosticableTreeMixin implements GetSchedule {
+  const _$GetSchedule();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'CheckinCheckoutScreenEvent.getSchedule()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(
+        DiagnosticsProperty('type', 'CheckinCheckoutScreenEvent.getSchedule'));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$GetSchedule);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() clockTick,
+    required TResult Function() updateNextCheckTime,
+    required TResult Function() getSchedule,
+    required TResult Function() qrScanned,
+  }) {
+    return getSchedule();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? clockTick,
+    TResult Function()? updateNextCheckTime,
+    TResult Function()? getSchedule,
+    TResult Function()? qrScanned,
+  }) {
+    return getSchedule?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? clockTick,
+    TResult Function()? updateNextCheckTime,
+    TResult Function()? getSchedule,
+    TResult Function()? qrScanned,
+    required TResult orElse(),
+  }) {
+    if (getSchedule != null) {
+      return getSchedule();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ClockTick value) clockTick,
+    required TResult Function(UpdateNextCheckTime value) updateNextCheckTime,
+    required TResult Function(GetSchedule value) getSchedule,
+    required TResult Function(QrScanned value) qrScanned,
+  }) {
+    return getSchedule(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(ClockTick value)? clockTick,
+    TResult Function(UpdateNextCheckTime value)? updateNextCheckTime,
+    TResult Function(GetSchedule value)? getSchedule,
+    TResult Function(QrScanned value)? qrScanned,
+  }) {
+    return getSchedule?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ClockTick value)? clockTick,
+    TResult Function(UpdateNextCheckTime value)? updateNextCheckTime,
+    TResult Function(GetSchedule value)? getSchedule,
+    TResult Function(QrScanned value)? qrScanned,
+    required TResult orElse(),
+  }) {
+    if (getSchedule != null) {
+      return getSchedule(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class GetSchedule implements CheckinCheckoutScreenEvent {
+  const factory GetSchedule() = _$GetSchedule;
+}
+
+/// @nodoc
+abstract class _$$QrScannedCopyWith<$Res> {
+  factory _$$QrScannedCopyWith(
+          _$QrScanned value, $Res Function(_$QrScanned) then) =
+      __$$QrScannedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$QrScannedCopyWithImpl<$Res>
+    extends _$CheckinCheckoutScreenEventCopyWithImpl<$Res>
+    implements _$$QrScannedCopyWith<$Res> {
+  __$$QrScannedCopyWithImpl(
+      _$QrScanned _value, $Res Function(_$QrScanned) _then)
+      : super(_value, (v) => _then(v as _$QrScanned));
+
+  @override
+  _$QrScanned get _value => super._value as _$QrScanned;
+}
+
+/// @nodoc
+
+class _$QrScanned with DiagnosticableTreeMixin implements QrScanned {
+  const _$QrScanned();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'CheckinCheckoutScreenEvent.qrScanned()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(
+        DiagnosticsProperty('type', 'CheckinCheckoutScreenEvent.qrScanned'));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$QrScanned);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() clockTick,
+    required TResult Function() updateNextCheckTime,
+    required TResult Function() getSchedule,
+    required TResult Function() qrScanned,
+  }) {
+    return qrScanned();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? clockTick,
+    TResult Function()? updateNextCheckTime,
+    TResult Function()? getSchedule,
+    TResult Function()? qrScanned,
+  }) {
+    return qrScanned?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? clockTick,
+    TResult Function()? updateNextCheckTime,
+    TResult Function()? getSchedule,
+    TResult Function()? qrScanned,
+    required TResult orElse(),
+  }) {
+    if (qrScanned != null) {
+      return qrScanned();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ClockTick value) clockTick,
+    required TResult Function(UpdateNextCheckTime value) updateNextCheckTime,
+    required TResult Function(GetSchedule value) getSchedule,
+    required TResult Function(QrScanned value) qrScanned,
+  }) {
+    return qrScanned(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(ClockTick value)? clockTick,
+    TResult Function(UpdateNextCheckTime value)? updateNextCheckTime,
+    TResult Function(GetSchedule value)? getSchedule,
+    TResult Function(QrScanned value)? qrScanned,
+  }) {
+    return qrScanned?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ClockTick value)? clockTick,
+    TResult Function(UpdateNextCheckTime value)? updateNextCheckTime,
+    TResult Function(GetSchedule value)? getSchedule,
+    TResult Function(QrScanned value)? qrScanned,
+    required TResult orElse(),
+  }) {
+    if (qrScanned != null) {
+      return qrScanned(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class QrScanned implements CheckinCheckoutScreenEvent {
+  const factory QrScanned() = _$QrScanned;
+}
+
+/// @nodoc
 mixin _$CheckinCheckoutScreenState {
   DateTime get currentTime => throw _privateConstructorUsedError;
   TimeOfDay get morningShiftStart => throw _privateConstructorUsedError;
@@ -307,6 +591,12 @@ mixin _$CheckinCheckoutScreenState {
   TimeOfDay get afternoonShiftStart => throw _privateConstructorUsedError;
   TimeOfDay get afternoonShiftEnd => throw _privateConstructorUsedError;
   TimeOfDay get nextCheckTime => throw _privateConstructorUsedError;
+  DateTime? get morningShiftCheckin => throw _privateConstructorUsedError;
+  DateTime? get morningShiftCheckout => throw _privateConstructorUsedError;
+  DateTime? get afternoonShiftCheckin => throw _privateConstructorUsedError;
+  DateTime? get afternoonShiftCheckout => throw _privateConstructorUsedError;
+  bool get isLoading => throw _privateConstructorUsedError;
+  bool get isChecking => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $CheckinCheckoutScreenStateCopyWith<CheckinCheckoutScreenState>
@@ -324,7 +614,13 @@ abstract class $CheckinCheckoutScreenStateCopyWith<$Res> {
       TimeOfDay morningShiftEnd,
       TimeOfDay afternoonShiftStart,
       TimeOfDay afternoonShiftEnd,
-      TimeOfDay nextCheckTime});
+      TimeOfDay nextCheckTime,
+      DateTime? morningShiftCheckin,
+      DateTime? morningShiftCheckout,
+      DateTime? afternoonShiftCheckin,
+      DateTime? afternoonShiftCheckout,
+      bool isLoading,
+      bool isChecking});
 }
 
 /// @nodoc
@@ -344,6 +640,12 @@ class _$CheckinCheckoutScreenStateCopyWithImpl<$Res>
     Object? afternoonShiftStart = freezed,
     Object? afternoonShiftEnd = freezed,
     Object? nextCheckTime = freezed,
+    Object? morningShiftCheckin = freezed,
+    Object? morningShiftCheckout = freezed,
+    Object? afternoonShiftCheckin = freezed,
+    Object? afternoonShiftCheckout = freezed,
+    Object? isLoading = freezed,
+    Object? isChecking = freezed,
   }) {
     return _then(_value.copyWith(
       currentTime: currentTime == freezed
@@ -370,6 +672,30 @@ class _$CheckinCheckoutScreenStateCopyWithImpl<$Res>
           ? _value.nextCheckTime
           : nextCheckTime // ignore: cast_nullable_to_non_nullable
               as TimeOfDay,
+      morningShiftCheckin: morningShiftCheckin == freezed
+          ? _value.morningShiftCheckin
+          : morningShiftCheckin // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      morningShiftCheckout: morningShiftCheckout == freezed
+          ? _value.morningShiftCheckout
+          : morningShiftCheckout // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      afternoonShiftCheckin: afternoonShiftCheckin == freezed
+          ? _value.afternoonShiftCheckin
+          : afternoonShiftCheckin // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      afternoonShiftCheckout: afternoonShiftCheckout == freezed
+          ? _value.afternoonShiftCheckout
+          : afternoonShiftCheckout // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      isLoading: isLoading == freezed
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isChecking: isChecking == freezed
+          ? _value.isChecking
+          : isChecking // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -388,7 +714,13 @@ abstract class _$$_CheckinCheckoutScreenStateCopyWith<$Res>
       TimeOfDay morningShiftEnd,
       TimeOfDay afternoonShiftStart,
       TimeOfDay afternoonShiftEnd,
-      TimeOfDay nextCheckTime});
+      TimeOfDay nextCheckTime,
+      DateTime? morningShiftCheckin,
+      DateTime? morningShiftCheckout,
+      DateTime? afternoonShiftCheckin,
+      DateTime? afternoonShiftCheckout,
+      bool isLoading,
+      bool isChecking});
 }
 
 /// @nodoc
@@ -412,6 +744,12 @@ class __$$_CheckinCheckoutScreenStateCopyWithImpl<$Res>
     Object? afternoonShiftStart = freezed,
     Object? afternoonShiftEnd = freezed,
     Object? nextCheckTime = freezed,
+    Object? morningShiftCheckin = freezed,
+    Object? morningShiftCheckout = freezed,
+    Object? afternoonShiftCheckin = freezed,
+    Object? afternoonShiftCheckout = freezed,
+    Object? isLoading = freezed,
+    Object? isChecking = freezed,
   }) {
     return _then(_$_CheckinCheckoutScreenState(
       currentTime: currentTime == freezed
@@ -438,6 +776,30 @@ class __$$_CheckinCheckoutScreenStateCopyWithImpl<$Res>
           ? _value.nextCheckTime
           : nextCheckTime // ignore: cast_nullable_to_non_nullable
               as TimeOfDay,
+      morningShiftCheckin: morningShiftCheckin == freezed
+          ? _value.morningShiftCheckin
+          : morningShiftCheckin // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      morningShiftCheckout: morningShiftCheckout == freezed
+          ? _value.morningShiftCheckout
+          : morningShiftCheckout // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      afternoonShiftCheckin: afternoonShiftCheckin == freezed
+          ? _value.afternoonShiftCheckin
+          : afternoonShiftCheckin // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      afternoonShiftCheckout: afternoonShiftCheckout == freezed
+          ? _value.afternoonShiftCheckout
+          : afternoonShiftCheckout // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      isLoading: isLoading == freezed
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isChecking: isChecking == freezed
+          ? _value.isChecking
+          : isChecking // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -453,7 +815,13 @@ class _$_CheckinCheckoutScreenState
       required this.morningShiftEnd,
       required this.afternoonShiftStart,
       required this.afternoonShiftEnd,
-      required this.nextCheckTime});
+      required this.nextCheckTime,
+      this.morningShiftCheckin,
+      this.morningShiftCheckout,
+      this.afternoonShiftCheckin,
+      this.afternoonShiftCheckout,
+      required this.isLoading,
+      required this.isChecking});
 
   @override
   final DateTime currentTime;
@@ -467,10 +835,22 @@ class _$_CheckinCheckoutScreenState
   final TimeOfDay afternoonShiftEnd;
   @override
   final TimeOfDay nextCheckTime;
+  @override
+  final DateTime? morningShiftCheckin;
+  @override
+  final DateTime? morningShiftCheckout;
+  @override
+  final DateTime? afternoonShiftCheckin;
+  @override
+  final DateTime? afternoonShiftCheckout;
+  @override
+  final bool isLoading;
+  @override
+  final bool isChecking;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'CheckinCheckoutScreenState(currentTime: $currentTime, morningShiftStart: $morningShiftStart, morningShiftEnd: $morningShiftEnd, afternoonShiftStart: $afternoonShiftStart, afternoonShiftEnd: $afternoonShiftEnd, nextCheckTime: $nextCheckTime)';
+    return 'CheckinCheckoutScreenState(currentTime: $currentTime, morningShiftStart: $morningShiftStart, morningShiftEnd: $morningShiftEnd, afternoonShiftStart: $afternoonShiftStart, afternoonShiftEnd: $afternoonShiftEnd, nextCheckTime: $nextCheckTime, morningShiftCheckin: $morningShiftCheckin, morningShiftCheckout: $morningShiftCheckout, afternoonShiftCheckin: $afternoonShiftCheckin, afternoonShiftCheckout: $afternoonShiftCheckout, isLoading: $isLoading, isChecking: $isChecking)';
   }
 
   @override
@@ -483,7 +863,14 @@ class _$_CheckinCheckoutScreenState
       ..add(DiagnosticsProperty('morningShiftEnd', morningShiftEnd))
       ..add(DiagnosticsProperty('afternoonShiftStart', afternoonShiftStart))
       ..add(DiagnosticsProperty('afternoonShiftEnd', afternoonShiftEnd))
-      ..add(DiagnosticsProperty('nextCheckTime', nextCheckTime));
+      ..add(DiagnosticsProperty('nextCheckTime', nextCheckTime))
+      ..add(DiagnosticsProperty('morningShiftCheckin', morningShiftCheckin))
+      ..add(DiagnosticsProperty('morningShiftCheckout', morningShiftCheckout))
+      ..add(DiagnosticsProperty('afternoonShiftCheckin', afternoonShiftCheckin))
+      ..add(
+          DiagnosticsProperty('afternoonShiftCheckout', afternoonShiftCheckout))
+      ..add(DiagnosticsProperty('isLoading', isLoading))
+      ..add(DiagnosticsProperty('isChecking', isChecking));
   }
 
   @override
@@ -502,7 +889,18 @@ class _$_CheckinCheckoutScreenState
             const DeepCollectionEquality()
                 .equals(other.afternoonShiftEnd, afternoonShiftEnd) &&
             const DeepCollectionEquality()
-                .equals(other.nextCheckTime, nextCheckTime));
+                .equals(other.nextCheckTime, nextCheckTime) &&
+            const DeepCollectionEquality()
+                .equals(other.morningShiftCheckin, morningShiftCheckin) &&
+            const DeepCollectionEquality()
+                .equals(other.morningShiftCheckout, morningShiftCheckout) &&
+            const DeepCollectionEquality()
+                .equals(other.afternoonShiftCheckin, afternoonShiftCheckin) &&
+            const DeepCollectionEquality()
+                .equals(other.afternoonShiftCheckout, afternoonShiftCheckout) &&
+            const DeepCollectionEquality().equals(other.isLoading, isLoading) &&
+            const DeepCollectionEquality()
+                .equals(other.isChecking, isChecking));
   }
 
   @override
@@ -513,7 +911,13 @@ class _$_CheckinCheckoutScreenState
       const DeepCollectionEquality().hash(morningShiftEnd),
       const DeepCollectionEquality().hash(afternoonShiftStart),
       const DeepCollectionEquality().hash(afternoonShiftEnd),
-      const DeepCollectionEquality().hash(nextCheckTime));
+      const DeepCollectionEquality().hash(nextCheckTime),
+      const DeepCollectionEquality().hash(morningShiftCheckin),
+      const DeepCollectionEquality().hash(morningShiftCheckout),
+      const DeepCollectionEquality().hash(afternoonShiftCheckin),
+      const DeepCollectionEquality().hash(afternoonShiftCheckout),
+      const DeepCollectionEquality().hash(isLoading),
+      const DeepCollectionEquality().hash(isChecking));
 
   @JsonKey(ignore: true)
   @override
@@ -530,7 +934,13 @@ abstract class _CheckinCheckoutScreenState
       required final TimeOfDay morningShiftEnd,
       required final TimeOfDay afternoonShiftStart,
       required final TimeOfDay afternoonShiftEnd,
-      required final TimeOfDay nextCheckTime}) = _$_CheckinCheckoutScreenState;
+      required final TimeOfDay nextCheckTime,
+      final DateTime? morningShiftCheckin,
+      final DateTime? morningShiftCheckout,
+      final DateTime? afternoonShiftCheckin,
+      final DateTime? afternoonShiftCheckout,
+      required final bool isLoading,
+      required final bool isChecking}) = _$_CheckinCheckoutScreenState;
 
   @override
   DateTime get currentTime => throw _privateConstructorUsedError;
@@ -544,6 +954,18 @@ abstract class _CheckinCheckoutScreenState
   TimeOfDay get afternoonShiftEnd => throw _privateConstructorUsedError;
   @override
   TimeOfDay get nextCheckTime => throw _privateConstructorUsedError;
+  @override
+  DateTime? get morningShiftCheckin => throw _privateConstructorUsedError;
+  @override
+  DateTime? get morningShiftCheckout => throw _privateConstructorUsedError;
+  @override
+  DateTime? get afternoonShiftCheckin => throw _privateConstructorUsedError;
+  @override
+  DateTime? get afternoonShiftCheckout => throw _privateConstructorUsedError;
+  @override
+  bool get isLoading => throw _privateConstructorUsedError;
+  @override
+  bool get isChecking => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$$_CheckinCheckoutScreenStateCopyWith<_$_CheckinCheckoutScreenState>

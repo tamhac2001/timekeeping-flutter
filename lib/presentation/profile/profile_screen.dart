@@ -1,4 +1,3 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
@@ -30,13 +29,12 @@ class ProfileScreen extends StatelessWidget {
                       child: IconButton(
                         icon: const Icon(Icons.add_a_photo),
                         onPressed: () async {
-                          print(AutoRouter.of(context).stack.toString());
                           final imagePicker = ImagePicker();
                           final imageXFile = await imagePicker.pickImage(
                               source: ImageSource.gallery);
                           if (imageXFile != null) {
                             context.read<ProfileScreenBloc>().add(
-                                ProfileScreenEvent.profilePictureChanged(
+                                ProfileScreenEvent.avatarChanged(
                                     await imageXFile.readAsBytes()));
                           }
                         },
@@ -55,24 +53,27 @@ class ProfileScreen extends StatelessWidget {
               const SizedBox(
                 height: 32.0,
               ),
-              Row(
-                children: [
-                  Expanded(
-                      child: Column(
-                    children: const [
-                      Text('Ngay sinh'),
-                    ],
-                  )),
-                  Expanded(
-                      child: Column(
-                    children: const [
-                      Text('01/01/1990'),
-                    ],
-                  )),
-                ],
+              const EmployeeCodeRow(),
+              const SizedBox(
+                height: 16.0,
+              ),
+              const EmployeeGenderRow(),
+              const SizedBox(
+                height: 16.0,
+              ),
+              const EmployeePhoneNumberRow(),
+              const SizedBox(
+                height: 16.0,
+              ),
+              const EmployeeAddressRow(),
+              const SizedBox(
+                height: 16.0,
               ),
               const Expanded(child: SizedBox()),
-              const LogoutButton()
+              const SizedBox(
+                height: 16.0,
+              ),
+              const LogoutButton(),
             ],
           ),
         ),

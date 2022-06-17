@@ -49,6 +49,7 @@ dependencies:
   equatable: ^2.0.3
   flutter_local_notifications: ^9.6.0
   flutter_native_timezone: ^2.0.0
+  jwt_decoder: ^2.0.1
 
 dev_dependencies:
   flutter_test:

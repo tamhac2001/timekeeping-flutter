@@ -286,7 +286,7 @@ mixin _$AuthenticationState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(String accessToken, DateTime expireDate)
+    required TResult Function(String accessToken, String employeeId)
         authenticated,
     required TResult Function() unauthenticated,
   }) =>
@@ -294,14 +294,14 @@ mixin _$AuthenticationState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(String accessToken, DateTime expireDate)? authenticated,
+    TResult Function(String accessToken, String employeeId)? authenticated,
     TResult Function()? unauthenticated,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(String accessToken, DateTime expireDate)? authenticated,
+    TResult Function(String accessToken, String employeeId)? authenticated,
     TResult Function()? unauthenticated,
     required TResult orElse(),
   }) =>
@@ -366,8 +366,8 @@ class __$$InitialCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$Initial implements Initial {
-  const _$Initial();
+class _$Initial extends Initial {
+  const _$Initial() : super._();
 
   @override
   String toString() {
@@ -387,7 +387,7 @@ class _$Initial implements Initial {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(String accessToken, DateTime expireDate)
+    required TResult Function(String accessToken, String employeeId)
         authenticated,
     required TResult Function() unauthenticated,
   }) {
@@ -398,7 +398,7 @@ class _$Initial implements Initial {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(String accessToken, DateTime expireDate)? authenticated,
+    TResult Function(String accessToken, String employeeId)? authenticated,
     TResult Function()? unauthenticated,
   }) {
     return initial?.call();
@@ -408,7 +408,7 @@ class _$Initial implements Initial {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(String accessToken, DateTime expireDate)? authenticated,
+    TResult Function(String accessToken, String employeeId)? authenticated,
     TResult Function()? unauthenticated,
     required TResult orElse(),
   }) {
@@ -453,8 +453,9 @@ class _$Initial implements Initial {
   }
 }
 
-abstract class Initial implements AuthenticationState {
+abstract class Initial extends AuthenticationState {
   const factory Initial() = _$Initial;
+  const Initial._() : super._();
 }
 
 /// @nodoc
@@ -462,7 +463,7 @@ abstract class _$$AuthenticatedCopyWith<$Res> {
   factory _$$AuthenticatedCopyWith(
           _$Authenticated value, $Res Function(_$Authenticated) then) =
       __$$AuthenticatedCopyWithImpl<$Res>;
-  $Res call({String accessToken, DateTime expireDate});
+  $Res call({String accessToken, String employeeId});
 }
 
 /// @nodoc
@@ -479,34 +480,34 @@ class __$$AuthenticatedCopyWithImpl<$Res>
   @override
   $Res call({
     Object? accessToken = freezed,
-    Object? expireDate = freezed,
+    Object? employeeId = freezed,
   }) {
     return _then(_$Authenticated(
       accessToken == freezed
           ? _value.accessToken
           : accessToken // ignore: cast_nullable_to_non_nullable
               as String,
-      expireDate == freezed
-          ? _value.expireDate
-          : expireDate // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+      employeeId == freezed
+          ? _value.employeeId
+          : employeeId // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
 /// @nodoc
 
-class _$Authenticated implements Authenticated {
-  const _$Authenticated(this.accessToken, this.expireDate);
+class _$Authenticated extends Authenticated {
+  const _$Authenticated(this.accessToken, this.employeeId) : super._();
 
   @override
   final String accessToken;
   @override
-  final DateTime expireDate;
+  final String employeeId;
 
   @override
   String toString() {
-    return 'AuthenticationState.authenticated(accessToken: $accessToken, expireDate: $expireDate)';
+    return 'AuthenticationState.authenticated(accessToken: $accessToken, employeeId: $employeeId)';
   }
 
   @override
@@ -517,14 +518,14 @@ class _$Authenticated implements Authenticated {
             const DeepCollectionEquality()
                 .equals(other.accessToken, accessToken) &&
             const DeepCollectionEquality()
-                .equals(other.expireDate, expireDate));
+                .equals(other.employeeId, employeeId));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(accessToken),
-      const DeepCollectionEquality().hash(expireDate));
+      const DeepCollectionEquality().hash(employeeId));
 
   @JsonKey(ignore: true)
   @override
@@ -535,33 +536,33 @@ class _$Authenticated implements Authenticated {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(String accessToken, DateTime expireDate)
+    required TResult Function(String accessToken, String employeeId)
         authenticated,
     required TResult Function() unauthenticated,
   }) {
-    return authenticated(accessToken, expireDate);
+    return authenticated(accessToken, employeeId);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(String accessToken, DateTime expireDate)? authenticated,
+    TResult Function(String accessToken, String employeeId)? authenticated,
     TResult Function()? unauthenticated,
   }) {
-    return authenticated?.call(accessToken, expireDate);
+    return authenticated?.call(accessToken, employeeId);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(String accessToken, DateTime expireDate)? authenticated,
+    TResult Function(String accessToken, String employeeId)? authenticated,
     TResult Function()? unauthenticated,
     required TResult orElse(),
   }) {
     if (authenticated != null) {
-      return authenticated(accessToken, expireDate);
+      return authenticated(accessToken, employeeId);
     }
     return orElse();
   }
@@ -601,12 +602,13 @@ class _$Authenticated implements Authenticated {
   }
 }
 
-abstract class Authenticated implements AuthenticationState {
+abstract class Authenticated extends AuthenticationState {
   const factory Authenticated(
-      final String accessToken, final DateTime expireDate) = _$Authenticated;
+      final String accessToken, final String employeeId) = _$Authenticated;
+  const Authenticated._() : super._();
 
   String get accessToken => throw _privateConstructorUsedError;
-  DateTime get expireDate => throw _privateConstructorUsedError;
+  String get employeeId => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$$AuthenticatedCopyWith<_$Authenticated> get copyWith =>
       throw _privateConstructorUsedError;
@@ -633,8 +635,8 @@ class __$$UnauthenticatedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$Unauthenticated implements Unauthenticated {
-  const _$Unauthenticated();
+class _$Unauthenticated extends Unauthenticated {
+  const _$Unauthenticated() : super._();
 
   @override
   String toString() {
@@ -654,7 +656,7 @@ class _$Unauthenticated implements Unauthenticated {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(String accessToken, DateTime expireDate)
+    required TResult Function(String accessToken, String employeeId)
         authenticated,
     required TResult Function() unauthenticated,
   }) {
@@ -665,7 +667,7 @@ class _$Unauthenticated implements Unauthenticated {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(String accessToken, DateTime expireDate)? authenticated,
+    TResult Function(String accessToken, String employeeId)? authenticated,
     TResult Function()? unauthenticated,
   }) {
     return unauthenticated?.call();
@@ -675,7 +677,7 @@ class _$Unauthenticated implements Unauthenticated {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(String accessToken, DateTime expireDate)? authenticated,
+    TResult Function(String accessToken, String employeeId)? authenticated,
     TResult Function()? unauthenticated,
     required TResult orElse(),
   }) {
@@ -720,6 +722,7 @@ class _$Unauthenticated implements Unauthenticated {
   }
 }
 
-abstract class Unauthenticated implements AuthenticationState {
+abstract class Unauthenticated extends AuthenticationState {
   const factory Unauthenticated() = _$Unauthenticated;
+  const Unauthenticated._() : super._();
 }

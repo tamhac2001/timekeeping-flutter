@@ -9,6 +9,7 @@ import 'package:flutter_native_timezone/flutter_native_timezone.dart';
 import 'package:meta/meta.dart';
 import 'package:timekeeping/application/utils/extensions.dart';
 import 'package:timekeeping/infrastructure/schedule/schedule_repository.dart';
+import 'package:timekeeping/infrastructure/secure_storage/secure_storage_repository.dart';
 import 'package:timekeeping/presentation/utils/extensions.dart';
 import 'package:timezone/data/latest_all.dart' as tz;
 import 'package:timezone/timezone.dart' as tz;
@@ -22,7 +23,7 @@ part 'notification_event.dart';
 part 'notification_state.dart';
 
 class NotificationBloc extends Bloc<NotificationEvent, NotificationState> {
-  final ScheduleRepository _scheduleRepository;
+  final SecureStorageRepository _storage;
   final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
       FlutterLocalNotificationsPlugin();
 
@@ -32,36 +33,68 @@ class NotificationBloc extends Bloc<NotificationEvent, NotificationState> {
   static const _CHANNEL_NAME = 'TIME_KEEPING_CHANNEL';
   static const _CHANNEL_DESCRIPTION = 'Channel for timekeeping application';
 
-  static const AndroidNotificationDetails androidNotificationDetails =
+  static const AndroidNotificationDetails _androidNotificationDetails =
       AndroidNotificationDetails(_CHANNEL_ID, _CHANNEL_NAME,
           channelDescription: _CHANNEL_DESCRIPTION);
 
-  static const NotificationDetails notificationDetails =
-      NotificationDetails(android: androidNotificationDetails);
+  static const NotificationDetails _notificationDetails =
+      NotificationDetails(android: _androidNotificationDetails);
 
-  NotificationBloc({required ScheduleRepository scheduleRepository})
-      : _scheduleRepository = scheduleRepository,
+  static const AndroidInitializationSettings _initializationSettingsAndroid =
+      AndroidInitializationSettings('app_icon');
+
+  static const InitializationSettings _initializationSettings =
+      InitializationSettings(
+    android: _initializationSettingsAndroid,
+  );
+
+  NotificationBloc({required SecureStorageRepository storage})
+      : _storage = storage,
         super(NotificationState.preInitial()) {
     on<NotificationEvent>(
       (event, emit) async {
         await event.when(
           initialize: () async {
-            const AndroidInitializationSettings initializationSettingsAndroid =
-                AndroidInitializationSettings('app_icon');
-            const InitializationSettings initializationSettings =
-                InitializationSettings(
-              android: initializationSettingsAndroid,
-            );
-            flutterLocalNotificationsPlugin.initialize(initializationSettings,
+            // const AndroidInitializationSettings initializationSettingsAndroid =
+            //     AndroidInitializationSettings('app_icon');
+            // const InitializationSettings initializationSettings =
+            //     InitializationSettings(
+            //   android: _initializationSettingsAndroid,
+            // );
+
+            flutterLocalNotificationsPlugin.initialize(_initializationSettings,
                 onSelectNotification: (str) {});
+
             tz.initializeTimeZones();
+
             final String timeZoneName =
                 await FlutterNativeTimezone.getLocalTimezone();
+
             tz.setLocalLocation(tz.getLocation(timeZoneName));
+
+            final morningShiftStart = await _storage.morningShiftStart;
+            final morningShiftEnd = await _storage.morningShiftEnd;
+            final afternoonShiftStart = await _storage.afternoonShiftStart;
+            final afternoonShiftEnd = await _storage.afternoonShiftEnd;
+            emit(state.copyWith(
+              morningShiftStart: morningShiftStart!,
+              morningShiftEnd: morningShiftEnd!,
+              afternoonShiftStart: afternoonShiftStart!,
+              afternoonShiftEnd: afternoonShiftEnd!,
+            ));
+
             add(const NotificationEvent.scheduleMorningShiftStart());
             add(const NotificationEvent.scheduleMorningShiftEnd());
             add(const NotificationEvent.scheduleAfternoonShiftStart());
             add(const NotificationEvent.scheduleAfternoonShiftEnd());
+
+            int counter = 0;
+            await flutterLocalNotificationsPlugin
+                .pendingNotificationRequests()
+                .then((value) => value.forEach((element) {
+                      debugPrint('$counter : ${element.title}');
+                      counter++;
+                    }));
           },
           scheduleMorningShiftStart: () async {
             await flutterLocalNotificationsPlugin.zonedSchedule(
@@ -71,7 +104,7 @@ class NotificationBloc extends Bloc<NotificationEvent, NotificationState> {
                 state.morningShiftStart
                     .toTZDateTime()
                     .subtract(_DURATION_BEFORE_CHECK_TIME),
-                notificationDetails,
+                _notificationDetails,
                 androidAllowWhileIdle: true,
                 uiLocalNotificationDateInterpretation:
                     UILocalNotificationDateInterpretation.absoluteTime,
@@ -80,12 +113,12 @@ class NotificationBloc extends Bloc<NotificationEvent, NotificationState> {
           scheduleMorningShiftEnd: () async {
             await flutterLocalNotificationsPlugin.zonedSchedule(
                 1,
-                'Điểm danh ${state.afternoonShiftStart.toDisplayText()}',
+                'Điểm danh ${state.morningShiftEnd.toDisplayText()}',
                 'Còn 10 phút nữa là tới giờ điểm danh rồi kìa',
                 state.morningShiftStart
                     .toTZDateTime()
                     .subtract(_DURATION_BEFORE_CHECK_TIME),
-                notificationDetails,
+                _notificationDetails,
                 androidAllowWhileIdle: true,
                 uiLocalNotificationDateInterpretation:
                     UILocalNotificationDateInterpretation.absoluteTime,
@@ -99,7 +132,7 @@ class NotificationBloc extends Bloc<NotificationEvent, NotificationState> {
                 state.afternoonShiftStart
                     .toTZDateTime()
                     .subtract(_DURATION_BEFORE_CHECK_TIME),
-                notificationDetails,
+                _notificationDetails,
                 androidAllowWhileIdle: true,
                 uiLocalNotificationDateInterpretation:
                     UILocalNotificationDateInterpretation.absoluteTime,
@@ -108,12 +141,12 @@ class NotificationBloc extends Bloc<NotificationEvent, NotificationState> {
           scheduleAfternoonShiftEnd: () async {
             await flutterLocalNotificationsPlugin.zonedSchedule(
                 3,
-                'Điểm danh ${state.afternoonShiftStart.toDisplayText()}',
+                'Điểm danh ${state.afternoonShiftEnd.toDisplayText()}',
                 'Còn 10 phút nữa là tới giờ điểm danh rồi kìa',
                 state.morningShiftStart
                     .toTZDateTime()
                     .subtract(_DURATION_BEFORE_CHECK_TIME),
-                notificationDetails,
+                _notificationDetails,
                 androidAllowWhileIdle: true,
                 uiLocalNotificationDateInterpretation:
                     UILocalNotificationDateInterpretation.absoluteTime,

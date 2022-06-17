@@ -15,40 +15,44 @@ part 'login_form_state.dart';
 part 'login_form_bloc.freezed.dart';
 
 class LoginFormBloc extends Bloc<LoginFormEvent, LoginFormState> {
+  final AuthenticationRepository _authenticationRepository;
+
   LoginFormBloc({
     required AuthenticationRepository authenticationRepository,
-  }) : super(LoginFormState.initial()) {
+  })  : _authenticationRepository = authenticationRepository,
+        super(LoginFormState.initial()) {
     on<LoginFormEvent>((event, emit) async {
-      await event.map(
-        emailChanged: (event) {
+      await event.when(
+        emailChanged: (email) {
           emit(state.copyWith(
-            email: EmailAddress(event.email),
+            email: EmailAddress(email),
             authFailureOrSuccess: null,
           ));
         },
-        passwordChanged: (event) {
+        passwordChanged: (password) {
           emit(state.copyWith(
-            password: Password(event.password),
+            password: Password(password),
             authFailureOrSuccess: null,
           ));
         },
-        login: (event) async {
+        login: () async {
           Either<AuthFailure, Unit>? failureOrSuccess;
           if (state.email.isValid() && state.password.isValid()) {
             emit(state.copyWith(
               isSubmitting: true,
               authFailureOrSuccess: null,
             ));
-            failureOrSuccess = await authenticationRepository.login(
+            failureOrSuccess = await _authenticationRepository.login(
                 email: state.email, password: state.password);
           }
+          debugPrint('login: $failureOrSuccess');
           emit(state.copyWith(
             isSubmitting: false,
             showErrorMessages: AutovalidateMode.always,
             authFailureOrSuccess: failureOrSuccess,
           ));
         },
-        forgetPassword: (event) => null,
+        forgetPassword: () => null,
       );
     });
   }

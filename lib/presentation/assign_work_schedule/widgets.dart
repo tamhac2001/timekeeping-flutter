@@ -1,10 +1,8 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../application/work_schedule/assign_work_schedule_form_bloc.dart';
+import '../../application/schedule/assign_schedule_form_bloc.dart';
 import '../../presentation/utils/extensions.dart';
-import '../routes/app_router.gr.dart';
 
 const List<TimeOfDay> morningShiftStartTimes = [
   TimeOfDay(hour: 7, minute: 0),
@@ -37,12 +35,13 @@ Widget buildAssignMorningShift(BuildContext context) {
     mainAxisAlignment: MainAxisAlignment.spaceAround,
     children: [
       Text('Từ', style: Theme.of(context).textTheme.subtitle1),
-      BlocBuilder<AssignWorkScheduleFormBloc, AssignWorkScheduleFormState>(
+      BlocBuilder<AssignScheduleFormBloc, AssignScheduleFormState>(
         buildWhen: (previous, current) =>
-            previous.morningShiftStartTime != current.morningShiftStartTime,
+            previous.schedule.morningShiftStart !=
+            current.schedule.morningShiftStart,
         builder: (context, state) {
           return DropdownButton<TimeOfDay>(
-              value: state.morningShiftStartTime,
+              value: state.schedule.morningShiftStart,
               items: morningShiftStartTimes
                   .map<DropdownMenuItem<TimeOfDay>>(
                       (timeOfDay) => DropdownMenuItem<TimeOfDay>(
@@ -51,19 +50,20 @@ Widget buildAssignMorningShift(BuildContext context) {
                           ))
                   .toList(growable: true),
               onChanged: (timeOfDay) {
-                context.read<AssignWorkScheduleFormBloc>().add(
-                    AssignWorkScheduleFormEvent.morningShiftStartTimeChanged(
+                context.read<AssignScheduleFormBloc>().add(
+                    AssignScheduleFormEvent.morningShiftStartTimeChanged(
                         timeOfDay!));
               });
         },
       ),
       Text('đến', style: Theme.of(context).textTheme.subtitle1),
-      BlocBuilder<AssignWorkScheduleFormBloc, AssignWorkScheduleFormState>(
+      BlocBuilder<AssignScheduleFormBloc, AssignScheduleFormState>(
         buildWhen: (previous, current) =>
-            previous.morningShiftEndTime != current.morningShiftEndTime,
+            previous.schedule.morningShiftEnd !=
+            current.schedule.morningShiftEnd,
         builder: (context, state) {
           return DropdownButton<TimeOfDay>(
-              value: state.morningShiftEndTime,
+              value: state.schedule.morningShiftEnd,
               items: morningShiftEndTimes
                   .map<DropdownMenuItem<TimeOfDay>>(
                       (timeOfDay) => DropdownMenuItem<TimeOfDay>(
@@ -72,8 +72,8 @@ Widget buildAssignMorningShift(BuildContext context) {
                           ))
                   .toList(),
               onChanged: (timeOfDay) {
-                context.read<AssignWorkScheduleFormBloc>().add(
-                    AssignWorkScheduleFormEvent.morningShiftEndTimeChanged(
+                context.read<AssignScheduleFormBloc>().add(
+                    AssignScheduleFormEvent.morningShiftEndTimeChanged(
                         timeOfDay!));
               });
         },
@@ -87,12 +87,13 @@ Widget buildAssignAfternoonShift(BuildContext context) {
     mainAxisAlignment: MainAxisAlignment.spaceAround,
     children: [
       Text('Từ', style: Theme.of(context).textTheme.subtitle1),
-      BlocBuilder<AssignWorkScheduleFormBloc, AssignWorkScheduleFormState>(
+      BlocBuilder<AssignScheduleFormBloc, AssignScheduleFormState>(
         buildWhen: (previous, current) =>
-            previous.afternoonShiftStartTime != current.afternoonShiftStartTime,
+            previous.schedule.afternoonShiftStart !=
+            current.schedule.afternoonShiftStart,
         builder: (context, state) {
           return DropdownButton<TimeOfDay>(
-              value: state.afternoonShiftStartTime,
+              value: state.schedule.afternoonShiftStart,
               items: afternoonShiftStartTimes
                   .map<DropdownMenuItem<TimeOfDay>>(
                       (timeOfDay) => DropdownMenuItem<TimeOfDay>(
@@ -101,19 +102,20 @@ Widget buildAssignAfternoonShift(BuildContext context) {
                           ))
                   .toList(growable: true),
               onChanged: (timeOfDay) {
-                context.read<AssignWorkScheduleFormBloc>().add(
-                    AssignWorkScheduleFormEvent.afternoonShiftStartTimeChanged(
+                context.read<AssignScheduleFormBloc>().add(
+                    AssignScheduleFormEvent.afternoonShiftStartTimeChanged(
                         timeOfDay!));
               });
         },
       ),
       Text('đến', style: Theme.of(context).textTheme.subtitle1),
-      BlocBuilder<AssignWorkScheduleFormBloc, AssignWorkScheduleFormState>(
+      BlocBuilder<AssignScheduleFormBloc, AssignScheduleFormState>(
         buildWhen: (previous, current) =>
-            previous.afternoonShiftEndTime != current.afternoonShiftEndTime,
+            previous.schedule.afternoonShiftEnd !=
+            current.schedule.afternoonShiftEnd,
         builder: (context, state) {
           return Text(
-            state.afternoonShiftEndTime.toDisplayText(),
+            state.schedule.afternoonShiftEnd.toDisplayText(),
             style: Theme.of(context).textTheme.subtitle1,
           );
         },

@@ -4,10 +4,11 @@ import 'package:mocktail/mocktail.dart';
 import 'package:timekeeping/domain/auth/auth_failure.dart';
 import 'package:timekeeping/domain/auth/email_address.dart';
 import 'package:timekeeping/domain/auth/password.dart';
+import 'package:timekeeping/infrastructure/auth/dto/auth_dto.dart';
 import 'package:timekeeping/infrastructure/auth/authentication_repository.dart';
 import 'package:timekeeping/infrastructure/auth/i_authentication_api_client.dart';
-import 'package:timekeeping/infrastructure/auth/secure_storage_repository.dart';
-import 'package:timekeeping/infrastructure/user/i_user_api_client.dart';
+import 'package:timekeeping/infrastructure/secure_storage/secure_storage_repository.dart';
+import 'package:timekeeping/infrastructure/user/i_employee_api_client.dart';
 
 class MockAuthenticationApiClient extends Mock
     implements IAuthenticationApiClient {}
@@ -31,8 +32,12 @@ void main() {
     void arrangeAuthenticationApiClientLoginSuccess() {
       when(() => mockAuthenticationApiClient.login(
               email: any(named: 'email'), password: any(named: 'password')))
-          .thenAnswer((_) async =>
-              <String, dynamic>{'access_token': 'abcxyz', 'email': 'email'});
+          .thenAnswer((_) async => AuthDTO.fromJson({
+                'access_token': 'abcxyz',
+                'expire_date': DateTime.now()
+                    .add(const Duration(hours: 8))
+                    .toIso8601String()
+              }));
       when(() => mockSecureStorageRepository.setAccessToken(any()))
           .thenAnswer((_) async => {});
       when(() => mockSecureStorageRepository.setExpireDate(any()))

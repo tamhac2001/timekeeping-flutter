@@ -2,12 +2,16 @@ import 'dart:async';
 import 'dart:typed_data';
 
 import 'package:bloc/bloc.dart';
+import 'package:dartz/dartz.dart';
 import 'package:meta/meta.dart';
 import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:timekeeping/domain/employee/employee.dart';
+import 'package:timekeeping/domain/employee/profile_changed_failure.dart';
+import 'package:timekeeping/infrastructure/employee/employee_repository.dart';
 
-import '../../domain/user/user.dart';
-import '../../infrastructure/user/user_repository.dart';
+import '../../domain/employee/employee_failure.dart';
+import '../../infrastructure/secure_storage/secure_storage_repository.dart';
 
 part 'profile_screen_event.dart';
 
@@ -16,19 +20,35 @@ part 'profile_screen_state.dart';
 part 'profile_screen_bloc.freezed.dart';
 
 class ProfileScreenBloc extends Bloc<ProfileScreenEvent, ProfileScreenState> {
-  final UserRepository userRepository;
+  final EmployeeRepository _employeeRepository;
+  final SecureStorageRepository _storage;
 
-  ProfileScreenBloc({required this.userRepository})
-      : super(ProfileScreenState.initial()) {
+  ProfileScreenBloc({
+    required EmployeeRepository employeeRepository,
+    required SecureStorageRepository storage,
+  })  : _employeeRepository = employeeRepository,
+        _storage = storage,
+        super(ProfileScreenState.initial()) {
     on<ProfileScreenEvent>((event, emit) async {
-      await event.map(
-        userLoaded: (event) {
-          emit(state.copyWith(user: event.user));
+      await event.when(
+        employeeRequest: () async {
+          emit(state.copyWith(
+            isLoading: true,
+          ));
+          final accessToken = await _storage.accessToken;
+          final failureOrEmployee =
+              await _employeeRepository.getEmployee(accessToken: accessToken!);
+          debugPrint(failureOrEmployee.toString());
+          emit(state.copyWith(
+            failureOrEmployee: failureOrEmployee,
+          ));
+          emit(state.copyWith(
+            isLoading: false,
+          ));
         },
-        profilePictureChanged: (event) async {
+        avatarChanged: (avatar) async {
           emit(state.copyWith(isSubmitting: true));
-          final profilePicture = event.profilePicture;
-          await userRepository.updateProfilePicture(profilePicture);
+          await _employeeRepository.updateAvatar(avatar);
           emit(state.copyWith(isSubmitting: false));
         },
       );
