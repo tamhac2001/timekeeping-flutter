@@ -1,14 +1,10 @@
-import 'dart:async';
-
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:intl/intl.dart';
 
 import '../../../application/checkin_checkout/checkin_checkout_screen_bloc.dart';
-import '../../../application/utils/extensions.dart';
+import '../../../utils/extensions.dart';
 import '../../routes/app_router.gr.dart';
-import '../../utils/extensions.dart';
 
 class CurrentTimeClock extends StatelessWidget {
   const CurrentTimeClock({
@@ -21,11 +17,8 @@ class CurrentTimeClock extends StatelessWidget {
       builder: (context, state) {
         return Center(
           child: Text(
-            DateFormat('HH:mm:ss').format(state.currentTime),
-            style: TextStyle(
-                color: Color(Colors.grey.value),
-                fontSize: 36,
-                fontWeight: FontWeight.w700),
+            state.currentTime.toDisplayedTime(),
+            style: TextStyle(color: Color(Colors.grey.value), fontSize: 36, fontWeight: FontWeight.w700),
           ),
         );
       },
@@ -41,19 +34,13 @@ class NextCheckTime extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<CheckinCheckoutScreenBloc, CheckinCheckoutScreenState>(
-      buildWhen: (previous, current) =>
-          previous.nextCheckTime != current.nextCheckTime,
+      buildWhen: (previous, current) => previous.nextCheckTime != current.nextCheckTime,
       builder: (context, state) {
-        context
-            .read<CheckinCheckoutScreenBloc>()
-            .add(const CheckinCheckoutScreenEvent.updateNextCheckTime());
+        context.read<CheckinCheckoutScreenBloc>().add(const CheckinCheckoutScreenEvent.updateNextCheckTime());
         return Center(
           child: Text(
-            DateFormat('HH:mm:ss').format(state.nextCheckTime.toDateTime()),
-            style: TextStyle(
-                color: Color(Colors.grey.value),
-                fontSize: 30,
-                fontWeight: FontWeight.w700),
+            state.nextCheckTime.toDateTime().toDisplayedTime(),
+            style: TextStyle(color: Color(Colors.grey.value), fontSize: 30, fontWeight: FontWeight.w700),
           ),
         );
       },
@@ -69,34 +56,17 @@ class CheckButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return IconButton(
-      onPressed: () {
-        AutoRouter.of(context).push(QrScannerScreen());
+      onPressed: () async {
+        final bloc = BlocProvider.of<CheckinCheckoutScreenBloc>(context);
+        bloc.add(const CheckinCheckoutScreenEvent.qrScanned(true));
+        final isScanning = await AutoRouter.of(context).push<bool>(QrScannerScreen());
+        bloc.add(CheckinCheckoutScreenEvent.qrScanned(isScanning!));
       },
       icon: const Icon(Icons.qr_code_scanner),
       iconSize: 64,
       color: Color(Colors.green.value),
     );
   }
-}
-
-Future<void> showMyDialog(BuildContext context, String text) async {
-  return showDialog<void>(
-    context: context,
-    barrierDismissible: true, // user can tap button or not!
-    builder: (BuildContext context) {
-      return AlertDialog(
-        title: const Text('QR Code'),
-        content: SingleChildScrollView(
-          child: ListBody(
-            children: <Widget>[
-              Text(text),
-              // Text('Would you like to approve of this message?'),
-            ],
-          ),
-        ),
-      );
-    },
-  );
 }
 
 class MorningShiftStartListTile extends StatelessWidget {
@@ -107,14 +77,19 @@ class MorningShiftStartListTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<CheckinCheckoutScreenBloc, CheckinCheckoutScreenState>(
+      buildWhen: (previous, current) => previous.failureOrTimekeeping != current.failureOrTimekeeping,
       builder: (context, state) {
         return Card(
           child: ListTile(
-            leading: CircleAvatar(
-              child: Text(state.morningShiftStart.toDisplayText()),
-            ),
-            title: Text('Chua diem danh'),
-            trailing: null,
+            leading: CircleAvatar(child: Text(state.schedule.morningShiftStart.toDisplayText())),
+            title: (state.failureOrTimekeeping == null)
+                ? null
+                : Text(state.failureOrTimekeeping!
+                    .fold((_) => 'Lỗi server', (timekeeping) => timekeeping.morningShiftStart.toString())),
+            trailing: (state.failureOrTimekeeping == null)
+                ? null
+                : state.failureOrTimekeeping!
+                    .fold((_) => null, (timekeeping) => timekeeping.morningShiftStart.toIcon()),
           ),
         );
       },
@@ -130,14 +105,20 @@ class MorningShiftEndListTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<CheckinCheckoutScreenBloc, CheckinCheckoutScreenState>(
+      buildWhen: (previous, current) => previous.failureOrTimekeeping != current.failureOrTimekeeping,
       builder: (context, state) {
         return Card(
           child: ListTile(
             leading: CircleAvatar(
-              child: Text(state.morningShiftEnd.toDisplayText()),
+              child: Text(state.schedule.morningShiftEnd.toDisplayText()),
             ),
-            title: Text('Chua diem danh'),
-            trailing: null,
+            title: (state.failureOrTimekeeping == null)
+                ? null
+                : Text(state.failureOrTimekeeping!
+                    .fold((_) => 'Lỗi server', (timekeeping) => timekeeping.morningShiftEnd.toString())),
+            trailing: (state.failureOrTimekeeping == null)
+                ? null
+                : state.failureOrTimekeeping!.fold((_) => null, (timekeeping) => timekeeping.morningShiftEnd.toIcon()),
           ),
         );
       },
@@ -153,14 +134,21 @@ class AfternoonShiftStartListTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<CheckinCheckoutScreenBloc, CheckinCheckoutScreenState>(
+      buildWhen: (previous, current) => previous.failureOrTimekeeping != current.failureOrTimekeeping,
       builder: (context, state) {
         return Card(
           child: ListTile(
             leading: CircleAvatar(
-              child: Text(state.afternoonShiftStart.toDisplayText()),
+              child: Text(state.schedule.afternoonShiftStart.toDisplayText()),
             ),
-            title: Text('Chua diem danh'),
-            trailing: null,
+            title: (state.failureOrTimekeeping == null)
+                ? null
+                : Text(state.failureOrTimekeeping!
+                    .fold((_) => 'Lỗi server', (timekeeping) => timekeeping.afternoonShiftStart.toString())),
+            trailing: (state.failureOrTimekeeping == null)
+                ? null
+                : state.failureOrTimekeeping!
+                    .fold((_) => null, (timekeeping) => timekeeping.afternoonShiftStart.toIcon()),
           ),
         );
       },
@@ -176,14 +164,21 @@ class AfternoonShiftEndListTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<CheckinCheckoutScreenBloc, CheckinCheckoutScreenState>(
+      buildWhen: (previous, current) => previous.failureOrTimekeeping != current.failureOrTimekeeping,
       builder: (context, state) {
         return Card(
           child: ListTile(
             leading: CircleAvatar(
-              child: Text(state.afternoonShiftEnd.toDisplayText()),
+              child: Text(state.schedule.afternoonShiftEnd.toDisplayText()),
             ),
-            title: Text('Chua diem danh'),
-            trailing: null,
+            title: (state.failureOrTimekeeping == null)
+                ? null
+                : Text(state.failureOrTimekeeping!
+                    .fold((_) => 'Lỗi server', (timekeeping) => timekeeping.afternoonShiftEnd.toString())),
+            trailing: (state.failureOrTimekeeping == null)
+                ? null
+                : state.failureOrTimekeeping!
+                    .fold((_) => null, (timekeeping) => timekeeping.afternoonShiftEnd.toIcon()),
           ),
         );
       },

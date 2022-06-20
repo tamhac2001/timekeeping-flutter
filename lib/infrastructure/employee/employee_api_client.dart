@@ -8,8 +8,8 @@ import './dto/employee_dto.dart';
 import 'i_employee_api_client.dart';
 
 class EmployeeApiClient implements IEmployeeApiClient {
-  static const _uri =
-      'https://lazy-taxis-rhyme-115-75-181-199.loca.lt/employees';
+  // static const _uri = 'https://lazy-taxis-rhyme-115-75-181-199.loca.lt/employees';
+  static const _uri = 'http://10.0.2.2:3000/employees';
 
   const EmployeeApiClient();
 
@@ -21,10 +21,8 @@ class EmployeeApiClient implements IEmployeeApiClient {
       headers: {
         'Authorization': 'Bearer $accessToken',
       },
-    ).timeout(const Duration(seconds: 3),
-        onTimeout: () => throw EmployeeException.serverError());
-    if (response.statusCode == HttpStatus.internalServerError ||
-        response.statusCode == HttpStatus.notFound) {
+    ).timeout(const Duration(seconds: 3), onTimeout: () => throw EmployeeException.serverError());
+    if (response.statusCode == HttpStatus.internalServerError || response.statusCode == HttpStatus.notFound) {
       throw EmployeeException.serverError();
     } else if (response.statusCode == HttpStatus.forbidden) {
       throw EmployeeException.noEmployeeFound();

@@ -38,7 +38,7 @@ class AppRouter extends _i11.RootStackRouter {
       return _i11.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i2.LoginScreen());
     },
-    AssignWorkScheduleScreen.name: (routeData) {
+    AssignScheduleScreen.name: (routeData) {
       return _i11.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i3.AssignScheduleScreen());
     },
@@ -69,7 +69,7 @@ class AppRouter extends _i11.RootStackRouter {
     QrScannerScreen.name: (routeData) {
       final args = routeData.argsAs<QrScannerScreenArgs>(
           orElse: () => const QrScannerScreenArgs());
-      return _i11.MaterialPageX<dynamic>(
+      return _i11.MaterialPageX<bool>(
           routeData: routeData, child: _i10.QrScannerScreen(key: args.key));
     }
   };
@@ -78,7 +78,7 @@ class AppRouter extends _i11.RootStackRouter {
   List<_i11.RouteConfig> get routes => [
         _i11.RouteConfig(SplashScreen.name, path: '/'),
         _i11.RouteConfig(LoginScreen.name, path: 'login'),
-        _i11.RouteConfig(AssignWorkScheduleScreen.name, path: 'schedule'),
+        _i11.RouteConfig(AssignScheduleScreen.name, path: 'schedule'),
         _i11.RouteConfig(HomeScreen.name, path: '/', children: [
           _i11.RouteConfig(CheckInCheckOutRouter.name,
               path: '',
@@ -117,11 +117,11 @@ class LoginScreen extends _i11.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i3.AssignScheduleScreen]
-class AssignWorkScheduleScreen extends _i11.PageRouteInfo<void> {
-  const AssignWorkScheduleScreen()
-      : super(AssignWorkScheduleScreen.name, path: 'schedule');
+class AssignScheduleScreen extends _i11.PageRouteInfo<void> {
+  const AssignScheduleScreen()
+      : super(AssignScheduleScreen.name, path: 'schedule');
 
-  static const String name = 'AssignWorkScheduleScreen';
+  static const String name = 'AssignScheduleScreen';
 }
 
 /// generated route for

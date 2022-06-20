@@ -1,7 +1,8 @@
 import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:timekeeping/application/utils/extensions.dart';
-import 'package:timekeeping/domain/schedule/schedule.dart';
+
+import '../../../domain/schedule/schedule.dart';
+import '../../../utils/extensions.dart';
 
 part 'schedule_dto.freezed.dart';
 
@@ -17,8 +18,7 @@ class ScheduleDto with _$ScheduleDto {
     required DateTime afternoonShiftEnd,
   }) = _ScheduleDto;
 
-  factory ScheduleDto.fromJson(Map<String, dynamic> json) =>
-      _$ScheduleDtoFromJson(json);
+  factory ScheduleDto.fromJson(Map<String, dynamic> json) => _$ScheduleDtoFromJson(json);
 
   factory ScheduleDto.fromDomain(Schedule schedule) => ScheduleDto(
       morningShiftStart: schedule.morningShiftStart.toDateTime().toUtc(),

@@ -8,7 +8,8 @@ import 'dto/schedule_dto.dart';
 import 'i_schedule_api_client.dart';
 
 class ScheduleApiClient implements IScheduleApiClient {
-  static const _uri = 'https://lazy-taxis-rhyme-115-75-181-199.loca.lt/schedules';
+  // static const _uri = 'https://lazy-taxis-rhyme-115-75-181-199.loca.lt/schedules';
+  static const _uri = 'http://10.0.2.2:3000/schedules';
 
   final httpClient = http.Client();
 

@@ -3,9 +3,7 @@ import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 import 'package:flutter/material.dart';
 
 class MyBottomAppBar extends StatelessWidget {
-  const MyBottomAppBar(
-      {Key? key, required this.initialActiveIndex, required this.onTap})
-      : super(key: key);
+  const MyBottomAppBar({Key? key, required this.initialActiveIndex, required this.onTap}) : super(key: key);
 
   final int initialActiveIndex;
 
@@ -59,11 +57,24 @@ SnackBar mySnackBar(String content) {
   return SnackBar(content: Text(content));
 }
 
+Future<void> showLoadingDialog(
+  BuildContext context,
+) async {
+  return showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (context) => const SimpleDialog(
+            children: [
+              CircularProgressIndicator(),
+            ],
+          ));
+}
+
 Future<void> showMyDialog(
   BuildContext context, {
   required String title,
   required String text,
-  bool? barrierDismissible = false,
+  bool? barrierDismissible = true,
   List<Widget>? action,
 }) async {
   return showDialog<void>(

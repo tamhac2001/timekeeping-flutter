@@ -7,14 +7,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_native_timezone/flutter_native_timezone.dart';
 import 'package:meta/meta.dart';
-import 'package:timekeeping/application/utils/extensions.dart';
-import 'package:timekeeping/infrastructure/schedule/schedule_repository.dart';
-import 'package:timekeeping/infrastructure/secure_storage/secure_storage_repository.dart';
-import 'package:timekeeping/presentation/utils/extensions.dart';
 import 'package:timezone/data/latest_all.dart' as tz;
 import 'package:timezone/timezone.dart' as tz;
 import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+
+import '../../infrastructure/secure_storage/secure_storage_repository.dart';
+import '../../utils/extensions.dart';
 
 part 'notification_bloc.freezed.dart';
 
@@ -24,8 +23,7 @@ part 'notification_state.dart';
 
 class NotificationBloc extends Bloc<NotificationEvent, NotificationState> {
   final SecureStorageRepository _storage;
-  final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
-      FlutterLocalNotificationsPlugin();
+  final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin = FlutterLocalNotificationsPlugin();
 
   static const _DURATION_BEFORE_CHECK_TIME = Duration(minutes: 10);
 
@@ -34,17 +32,13 @@ class NotificationBloc extends Bloc<NotificationEvent, NotificationState> {
   static const _CHANNEL_DESCRIPTION = 'Channel for timekeeping application';
 
   static const AndroidNotificationDetails _androidNotificationDetails =
-      AndroidNotificationDetails(_CHANNEL_ID, _CHANNEL_NAME,
-          channelDescription: _CHANNEL_DESCRIPTION);
+      AndroidNotificationDetails(_CHANNEL_ID, _CHANNEL_NAME, channelDescription: _CHANNEL_DESCRIPTION);
 
-  static const NotificationDetails _notificationDetails =
-      NotificationDetails(android: _androidNotificationDetails);
+  static const NotificationDetails _notificationDetails = NotificationDetails(android: _androidNotificationDetails);
 
-  static const AndroidInitializationSettings _initializationSettingsAndroid =
-      AndroidInitializationSettings('app_icon');
+  static const AndroidInitializationSettings _initializationSettingsAndroid = AndroidInitializationSettings('app_icon');
 
-  static const InitializationSettings _initializationSettings =
-      InitializationSettings(
+  static const InitializationSettings _initializationSettings = InitializationSettings(
     android: _initializationSettingsAndroid,
   );
 
@@ -62,13 +56,11 @@ class NotificationBloc extends Bloc<NotificationEvent, NotificationState> {
             //   android: _initializationSettingsAndroid,
             // );
 
-            flutterLocalNotificationsPlugin.initialize(_initializationSettings,
-                onSelectNotification: (str) {});
+            flutterLocalNotificationsPlugin.initialize(_initializationSettings, onSelectNotification: (str) {});
 
             tz.initializeTimeZones();
 
-            final String timeZoneName =
-                await FlutterNativeTimezone.getLocalTimezone();
+            final String timeZoneName = await FlutterNativeTimezone.getLocalTimezone();
 
             tz.setLocalLocation(tz.getLocation(timeZoneName));
 
@@ -101,13 +93,10 @@ class NotificationBloc extends Bloc<NotificationEvent, NotificationState> {
                 0,
                 'Điểm danh ${state.morningShiftStart.toDisplayText()}',
                 'Còn 10 phút nữa là tới giờ điểm danh rồi kìa',
-                state.morningShiftStart
-                    .toTZDateTime()
-                    .subtract(_DURATION_BEFORE_CHECK_TIME),
+                state.morningShiftStart.toTZDateTime().subtract(_DURATION_BEFORE_CHECK_TIME),
                 _notificationDetails,
                 androidAllowWhileIdle: true,
-                uiLocalNotificationDateInterpretation:
-                    UILocalNotificationDateInterpretation.absoluteTime,
+                uiLocalNotificationDateInterpretation: UILocalNotificationDateInterpretation.absoluteTime,
                 matchDateTimeComponents: DateTimeComponents.time);
           },
           scheduleMorningShiftEnd: () async {
@@ -115,13 +104,10 @@ class NotificationBloc extends Bloc<NotificationEvent, NotificationState> {
                 1,
                 'Điểm danh ${state.morningShiftEnd.toDisplayText()}',
                 'Còn 10 phút nữa là tới giờ điểm danh rồi kìa',
-                state.morningShiftStart
-                    .toTZDateTime()
-                    .subtract(_DURATION_BEFORE_CHECK_TIME),
+                state.morningShiftStart.toTZDateTime().subtract(_DURATION_BEFORE_CHECK_TIME),
                 _notificationDetails,
                 androidAllowWhileIdle: true,
-                uiLocalNotificationDateInterpretation:
-                    UILocalNotificationDateInterpretation.absoluteTime,
+                uiLocalNotificationDateInterpretation: UILocalNotificationDateInterpretation.absoluteTime,
                 matchDateTimeComponents: DateTimeComponents.time);
           },
           scheduleAfternoonShiftStart: () async {
@@ -129,13 +115,10 @@ class NotificationBloc extends Bloc<NotificationEvent, NotificationState> {
                 2,
                 'Điểm danh ${state.afternoonShiftStart.toDisplayText()}',
                 'Còn 10 phút nữa là tới giờ điểm danh rồi kìa',
-                state.afternoonShiftStart
-                    .toTZDateTime()
-                    .subtract(_DURATION_BEFORE_CHECK_TIME),
+                state.afternoonShiftStart.toTZDateTime().subtract(_DURATION_BEFORE_CHECK_TIME),
                 _notificationDetails,
                 androidAllowWhileIdle: true,
-                uiLocalNotificationDateInterpretation:
-                    UILocalNotificationDateInterpretation.absoluteTime,
+                uiLocalNotificationDateInterpretation: UILocalNotificationDateInterpretation.absoluteTime,
                 matchDateTimeComponents: DateTimeComponents.time);
           },
           scheduleAfternoonShiftEnd: () async {
@@ -143,13 +126,10 @@ class NotificationBloc extends Bloc<NotificationEvent, NotificationState> {
                 3,
                 'Điểm danh ${state.afternoonShiftEnd.toDisplayText()}',
                 'Còn 10 phút nữa là tới giờ điểm danh rồi kìa',
-                state.morningShiftStart
-                    .toTZDateTime()
-                    .subtract(_DURATION_BEFORE_CHECK_TIME),
+                state.morningShiftStart.toTZDateTime().subtract(_DURATION_BEFORE_CHECK_TIME),
                 _notificationDetails,
                 androidAllowWhileIdle: true,
-                uiLocalNotificationDateInterpretation:
-                    UILocalNotificationDateInterpretation.absoluteTime,
+                uiLocalNotificationDateInterpretation: UILocalNotificationDateInterpretation.absoluteTime,
                 matchDateTimeComponents: DateTimeComponents.time);
           },
         );

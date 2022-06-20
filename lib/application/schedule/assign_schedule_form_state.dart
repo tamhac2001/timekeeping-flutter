@@ -1,13 +1,13 @@
 part of 'assign_schedule_form_bloc.dart';
 
 @freezed
-class AssignScheduleFormState with _$AssignWorkScheduleFormState {
+class AssignScheduleFormState with _$AssignScheduleFormState {
   const factory AssignScheduleFormState({
     required Schedule schedule,
     required bool isSubmitting,
     required bool isLoading,
     required Either<ScheduleFailure, Unit>? scheduleFailureOrSuccess,
-  }) = _AssignWorkScheduleFormState;
+  }) = _AssignScheduleFormState;
 
   factory AssignScheduleFormState.initial() => const AssignScheduleFormState(
         schedule: Schedule(

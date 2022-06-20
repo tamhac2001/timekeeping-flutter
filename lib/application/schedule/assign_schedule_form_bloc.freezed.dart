@@ -15,7 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-mixin _$AssignWorkScheduleFormEvent {
+mixin _$AssignScheduleFormEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() workScheduleRequested,
@@ -85,16 +85,16 @@ mixin _$AssignWorkScheduleFormEvent {
 }
 
 /// @nodoc
-abstract class $AssignWorkScheduleFormEventCopyWith<$Res> {
-  factory $AssignWorkScheduleFormEventCopyWith(AssignScheduleFormEvent value,
+abstract class $AssignScheduleFormEventCopyWith<$Res> {
+  factory $AssignScheduleFormEventCopyWith(AssignScheduleFormEvent value,
           $Res Function(AssignScheduleFormEvent) then) =
-      _$AssignWorkScheduleFormEventCopyWithImpl<$Res>;
+      _$AssignScheduleFormEventCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$AssignWorkScheduleFormEventCopyWithImpl<$Res>
-    implements $AssignWorkScheduleFormEventCopyWith<$Res> {
-  _$AssignWorkScheduleFormEventCopyWithImpl(this._value, this._then);
+class _$AssignScheduleFormEventCopyWithImpl<$Res>
+    implements $AssignScheduleFormEventCopyWith<$Res> {
+  _$AssignScheduleFormEventCopyWithImpl(this._value, this._then);
 
   final AssignScheduleFormEvent _value;
   // ignore: unused_field
@@ -110,7 +110,7 @@ abstract class _$$WorkScheduleRequestedCopyWith<$Res> {
 
 /// @nodoc
 class __$$WorkScheduleRequestedCopyWithImpl<$Res>
-    extends _$AssignWorkScheduleFormEventCopyWithImpl<$Res>
+    extends _$AssignScheduleFormEventCopyWithImpl<$Res>
     implements _$$WorkScheduleRequestedCopyWith<$Res> {
   __$$WorkScheduleRequestedCopyWithImpl(_$WorkScheduleRequested _value,
       $Res Function(_$WorkScheduleRequested) _then)
@@ -127,7 +127,7 @@ class _$WorkScheduleRequested implements WorkScheduleRequested {
 
   @override
   String toString() {
-    return 'AssignWorkScheduleFormEvent.workScheduleRequested()';
+    return 'AssignScheduleFormEvent.workScheduleRequested()';
   }
 
   @override
@@ -245,7 +245,7 @@ abstract class _$$MorningShiftStartTimeChangedCopyWith<$Res> {
 
 /// @nodoc
 class __$$MorningShiftStartTimeChangedCopyWithImpl<$Res>
-    extends _$AssignWorkScheduleFormEventCopyWithImpl<$Res>
+    extends _$AssignScheduleFormEventCopyWithImpl<$Res>
     implements _$$MorningShiftStartTimeChangedCopyWith<$Res> {
   __$$MorningShiftStartTimeChangedCopyWithImpl(
       _$MorningShiftStartTimeChanged _value,
@@ -279,7 +279,7 @@ class _$MorningShiftStartTimeChanged implements MorningShiftStartTimeChanged {
 
   @override
   String toString() {
-    return 'AssignWorkScheduleFormEvent.morningShiftStartTimeChanged(time: $time)';
+    return 'AssignScheduleFormEvent.morningShiftStartTimeChanged(time: $time)';
   }
 
   @override
@@ -412,7 +412,7 @@ abstract class _$$MorningShiftEndTimeChangedCopyWith<$Res> {
 
 /// @nodoc
 class __$$MorningShiftEndTimeChangedCopyWithImpl<$Res>
-    extends _$AssignWorkScheduleFormEventCopyWithImpl<$Res>
+    extends _$AssignScheduleFormEventCopyWithImpl<$Res>
     implements _$$MorningShiftEndTimeChangedCopyWith<$Res> {
   __$$MorningShiftEndTimeChangedCopyWithImpl(
       _$MorningShiftEndTimeChanged _value,
@@ -446,7 +446,7 @@ class _$MorningShiftEndTimeChanged implements MorningShiftEndTimeChanged {
 
   @override
   String toString() {
-    return 'AssignWorkScheduleFormEvent.morningShiftEndTimeChanged(time: $time)';
+    return 'AssignScheduleFormEvent.morningShiftEndTimeChanged(time: $time)';
   }
 
   @override
@@ -579,7 +579,7 @@ abstract class _$$AfternoonShiftStartTimeChangedCopyWith<$Res> {
 
 /// @nodoc
 class __$$AfternoonShiftStartTimeChangedCopyWithImpl<$Res>
-    extends _$AssignWorkScheduleFormEventCopyWithImpl<$Res>
+    extends _$AssignScheduleFormEventCopyWithImpl<$Res>
     implements _$$AfternoonShiftStartTimeChangedCopyWith<$Res> {
   __$$AfternoonShiftStartTimeChangedCopyWithImpl(
       _$AfternoonShiftStartTimeChanged _value,
@@ -614,7 +614,7 @@ class _$AfternoonShiftStartTimeChanged
 
   @override
   String toString() {
-    return 'AssignWorkScheduleFormEvent.afternoonShiftStartTimeChanged(time: $time)';
+    return 'AssignScheduleFormEvent.afternoonShiftStartTimeChanged(time: $time)';
   }
 
   @override
@@ -746,7 +746,7 @@ abstract class _$$FormSubmittedCopyWith<$Res> {
 
 /// @nodoc
 class __$$FormSubmittedCopyWithImpl<$Res>
-    extends _$AssignWorkScheduleFormEventCopyWithImpl<$Res>
+    extends _$AssignScheduleFormEventCopyWithImpl<$Res>
     implements _$$FormSubmittedCopyWith<$Res> {
   __$$FormSubmittedCopyWithImpl(
       _$FormSubmitted _value, $Res Function(_$FormSubmitted) _then)
@@ -763,7 +763,7 @@ class _$FormSubmitted implements FormSubmitted {
 
   @override
   String toString() {
-    return 'AssignWorkScheduleFormEvent.formSubmitted()';
+    return 'AssignScheduleFormEvent.formSubmitted()';
   }
 
   @override
@@ -871,7 +871,7 @@ abstract class FormSubmitted implements AssignScheduleFormEvent {
 }
 
 /// @nodoc
-mixin _$AssignWorkScheduleFormState {
+mixin _$AssignScheduleFormState {
   Schedule get schedule => throw _privateConstructorUsedError;
   bool get isSubmitting => throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
@@ -879,15 +879,15 @@ mixin _$AssignWorkScheduleFormState {
       throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $AssignWorkScheduleFormStateCopyWith<AssignScheduleFormState> get copyWith =>
+  $AssignScheduleFormStateCopyWith<AssignScheduleFormState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $AssignWorkScheduleFormStateCopyWith<$Res> {
-  factory $AssignWorkScheduleFormStateCopyWith(AssignScheduleFormState value,
+abstract class $AssignScheduleFormStateCopyWith<$Res> {
+  factory $AssignScheduleFormStateCopyWith(AssignScheduleFormState value,
           $Res Function(AssignScheduleFormState) then) =
-      _$AssignWorkScheduleFormStateCopyWithImpl<$Res>;
+      _$AssignScheduleFormStateCopyWithImpl<$Res>;
   $Res call(
       {Schedule schedule,
       bool isSubmitting,
@@ -898,9 +898,9 @@ abstract class $AssignWorkScheduleFormStateCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$AssignWorkScheduleFormStateCopyWithImpl<$Res>
-    implements $AssignWorkScheduleFormStateCopyWith<$Res> {
-  _$AssignWorkScheduleFormStateCopyWithImpl(this._value, this._then);
+class _$AssignScheduleFormStateCopyWithImpl<$Res>
+    implements $AssignScheduleFormStateCopyWith<$Res> {
+  _$AssignScheduleFormStateCopyWithImpl(this._value, this._then);
 
   final AssignScheduleFormState _value;
   // ignore: unused_field
@@ -942,12 +942,11 @@ class _$AssignWorkScheduleFormStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$$_AssignWorkScheduleFormStateCopyWith<$Res>
-    implements $AssignWorkScheduleFormStateCopyWith<$Res> {
-  factory _$$_AssignWorkScheduleFormStateCopyWith(
-          _$_AssignWorkScheduleFormState value,
-          $Res Function(_$_AssignWorkScheduleFormState) then) =
-      __$$_AssignWorkScheduleFormStateCopyWithImpl<$Res>;
+abstract class _$$_AssignScheduleFormStateCopyWith<$Res>
+    implements $AssignScheduleFormStateCopyWith<$Res> {
+  factory _$$_AssignScheduleFormStateCopyWith(_$_AssignScheduleFormState value,
+          $Res Function(_$_AssignScheduleFormState) then) =
+      __$$_AssignScheduleFormStateCopyWithImpl<$Res>;
   @override
   $Res call(
       {Schedule schedule,
@@ -960,17 +959,16 @@ abstract class _$$_AssignWorkScheduleFormStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_AssignWorkScheduleFormStateCopyWithImpl<$Res>
-    extends _$AssignWorkScheduleFormStateCopyWithImpl<$Res>
-    implements _$$_AssignWorkScheduleFormStateCopyWith<$Res> {
-  __$$_AssignWorkScheduleFormStateCopyWithImpl(
-      _$_AssignWorkScheduleFormState _value,
-      $Res Function(_$_AssignWorkScheduleFormState) _then)
-      : super(_value, (v) => _then(v as _$_AssignWorkScheduleFormState));
+class __$$_AssignScheduleFormStateCopyWithImpl<$Res>
+    extends _$AssignScheduleFormStateCopyWithImpl<$Res>
+    implements _$$_AssignScheduleFormStateCopyWith<$Res> {
+  __$$_AssignScheduleFormStateCopyWithImpl(_$_AssignScheduleFormState _value,
+      $Res Function(_$_AssignScheduleFormState) _then)
+      : super(_value, (v) => _then(v as _$_AssignScheduleFormState));
 
   @override
-  _$_AssignWorkScheduleFormState get _value =>
-      super._value as _$_AssignWorkScheduleFormState;
+  _$_AssignScheduleFormState get _value =>
+      super._value as _$_AssignScheduleFormState;
 
   @override
   $Res call({
@@ -979,7 +977,7 @@ class __$$_AssignWorkScheduleFormStateCopyWithImpl<$Res>
     Object? isLoading = freezed,
     Object? scheduleFailureOrSuccess = freezed,
   }) {
-    return _then(_$_AssignWorkScheduleFormState(
+    return _then(_$_AssignScheduleFormState(
       schedule: schedule == freezed
           ? _value.schedule
           : schedule // ignore: cast_nullable_to_non_nullable
@@ -1002,8 +1000,8 @@ class __$$_AssignWorkScheduleFormStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_AssignWorkScheduleFormState implements _AssignWorkScheduleFormState {
-  const _$_AssignWorkScheduleFormState(
+class _$_AssignScheduleFormState implements _AssignScheduleFormState {
+  const _$_AssignScheduleFormState(
       {required this.schedule,
       required this.isSubmitting,
       required this.isLoading,
@@ -1020,14 +1018,14 @@ class _$_AssignWorkScheduleFormState implements _AssignWorkScheduleFormState {
 
   @override
   String toString() {
-    return 'AssignWorkScheduleFormState(schedule: $schedule, isSubmitting: $isSubmitting, isLoading: $isLoading, scheduleFailureOrSuccess: $scheduleFailureOrSuccess)';
+    return 'AssignScheduleFormState(schedule: $schedule, isSubmitting: $isSubmitting, isLoading: $isLoading, scheduleFailureOrSuccess: $scheduleFailureOrSuccess)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_AssignWorkScheduleFormState &&
+            other is _$_AssignScheduleFormState &&
             const DeepCollectionEquality().equals(other.schedule, schedule) &&
             const DeepCollectionEquality()
                 .equals(other.isSubmitting, isSubmitting) &&
@@ -1046,18 +1044,19 @@ class _$_AssignWorkScheduleFormState implements _AssignWorkScheduleFormState {
 
   @JsonKey(ignore: true)
   @override
-  _$$_AssignWorkScheduleFormStateCopyWith<_$_AssignWorkScheduleFormState>
-      get copyWith => __$$_AssignWorkScheduleFormStateCopyWithImpl<
-          _$_AssignWorkScheduleFormState>(this, _$identity);
+  _$$_AssignScheduleFormStateCopyWith<_$_AssignScheduleFormState>
+      get copyWith =>
+          __$$_AssignScheduleFormStateCopyWithImpl<_$_AssignScheduleFormState>(
+              this, _$identity);
 }
 
-abstract class _AssignWorkScheduleFormState implements AssignScheduleFormState {
-  const factory _AssignWorkScheduleFormState(
+abstract class _AssignScheduleFormState implements AssignScheduleFormState {
+  const factory _AssignScheduleFormState(
       {required final Schedule schedule,
       required final bool isSubmitting,
       required final bool isLoading,
       required final Either<ScheduleFailure, Unit>?
-          scheduleFailureOrSuccess}) = _$_AssignWorkScheduleFormState;
+          scheduleFailureOrSuccess}) = _$_AssignScheduleFormState;
 
   @override
   Schedule get schedule => throw _privateConstructorUsedError;
@@ -1070,6 +1069,6 @@ abstract class _AssignWorkScheduleFormState implements AssignScheduleFormState {
       throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$$_AssignWorkScheduleFormStateCopyWith<_$_AssignWorkScheduleFormState>
+  _$$_AssignScheduleFormStateCopyWith<_$_AssignScheduleFormState>
       get copyWith => throw _privateConstructorUsedError;
 }

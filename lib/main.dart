@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:timekeeping/infrastructure/timekeeping/timekeeping_api_client.dart';
-import 'package:timekeeping/infrastructure/timekeeping/timekeeping_repository.dart';
 
 import 'application/auth/authentication_bloc.dart';
 import 'application/notification/notification_bloc.dart';
@@ -11,8 +9,12 @@ import 'infrastructure/auth/authentication_api_client.dart';
 import 'infrastructure/auth/authentication_repository.dart';
 import 'infrastructure/employee/employee_api_client.dart';
 import 'infrastructure/employee/employee_repository.dart';
+import 'infrastructure/schedule/schedule_api_client.dart';
+import 'infrastructure/schedule/schedule_repository.dart';
 import 'infrastructure/secure_storage/secure_storage_repository.dart';
 
+import 'infrastructure/timekeeping/timekeeping_api_client.dart';
+import 'infrastructure/timekeeping/timekeeping_repository.dart';
 import 'presentation/routes/app_router.gr.dart';
 
 Future<void> main() async {
@@ -36,39 +38,35 @@ class MyApp extends StatelessWidget {
         RepositoryProvider<AuthenticationRepository>(
             create: (context) => AuthenticationRepository(
                   apiClient: AuthenticationApiClient(),
-                  storage:
-                      RepositoryProvider.of<SecureStorageRepository>(context),
+                  storage: RepositoryProvider.of<SecureStorageRepository>(context),
                 )),
         RepositoryProvider<EmployeeRepository>(
             create: (context) => EmployeeRepository(
                   apiClient: const EmployeeApiClient(),
-                  storage:
-                      RepositoryProvider.of<SecureStorageRepository>(context),
+                  storage: RepositoryProvider.of<SecureStorageRepository>(context),
                 )),
+        RepositoryProvider<ScheduleRepository>(
+          create: (context) {
+            return ScheduleRepository(
+                apiClient: ScheduleApiClient(), storage: RepositoryProvider.of<SecureStorageRepository>(context));
+          },
+        ),
         RepositoryProvider<TimekeepingRepository>(
             create: (context) => TimekeepingRepository(
-                apiClient: TimekeepingApiClient(),
-                storage:
-                    RepositoryProvider.of<SecureStorageRepository>(context))),
+                apiClient: TimekeepingApiClient(), storage: RepositoryProvider.of<SecureStorageRepository>(context))),
         RepositoryProvider<AbsentRepository>(
             create: (context) => AbsentRepository(
-                apiClient: AbsentApiClient(),
-                storage:
-                    RepositoryProvider.of<SecureStorageRepository>(context))),
+                apiClient: AbsentApiClient(), storage: RepositoryProvider.of<SecureStorageRepository>(context))),
       ],
       child: MultiBlocProvider(
         providers: [
           BlocProvider(
             create: (context) => AuthenticationBloc(
-                authenticationRepository:
-                    RepositoryProvider.of<AuthenticationRepository>(context),
-                employeeRepository:
-                    RepositoryProvider.of<EmployeeRepository>(context)),
+                authenticationRepository: RepositoryProvider.of<AuthenticationRepository>(context),
+                employeeRepository: RepositoryProvider.of<EmployeeRepository>(context)),
           ),
           BlocProvider<NotificationBloc>(
-              create: (context) => NotificationBloc(
-                  storage:
-                      RepositoryProvider.of<SecureStorageRepository>(context))),
+              create: (context) => NotificationBloc(storage: RepositoryProvider.of<SecureStorageRepository>(context))),
         ],
         child: MaterialApp.router(
           title: 'Flutter Demo',

@@ -2,8 +2,8 @@ import 'package:auto_route/auto_route.dart';
 
 import '../absent_form/absent_form_screen.dart';
 import '../assign_work_schedule/assign_schedule_screen.dart';
-import '../check_in_check_out/check_in_check_out_screen.dart';
 import '../check_in_check_out/check_in_check_out_router.dart';
+import '../check_in_check_out/check_in_check_out_screen.dart';
 import '../check_in_check_out/qr_scanner_screen.dart';
 import '../home/home_screen.dart';
 import '../login/login_screen.dart';
@@ -29,7 +29,7 @@ import '../timekeeping_record_screen/timekeeping_record_screen.dart';
               path: '',
               page: CheckInCheckOutScreen,
             ),
-            AutoRoute(
+            AutoRoute<bool>(
               path: 'qr_scan',
               page: QrScannerScreen,
               // transitionsBuilder: TransitionsBuilders.fadeIn,

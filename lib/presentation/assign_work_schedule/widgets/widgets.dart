@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../application/schedule/assign_schedule_form_bloc.dart';
-import '../../presentation/utils/extensions.dart';
+import '../../../application/schedule/assign_schedule_form_bloc.dart';
+import '../../core/app_widgets.dart';
+import '../../../utils/extensions.dart';
 
 const List<TimeOfDay> morningShiftStartTimes = [
   TimeOfDay(hour: 7, minute: 0),
@@ -36,45 +37,39 @@ Widget buildAssignMorningShift(BuildContext context) {
     children: [
       Text('Từ', style: Theme.of(context).textTheme.subtitle1),
       BlocBuilder<AssignScheduleFormBloc, AssignScheduleFormState>(
-        buildWhen: (previous, current) =>
-            previous.schedule.morningShiftStart !=
-            current.schedule.morningShiftStart,
+        buildWhen: (previous, current) => previous.schedule.morningShiftStart != current.schedule.morningShiftStart,
         builder: (context, state) {
           return DropdownButton<TimeOfDay>(
               value: state.schedule.morningShiftStart,
               items: morningShiftStartTimes
-                  .map<DropdownMenuItem<TimeOfDay>>(
-                      (timeOfDay) => DropdownMenuItem<TimeOfDay>(
-                            value: timeOfDay,
-                            child: Text(timeOfDay.toDisplayText()),
-                          ))
+                  .map<DropdownMenuItem<TimeOfDay>>((timeOfDay) => DropdownMenuItem<TimeOfDay>(
+                        value: timeOfDay,
+                        child: Text(timeOfDay.toDisplayText()),
+                      ))
                   .toList(growable: true),
               onChanged: (timeOfDay) {
-                context.read<AssignScheduleFormBloc>().add(
-                    AssignScheduleFormEvent.morningShiftStartTimeChanged(
-                        timeOfDay!));
+                context
+                    .read<AssignScheduleFormBloc>()
+                    .add(AssignScheduleFormEvent.morningShiftStartTimeChanged(timeOfDay!));
               });
         },
       ),
       Text('đến', style: Theme.of(context).textTheme.subtitle1),
       BlocBuilder<AssignScheduleFormBloc, AssignScheduleFormState>(
-        buildWhen: (previous, current) =>
-            previous.schedule.morningShiftEnd !=
-            current.schedule.morningShiftEnd,
+        buildWhen: (previous, current) => previous.schedule.morningShiftEnd != current.schedule.morningShiftEnd,
         builder: (context, state) {
           return DropdownButton<TimeOfDay>(
               value: state.schedule.morningShiftEnd,
               items: morningShiftEndTimes
-                  .map<DropdownMenuItem<TimeOfDay>>(
-                      (timeOfDay) => DropdownMenuItem<TimeOfDay>(
-                            value: timeOfDay,
-                            child: Text(timeOfDay.toDisplayText()),
-                          ))
+                  .map<DropdownMenuItem<TimeOfDay>>((timeOfDay) => DropdownMenuItem<TimeOfDay>(
+                        value: timeOfDay,
+                        child: Text(timeOfDay.toDisplayText()),
+                      ))
                   .toList(),
               onChanged: (timeOfDay) {
-                context.read<AssignScheduleFormBloc>().add(
-                    AssignScheduleFormEvent.morningShiftEndTimeChanged(
-                        timeOfDay!));
+                context
+                    .read<AssignScheduleFormBloc>()
+                    .add(AssignScheduleFormEvent.morningShiftEndTimeChanged(timeOfDay!));
               });
         },
       ),
@@ -88,31 +83,26 @@ Widget buildAssignAfternoonShift(BuildContext context) {
     children: [
       Text('Từ', style: Theme.of(context).textTheme.subtitle1),
       BlocBuilder<AssignScheduleFormBloc, AssignScheduleFormState>(
-        buildWhen: (previous, current) =>
-            previous.schedule.afternoonShiftStart !=
-            current.schedule.afternoonShiftStart,
+        buildWhen: (previous, current) => previous.schedule.afternoonShiftStart != current.schedule.afternoonShiftStart,
         builder: (context, state) {
           return DropdownButton<TimeOfDay>(
               value: state.schedule.afternoonShiftStart,
               items: afternoonShiftStartTimes
-                  .map<DropdownMenuItem<TimeOfDay>>(
-                      (timeOfDay) => DropdownMenuItem<TimeOfDay>(
-                            value: timeOfDay,
-                            child: Text(timeOfDay.toDisplayText()),
-                          ))
+                  .map<DropdownMenuItem<TimeOfDay>>((timeOfDay) => DropdownMenuItem<TimeOfDay>(
+                        value: timeOfDay,
+                        child: Text(timeOfDay.toDisplayText()),
+                      ))
                   .toList(growable: true),
               onChanged: (timeOfDay) {
-                context.read<AssignScheduleFormBloc>().add(
-                    AssignScheduleFormEvent.afternoonShiftStartTimeChanged(
-                        timeOfDay!));
+                context
+                    .read<AssignScheduleFormBloc>()
+                    .add(AssignScheduleFormEvent.afternoonShiftStartTimeChanged(timeOfDay!));
               });
         },
       ),
       Text('đến', style: Theme.of(context).textTheme.subtitle1),
       BlocBuilder<AssignScheduleFormBloc, AssignScheduleFormState>(
-        buildWhen: (previous, current) =>
-            previous.schedule.afternoonShiftEnd !=
-            current.schedule.afternoonShiftEnd,
+        buildWhen: (previous, current) => previous.schedule.afternoonShiftEnd != current.schedule.afternoonShiftEnd,
         builder: (context, state) {
           return Text(
             state.schedule.afternoonShiftEnd.toDisplayText(),
@@ -122,4 +112,33 @@ Widget buildAssignAfternoonShift(BuildContext context) {
       ),
     ],
   );
+}
+
+class AssignScheduleButton extends StatelessWidget {
+  const AssignScheduleButton({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+        onPressed: () {
+          showMyDialog(context, title: 'Đăng ký lịch làm việc', text: 'Bạn chắc chứ ?', action: [
+            TextButton(
+              autofocus: true,
+              child: const Text('Huỷ'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+            TextButton(
+                child: const Text('Xác nhận'),
+                onPressed: () {
+                  context.read<AssignScheduleFormBloc>().add(const AssignScheduleFormEvent.formSubmitted());
+                  Navigator.of(context).pop();
+                })
+          ]);
+        },
+        child: const Text('Đăng ký'));
+  }
 }

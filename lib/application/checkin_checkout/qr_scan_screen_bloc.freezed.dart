@@ -19,38 +19,38 @@ mixin _$QrScanScreenEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String qrCodeValue) qrCodeScanned,
-    required TResult Function() screenReset,
+    required TResult Function() reset,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String qrCodeValue)? qrCodeScanned,
-    TResult Function()? screenReset,
+    TResult Function()? reset,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String qrCodeValue)? qrCodeScanned,
-    TResult Function()? screenReset,
+    TResult Function()? reset,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(QrCodeScanned value) qrCodeScanned,
-    required TResult Function(ScreenReset value) screenReset,
+    required TResult Function(Reset value) reset,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(QrCodeScanned value)? qrCodeScanned,
-    TResult Function(ScreenReset value)? screenReset,
+    TResult Function(Reset value)? reset,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(QrCodeScanned value)? qrCodeScanned,
-    TResult Function(ScreenReset value)? screenReset,
+    TResult Function(Reset value)? reset,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -140,7 +140,7 @@ class _$QrCodeScanned implements QrCodeScanned {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String qrCodeValue) qrCodeScanned,
-    required TResult Function() screenReset,
+    required TResult Function() reset,
   }) {
     return qrCodeScanned(qrCodeValue);
   }
@@ -149,7 +149,7 @@ class _$QrCodeScanned implements QrCodeScanned {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String qrCodeValue)? qrCodeScanned,
-    TResult Function()? screenReset,
+    TResult Function()? reset,
   }) {
     return qrCodeScanned?.call(qrCodeValue);
   }
@@ -158,7 +158,7 @@ class _$QrCodeScanned implements QrCodeScanned {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String qrCodeValue)? qrCodeScanned,
-    TResult Function()? screenReset,
+    TResult Function()? reset,
     required TResult orElse(),
   }) {
     if (qrCodeScanned != null) {
@@ -171,7 +171,7 @@ class _$QrCodeScanned implements QrCodeScanned {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(QrCodeScanned value) qrCodeScanned,
-    required TResult Function(ScreenReset value) screenReset,
+    required TResult Function(Reset value) reset,
   }) {
     return qrCodeScanned(this);
   }
@@ -180,7 +180,7 @@ class _$QrCodeScanned implements QrCodeScanned {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(QrCodeScanned value)? qrCodeScanned,
-    TResult Function(ScreenReset value)? screenReset,
+    TResult Function(Reset value)? reset,
   }) {
     return qrCodeScanned?.call(this);
   }
@@ -189,7 +189,7 @@ class _$QrCodeScanned implements QrCodeScanned {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(QrCodeScanned value)? qrCodeScanned,
-    TResult Function(ScreenReset value)? screenReset,
+    TResult Function(Reset value)? reset,
     required TResult orElse(),
   }) {
     if (qrCodeScanned != null) {
@@ -209,38 +209,35 @@ abstract class QrCodeScanned implements QrScanScreenEvent {
 }
 
 /// @nodoc
-abstract class _$$ScreenResetCopyWith<$Res> {
-  factory _$$ScreenResetCopyWith(
-          _$ScreenReset value, $Res Function(_$ScreenReset) then) =
-      __$$ScreenResetCopyWithImpl<$Res>;
+abstract class _$$ResetCopyWith<$Res> {
+  factory _$$ResetCopyWith(_$Reset value, $Res Function(_$Reset) then) =
+      __$$ResetCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$ScreenResetCopyWithImpl<$Res>
-    extends _$QrScanScreenEventCopyWithImpl<$Res>
-    implements _$$ScreenResetCopyWith<$Res> {
-  __$$ScreenResetCopyWithImpl(
-      _$ScreenReset _value, $Res Function(_$ScreenReset) _then)
-      : super(_value, (v) => _then(v as _$ScreenReset));
+class __$$ResetCopyWithImpl<$Res> extends _$QrScanScreenEventCopyWithImpl<$Res>
+    implements _$$ResetCopyWith<$Res> {
+  __$$ResetCopyWithImpl(_$Reset _value, $Res Function(_$Reset) _then)
+      : super(_value, (v) => _then(v as _$Reset));
 
   @override
-  _$ScreenReset get _value => super._value as _$ScreenReset;
+  _$Reset get _value => super._value as _$Reset;
 }
 
 /// @nodoc
 
-class _$ScreenReset implements ScreenReset {
-  const _$ScreenReset();
+class _$Reset implements Reset {
+  const _$Reset();
 
   @override
   String toString() {
-    return 'QrScanScreenEvent.screenReset()';
+    return 'QrScanScreenEvent.reset()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$ScreenReset);
+        (other.runtimeType == runtimeType && other is _$Reset);
   }
 
   @override
@@ -250,29 +247,29 @@ class _$ScreenReset implements ScreenReset {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String qrCodeValue) qrCodeScanned,
-    required TResult Function() screenReset,
+    required TResult Function() reset,
   }) {
-    return screenReset();
+    return reset();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String qrCodeValue)? qrCodeScanned,
-    TResult Function()? screenReset,
+    TResult Function()? reset,
   }) {
-    return screenReset?.call();
+    return reset?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String qrCodeValue)? qrCodeScanned,
-    TResult Function()? screenReset,
+    TResult Function()? reset,
     required TResult orElse(),
   }) {
-    if (screenReset != null) {
-      return screenReset();
+    if (reset != null) {
+      return reset();
     }
     return orElse();
   }
@@ -281,36 +278,36 @@ class _$ScreenReset implements ScreenReset {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(QrCodeScanned value) qrCodeScanned,
-    required TResult Function(ScreenReset value) screenReset,
+    required TResult Function(Reset value) reset,
   }) {
-    return screenReset(this);
+    return reset(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(QrCodeScanned value)? qrCodeScanned,
-    TResult Function(ScreenReset value)? screenReset,
+    TResult Function(Reset value)? reset,
   }) {
-    return screenReset?.call(this);
+    return reset?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(QrCodeScanned value)? qrCodeScanned,
-    TResult Function(ScreenReset value)? screenReset,
+    TResult Function(Reset value)? reset,
     required TResult orElse(),
   }) {
-    if (screenReset != null) {
-      return screenReset(this);
+    if (reset != null) {
+      return reset(this);
     }
     return orElse();
   }
 }
 
-abstract class ScreenReset implements QrScanScreenEvent {
-  const factory ScreenReset() = _$ScreenReset;
+abstract class Reset implements QrScanScreenEvent {
+  const factory Reset() = _$Reset;
 }
 
 /// @nodoc

@@ -26,17 +26,16 @@ class HomeScreen extends StatelessWidget {
         BlocProvider<CheckinCheckoutScreenBloc>(
           create: (context) {
             final bloc = CheckinCheckoutScreenBloc(
-              storage: RepositoryProvider.of<SecureStorageRepository>(context),
+              repository: RepositoryProvider.of<TimekeepingRepository>(context),
             );
-            bloc.add(const CheckinCheckoutScreenEvent.getSchedule());
+            // bloc.add(const CheckinCheckoutScreenEvent.getSchedule());
+            // bloc.add(const CheckinCheckoutScreenEvent.getTimekeeping());
             return bloc;
           },
         ),
         BlocProvider<QrScanScreenBloc>(
           create: (context) {
-            return QrScanScreenBloc(
-                repository:
-                    RepositoryProvider.of<TimekeepingRepository>(context));
+            return QrScanScreenBloc(repository: RepositoryProvider.of<TimekeepingRepository>(context));
           },
         ),
         BlocProvider<TimekeepingRecordScreenBloc>(
@@ -44,13 +43,11 @@ class HomeScreen extends StatelessWidget {
           lazy: false,
         ),
         BlocProvider<AbsentFormBloc>(
-            create: (context) => AbsentFormBloc(
-                repository: RepositoryProvider.of<AbsentRepository>(context))),
+            create: (context) => AbsentFormBloc(repository: RepositoryProvider.of<AbsentRepository>(context))),
         BlocProvider<ProfileScreenBloc>(
           create: (context) {
             final bloc = ProfileScreenBloc(
-              employeeRepository:
-                  RepositoryProvider.of<EmployeeRepository>(context),
+              employeeRepository: RepositoryProvider.of<EmployeeRepository>(context),
               storage: RepositoryProvider.of<SecureStorageRepository>(context),
             );
             bloc.add(const ProfileScreenEvent.employeeRequest());

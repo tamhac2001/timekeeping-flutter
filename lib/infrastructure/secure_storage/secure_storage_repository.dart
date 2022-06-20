@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
-import '../../application/utils/extensions.dart';
+
+import '../../utils/extensions.dart';
 
 class SecureStorageRepository {
   static const storage = FlutterSecureStorage();
@@ -30,11 +31,9 @@ class SecureStorageRepository {
   }
 
   Future<TimeOfDay?> get morningShiftStart async {
-    String? morningShiftStartString =
-        await storage.read(key: 'morningShiftStart');
+    String? morningShiftStartString = await storage.read(key: 'morningShiftStart');
     if (morningShiftStartString != null) {
-      TimeOfDay? morningShiftStart =
-          TimeOfDay.fromDateTime(DateTime.tryParse(morningShiftStartString)!);
+      TimeOfDay? morningShiftStart = TimeOfDay.fromDateTime(DateTime.tryParse(morningShiftStartString)!);
       return morningShiftStart;
     } else {
       return null;
@@ -44,8 +43,7 @@ class SecureStorageRepository {
   Future<TimeOfDay?> get morningShiftEnd async {
     String? morningShiftEndString = await storage.read(key: 'morningShiftEnd');
     if (morningShiftEndString != null) {
-      TimeOfDay? morningShiftEnd =
-          TimeOfDay.fromDateTime(DateTime.tryParse(morningShiftEndString)!);
+      TimeOfDay? morningShiftEnd = TimeOfDay.fromDateTime(DateTime.tryParse(morningShiftEndString)!);
       return morningShiftEnd;
     } else {
       return null;
@@ -53,11 +51,9 @@ class SecureStorageRepository {
   }
 
   Future<TimeOfDay?> get afternoonShiftStart async {
-    String? afternoonShiftStartString =
-        await storage.read(key: 'afternoonShiftStart');
+    String? afternoonShiftStartString = await storage.read(key: 'afternoonShiftStart');
     if (afternoonShiftStartString != null) {
-      TimeOfDay? afternoonShiftStart =
-          TimeOfDay.fromDateTime(DateTime.tryParse(afternoonShiftStartString)!);
+      TimeOfDay? afternoonShiftStart = TimeOfDay.fromDateTime(DateTime.tryParse(afternoonShiftStartString)!);
       return afternoonShiftStart;
     } else {
       return null;
@@ -65,11 +61,9 @@ class SecureStorageRepository {
   }
 
   Future<TimeOfDay?> get afternoonShiftEnd async {
-    String? afternoonShiftEndString =
-        await storage.read(key: 'afternoonShiftEnd');
+    String? afternoonShiftEndString = await storage.read(key: 'afternoonShiftEnd');
     if (afternoonShiftEndString != null) {
-      TimeOfDay? afternoonShiftEnd =
-          TimeOfDay.fromDateTime(DateTime.tryParse(afternoonShiftEndString)!);
+      TimeOfDay? afternoonShiftEnd = TimeOfDay.fromDateTime(DateTime.tryParse(afternoonShiftEndString)!);
       return afternoonShiftEnd;
     } else {
       return null;
@@ -88,31 +82,20 @@ class SecureStorageRepository {
     await storage.write(key: 'employeeId', value: employeeId.toString());
   }
 
-  Future<void> setMorningShiftStart(
-      {required TimeOfDay morningShiftStart}) async {
-    await storage.write(
-        key: 'morningShiftStart',
-        value: morningShiftStart.toDateTime().toIso8601String());
+  Future<void> setMorningShiftStart({required TimeOfDay morningShiftStart}) async {
+    await storage.write(key: 'morningShiftStart', value: morningShiftStart.toDateTime().toIso8601String());
   }
 
   Future<void> setMorningShiftEnd({required TimeOfDay morningShiftEnd}) async {
-    await storage.write(
-        key: 'morningShiftEnd',
-        value: morningShiftEnd.toDateTime().toIso8601String());
+    await storage.write(key: 'morningShiftEnd', value: morningShiftEnd.toDateTime().toIso8601String());
   }
 
-  Future<void> setAfternoonShiftStart(
-      {required TimeOfDay afternoonShiftStart}) async {
-    await storage.write(
-        key: 'afternoonShiftStart',
-        value: afternoonShiftStart.toDateTime().toIso8601String());
+  Future<void> setAfternoonShiftStart({required TimeOfDay afternoonShiftStart}) async {
+    await storage.write(key: 'afternoonShiftStart', value: afternoonShiftStart.toDateTime().toIso8601String());
   }
 
-  Future<void> setAfternoonShiftEnd(
-      {required TimeOfDay afternoonShiftEnd}) async {
-    await storage.write(
-        key: 'afternoonShiftEnd',
-        value: afternoonShiftEnd.toDateTime().toIso8601String());
+  Future<void> setAfternoonShiftEnd({required TimeOfDay afternoonShiftEnd}) async {
+    await storage.write(key: 'afternoonShiftEnd', value: afternoonShiftEnd.toDateTime().toIso8601String());
   }
 
   Future<void> deleteAccessTokenAndExpireDate() async {

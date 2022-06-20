@@ -21,6 +21,7 @@ mixin _$TimekeepingFailure {
     required TResult Function() serverError,
     required TResult Function() unauthenticated,
     required TResult Function() qrCodeNotMatch,
+    required TResult Function() timekeepingNotFound,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -28,6 +29,7 @@ mixin _$TimekeepingFailure {
     TResult Function()? serverError,
     TResult Function()? unauthenticated,
     TResult Function()? qrCodeNotMatch,
+    TResult Function()? timekeepingNotFound,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -35,6 +37,7 @@ mixin _$TimekeepingFailure {
     TResult Function()? serverError,
     TResult Function()? unauthenticated,
     TResult Function()? qrCodeNotMatch,
+    TResult Function()? timekeepingNotFound,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -43,6 +46,7 @@ mixin _$TimekeepingFailure {
     required TResult Function(ServerError value) serverError,
     required TResult Function(Unauthenticated value) unauthenticated,
     required TResult Function(QrCodeNotMatch value) qrCodeNotMatch,
+    required TResult Function(TimekeepingNotFound value) timekeepingNotFound,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -50,6 +54,7 @@ mixin _$TimekeepingFailure {
     TResult Function(ServerError value)? serverError,
     TResult Function(Unauthenticated value)? unauthenticated,
     TResult Function(QrCodeNotMatch value)? qrCodeNotMatch,
+    TResult Function(TimekeepingNotFound value)? timekeepingNotFound,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -57,6 +62,7 @@ mixin _$TimekeepingFailure {
     TResult Function(ServerError value)? serverError,
     TResult Function(Unauthenticated value)? unauthenticated,
     TResult Function(QrCodeNotMatch value)? qrCodeNotMatch,
+    TResult Function(TimekeepingNotFound value)? timekeepingNotFound,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -130,6 +136,7 @@ class _$ServerError with DiagnosticableTreeMixin implements ServerError {
     required TResult Function() serverError,
     required TResult Function() unauthenticated,
     required TResult Function() qrCodeNotMatch,
+    required TResult Function() timekeepingNotFound,
   }) {
     return serverError();
   }
@@ -140,6 +147,7 @@ class _$ServerError with DiagnosticableTreeMixin implements ServerError {
     TResult Function()? serverError,
     TResult Function()? unauthenticated,
     TResult Function()? qrCodeNotMatch,
+    TResult Function()? timekeepingNotFound,
   }) {
     return serverError?.call();
   }
@@ -150,6 +158,7 @@ class _$ServerError with DiagnosticableTreeMixin implements ServerError {
     TResult Function()? serverError,
     TResult Function()? unauthenticated,
     TResult Function()? qrCodeNotMatch,
+    TResult Function()? timekeepingNotFound,
     required TResult orElse(),
   }) {
     if (serverError != null) {
@@ -164,6 +173,7 @@ class _$ServerError with DiagnosticableTreeMixin implements ServerError {
     required TResult Function(ServerError value) serverError,
     required TResult Function(Unauthenticated value) unauthenticated,
     required TResult Function(QrCodeNotMatch value) qrCodeNotMatch,
+    required TResult Function(TimekeepingNotFound value) timekeepingNotFound,
   }) {
     return serverError(this);
   }
@@ -174,6 +184,7 @@ class _$ServerError with DiagnosticableTreeMixin implements ServerError {
     TResult Function(ServerError value)? serverError,
     TResult Function(Unauthenticated value)? unauthenticated,
     TResult Function(QrCodeNotMatch value)? qrCodeNotMatch,
+    TResult Function(TimekeepingNotFound value)? timekeepingNotFound,
   }) {
     return serverError?.call(this);
   }
@@ -184,6 +195,7 @@ class _$ServerError with DiagnosticableTreeMixin implements ServerError {
     TResult Function(ServerError value)? serverError,
     TResult Function(Unauthenticated value)? unauthenticated,
     TResult Function(QrCodeNotMatch value)? qrCodeNotMatch,
+    TResult Function(TimekeepingNotFound value)? timekeepingNotFound,
     required TResult orElse(),
   }) {
     if (serverError != null) {
@@ -250,6 +262,7 @@ class _$Unauthenticated
     required TResult Function() serverError,
     required TResult Function() unauthenticated,
     required TResult Function() qrCodeNotMatch,
+    required TResult Function() timekeepingNotFound,
   }) {
     return unauthenticated();
   }
@@ -260,6 +273,7 @@ class _$Unauthenticated
     TResult Function()? serverError,
     TResult Function()? unauthenticated,
     TResult Function()? qrCodeNotMatch,
+    TResult Function()? timekeepingNotFound,
   }) {
     return unauthenticated?.call();
   }
@@ -270,6 +284,7 @@ class _$Unauthenticated
     TResult Function()? serverError,
     TResult Function()? unauthenticated,
     TResult Function()? qrCodeNotMatch,
+    TResult Function()? timekeepingNotFound,
     required TResult orElse(),
   }) {
     if (unauthenticated != null) {
@@ -284,6 +299,7 @@ class _$Unauthenticated
     required TResult Function(ServerError value) serverError,
     required TResult Function(Unauthenticated value) unauthenticated,
     required TResult Function(QrCodeNotMatch value) qrCodeNotMatch,
+    required TResult Function(TimekeepingNotFound value) timekeepingNotFound,
   }) {
     return unauthenticated(this);
   }
@@ -294,6 +310,7 @@ class _$Unauthenticated
     TResult Function(ServerError value)? serverError,
     TResult Function(Unauthenticated value)? unauthenticated,
     TResult Function(QrCodeNotMatch value)? qrCodeNotMatch,
+    TResult Function(TimekeepingNotFound value)? timekeepingNotFound,
   }) {
     return unauthenticated?.call(this);
   }
@@ -304,6 +321,7 @@ class _$Unauthenticated
     TResult Function(ServerError value)? serverError,
     TResult Function(Unauthenticated value)? unauthenticated,
     TResult Function(QrCodeNotMatch value)? qrCodeNotMatch,
+    TResult Function(TimekeepingNotFound value)? timekeepingNotFound,
     required TResult orElse(),
   }) {
     if (unauthenticated != null) {
@@ -368,6 +386,7 @@ class _$QrCodeNotMatch with DiagnosticableTreeMixin implements QrCodeNotMatch {
     required TResult Function() serverError,
     required TResult Function() unauthenticated,
     required TResult Function() qrCodeNotMatch,
+    required TResult Function() timekeepingNotFound,
   }) {
     return qrCodeNotMatch();
   }
@@ -378,6 +397,7 @@ class _$QrCodeNotMatch with DiagnosticableTreeMixin implements QrCodeNotMatch {
     TResult Function()? serverError,
     TResult Function()? unauthenticated,
     TResult Function()? qrCodeNotMatch,
+    TResult Function()? timekeepingNotFound,
   }) {
     return qrCodeNotMatch?.call();
   }
@@ -388,6 +408,7 @@ class _$QrCodeNotMatch with DiagnosticableTreeMixin implements QrCodeNotMatch {
     TResult Function()? serverError,
     TResult Function()? unauthenticated,
     TResult Function()? qrCodeNotMatch,
+    TResult Function()? timekeepingNotFound,
     required TResult orElse(),
   }) {
     if (qrCodeNotMatch != null) {
@@ -402,6 +423,7 @@ class _$QrCodeNotMatch with DiagnosticableTreeMixin implements QrCodeNotMatch {
     required TResult Function(ServerError value) serverError,
     required TResult Function(Unauthenticated value) unauthenticated,
     required TResult Function(QrCodeNotMatch value) qrCodeNotMatch,
+    required TResult Function(TimekeepingNotFound value) timekeepingNotFound,
   }) {
     return qrCodeNotMatch(this);
   }
@@ -412,6 +434,7 @@ class _$QrCodeNotMatch with DiagnosticableTreeMixin implements QrCodeNotMatch {
     TResult Function(ServerError value)? serverError,
     TResult Function(Unauthenticated value)? unauthenticated,
     TResult Function(QrCodeNotMatch value)? qrCodeNotMatch,
+    TResult Function(TimekeepingNotFound value)? timekeepingNotFound,
   }) {
     return qrCodeNotMatch?.call(this);
   }
@@ -422,6 +445,7 @@ class _$QrCodeNotMatch with DiagnosticableTreeMixin implements QrCodeNotMatch {
     TResult Function(ServerError value)? serverError,
     TResult Function(Unauthenticated value)? unauthenticated,
     TResult Function(QrCodeNotMatch value)? qrCodeNotMatch,
+    TResult Function(TimekeepingNotFound value)? timekeepingNotFound,
     required TResult orElse(),
   }) {
     if (qrCodeNotMatch != null) {
@@ -433,4 +457,130 @@ class _$QrCodeNotMatch with DiagnosticableTreeMixin implements QrCodeNotMatch {
 
 abstract class QrCodeNotMatch implements TimekeepingFailure {
   const factory QrCodeNotMatch() = _$QrCodeNotMatch;
+}
+
+/// @nodoc
+abstract class _$$TimekeepingNotFoundCopyWith<$Res> {
+  factory _$$TimekeepingNotFoundCopyWith(_$TimekeepingNotFound value,
+          $Res Function(_$TimekeepingNotFound) then) =
+      __$$TimekeepingNotFoundCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$TimekeepingNotFoundCopyWithImpl<$Res>
+    extends _$TimekeepingFailureCopyWithImpl<$Res>
+    implements _$$TimekeepingNotFoundCopyWith<$Res> {
+  __$$TimekeepingNotFoundCopyWithImpl(
+      _$TimekeepingNotFound _value, $Res Function(_$TimekeepingNotFound) _then)
+      : super(_value, (v) => _then(v as _$TimekeepingNotFound));
+
+  @override
+  _$TimekeepingNotFound get _value => super._value as _$TimekeepingNotFound;
+}
+
+/// @nodoc
+
+class _$TimekeepingNotFound
+    with DiagnosticableTreeMixin
+    implements TimekeepingNotFound {
+  const _$TimekeepingNotFound();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'TimekeepingFailure.timekeepingNotFound()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(
+        DiagnosticsProperty('type', 'TimekeepingFailure.timekeepingNotFound'));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$TimekeepingNotFound);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() serverError,
+    required TResult Function() unauthenticated,
+    required TResult Function() qrCodeNotMatch,
+    required TResult Function() timekeepingNotFound,
+  }) {
+    return timekeepingNotFound();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? serverError,
+    TResult Function()? unauthenticated,
+    TResult Function()? qrCodeNotMatch,
+    TResult Function()? timekeepingNotFound,
+  }) {
+    return timekeepingNotFound?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? serverError,
+    TResult Function()? unauthenticated,
+    TResult Function()? qrCodeNotMatch,
+    TResult Function()? timekeepingNotFound,
+    required TResult orElse(),
+  }) {
+    if (timekeepingNotFound != null) {
+      return timekeepingNotFound();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ServerError value) serverError,
+    required TResult Function(Unauthenticated value) unauthenticated,
+    required TResult Function(QrCodeNotMatch value) qrCodeNotMatch,
+    required TResult Function(TimekeepingNotFound value) timekeepingNotFound,
+  }) {
+    return timekeepingNotFound(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(ServerError value)? serverError,
+    TResult Function(Unauthenticated value)? unauthenticated,
+    TResult Function(QrCodeNotMatch value)? qrCodeNotMatch,
+    TResult Function(TimekeepingNotFound value)? timekeepingNotFound,
+  }) {
+    return timekeepingNotFound?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ServerError value)? serverError,
+    TResult Function(Unauthenticated value)? unauthenticated,
+    TResult Function(QrCodeNotMatch value)? qrCodeNotMatch,
+    TResult Function(TimekeepingNotFound value)? timekeepingNotFound,
+    required TResult orElse(),
+  }) {
+    if (timekeepingNotFound != null) {
+      return timekeepingNotFound(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class TimekeepingNotFound implements TimekeepingFailure {
+  const factory TimekeepingNotFound() = _$TimekeepingNotFound;
 }
