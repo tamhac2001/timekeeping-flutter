@@ -8,7 +8,9 @@ import '../core/app_widgets.dart';
 import 'widgets.dart';
 
 class AbsentFormScreen extends StatelessWidget {
-  const AbsentFormScreen({Key? key}) : super(key: key);
+  AbsentFormScreen({Key? key}) : super(key: key);
+
+  final _noteController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -17,17 +19,20 @@ class AbsentFormScreen extends StatelessWidget {
       listener: (context, state) {
         if (state.failureOrUnit != null) {
           state.failureOrUnit!.fold(
-              (failure) => failure.when(
-                  serverError: () =>
-                      showMyDialog(context, title: 'Xin nghỉ phép', text: 'Lỗi server', barrierDismissible: true),
-                  unAuthenticated: () => showMyDialog(context,
-                      title: 'Xin nghỉ phép', text: 'Phiên đăng nhập hết hạn', barrierDismissible: true)), (_) {
-            showMyDialog(context, title: 'Xin nghỉ phép', text: 'Xin nghỉ phép thành công', barrierDismissible: true);
-            context.read<AbsentFormBloc>().add(const AbsentFormEvent.cancelled());
-          });
+            (failure) => failure.when(
+                serverError: () =>
+                    showMyDialog(context, title: 'Xin nghỉ phép', text: 'Lỗi server', barrierDismissible: true),
+                unAuthenticated: () => showMyDialog(context,
+                    title: 'Xin nghỉ phép', text: 'Phiên đăng nhập hết hạn', barrierDismissible: true)),
+            (_) {
+              showMyDialog(context, title: 'Xin nghỉ phép', text: 'Xin nghỉ phép thành công', barrierDismissible: true)
+                  .whenComplete(() => context.read<AbsentFormBloc>().add(const AbsentFormEvent.cancelled()));
+              _noteController.clear();
+            },
+          );
         }
       },
-      buildWhen: (previous, current) => previous.isSubmitting != current.isSubmitting,
+      buildWhen: (previous, current) => previous.failureOrUnit != current.failureOrUnit,
       builder: (context, state) {
         return IgnorePointer(
           ignoring: state.isSubmitting,
@@ -45,7 +50,7 @@ class AbsentFormScreen extends StatelessWidget {
                     children: [
                       const Flexible(flex: 2, child: TitleText('Thời gian')),
                       BlocBuilder<AbsentFormBloc, AbsentFormState>(
-                         builder: (context, state) {
+                        builder: (context, state) {
                           return Flexible(
                             flex: 3,
                             child: Column(
@@ -123,6 +128,7 @@ class AbsentFormScreen extends StatelessWidget {
                           builder: (context, state) {
                             return Expanded(
                               child: TextField(
+                                controller: _noteController,
                                 decoration: const InputDecoration(
                                   border: OutlineInputBorder(),
                                 ),

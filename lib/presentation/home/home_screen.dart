@@ -25,12 +25,11 @@ class HomeScreen extends StatelessWidget {
       providers: [
         BlocProvider<CheckinCheckoutScreenBloc>(
           create: (context) {
-            final bloc = CheckinCheckoutScreenBloc(
+            return CheckinCheckoutScreenBloc(
               repository: RepositoryProvider.of<TimekeepingRepository>(context),
-            );
-            // bloc.add(const CheckinCheckoutScreenEvent.getSchedule());
-            // bloc.add(const CheckinCheckoutScreenEvent.getTimekeeping());
-            return bloc;
+            )
+              ..add(const CheckinCheckoutScreenEvent.getSchedule())
+              ..add(const CheckinCheckoutScreenEvent.getTimekeeping());
           },
         ),
         BlocProvider<QrScanScreenBloc>(
@@ -39,16 +38,17 @@ class HomeScreen extends StatelessWidget {
           },
         ),
         BlocProvider<TimekeepingRecordScreenBloc>(
-          create: (context) => TimekeepingRecordScreenBloc(),
-          lazy: false,
-        ),
+            create: (context) => TimekeepingRecordScreenBloc(
+                timekeepingRepository: RepositoryProvider.of<TimekeepingRepository>(context))
+              ..add(const TimekeepingRecordScreenEvent.getEmployeeStartDate())
+              ..add(const TimekeepingRecordScreenEvent.getSchedule())
+              ..add(const TimekeepingRecordScreenEvent.getTimekeepingRecords())),
         BlocProvider<AbsentFormBloc>(
             create: (context) => AbsentFormBloc(repository: RepositoryProvider.of<AbsentRepository>(context))),
         BlocProvider<ProfileScreenBloc>(
           create: (context) {
             final bloc = ProfileScreenBloc(
               employeeRepository: RepositoryProvider.of<EmployeeRepository>(context),
-              storage: RepositoryProvider.of<SecureStorageRepository>(context),
             );
             bloc.add(const ProfileScreenEvent.employeeRequest());
             return bloc;
@@ -63,7 +63,7 @@ class HomeScreen extends StatelessWidget {
             QrScannerScreen(),
           ]),
           const TimekeepingRecordScreen(),
-          const AbsentFormScreen(),
+          AbsentFormScreen(),
           const ProfileScreen(),
         ],
         bottomNavigationBuilder: (context, tabsRouter) => MyBottomAppBar(

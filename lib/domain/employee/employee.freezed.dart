@@ -23,7 +23,7 @@ mixin _$Employee {
   String get phoneNumber => throw _privateConstructorUsedError;
   String get address => throw _privateConstructorUsedError;
   Uint8List? get avatar => throw _privateConstructorUsedError;
-  DateTime get dateStart => throw _privateConstructorUsedError;
+  DateTime get startDate => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $EmployeeCopyWith<Employee> get copyWith =>
@@ -42,7 +42,7 @@ abstract class $EmployeeCopyWith<$Res> {
       String phoneNumber,
       String address,
       Uint8List? avatar,
-      DateTime dateStart});
+      DateTime startDate});
 }
 
 /// @nodoc
@@ -62,7 +62,7 @@ class _$EmployeeCopyWithImpl<$Res> implements $EmployeeCopyWith<$Res> {
     Object? phoneNumber = freezed,
     Object? address = freezed,
     Object? avatar = freezed,
-    Object? dateStart = freezed,
+    Object? startDate = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed
@@ -93,9 +93,9 @@ class _$EmployeeCopyWithImpl<$Res> implements $EmployeeCopyWith<$Res> {
           ? _value.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
               as Uint8List?,
-      dateStart: dateStart == freezed
-          ? _value.dateStart
-          : dateStart // ignore: cast_nullable_to_non_nullable
+      startDate: startDate == freezed
+          ? _value.startDate
+          : startDate // ignore: cast_nullable_to_non_nullable
               as DateTime,
     ));
   }
@@ -115,7 +115,7 @@ abstract class _$$_EmployeeCopyWith<$Res> implements $EmployeeCopyWith<$Res> {
       String phoneNumber,
       String address,
       Uint8List? avatar,
-      DateTime dateStart});
+      DateTime startDate});
 }
 
 /// @nodoc
@@ -137,7 +137,7 @@ class __$$_EmployeeCopyWithImpl<$Res> extends _$EmployeeCopyWithImpl<$Res>
     Object? phoneNumber = freezed,
     Object? address = freezed,
     Object? avatar = freezed,
-    Object? dateStart = freezed,
+    Object? startDate = freezed,
   }) {
     return _then(_$_Employee(
       id: id == freezed
@@ -168,9 +168,9 @@ class __$$_EmployeeCopyWithImpl<$Res> extends _$EmployeeCopyWithImpl<$Res>
           ? _value.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
               as Uint8List?,
-      dateStart: dateStart == freezed
-          ? _value.dateStart
-          : dateStart // ignore: cast_nullable_to_non_nullable
+      startDate: startDate == freezed
+          ? _value.startDate
+          : startDate // ignore: cast_nullable_to_non_nullable
               as DateTime,
     ));
   }
@@ -187,7 +187,7 @@ class _$_Employee implements _Employee {
       required this.phoneNumber,
       required this.address,
       required this.avatar,
-      required this.dateStart});
+      required this.startDate});
 
   @override
   final int id;
@@ -204,11 +204,11 @@ class _$_Employee implements _Employee {
   @override
   final Uint8List? avatar;
   @override
-  final DateTime dateStart;
+  final DateTime startDate;
 
   @override
   String toString() {
-    return 'Employee(id: $id, code: $code, name: $name, gender: $gender, phoneNumber: $phoneNumber, address: $address, avatar: $avatar, dateStart: $dateStart)';
+    return 'Employee(id: $id, code: $code, name: $name, gender: $gender, phoneNumber: $phoneNumber, address: $address, avatar: $avatar, startDate: $startDate)';
   }
 
   @override
@@ -224,7 +224,7 @@ class _$_Employee implements _Employee {
                 .equals(other.phoneNumber, phoneNumber) &&
             const DeepCollectionEquality().equals(other.address, address) &&
             const DeepCollectionEquality().equals(other.avatar, avatar) &&
-            const DeepCollectionEquality().equals(other.dateStart, dateStart));
+            const DeepCollectionEquality().equals(other.startDate, startDate));
   }
 
   @override
@@ -237,7 +237,7 @@ class _$_Employee implements _Employee {
       const DeepCollectionEquality().hash(phoneNumber),
       const DeepCollectionEquality().hash(address),
       const DeepCollectionEquality().hash(avatar),
-      const DeepCollectionEquality().hash(dateStart));
+      const DeepCollectionEquality().hash(startDate));
 
   @JsonKey(ignore: true)
   @override
@@ -254,7 +254,7 @@ abstract class _Employee implements Employee {
       required final String phoneNumber,
       required final String address,
       required final Uint8List? avatar,
-      required final DateTime dateStart}) = _$_Employee;
+      required final DateTime startDate}) = _$_Employee;
 
   @override
   int get id => throw _privateConstructorUsedError;
@@ -271,7 +271,7 @@ abstract class _Employee implements Employee {
   @override
   Uint8List? get avatar => throw _privateConstructorUsedError;
   @override
-  DateTime get dateStart => throw _privateConstructorUsedError;
+  DateTime get startDate => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$$_EmployeeCopyWith<_$_Employee> get copyWith =>

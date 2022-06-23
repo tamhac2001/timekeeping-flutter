@@ -25,22 +25,20 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState> 
     on<AuthenticationEvent>((event, emit) async {
       await event.when(
         authRequest: () async {
-          final auth = await _authenticationRepository
-              .authRequest()
-              .timeout(const Duration(seconds: timeOutDuration), onTimeout: () => null);
+          final auth = await _authenticationRepository.authRequest().timeout(timeOutDuration, onTimeout: () => null);
           if (auth == null) {
             emit(const AuthenticationState.unauthenticated());
           } else if (DateTime.now().isAfter(auth.expireDate)) {
             emit(const AuthenticationState.unauthenticated());
           } else {
-            final employee = await _employeeRepository.getEmployee(accessToken: auth.accessToken);
+            final employee = await _employeeRepository.getEmployee();
             employee.fold((failure) => emit(const AuthenticationState.unauthenticated()),
                 (employee) => emit(AuthenticationState.authenticated(auth.accessToken, employee.id.toString())));
           }
         },
         logout: () async {
           await _authenticationRepository.logout();
-          emit(const AuthenticationState.initial());
+          emit(const AuthenticationState.unauthenticated());
         },
       );
     });

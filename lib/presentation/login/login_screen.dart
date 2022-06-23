@@ -32,7 +32,7 @@ class LoginScreen extends StatelessWidget {
             },
           );
         }, builder: (context, state) {
-          if (state.maybeWhen(initial: () => true, orElse: () => false)) {
+          if (state.when(initial: () => true, unauthenticated: () => false, authenticated: (_, __) => false)) {
             context.read<AuthenticationBloc>().add(const AuthenticationEvent.authRequest());
           }
           return state.when(

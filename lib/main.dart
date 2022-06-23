@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_native_timezone/flutter_native_timezone.dart';
+import 'package:timezone/data/latest_all.dart' as tz;
+import 'package:timezone/timezone.dart' as tz;
 
 import 'application/auth/authentication_bloc.dart';
 import 'application/notification/notification_bloc.dart';
@@ -18,7 +21,11 @@ import 'infrastructure/timekeeping/timekeeping_repository.dart';
 import 'presentation/routes/app_router.gr.dart';
 
 Future<void> main() async {
+  tz.initializeTimeZones();
   WidgetsFlutterBinding.ensureInitialized();
+  final String timeZoneName = await FlutterNativeTimezone.getLocalTimezone();
+
+  tz.setLocalLocation(tz.getLocation(timeZoneName));
   runApp(MyApp());
 }
 
@@ -80,8 +87,11 @@ class MyApp extends StatelessWidget {
               // or simply save your changes to "hot reload" in a Flutter IDE).
               // Notice that the counter didn't reset back to zero; the application
               // is not restarted.
+              primaryColorLight: Colors.white,
+              // primaryColorDark: Colors.black87,
+
               primarySwatch: Colors.green,
-              primaryColor: Colors.green,
+              // primaryColor: Colors.green,
               textTheme: ThemeData.light().textTheme.copyWith()),
           routerDelegate: _appRouter.delegate(),
           routeInformationParser: _appRouter.defaultRouteParser(),

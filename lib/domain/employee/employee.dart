@@ -17,7 +17,7 @@ class Employee with _$Employee {
     required String phoneNumber,
     required String address,
     required Uint8List? avatar,
-    required DateTime dateStart,
+    required DateTime startDate,
   }) = _Employee;
 
   factory Employee.initial() => Employee(
@@ -28,7 +28,7 @@ class Employee with _$Employee {
       phoneNumber: '',
       address: '',
       avatar: null,
-      dateStart: DateTime.now());
+      startDate: DateTime.now());
 
   factory Employee.fromEmployeeDto(EmployeeDto employeeDto) => Employee(
       id: employeeDto.id,
@@ -37,10 +37,8 @@ class Employee with _$Employee {
       gender: employeeDto.gender,
       phoneNumber: employeeDto.phoneNumber,
       address: employeeDto.address,
-      avatar: employeeDto.avatar == null
-          ? null
-          : const Base64Decoder().convert(employeeDto.avatar!),
-      dateStart: employeeDto.dateStart);
+      avatar: employeeDto.avatar == null ? null : const Base64Decoder().convert(employeeDto.avatar!),
+      startDate: employeeDto.startDate);
 }
 
 enum Gender {

@@ -21,13 +21,10 @@ part 'profile_screen_bloc.freezed.dart';
 
 class ProfileScreenBloc extends Bloc<ProfileScreenEvent, ProfileScreenState> {
   final EmployeeRepository _employeeRepository;
-  final SecureStorageRepository _storage;
 
   ProfileScreenBloc({
     required EmployeeRepository employeeRepository,
-    required SecureStorageRepository storage,
   })  : _employeeRepository = employeeRepository,
-        _storage = storage,
         super(ProfileScreenState.initial()) {
     on<ProfileScreenEvent>((event, emit) async {
       await event.when(
@@ -35,9 +32,7 @@ class ProfileScreenBloc extends Bloc<ProfileScreenEvent, ProfileScreenState> {
           emit(state.copyWith(
             isLoading: true,
           ));
-          final accessToken = await _storage.accessToken;
-          final failureOrEmployee =
-              await _employeeRepository.getEmployee(accessToken: accessToken!);
+          final failureOrEmployee = await _employeeRepository.getEmployee();
           debugPrint(failureOrEmployee.toString());
           emit(state.copyWith(
             failureOrEmployee: failureOrEmployee,

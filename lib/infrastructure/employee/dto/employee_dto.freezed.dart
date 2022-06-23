@@ -27,7 +27,7 @@ mixin _$EmployeeDto {
   String get phoneNumber => throw _privateConstructorUsedError;
   String get address => throw _privateConstructorUsedError;
   String? get avatar => throw _privateConstructorUsedError;
-  DateTime get dateStart => throw _privateConstructorUsedError;
+  DateTime get startDate => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -48,7 +48,7 @@ abstract class $EmployeeDtoCopyWith<$Res> {
       String phoneNumber,
       String address,
       String? avatar,
-      DateTime dateStart});
+      DateTime startDate});
 }
 
 /// @nodoc
@@ -68,7 +68,7 @@ class _$EmployeeDtoCopyWithImpl<$Res> implements $EmployeeDtoCopyWith<$Res> {
     Object? phoneNumber = freezed,
     Object? address = freezed,
     Object? avatar = freezed,
-    Object? dateStart = freezed,
+    Object? startDate = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed
@@ -99,9 +99,9 @@ class _$EmployeeDtoCopyWithImpl<$Res> implements $EmployeeDtoCopyWith<$Res> {
           ? _value.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
               as String?,
-      dateStart: dateStart == freezed
-          ? _value.dateStart
-          : dateStart // ignore: cast_nullable_to_non_nullable
+      startDate: startDate == freezed
+          ? _value.startDate
+          : startDate // ignore: cast_nullable_to_non_nullable
               as DateTime,
     ));
   }
@@ -122,7 +122,7 @@ abstract class _$$_EmployeeDtoCopyWith<$Res>
       String phoneNumber,
       String address,
       String? avatar,
-      DateTime dateStart});
+      DateTime startDate});
 }
 
 /// @nodoc
@@ -144,7 +144,7 @@ class __$$_EmployeeDtoCopyWithImpl<$Res> extends _$EmployeeDtoCopyWithImpl<$Res>
     Object? phoneNumber = freezed,
     Object? address = freezed,
     Object? avatar = freezed,
-    Object? dateStart = freezed,
+    Object? startDate = freezed,
   }) {
     return _then(_$_EmployeeDto(
       id: id == freezed
@@ -175,9 +175,9 @@ class __$$_EmployeeDtoCopyWithImpl<$Res> extends _$EmployeeDtoCopyWithImpl<$Res>
           ? _value.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
               as String?,
-      dateStart: dateStart == freezed
-          ? _value.dateStart
-          : dateStart // ignore: cast_nullable_to_non_nullable
+      startDate: startDate == freezed
+          ? _value.startDate
+          : startDate // ignore: cast_nullable_to_non_nullable
               as DateTime,
     ));
   }
@@ -195,7 +195,7 @@ class _$_EmployeeDto with DiagnosticableTreeMixin implements _EmployeeDto {
       required this.phoneNumber,
       required this.address,
       required this.avatar,
-      required this.dateStart});
+      required this.startDate});
 
   factory _$_EmployeeDto.fromJson(Map<String, dynamic> json) =>
       _$$_EmployeeDtoFromJson(json);
@@ -215,11 +215,11 @@ class _$_EmployeeDto with DiagnosticableTreeMixin implements _EmployeeDto {
   @override
   final String? avatar;
   @override
-  final DateTime dateStart;
+  final DateTime startDate;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'EmployeeDto(id: $id, code: $code, name: $name, gender: $gender, phoneNumber: $phoneNumber, address: $address, avatar: $avatar, dateStart: $dateStart)';
+    return 'EmployeeDto(id: $id, code: $code, name: $name, gender: $gender, phoneNumber: $phoneNumber, address: $address, avatar: $avatar, startDate: $startDate)';
   }
 
   @override
@@ -234,7 +234,7 @@ class _$_EmployeeDto with DiagnosticableTreeMixin implements _EmployeeDto {
       ..add(DiagnosticsProperty('phoneNumber', phoneNumber))
       ..add(DiagnosticsProperty('address', address))
       ..add(DiagnosticsProperty('avatar', avatar))
-      ..add(DiagnosticsProperty('dateStart', dateStart));
+      ..add(DiagnosticsProperty('startDate', startDate));
   }
 
   @override
@@ -250,7 +250,7 @@ class _$_EmployeeDto with DiagnosticableTreeMixin implements _EmployeeDto {
                 .equals(other.phoneNumber, phoneNumber) &&
             const DeepCollectionEquality().equals(other.address, address) &&
             const DeepCollectionEquality().equals(other.avatar, avatar) &&
-            const DeepCollectionEquality().equals(other.dateStart, dateStart));
+            const DeepCollectionEquality().equals(other.startDate, startDate));
   }
 
   @JsonKey(ignore: true)
@@ -264,7 +264,7 @@ class _$_EmployeeDto with DiagnosticableTreeMixin implements _EmployeeDto {
       const DeepCollectionEquality().hash(phoneNumber),
       const DeepCollectionEquality().hash(address),
       const DeepCollectionEquality().hash(avatar),
-      const DeepCollectionEquality().hash(dateStart));
+      const DeepCollectionEquality().hash(startDate));
 
   @JsonKey(ignore: true)
   @override
@@ -286,7 +286,7 @@ abstract class _EmployeeDto implements EmployeeDto {
       required final String phoneNumber,
       required final String address,
       required final String? avatar,
-      required final DateTime dateStart}) = _$_EmployeeDto;
+      required final DateTime startDate}) = _$_EmployeeDto;
 
   factory _EmployeeDto.fromJson(Map<String, dynamic> json) =
       _$_EmployeeDto.fromJson;
@@ -306,7 +306,7 @@ abstract class _EmployeeDto implements EmployeeDto {
   @override
   String? get avatar => throw _privateConstructorUsedError;
   @override
-  DateTime get dateStart => throw _privateConstructorUsedError;
+  DateTime get startDate => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$$_EmployeeDtoCopyWith<_$_EmployeeDto> get copyWith =>

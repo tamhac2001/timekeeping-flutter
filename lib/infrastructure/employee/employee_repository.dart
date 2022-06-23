@@ -17,11 +17,12 @@ class EmployeeRepository {
   })  : _apiClient = apiClient,
         _storage = storage;
 
-  Future<Either<EmployeeFailure, Employee>> getEmployee(
-      {required String accessToken}) async {
+  Future<Either<EmployeeFailure, Employee>> getEmployee() async {
     try {
-      final employeeDto = await _apiClient.fetchData(accessToken: accessToken);
+      final accessToken = await _storage.accessToken;
+      final employeeDto = await _apiClient.fetchData(accessToken: accessToken!);
       _storage.setEmployeeId(employeeDto.id);
+      _storage.setEmployeeStartDate(employeeDto.startDate);
       return right(Employee.fromEmployeeDto(employeeDto));
     } on EmployeeException catch (e) {
       if (e.message == 'server-error') {

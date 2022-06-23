@@ -29,7 +29,19 @@ class CheckinCheckoutScreenBloc extends Bloc<CheckinCheckoutScreenEvent, Checkin
         super(CheckinCheckoutScreenState.empty()) {
     _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
       add(const CheckinCheckoutScreenEvent.clockTick());
-      add(const CheckinCheckoutScreenEvent.updateNextCheckTime());
+      final now = DateTime.now();
+      if (now.isAtSameMomentAs(state.schedule.morningShiftStart.toTodayDateTime().add(const Duration(minutes: 30)))) {
+        add(const CheckinCheckoutScreenEvent.getTimekeeping());
+      } else if (now
+          .isAtSameMomentAs(state.schedule.morningShiftEnd.toTodayDateTime().add(const Duration(minutes: 30)))) {
+        add(const CheckinCheckoutScreenEvent.getTimekeeping());
+      } else if (now
+          .isAtSameMomentAs(state.schedule.afternoonShiftStart.toTodayDateTime().add(const Duration(minutes: 30)))) {
+        add(const CheckinCheckoutScreenEvent.getTimekeeping());
+      } else if (now
+          .isAtSameMomentAs(state.schedule.afternoonShiftEnd.toTodayDateTime().add(const Duration(minutes: 30)))) {
+        add(const CheckinCheckoutScreenEvent.getTimekeeping());
+      }
     });
 
     on<CheckinCheckoutScreenEvent>((event, emit) async {
@@ -38,28 +50,52 @@ class CheckinCheckoutScreenBloc extends Bloc<CheckinCheckoutScreenEvent, Checkin
         getSchedule: () async {
           emit(state.copyWith(isChecking: false, isLoading: true));
           final schedule = await _repository.getSchedule();
-          emit(state.copyWith(isLoading: false, schedule: schedule));
+          emit(state.copyWith(schedule: schedule));
+          emit(state.copyWith(isLoading: false));
         },
         updateNextCheckTime: () async {
-          if (state.currentTime.isBefore(state.schedule.morningShiftStart.toDateTime())) {
-            emit(state.copyWith(nextCheckTime: state.schedule.morningShiftStart));
-          } else if (state.currentTime.isBefore(state.schedule.morningShiftEnd.toDateTime())) {
-            emit(state.copyWith(nextCheckTime: state.schedule.morningShiftEnd));
-          } else if (state.currentTime.isBefore(state.schedule.afternoonShiftStart.toDateTime())) {
-            emit(state.copyWith(nextCheckTime: state.schedule.afternoonShiftStart));
-          } else if (state.currentTime.isBefore(state.schedule.afternoonShiftEnd.toDateTime())) {
-            emit(state.copyWith(nextCheckTime: state.schedule.afternoonShiftEnd));
+          if (state.failureOrTimekeeping == null) {
+            if (state.currentTime.isBefore(state.schedule.morningShiftStart.toTodayDateTime())) {
+              emit(state.copyWith(nextCheckTime: state.schedule.morningShiftStart));
+            } else if (state.currentTime.isBefore(state.schedule.morningShiftEnd.toTodayDateTime())) {
+              emit(state.copyWith(nextCheckTime: state.schedule.morningShiftEnd));
+            } else if (state.currentTime.isBefore(state.schedule.afternoonShiftStart.toTodayDateTime())) {
+              emit(state.copyWith(nextCheckTime: state.schedule.afternoonShiftStart));
+            } else if (state.currentTime.isBefore(state.schedule.afternoonShiftEnd.toTodayDateTime())) {
+              emit(state.copyWith(nextCheckTime: state.schedule.afternoonShiftEnd));
+            } else {
+              emit(state.copyWith(nextCheckTime: state.schedule.morningShiftStart));
+            }
           } else {
-            emit(state.copyWith(nextCheckTime: state.schedule.morningShiftStart));
+            if (state.failureOrTimekeeping!.fold((l) => false,
+                (timekeeping) => timekeeping.morningShiftStart.maybeWhen(unknown: (_) => true, orElse: () => false))) {
+              emit(state.copyWith(nextCheckTime: state.schedule.morningShiftStart));
+            } else if (state.failureOrTimekeeping!.fold((l) => false,
+                (timekeeping) => timekeeping.morningShiftEnd.maybeWhen(unknown: (_) => true, orElse: () => false))) {
+              emit(state.copyWith(nextCheckTime: state.schedule.morningShiftEnd));
+            } else if (state.failureOrTimekeeping!.fold(
+                (l) => false,
+                (timekeeping) =>
+                    timekeeping.afternoonShiftStart.maybeWhen(unknown: (_) => true, orElse: () => false))) {
+              emit(state.copyWith(nextCheckTime: state.schedule.afternoonShiftStart));
+            } else if (state.failureOrTimekeeping!.fold((l) => false,
+                (timekeeping) => timekeeping.afternoonShiftEnd.maybeWhen(unknown: (_) => true, orElse: () => false))) {
+              emit(state.copyWith(nextCheckTime: state.schedule.afternoonShiftEnd));
+            } else {
+              emit(state.copyWith(nextCheckTime: state.schedule.morningShiftStart));
+            }
           }
         },
         qrScanned: (isScanning) async {
           emit(state.copyWith(isChecking: isScanning, isLoading: false));
         },
         getTimekeeping: () async {
+          debugPrint('getTimekeeping called');
           emit(state.copyWith(isChecking: false, isLoading: true));
           final failureOrTimekeeping = await _repository.getTimekeepingToday();
-          emit(state.copyWith(isLoading: false, failureOrTimekeeping: failureOrTimekeeping));
+          emit(state.copyWith(failureOrTimekeeping: failureOrTimekeeping));
+          add(const CheckinCheckoutScreenEvent.updateNextCheckTime());
+          emit(state.copyWith(isLoading: false));
         },
       );
     });

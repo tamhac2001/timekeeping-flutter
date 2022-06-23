@@ -1,7 +1,9 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+
 import '../../utils/extensions.dart';
+import '../../../constants.dart' as constant;
 
 part 'check_in_status.freezed.dart';
 
@@ -9,26 +11,26 @@ part 'check_in_status.freezed.dart';
 class CheckInStatus with _$CheckInStatus {
   const CheckInStatus._();
 
-  const factory CheckInStatus.unknown() = _Unknown;
+  const factory CheckInStatus.unknown(TimeOfDay scheduledTime) = _Unknown;
 
-  const factory CheckInStatus.onTime(DateTime checkInTime) = _OnTime;
+  const factory CheckInStatus.onTime(TimeOfDay scheduledTime, DateTime checkInTime) = _OnTime;
 
-  const factory CheckInStatus.late(DateTime checkInTime) = _Late;
+  const factory CheckInStatus.late(TimeOfDay scheduledTime, DateTime checkInTime) = _Late;
 
-  const factory CheckInStatus.forgot() = _Forgot;
+  const factory CheckInStatus.forgot(TimeOfDay scheduledTime) = _Forgot;
 
-  factory CheckInStatus(DateTime? checkInTime, TimeOfDay scheduledTime) {
+  factory CheckInStatus(DateTime checkInDate, DateTime? checkInTime, TimeOfDay scheduledTime) {
     if (checkInTime == null) {
-      if (DateTime.now().isAfter(scheduledTime.toDateTime().add(const Duration(minutes: 30)))) {
-        return const CheckInStatus.forgot();
+      if (DateTime.now().isAfter(scheduledTime.toCheckInDate(checkInDate).add(const Duration(minutes: 30)))) {
+        return CheckInStatus.forgot(scheduledTime);
       } else {
-        return const CheckInStatus.unknown();
+        return CheckInStatus.unknown(scheduledTime);
       }
     } else {
-      if (checkInTime.isAfter(scheduledTime.toDateTime())) {
-        return CheckInStatus.late(checkInTime);
+      if (checkInTime.isAfter(scheduledTime.toCheckInDate(checkInDate))) {
+        return CheckInStatus.late(scheduledTime, checkInTime);
       } else {
-        return CheckInStatus.onTime(checkInTime);
+        return CheckInStatus.onTime(scheduledTime, checkInTime);
       }
     }
   }
@@ -36,17 +38,25 @@ class CheckInStatus with _$CheckInStatus {
   @override
   String toString() {
     return when(
-        unknown: () => 'Chưa điểm danh',
-        onTime: (time) => 'Điểm danh: ${time.toDisplayedTime()}',
-        late: (time) => 'Điểm danh trễ: ${time.toDisplayedTime()}',
-        forgot: () => 'Không điểm danh');
+        unknown: (_) => 'Chưa điểm danh',
+        onTime: (_, time) => 'Điểm danh: ${time.toDisplayedTime()}',
+        late: (_, time) => 'Điểm danh trễ: ${time.toDisplayedTime()}',
+        forgot: (_) => 'Không điểm danh');
   }
 
   Icon? toIcon() {
     return when(
-        unknown: () => null,
-        onTime: (_) => const Icon(Icons.done, color: Colors.green),
-        late: (_) => const Icon(Icons.report_problem, color: Colors.yellow),
-        forgot: () => const Icon(Icons.thumb_down, color: Colors.redAccent));
+        unknown: (_) => null,
+        onTime: (_, __) => const Icon(Icons.done, color: Colors.green),
+        late: (_, __) => Icon(Icons.report_problem, color: Colors.yellow.shade700),
+        forgot: (_) => const Icon(Icons.thumb_down, color: Colors.red));
+  }
+
+  Color toColor() {
+    return when(
+        unknown: (_) => Colors.grey.shade100,
+        onTime: (_, __) => Colors.green,
+        late: (_, __) => Colors.yellow.shade800,
+        forgot: (_) => Colors.red);
   }
 }

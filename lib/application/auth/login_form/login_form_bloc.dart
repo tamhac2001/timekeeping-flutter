@@ -42,10 +42,8 @@ class LoginFormBloc extends Bloc<LoginFormEvent, LoginFormState> {
               isSubmitting: true,
               authFailureOrSuccess: null,
             ));
-            failureOrSuccess = await _authenticationRepository.login(
-                email: state.email, password: state.password);
+            failureOrSuccess = await _authenticationRepository.login(email: state.email, password: state.password);
           }
-          debugPrint('login: $failureOrSuccess');
           emit(state.copyWith(
             isSubmitting: false,
             showErrorMessages: AutovalidateMode.always,

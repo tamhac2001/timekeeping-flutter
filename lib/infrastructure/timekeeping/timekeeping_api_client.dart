@@ -5,12 +5,13 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:timekeeping/infrastructure/timekeeping/i_timekeeping_api_client.dart';
 
+import '../../constants.dart';
 import 'dto/qr_code_dto.dart';
 import 'dto/timekeeping_dto.dart';
 
 class TimekeepingApiClient implements ITimekeepingApiClient {
   // static const _uri = 'https://lazy-taxis-rhyme-115-75-181-199.loca.lt/timekeepings';
-  static const _uri = 'http://10.0.2.2:3000/timekeepings';
+  static const _uri = '$apiEndPoint/timekeepings';
 
   final httpClient = http.Client();
 
@@ -52,7 +53,7 @@ class TimekeepingApiClient implements ITimekeepingApiClient {
       throw TimekeepingException.timekeepingNotFound();
     }
     List<TimekeepingDto> timekeepingByMonth =
-        (jsonDecode(response.body) as List<Map<String, dynamic>>).map((json) => TimekeepingDto.fromJson(json)).toList();
+        (jsonDecode(response.body) as List<dynamic>).map((json) => TimekeepingDto.fromJson(json)).toList();
     return timekeepingByMonth;
   }
 

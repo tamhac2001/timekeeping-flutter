@@ -57,29 +57,16 @@ SnackBar mySnackBar(String content) {
   return SnackBar(content: Text(content));
 }
 
-Future<void> showLoadingDialog(
-  BuildContext context,
-) async {
-  return showDialog(
-      context: context,
-      barrierDismissible: false,
-      builder: (context) => const SimpleDialog(
-            children: [
-              CircularProgressIndicator(),
-            ],
-          ));
-}
-
 Future<void> showMyDialog(
   BuildContext context, {
   required String title,
   required String text,
-  bool? barrierDismissible = true,
+  bool barrierDismissible = true,
   List<Widget>? action,
 }) async {
   return showDialog<void>(
       context: context,
-      barrierDismissible: barrierDismissible!, // user must tap button!
+      barrierDismissible: barrierDismissible, // user must tap button!
       builder: (BuildContext context) => AlertDialog(
             title: Text(title),
             content: SingleChildScrollView(
@@ -93,7 +80,7 @@ Future<void> showMyDialog(
                 [
                   TextButton(
                       onPressed: () {
-                        AutoRouter.of(context).pop();
+                        context.router.pop();
                       },
                       child: const Text('OK'))
                 ],

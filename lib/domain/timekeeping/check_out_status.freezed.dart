@@ -16,28 +16,31 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$CheckOutStatus {
+  TimeOfDay get scheduledTime => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() unknown,
-    required TResult Function(DateTime checkInTime) onTime,
-    required TResult Function(DateTime checkOutTime) early,
-    required TResult Function() forgot,
+    required TResult Function(TimeOfDay scheduledTime) unknown,
+    required TResult Function(TimeOfDay scheduledTime, DateTime checkOutTime)
+        onTime,
+    required TResult Function(TimeOfDay scheduledTime, DateTime checkOutTime)
+        early,
+    required TResult Function(TimeOfDay scheduledTime) forgot,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? unknown,
-    TResult Function(DateTime checkInTime)? onTime,
-    TResult Function(DateTime checkOutTime)? early,
-    TResult Function()? forgot,
+    TResult Function(TimeOfDay scheduledTime)? unknown,
+    TResult Function(TimeOfDay scheduledTime, DateTime checkOutTime)? onTime,
+    TResult Function(TimeOfDay scheduledTime, DateTime checkOutTime)? early,
+    TResult Function(TimeOfDay scheduledTime)? forgot,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? unknown,
-    TResult Function(DateTime checkInTime)? onTime,
-    TResult Function(DateTime checkOutTime)? early,
-    TResult Function()? forgot,
+    TResult Function(TimeOfDay scheduledTime)? unknown,
+    TResult Function(TimeOfDay scheduledTime, DateTime checkOutTime)? onTime,
+    TResult Function(TimeOfDay scheduledTime, DateTime checkOutTime)? early,
+    TResult Function(TimeOfDay scheduledTime)? forgot,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -66,6 +69,10 @@ mixin _$CheckOutStatus {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $CheckOutStatusCopyWith<CheckOutStatus> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -73,6 +80,7 @@ abstract class $CheckOutStatusCopyWith<$Res> {
   factory $CheckOutStatusCopyWith(
           CheckOutStatus value, $Res Function(CheckOutStatus) then) =
       _$CheckOutStatusCopyWithImpl<$Res>;
+  $Res call({TimeOfDay scheduledTime});
 }
 
 /// @nodoc
@@ -83,13 +91,28 @@ class _$CheckOutStatusCopyWithImpl<$Res>
   final CheckOutStatus _value;
   // ignore: unused_field
   final $Res Function(CheckOutStatus) _then;
+
+  @override
+  $Res call({
+    Object? scheduledTime = freezed,
+  }) {
+    return _then(_value.copyWith(
+      scheduledTime: scheduledTime == freezed
+          ? _value.scheduledTime
+          : scheduledTime // ignore: cast_nullable_to_non_nullable
+              as TimeOfDay,
+    ));
+  }
 }
 
 /// @nodoc
-abstract class _$$_UnknownCopyWith<$Res> {
+abstract class _$$_UnknownCopyWith<$Res>
+    implements $CheckOutStatusCopyWith<$Res> {
   factory _$$_UnknownCopyWith(
           _$_Unknown value, $Res Function(_$_Unknown) then) =
       __$$_UnknownCopyWithImpl<$Res>;
+  @override
+  $Res call({TimeOfDay scheduledTime});
 }
 
 /// @nodoc
@@ -100,55 +123,81 @@ class __$$_UnknownCopyWithImpl<$Res> extends _$CheckOutStatusCopyWithImpl<$Res>
 
   @override
   _$_Unknown get _value => super._value as _$_Unknown;
+
+  @override
+  $Res call({
+    Object? scheduledTime = freezed,
+  }) {
+    return _then(_$_Unknown(
+      scheduledTime == freezed
+          ? _value.scheduledTime
+          : scheduledTime // ignore: cast_nullable_to_non_nullable
+              as TimeOfDay,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$_Unknown extends _Unknown {
-  const _$_Unknown() : super._();
+  const _$_Unknown(this.scheduledTime) : super._();
+
+  @override
+  final TimeOfDay scheduledTime;
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Unknown);
+        (other.runtimeType == runtimeType &&
+            other is _$_Unknown &&
+            const DeepCollectionEquality()
+                .equals(other.scheduledTime, scheduledTime));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(scheduledTime));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_UnknownCopyWith<_$_Unknown> get copyWith =>
+      __$$_UnknownCopyWithImpl<_$_Unknown>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() unknown,
-    required TResult Function(DateTime checkInTime) onTime,
-    required TResult Function(DateTime checkOutTime) early,
-    required TResult Function() forgot,
+    required TResult Function(TimeOfDay scheduledTime) unknown,
+    required TResult Function(TimeOfDay scheduledTime, DateTime checkOutTime)
+        onTime,
+    required TResult Function(TimeOfDay scheduledTime, DateTime checkOutTime)
+        early,
+    required TResult Function(TimeOfDay scheduledTime) forgot,
   }) {
-    return unknown();
+    return unknown(scheduledTime);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? unknown,
-    TResult Function(DateTime checkInTime)? onTime,
-    TResult Function(DateTime checkOutTime)? early,
-    TResult Function()? forgot,
+    TResult Function(TimeOfDay scheduledTime)? unknown,
+    TResult Function(TimeOfDay scheduledTime, DateTime checkOutTime)? onTime,
+    TResult Function(TimeOfDay scheduledTime, DateTime checkOutTime)? early,
+    TResult Function(TimeOfDay scheduledTime)? forgot,
   }) {
-    return unknown?.call();
+    return unknown?.call(scheduledTime);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? unknown,
-    TResult Function(DateTime checkInTime)? onTime,
-    TResult Function(DateTime checkOutTime)? early,
-    TResult Function()? forgot,
+    TResult Function(TimeOfDay scheduledTime)? unknown,
+    TResult Function(TimeOfDay scheduledTime, DateTime checkOutTime)? onTime,
+    TResult Function(TimeOfDay scheduledTime, DateTime checkOutTime)? early,
+    TResult Function(TimeOfDay scheduledTime)? forgot,
     required TResult orElse(),
   }) {
     if (unknown != null) {
-      return unknown();
+      return unknown(scheduledTime);
     }
     return orElse();
   }
@@ -192,15 +241,24 @@ class _$_Unknown extends _Unknown {
 }
 
 abstract class _Unknown extends CheckOutStatus {
-  const factory _Unknown() = _$_Unknown;
+  const factory _Unknown(final TimeOfDay scheduledTime) = _$_Unknown;
   const _Unknown._() : super._();
+
+  @override
+  TimeOfDay get scheduledTime => throw _privateConstructorUsedError;
+  @override
+  @JsonKey(ignore: true)
+  _$$_UnknownCopyWith<_$_Unknown> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_OnTimeCopyWith<$Res> {
+abstract class _$$_OnTimeCopyWith<$Res>
+    implements $CheckOutStatusCopyWith<$Res> {
   factory _$$_OnTimeCopyWith(_$_OnTime value, $Res Function(_$_OnTime) then) =
       __$$_OnTimeCopyWithImpl<$Res>;
-  $Res call({DateTime checkInTime});
+  @override
+  $Res call({TimeOfDay scheduledTime, DateTime checkOutTime});
 }
 
 /// @nodoc
@@ -214,12 +272,17 @@ class __$$_OnTimeCopyWithImpl<$Res> extends _$CheckOutStatusCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? checkInTime = freezed,
+    Object? scheduledTime = freezed,
+    Object? checkOutTime = freezed,
   }) {
     return _then(_$_OnTime(
-      checkInTime == freezed
-          ? _value.checkInTime
-          : checkInTime // ignore: cast_nullable_to_non_nullable
+      scheduledTime == freezed
+          ? _value.scheduledTime
+          : scheduledTime // ignore: cast_nullable_to_non_nullable
+              as TimeOfDay,
+      checkOutTime == freezed
+          ? _value.checkOutTime
+          : checkOutTime // ignore: cast_nullable_to_non_nullable
               as DateTime,
     ));
   }
@@ -228,10 +291,12 @@ class __$$_OnTimeCopyWithImpl<$Res> extends _$CheckOutStatusCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_OnTime extends _OnTime {
-  const _$_OnTime(this.checkInTime) : super._();
+  const _$_OnTime(this.scheduledTime, this.checkOutTime) : super._();
 
   @override
-  final DateTime checkInTime;
+  final TimeOfDay scheduledTime;
+  @override
+  final DateTime checkOutTime;
 
   @override
   bool operator ==(dynamic other) {
@@ -239,12 +304,16 @@ class _$_OnTime extends _OnTime {
         (other.runtimeType == runtimeType &&
             other is _$_OnTime &&
             const DeepCollectionEquality()
-                .equals(other.checkInTime, checkInTime));
+                .equals(other.scheduledTime, scheduledTime) &&
+            const DeepCollectionEquality()
+                .equals(other.checkOutTime, checkOutTime));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(checkInTime));
+      runtimeType,
+      const DeepCollectionEquality().hash(scheduledTime),
+      const DeepCollectionEquality().hash(checkOutTime));
 
   @JsonKey(ignore: true)
   @override
@@ -254,36 +323,38 @@ class _$_OnTime extends _OnTime {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() unknown,
-    required TResult Function(DateTime checkInTime) onTime,
-    required TResult Function(DateTime checkOutTime) early,
-    required TResult Function() forgot,
+    required TResult Function(TimeOfDay scheduledTime) unknown,
+    required TResult Function(TimeOfDay scheduledTime, DateTime checkOutTime)
+        onTime,
+    required TResult Function(TimeOfDay scheduledTime, DateTime checkOutTime)
+        early,
+    required TResult Function(TimeOfDay scheduledTime) forgot,
   }) {
-    return onTime(checkInTime);
+    return onTime(scheduledTime, checkOutTime);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? unknown,
-    TResult Function(DateTime checkInTime)? onTime,
-    TResult Function(DateTime checkOutTime)? early,
-    TResult Function()? forgot,
+    TResult Function(TimeOfDay scheduledTime)? unknown,
+    TResult Function(TimeOfDay scheduledTime, DateTime checkOutTime)? onTime,
+    TResult Function(TimeOfDay scheduledTime, DateTime checkOutTime)? early,
+    TResult Function(TimeOfDay scheduledTime)? forgot,
   }) {
-    return onTime?.call(checkInTime);
+    return onTime?.call(scheduledTime, checkOutTime);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? unknown,
-    TResult Function(DateTime checkInTime)? onTime,
-    TResult Function(DateTime checkOutTime)? early,
-    TResult Function()? forgot,
+    TResult Function(TimeOfDay scheduledTime)? unknown,
+    TResult Function(TimeOfDay scheduledTime, DateTime checkOutTime)? onTime,
+    TResult Function(TimeOfDay scheduledTime, DateTime checkOutTime)? early,
+    TResult Function(TimeOfDay scheduledTime)? forgot,
     required TResult orElse(),
   }) {
     if (onTime != null) {
-      return onTime(checkInTime);
+      return onTime(scheduledTime, checkOutTime);
     }
     return orElse();
   }
@@ -327,20 +398,26 @@ class _$_OnTime extends _OnTime {
 }
 
 abstract class _OnTime extends CheckOutStatus {
-  const factory _OnTime(final DateTime checkInTime) = _$_OnTime;
+  const factory _OnTime(
+      final TimeOfDay scheduledTime, final DateTime checkOutTime) = _$_OnTime;
   const _OnTime._() : super._();
 
-  DateTime get checkInTime => throw _privateConstructorUsedError;
+  @override
+  TimeOfDay get scheduledTime => throw _privateConstructorUsedError;
+  DateTime get checkOutTime => throw _privateConstructorUsedError;
+  @override
   @JsonKey(ignore: true)
   _$$_OnTimeCopyWith<_$_OnTime> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_EarlyCopyWith<$Res> {
+abstract class _$$_EarlyCopyWith<$Res>
+    implements $CheckOutStatusCopyWith<$Res> {
   factory _$$_EarlyCopyWith(_$_Early value, $Res Function(_$_Early) then) =
       __$$_EarlyCopyWithImpl<$Res>;
-  $Res call({DateTime checkOutTime});
+  @override
+  $Res call({TimeOfDay scheduledTime, DateTime checkOutTime});
 }
 
 /// @nodoc
@@ -354,9 +431,14 @@ class __$$_EarlyCopyWithImpl<$Res> extends _$CheckOutStatusCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? scheduledTime = freezed,
     Object? checkOutTime = freezed,
   }) {
     return _then(_$_Early(
+      scheduledTime == freezed
+          ? _value.scheduledTime
+          : scheduledTime // ignore: cast_nullable_to_non_nullable
+              as TimeOfDay,
       checkOutTime == freezed
           ? _value.checkOutTime
           : checkOutTime // ignore: cast_nullable_to_non_nullable
@@ -368,8 +450,10 @@ class __$$_EarlyCopyWithImpl<$Res> extends _$CheckOutStatusCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_Early extends _Early {
-  const _$_Early(this.checkOutTime) : super._();
+  const _$_Early(this.scheduledTime, this.checkOutTime) : super._();
 
+  @override
+  final TimeOfDay scheduledTime;
   @override
   final DateTime checkOutTime;
 
@@ -379,12 +463,16 @@ class _$_Early extends _Early {
         (other.runtimeType == runtimeType &&
             other is _$_Early &&
             const DeepCollectionEquality()
+                .equals(other.scheduledTime, scheduledTime) &&
+            const DeepCollectionEquality()
                 .equals(other.checkOutTime, checkOutTime));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(checkOutTime));
+      runtimeType,
+      const DeepCollectionEquality().hash(scheduledTime),
+      const DeepCollectionEquality().hash(checkOutTime));
 
   @JsonKey(ignore: true)
   @override
@@ -394,36 +482,38 @@ class _$_Early extends _Early {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() unknown,
-    required TResult Function(DateTime checkInTime) onTime,
-    required TResult Function(DateTime checkOutTime) early,
-    required TResult Function() forgot,
+    required TResult Function(TimeOfDay scheduledTime) unknown,
+    required TResult Function(TimeOfDay scheduledTime, DateTime checkOutTime)
+        onTime,
+    required TResult Function(TimeOfDay scheduledTime, DateTime checkOutTime)
+        early,
+    required TResult Function(TimeOfDay scheduledTime) forgot,
   }) {
-    return early(checkOutTime);
+    return early(scheduledTime, checkOutTime);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? unknown,
-    TResult Function(DateTime checkInTime)? onTime,
-    TResult Function(DateTime checkOutTime)? early,
-    TResult Function()? forgot,
+    TResult Function(TimeOfDay scheduledTime)? unknown,
+    TResult Function(TimeOfDay scheduledTime, DateTime checkOutTime)? onTime,
+    TResult Function(TimeOfDay scheduledTime, DateTime checkOutTime)? early,
+    TResult Function(TimeOfDay scheduledTime)? forgot,
   }) {
-    return early?.call(checkOutTime);
+    return early?.call(scheduledTime, checkOutTime);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? unknown,
-    TResult Function(DateTime checkInTime)? onTime,
-    TResult Function(DateTime checkOutTime)? early,
-    TResult Function()? forgot,
+    TResult Function(TimeOfDay scheduledTime)? unknown,
+    TResult Function(TimeOfDay scheduledTime, DateTime checkOutTime)? onTime,
+    TResult Function(TimeOfDay scheduledTime, DateTime checkOutTime)? early,
+    TResult Function(TimeOfDay scheduledTime)? forgot,
     required TResult orElse(),
   }) {
     if (early != null) {
-      return early(checkOutTime);
+      return early(scheduledTime, checkOutTime);
     }
     return orElse();
   }
@@ -467,19 +557,26 @@ class _$_Early extends _Early {
 }
 
 abstract class _Early extends CheckOutStatus {
-  const factory _Early(final DateTime checkOutTime) = _$_Early;
+  const factory _Early(
+      final TimeOfDay scheduledTime, final DateTime checkOutTime) = _$_Early;
   const _Early._() : super._();
 
+  @override
+  TimeOfDay get scheduledTime => throw _privateConstructorUsedError;
   DateTime get checkOutTime => throw _privateConstructorUsedError;
+  @override
   @JsonKey(ignore: true)
   _$$_EarlyCopyWith<_$_Early> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_ForgotCopyWith<$Res> {
+abstract class _$$_ForgotCopyWith<$Res>
+    implements $CheckOutStatusCopyWith<$Res> {
   factory _$$_ForgotCopyWith(_$_Forgot value, $Res Function(_$_Forgot) then) =
       __$$_ForgotCopyWithImpl<$Res>;
+  @override
+  $Res call({TimeOfDay scheduledTime});
 }
 
 /// @nodoc
@@ -490,55 +587,81 @@ class __$$_ForgotCopyWithImpl<$Res> extends _$CheckOutStatusCopyWithImpl<$Res>
 
   @override
   _$_Forgot get _value => super._value as _$_Forgot;
+
+  @override
+  $Res call({
+    Object? scheduledTime = freezed,
+  }) {
+    return _then(_$_Forgot(
+      scheduledTime == freezed
+          ? _value.scheduledTime
+          : scheduledTime // ignore: cast_nullable_to_non_nullable
+              as TimeOfDay,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$_Forgot extends _Forgot {
-  const _$_Forgot() : super._();
+  const _$_Forgot(this.scheduledTime) : super._();
+
+  @override
+  final TimeOfDay scheduledTime;
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Forgot);
+        (other.runtimeType == runtimeType &&
+            other is _$_Forgot &&
+            const DeepCollectionEquality()
+                .equals(other.scheduledTime, scheduledTime));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(scheduledTime));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_ForgotCopyWith<_$_Forgot> get copyWith =>
+      __$$_ForgotCopyWithImpl<_$_Forgot>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() unknown,
-    required TResult Function(DateTime checkInTime) onTime,
-    required TResult Function(DateTime checkOutTime) early,
-    required TResult Function() forgot,
+    required TResult Function(TimeOfDay scheduledTime) unknown,
+    required TResult Function(TimeOfDay scheduledTime, DateTime checkOutTime)
+        onTime,
+    required TResult Function(TimeOfDay scheduledTime, DateTime checkOutTime)
+        early,
+    required TResult Function(TimeOfDay scheduledTime) forgot,
   }) {
-    return forgot();
+    return forgot(scheduledTime);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? unknown,
-    TResult Function(DateTime checkInTime)? onTime,
-    TResult Function(DateTime checkOutTime)? early,
-    TResult Function()? forgot,
+    TResult Function(TimeOfDay scheduledTime)? unknown,
+    TResult Function(TimeOfDay scheduledTime, DateTime checkOutTime)? onTime,
+    TResult Function(TimeOfDay scheduledTime, DateTime checkOutTime)? early,
+    TResult Function(TimeOfDay scheduledTime)? forgot,
   }) {
-    return forgot?.call();
+    return forgot?.call(scheduledTime);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? unknown,
-    TResult Function(DateTime checkInTime)? onTime,
-    TResult Function(DateTime checkOutTime)? early,
-    TResult Function()? forgot,
+    TResult Function(TimeOfDay scheduledTime)? unknown,
+    TResult Function(TimeOfDay scheduledTime, DateTime checkOutTime)? onTime,
+    TResult Function(TimeOfDay scheduledTime, DateTime checkOutTime)? early,
+    TResult Function(TimeOfDay scheduledTime)? forgot,
     required TResult orElse(),
   }) {
     if (forgot != null) {
-      return forgot();
+      return forgot(scheduledTime);
     }
     return orElse();
   }
@@ -582,6 +705,13 @@ class _$_Forgot extends _Forgot {
 }
 
 abstract class _Forgot extends CheckOutStatus {
-  const factory _Forgot() = _$_Forgot;
+  const factory _Forgot(final TimeOfDay scheduledTime) = _$_Forgot;
   const _Forgot._() : super._();
+
+  @override
+  TimeOfDay get scheduledTime => throw _privateConstructorUsedError;
+  @override
+  @JsonKey(ignore: true)
+  _$$_ForgotCopyWith<_$_Forgot> get copyWith =>
+      throw _privateConstructorUsedError;
 }

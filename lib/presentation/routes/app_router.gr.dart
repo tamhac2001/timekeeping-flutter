@@ -55,8 +55,10 @@ class AppRouter extends _i11.RootStackRouter {
           routeData: routeData, child: const _i6.TimekeepingRecordScreen());
     },
     AbsentFormScreen.name: (routeData) {
+      final args = routeData.argsAs<AbsentFormScreenArgs>(
+          orElse: () => const AbsentFormScreenArgs());
       return _i11.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i7.AbsentFormScreen());
+          routeData: routeData, child: _i7.AbsentFormScreen(key: args.key));
     },
     ProfileScreen.name: (routeData) {
       return _i11.MaterialPageX<dynamic>(
@@ -153,10 +155,23 @@ class TimekeepingRecordScreen extends _i11.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i7.AbsentFormScreen]
-class AbsentFormScreen extends _i11.PageRouteInfo<void> {
-  const AbsentFormScreen() : super(AbsentFormScreen.name, path: 'absent_form');
+class AbsentFormScreen extends _i11.PageRouteInfo<AbsentFormScreenArgs> {
+  AbsentFormScreen({_i12.Key? key})
+      : super(AbsentFormScreen.name,
+            path: 'absent_form', args: AbsentFormScreenArgs(key: key));
 
   static const String name = 'AbsentFormScreen';
+}
+
+class AbsentFormScreenArgs {
+  const AbsentFormScreenArgs({this.key});
+
+  final _i12.Key? key;
+
+  @override
+  String toString() {
+    return 'AbsentFormScreenArgs{key: $key}';
+  }
 }
 
 /// generated route for

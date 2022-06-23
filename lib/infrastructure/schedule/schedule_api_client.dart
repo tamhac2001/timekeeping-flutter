@@ -3,13 +3,13 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:timekeeping/constants.dart';
 
 import 'dto/schedule_dto.dart';
 import 'i_schedule_api_client.dart';
 
 class ScheduleApiClient implements IScheduleApiClient {
-  // static const _uri = 'https://lazy-taxis-rhyme-115-75-181-199.loca.lt/schedules';
-  static const _uri = 'http://10.0.2.2:3000/schedules';
+  static const _uri = '$apiEndPoint/schedules';
 
   final httpClient = http.Client();
 
@@ -26,6 +26,7 @@ class ScheduleApiClient implements IScheduleApiClient {
       throw ScheduleException.serverError();
     }
     try {
+      // debugPrint('schedule Json: ${jsonDecode(response.body)}');
       final scheduleDTO = ScheduleDto.fromJson(jsonDecode(response.body));
       return scheduleDTO;
     } catch (e) {

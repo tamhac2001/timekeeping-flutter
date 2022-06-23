@@ -1,7 +1,9 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+
 import '../../utils/extensions.dart';
+import '../../../constants.dart' as constant;
 
 part 'check_out_status.freezed.dart';
 
@@ -9,26 +11,27 @@ part 'check_out_status.freezed.dart';
 class CheckOutStatus with _$CheckOutStatus {
   const CheckOutStatus._();
 
-  const factory CheckOutStatus.unknown() = _Unknown;
+  const factory CheckOutStatus.unknown(TimeOfDay scheduledTime) = _Unknown;
 
-  const factory CheckOutStatus.onTime(DateTime checkInTime) = _OnTime;
+  const factory CheckOutStatus.onTime(TimeOfDay scheduledTime, DateTime checkOutTime) = _OnTime;
 
-  const factory CheckOutStatus.early(DateTime checkOutTime) = _Early;
+  const factory CheckOutStatus.early(TimeOfDay scheduledTime, DateTime checkOutTime) = _Early;
 
-  const factory CheckOutStatus.forgot() = _Forgot;
+  const factory CheckOutStatus.forgot(TimeOfDay scheduledTime) = _Forgot;
 
-  factory CheckOutStatus(DateTime? checkInTime, TimeOfDay scheduledTime) {
-    if (checkInTime == null) {
-      if (DateTime.now().isAfter(scheduledTime.toDateTime().add(const Duration(minutes: 30)))) {
-        return const CheckOutStatus.forgot();
+  factory CheckOutStatus(DateTime checkInDate, DateTime? checkOutTime, TimeOfDay scheduledTime) {
+    if (checkOutTime == null) {
+      if (DateTime.now().isAfter(scheduledTime.toCheckInDate(checkInDate).add(const Duration(minutes: 30)))) {
+        return CheckOutStatus.forgot(scheduledTime);
       } else {
-        return const CheckOutStatus.unknown();
+        return CheckOutStatus.unknown(scheduledTime);
       }
     } else {
-      if (checkInTime.isBefore(scheduledTime.toDateTime().subtract(const Duration(minutes: 10)))) {
-        return CheckOutStatus.early(checkInTime);
+      if (checkOutTime
+          .isBefore(scheduledTime.toCheckInDate(checkInDate).subtract(constant.durationForValidCheckOutTime))) {
+        return CheckOutStatus.early(scheduledTime, checkOutTime);
       } else {
-        return CheckOutStatus.onTime(checkInTime);
+        return CheckOutStatus.onTime(scheduledTime, checkOutTime);
       }
     }
   }
@@ -36,17 +39,25 @@ class CheckOutStatus with _$CheckOutStatus {
   @override
   String toString() {
     return when(
-        unknown: () => 'Chưa điểm danh',
-        onTime: (time) => 'Điểm danh: ${time.toDisplayedTime()}',
-        early: (time) => 'Điểm danh sớm: ${time.toDisplayedTime()}',
-        forgot: () => 'Không điểm danh');
+        unknown: (_) => 'Chưa điểm danh',
+        onTime: (_, time) => 'Điểm danh: ${time.toDisplayedTime()}',
+        early: (_, time) => 'Điểm danh sớm: ${time.toDisplayedTime()}',
+        forgot: (_) => 'Không điểm danh');
   }
 
   Icon? toIcon() {
     return when(
-        unknown: () => null,
-        onTime: (_) => const Icon(Icons.done, color: Colors.green),
-        early: (_) => const Icon(Icons.report_problem, color: Colors.yellow),
-        forgot: () => const Icon(Icons.thumb_down, color: Colors.redAccent));
+        unknown: (_) => null,
+        onTime: (_, __) => const Icon(Icons.done, color: Colors.green),
+        early: (_, __) => Icon(Icons.report_problem, color: Colors.yellow.shade700),
+        forgot: (_) => const Icon(Icons.thumb_down, color: Colors.red));
+  }
+
+  Color toColor() {
+    return when(
+        unknown: (_) => Colors.grey.shade300,
+        onTime: (_, __) => Colors.green,
+        early: (_, __) => Colors.yellow.shade700,
+        forgot: (_) => Colors.red);
   }
 }

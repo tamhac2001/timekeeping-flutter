@@ -20,9 +20,11 @@ class ScheduleDto with _$ScheduleDto {
 
   factory ScheduleDto.fromJson(Map<String, dynamic> json) => _$ScheduleDtoFromJson(json);
 
-  factory ScheduleDto.fromDomain(Schedule schedule) => ScheduleDto(
-      morningShiftStart: schedule.morningShiftStart.toDateTime().toUtc(),
-      morningShiftEnd: schedule.morningShiftEnd.toDateTime().toUtc(),
-      afternoonShiftStart: schedule.afternoonShiftStart.toDateTime().toUtc(),
-      afternoonShiftEnd: schedule.afternoonShiftEnd.toDateTime().toUtc());
+  factory ScheduleDto.fromDomain(Schedule schedule, DateTime employeeStartDate) {
+    return ScheduleDto(
+        morningShiftStart: schedule.morningShiftStart.toDateTimeWithTime(employeeStartDate).toUtc(),
+        morningShiftEnd: schedule.morningShiftEnd.toDateTimeWithTime(employeeStartDate).toUtc(),
+        afternoonShiftStart: schedule.afternoonShiftStart.toDateTimeWithTime(employeeStartDate).toUtc(),
+        afternoonShiftEnd: schedule.afternoonShiftEnd.toDateTimeWithTime(employeeStartDate).toUtc());
+  }
 }

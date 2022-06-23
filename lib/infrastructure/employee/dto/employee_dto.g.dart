@@ -15,7 +15,7 @@ _$_EmployeeDto _$$_EmployeeDtoFromJson(Map<String, dynamic> json) =>
       phoneNumber: json['phone_number'] as String,
       address: json['address'] as String,
       avatar: json['avatar'] as String?,
-      dateStart: DateTime.parse(json['date_start'] as String),
+      startDate: DateTime.parse(json['start_date'] as String),
     );
 
 Map<String, dynamic> _$$_EmployeeDtoToJson(_$_EmployeeDto instance) =>
@@ -27,7 +27,7 @@ Map<String, dynamic> _$$_EmployeeDtoToJson(_$_EmployeeDto instance) =>
       'phone_number': instance.phoneNumber,
       'address': instance.address,
       'avatar': instance.avatar,
-      'date_start': instance.dateStart.toIso8601String(),
+      'start_date': instance.startDate.toIso8601String(),
     };
 
 const _$GenderEnumMap = {

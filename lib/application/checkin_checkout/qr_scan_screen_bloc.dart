@@ -7,7 +7,9 @@ import 'package:timekeeping/infrastructure/timekeeping/timekeeping_repository.da
 import '../../domain/timekeeping/timekeeping_failure.dart';
 
 part 'qr_scan_screen_bloc.freezed.dart';
+
 part 'qr_scan_screen_event.dart';
+
 part 'qr_scan_screen_state.dart';
 
 class QrScanScreenBloc extends Bloc<QrScanScreenEvent, QrScanScreenState> {
@@ -17,14 +19,17 @@ class QrScanScreenBloc extends Bloc<QrScanScreenEvent, QrScanScreenState> {
       : _repository = repository,
         super(QrScanScreenState.initial()) {
     on<QrScanScreenEvent>((event, emit) async {
-      await event.when(qrCodeScanned: (qrCodeValue) async {
-        emit(state.copyWith(isSubmitting: true));
-        final failureOrUnit = await _repository.qrCheck(QrCodeDto(qrCodeValue: qrCodeValue));
-        emit(state.copyWith(failureOrUnit: failureOrUnit));
-        emit(state.copyWith(isSubmitting: false));
-      }, reset: () {
-        emit(state.copyWith(failureOrUnit: null));
-      });
+      await event.when(
+        qrCodeScanned: (qrCodeValue) async {
+          emit(state.copyWith(isSubmitting: true));
+          final failureOrUnit = await _repository.qrCheck(QrCodeDto(qrCodeValue: qrCodeValue));
+          emit(state.copyWith(failureOrUnit: failureOrUnit));
+          emit(state.copyWith(isSubmitting: false));
+        },
+        reset: () {
+          emit(state.copyWith(failureOrUnit: null));
+        },
+      );
     });
   }
 }

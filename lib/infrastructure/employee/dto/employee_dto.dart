@@ -20,7 +20,7 @@ class EmployeeDto with _$EmployeeDto {
     required String phoneNumber,
     required String address,
     required String? avatar,
-    required DateTime dateStart,
+    required DateTime startDate,
   }) = _EmployeeDto;
 
   factory EmployeeDto.fromDomain(Employee employee) => EmployeeDto(
@@ -30,11 +30,8 @@ class EmployeeDto with _$EmployeeDto {
       gender: employee.gender,
       phoneNumber: employee.phoneNumber,
       address: employee.address,
-      avatar: employee.avatar == null
-          ? null
-          : const Base64Encoder().convert(employee.avatar!.toList()),
-      dateStart: employee.dateStart);
+      avatar: employee.avatar == null ? null : const Base64Encoder().convert(employee.avatar!.toList()),
+      startDate: employee.startDate);
 
-  factory EmployeeDto.fromJson(Map<String, dynamic> json) =>
-      _$EmployeeDtoFromJson(json);
+  factory EmployeeDto.fromJson(Map<String, dynamic> json) => _$EmployeeDtoFromJson(json);
 }

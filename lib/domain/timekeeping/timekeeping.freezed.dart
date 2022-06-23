@@ -183,13 +183,14 @@ class __$$_TimekeepingCopyWithImpl<$Res> extends _$TimekeepingCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Timekeeping with DiagnosticableTreeMixin implements _Timekeeping {
+class _$_Timekeeping extends _Timekeeping with DiagnosticableTreeMixin {
   const _$_Timekeeping(
       {required this.date,
       required this.morningShiftStart,
       required this.morningShiftEnd,
       required this.afternoonShiftStart,
-      required this.afternoonShiftEnd});
+      required this.afternoonShiftEnd})
+      : super._();
 
   @override
   final DateTime date;
@@ -250,13 +251,14 @@ class _$_Timekeeping with DiagnosticableTreeMixin implements _Timekeeping {
       __$$_TimekeepingCopyWithImpl<_$_Timekeeping>(this, _$identity);
 }
 
-abstract class _Timekeeping implements Timekeeping {
+abstract class _Timekeeping extends Timekeeping {
   const factory _Timekeeping(
       {required final DateTime date,
       required final CheckInStatus morningShiftStart,
       required final CheckOutStatus morningShiftEnd,
       required final CheckInStatus afternoonShiftStart,
       required final CheckOutStatus afternoonShiftEnd}) = _$_Timekeeping;
+  const _Timekeeping._() : super._();
 
   @override
   DateTime get date => throw _privateConstructorUsedError;

@@ -44,10 +44,11 @@ class AssignScheduleScreen extends StatelessWidget {
             if (state.scheduleFailureOrSuccess == null && state.isLoading == false) {
               context.read<AssignScheduleFormBloc>().add(const AssignScheduleFormEvent.workScheduleRequested());
             }
-            if (state.isLoading) {
-              return const SafeArea(child: Scaffold(body: Center(child: CircularProgressIndicator())));
-            } else {
+            if (state.scheduleFailureOrSuccess != null &&
+                context.read<AssignScheduleFormBloc>().state.scheduleFailureOrSuccess!.isLeft()) {
               return const AssignScheduleForm();
+            } else {
+              return const SafeArea(child: Scaffold(body: Center(child: CircularProgressIndicator())));
             }
           }),
     );

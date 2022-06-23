@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:timekeeping/application/auth/authentication_bloc.dart';
 
 import '../../../application/auth/login_form/login_form_bloc.dart';
 import '../../core/app_widgets.dart';
@@ -30,8 +31,9 @@ class LoginForm extends StatelessWidget {
                       title: 'Đăng nhập',
                       text: 'Không tìm thấy nhân viên ứng với tài khoản này',
                     ),
-                  ),
-              (_) => {});
+                  ), (_) {
+            context.read<AuthenticationBloc>().add(const AuthenticationEvent.authRequest());
+          });
         }
       },
       builder: (context, state) => IgnorePointer(

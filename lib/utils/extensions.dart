@@ -6,20 +6,29 @@ extension TimeOfDayX on TimeOfDay {
   static TimeOfDay getWorkEndTime(
       TimeOfDay morningShiftStartTime, TimeOfDay morningShiftEndTime, TimeOfDay afternoonShiftStartTime) {
     Duration workHour = const Duration(hours: 8);
-    final morningShiftDuration = morningShiftEndTime.toDateTime().difference(morningShiftStartTime.toDateTime());
+    final morningShiftDuration =
+        morningShiftEndTime.toTodayDateTime().difference(morningShiftStartTime.toTodayDateTime());
     workHour -= morningShiftDuration;
 
-    return TimeOfDay.fromDateTime(afternoonShiftStartTime.toDateTime().add(workHour));
+    return TimeOfDay.fromDateTime(afternoonShiftStartTime.toTodayDateTime().add(workHour));
   }
 
   String toDisplayText() {
-    final dt = toDateTime();
+    final dt = toTodayDateTime();
     return DateFormat('HH:mm').format(dt);
   }
 
-  DateTime toDateTime() {
+  DateTime toTodayDateTime() {
     final now = DateTime.now();
     return DateTime(now.year, now.month, now.day, hour, minute);
+  }
+
+  DateTime toDateTimeWithTime(DateTime dateTime) {
+    return DateTime(dateTime.year, dateTime.month, dateTime.day, hour, minute);
+  }
+
+  DateTime toCheckInDate(DateTime checkInDate) {
+    return DateTime(checkInDate.year, checkInDate.month, checkInDate.day, hour, minute);
   }
 
   tz.TZDateTime toTZDateTime() {

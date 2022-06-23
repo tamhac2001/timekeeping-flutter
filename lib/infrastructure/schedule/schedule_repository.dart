@@ -26,25 +26,27 @@ class ScheduleRepository {
     final afternoonShiftStart = await _storage.afternoonShiftStart;
     final afternoonShiftEnd = await _storage.afternoonShiftEnd;
 
-    if (morningShiftStart != null &&
-        morningShiftEnd != null &&
-        afternoonShiftStart != null &&
-        afternoonShiftEnd != null) {
-      return right(Schedule(
-          morningShiftStart: morningShiftStart,
-          morningShiftEnd: morningShiftEnd,
-          afternoonShiftStart: afternoonShiftStart,
-          afternoonShiftEnd: afternoonShiftEnd));
+    // if (morningShiftStart != null &&
+    //     morningShiftEnd != null &&
+    //     afternoonShiftStart != null &&
+    //     afternoonShiftEnd != null) {
+    if (false) {
+      // return right(Schedule(
+      //     morningShiftStart: morningShiftStart,
+      //     morningShiftEnd: morningShiftEnd,
+      //     afternoonShiftStart: afternoonShiftStart,
+      //     afternoonShiftEnd: afternoonShiftEnd));
     } else {
       try {
         final scheduleDTO = await _apiClient
             .fetchData(accessToken: accessToken!, employeeId: employeeId!)
-            .timeout(const Duration(seconds: timeOutDuration), onTimeout: () => null);
+            .timeout(timeOutDuration, onTimeout: () => null);
         if (scheduleDTO == null) {
           return left(const ScheduleFailure.noScheduleStored());
         } else {
-          debugPrint('scheduleRequest:$scheduleDTO');
+          // debugPrint('scheduleRequest:$scheduleDTO');
           final schedule = Schedule.fromDTO(scheduleDTO);
+          debugPrint(schedule.toString());
           await _storage.setMorningShiftStart(morningShiftStart: schedule.morningShiftStart);
           await _storage.setMorningShiftEnd(morningShiftEnd: schedule.morningShiftEnd);
           await _storage.setAfternoonShiftStart(afternoonShiftStart: schedule.afternoonShiftStart);
@@ -62,7 +64,8 @@ class ScheduleRepository {
   }) async {
     final accessToken = await _storage.accessToken;
     final employeeId = await _storage.employeeId;
-    final scheduleDTO = ScheduleDto.fromDomain(schedule);
+    final employeeStartDate = await _storage.employeeStartDate;
+    final scheduleDTO = ScheduleDto.fromDomain(schedule, employeeStartDate!);
     try {
       await _apiClient.createSchedule(accessToken: accessToken!, employeeId: employeeId!, scheduleDTO: scheduleDTO);
       await _storage.setMorningShiftStart(morningShiftStart: schedule.morningShiftStart);

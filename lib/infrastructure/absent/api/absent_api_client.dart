@@ -8,7 +8,7 @@ import 'package:timekeeping/infrastructure/absent/dto/absent_form_dto.dart';
 
 class AbsentApiClient extends IAbsentApiClient {
   // static const _uri = 'https://curvy-guests-sit-115-75-181-199.loca.lt/absents';
-  static const _uri = 'http://10.0.2.2:3000/absents';
+  static const _uri = '$apiEndPoint/absents';
 
   final httpClient = http.Client();
 
@@ -28,7 +28,7 @@ class AbsentApiClient extends IAbsentApiClient {
       },
       body: dto.toJson(),
     )
-        .timeout(const Duration(seconds: timeOutDuration), onTimeout: () {
+        .timeout(timeOutDuration, onTimeout: () {
       throw AbsentFormException.serverError();
     });
     if (response.statusCode == HttpStatus.internalServerError || response.statusCode == HttpStatus.notFound) {

@@ -9,7 +9,7 @@ import 'i_authentication_api_client.dart';
 
 class AuthenticationApiClient implements IAuthenticationApiClient {
   // static const _uri = 'https://lazy-taxis-rhyme-115-75-181-199.loca.lt/auth/signin';
-  static const _uri = 'http://10.0.2.2:3000/auth/signin';
+  static const _uri = '$apiEndPoint/auth/signin';
 
   @override
   Future<AuthDTO> login({required String email, required String password}) async {
@@ -18,7 +18,7 @@ class AuthenticationApiClient implements IAuthenticationApiClient {
       Uri.parse(_uri),
       body: AuthDTO(email: email, password: password).toJson(),
     )
-        .timeout(const Duration(seconds: timeOutDuration), onTimeout: () {
+        .timeout(timeOutDuration, onTimeout: () {
       throw AuthException.serverError();
     });
     if (response.statusCode == HttpStatus.internalServerError || response.statusCode == HttpStatus.notFound) {

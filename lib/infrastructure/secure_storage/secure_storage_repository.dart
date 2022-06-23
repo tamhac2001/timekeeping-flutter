@@ -30,6 +30,15 @@ class SecureStorageRepository {
     }
   }
 
+  Future<DateTime?> get employeeStartDate async {
+    String? employeeStartDate = await storage.read(key: 'startDate');
+    if (employeeStartDate == null) {
+      return null;
+    } else {
+      return DateTime.parse(employeeStartDate);
+    }
+  }
+
   Future<TimeOfDay?> get morningShiftStart async {
     String? morningShiftStartString = await storage.read(key: 'morningShiftStart');
     if (morningShiftStartString != null) {
@@ -82,20 +91,32 @@ class SecureStorageRepository {
     await storage.write(key: 'employeeId', value: employeeId.toString());
   }
 
+  Future<void> setEmployeeStartDate(DateTime startDate) async {
+    await storage.write(key: 'startDate', value: startDate.toIso8601String());
+  }
+
   Future<void> setMorningShiftStart({required TimeOfDay morningShiftStart}) async {
-    await storage.write(key: 'morningShiftStart', value: morningShiftStart.toDateTime().toIso8601String());
+    await storage.write(
+        key: 'morningShiftStart',
+        value: morningShiftStart.toDateTimeWithTime((await employeeStartDate)!).toIso8601String());
   }
 
   Future<void> setMorningShiftEnd({required TimeOfDay morningShiftEnd}) async {
-    await storage.write(key: 'morningShiftEnd', value: morningShiftEnd.toDateTime().toIso8601String());
+    await storage.write(
+        key: 'morningShiftEnd',
+        value: morningShiftEnd.toDateTimeWithTime((await employeeStartDate)!).toIso8601String());
   }
 
   Future<void> setAfternoonShiftStart({required TimeOfDay afternoonShiftStart}) async {
-    await storage.write(key: 'afternoonShiftStart', value: afternoonShiftStart.toDateTime().toIso8601String());
+    await storage.write(
+        key: 'afternoonShiftStart',
+        value: afternoonShiftStart.toDateTimeWithTime((await employeeStartDate)!).toIso8601String());
   }
 
   Future<void> setAfternoonShiftEnd({required TimeOfDay afternoonShiftEnd}) async {
-    await storage.write(key: 'afternoonShiftEnd', value: afternoonShiftEnd.toDateTime().toIso8601String());
+    await storage.write(
+        key: 'afternoonShiftEnd',
+        value: afternoonShiftEnd.toDateTimeWithTime((await employeeStartDate)!).toIso8601String());
   }
 
   Future<void> deleteAccessTokenAndExpireDate() async {
