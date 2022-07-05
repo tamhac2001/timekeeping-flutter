@@ -33,6 +33,7 @@ class LoginForm extends StatelessWidget {
                     ),
                   ), (_) {
             context.read<AuthenticationBloc>().add(const AuthenticationEvent.authRequest());
+            // context.read<>().add(const AuthenticationEvent.authRequest());
           });
         }
       },
