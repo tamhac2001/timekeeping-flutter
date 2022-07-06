@@ -420,8 +420,8 @@ class __$$_InitialCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Initial with DiagnosticableTreeMixin implements _Initial {
-  const _$_Initial();
+class _$_Initial extends _Initial with DiagnosticableTreeMixin {
+  const _$_Initial() : super._();
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -512,8 +512,9 @@ class _$_Initial with DiagnosticableTreeMixin implements _Initial {
   }
 }
 
-abstract class _Initial implements ConnectivityState {
+abstract class _Initial extends ConnectivityState {
   const factory _Initial() = _$_Initial;
+  const _Initial._() : super._();
 }
 
 /// @nodoc
@@ -537,10 +538,8 @@ class __$$_InternetAccessCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_InternetAccess
-    with DiagnosticableTreeMixin
-    implements _InternetAccess {
-  const _$_InternetAccess();
+class _$_InternetAccess extends _InternetAccess with DiagnosticableTreeMixin {
+  const _$_InternetAccess() : super._();
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -632,8 +631,9 @@ class _$_InternetAccess
   }
 }
 
-abstract class _InternetAccess implements ConnectivityState {
+abstract class _InternetAccess extends ConnectivityState {
   const factory _InternetAccess() = _$_InternetAccess;
+  const _InternetAccess._() : super._();
 }
 
 /// @nodoc
@@ -657,10 +657,9 @@ class __$$_NoInternetAccessCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_NoInternetAccess
-    with DiagnosticableTreeMixin
-    implements _NoInternetAccess {
-  const _$_NoInternetAccess();
+class _$_NoInternetAccess extends _NoInternetAccess
+    with DiagnosticableTreeMixin {
+  const _$_NoInternetAccess() : super._();
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -752,6 +751,7 @@ class _$_NoInternetAccess
   }
 }
 
-abstract class _NoInternetAccess implements ConnectivityState {
+abstract class _NoInternetAccess extends ConnectivityState {
   const factory _NoInternetAccess() = _$_NoInternetAccess;
+  const _NoInternetAccess._() : super._();
 }
