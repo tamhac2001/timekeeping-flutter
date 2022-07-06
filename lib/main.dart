@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_native_timezone/flutter_native_timezone.dart';
+import 'package:timekeeping/application/connectivity/connectivity_bloc.dart';
+import 'package:timekeeping/application/schedule/schedule_bloc.dart';
 import 'package:timezone/data/latest_all.dart' as tz;
 import 'package:timezone/timezone.dart' as tz;
 
@@ -21,10 +23,9 @@ import 'infrastructure/timekeeping/timekeeping_repository.dart';
 import 'presentation/routes/app_router.gr.dart';
 
 Future<void> main() async {
-  tz.initializeTimeZones();
   WidgetsFlutterBinding.ensureInitialized();
+  tz.initializeTimeZones();
   final String timeZoneName = await FlutterNativeTimezone.getLocalTimezone();
-
   tz.setLocalLocation(tz.getLocation(timeZoneName));
   runApp(MyApp());
 }
@@ -67,11 +68,16 @@ class MyApp extends StatelessWidget {
       ],
       child: MultiBlocProvider(
         providers: [
-          BlocProvider(
+          BlocProvider<ConnectivityBloc>(
+            lazy: false,
+            create: (context) => ConnectivityBloc()..add(const ConnectivityEvent.initialized()),
+          ),
+          BlocProvider<AuthenticationBloc>(
             create: (context) => AuthenticationBloc(
                 authenticationRepository: RepositoryProvider.of<AuthenticationRepository>(context),
                 employeeRepository: RepositoryProvider.of<EmployeeRepository>(context)),
           ),
+          BlocProvider<ScheduleBloc>(create: (context) => ScheduleBloc()),
           BlocProvider<NotificationBloc>(
               create: (context) => NotificationBloc(storage: RepositoryProvider.of<SecureStorageRepository>(context))),
         ],

@@ -18,7 +18,7 @@ class ScheduleRepository {
   final IScheduleApiClient _apiClient;
   final SecureStorageRepository _storage;
 
-  Future<Either<ScheduleFailure, Schedule>> getSchedule() async {
+  Future<Either<ScheduleFailure, Schedule>> scheduleRequest() async {
     final accessToken = await _storage.accessToken;
     final employeeId = await _storage.employeeId;
     final morningShiftStart = await _storage.morningShiftStart;
@@ -26,20 +26,19 @@ class ScheduleRepository {
     final afternoonShiftStart = await _storage.afternoonShiftStart;
     final afternoonShiftEnd = await _storage.afternoonShiftEnd;
 
-    // if (morningShiftStart != null &&
-    //     morningShiftEnd != null &&
-    //     afternoonShiftStart != null &&
-    //     afternoonShiftEnd != null) {
-    if (false) {
-      // return right(Schedule(
-      //     morningShiftStart: morningShiftStart,
-      //     morningShiftEnd: morningShiftEnd,
-      //     afternoonShiftStart: afternoonShiftStart,
-      //     afternoonShiftEnd: afternoonShiftEnd));
+    if (morningShiftStart != null &&
+        morningShiftEnd != null &&
+        afternoonShiftStart != null &&
+        afternoonShiftEnd != null) {
+      return right(Schedule(
+          morningShiftStart: morningShiftStart,
+          morningShiftEnd: morningShiftEnd,
+          afternoonShiftStart: afternoonShiftStart,
+          afternoonShiftEnd: afternoonShiftEnd));
     } else {
       try {
         final scheduleDTO = await _apiClient
-            .fetchData(accessToken: accessToken!, employeeId: employeeId!)
+            .fetchSchedule(accessToken: accessToken!, employeeId: employeeId!)
             .timeout(timeOutDuration, onTimeout: () => null);
         if (scheduleDTO == null) {
           return left(const ScheduleFailure.noScheduleStored());
@@ -59,7 +58,7 @@ class ScheduleRepository {
     }
   }
 
-  Future<Either<ScheduleFailure, Unit>> assignSchedule({
+  Future<Either<ScheduleFailure, Schedule>> assignSchedule({
     required Schedule schedule,
   }) async {
     final accessToken = await _storage.accessToken;
@@ -72,11 +71,9 @@ class ScheduleRepository {
       await _storage.setMorningShiftEnd(morningShiftEnd: schedule.morningShiftEnd);
       await _storage.setAfternoonShiftStart(afternoonShiftStart: schedule.afternoonShiftStart);
       await _storage.setAfternoonShiftEnd(afternoonShiftEnd: schedule.afternoonShiftEnd);
-      return right(unit);
+      return right(schedule);
     } on ScheduleException catch (e) {
       return left(const ScheduleFailure.serverError());
     }
-    //
-    return right(unit);
   }
 }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../application/schedule/assign_schedule_form_bloc.dart';
+import '../../../application/schedule/assign_schedule_form/assign_schedule_form_bloc.dart';
 import '../../core/app_widgets.dart';
 import '../../../utils/extensions.dart';
 
@@ -37,10 +37,10 @@ Widget buildAssignMorningShift(BuildContext context) {
     children: [
       Text('Từ', style: Theme.of(context).textTheme.subtitle1),
       BlocBuilder<AssignScheduleFormBloc, AssignScheduleFormState>(
-        buildWhen: (previous, current) => previous.schedule.morningShiftStart != current.schedule.morningShiftStart,
+        buildWhen: (previous, current) => previous.morningShiftStart != current.morningShiftStart,
         builder: (context, state) {
           return DropdownButton<TimeOfDay>(
-              value: state.schedule.morningShiftStart,
+              value: state.morningShiftStart,
               items: morningShiftStartTimes
                   .map<DropdownMenuItem<TimeOfDay>>((timeOfDay) => DropdownMenuItem<TimeOfDay>(
                         value: timeOfDay,
@@ -56,10 +56,10 @@ Widget buildAssignMorningShift(BuildContext context) {
       ),
       Text('đến', style: Theme.of(context).textTheme.subtitle1),
       BlocBuilder<AssignScheduleFormBloc, AssignScheduleFormState>(
-        buildWhen: (previous, current) => previous.schedule.morningShiftEnd != current.schedule.morningShiftEnd,
+        buildWhen: (previous, current) => previous.morningShiftEnd != current.morningShiftEnd,
         builder: (context, state) {
           return DropdownButton<TimeOfDay>(
-              value: state.schedule.morningShiftEnd,
+              value: state.morningShiftEnd,
               items: morningShiftEndTimes
                   .map<DropdownMenuItem<TimeOfDay>>((timeOfDay) => DropdownMenuItem<TimeOfDay>(
                         value: timeOfDay,
@@ -83,10 +83,10 @@ Widget buildAssignAfternoonShift(BuildContext context) {
     children: [
       Text('Từ', style: Theme.of(context).textTheme.subtitle1),
       BlocBuilder<AssignScheduleFormBloc, AssignScheduleFormState>(
-        buildWhen: (previous, current) => previous.schedule.afternoonShiftStart != current.schedule.afternoonShiftStart,
+        buildWhen: (previous, current) => previous.afternoonShiftStart != current.afternoonShiftStart,
         builder: (context, state) {
           return DropdownButton<TimeOfDay>(
-              value: state.schedule.afternoonShiftStart,
+              value: state.afternoonShiftStart,
               items: afternoonShiftStartTimes
                   .map<DropdownMenuItem<TimeOfDay>>((timeOfDay) => DropdownMenuItem<TimeOfDay>(
                         value: timeOfDay,
@@ -102,10 +102,10 @@ Widget buildAssignAfternoonShift(BuildContext context) {
       ),
       Text('đến', style: Theme.of(context).textTheme.subtitle1),
       BlocBuilder<AssignScheduleFormBloc, AssignScheduleFormState>(
-        buildWhen: (previous, current) => previous.schedule.afternoonShiftEnd != current.schedule.afternoonShiftEnd,
+        buildWhen: (previous, current) => previous.afternoonShiftEnd != current.afternoonShiftEnd,
         builder: (context, state) {
           return Text(
-            state.schedule.afternoonShiftEnd.toDisplayText(),
+            state.afternoonShiftEnd.toDisplayText(),
             style: Theme.of(context).textTheme.subtitle1,
           );
         },

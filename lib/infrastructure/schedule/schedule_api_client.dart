@@ -14,7 +14,7 @@ class ScheduleApiClient implements IScheduleApiClient {
   final httpClient = http.Client();
 
   @override
-  Future<ScheduleDto?> fetchData({required String accessToken, required String employeeId}) async {
+  Future<ScheduleDto?> fetchSchedule({required String accessToken, required String employeeId}) async {
     final url = Uri.parse('$_uri/$employeeId');
     final response = await httpClient.get(
       url,

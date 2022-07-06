@@ -2,8 +2,10 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../application/connectivity/connectivity_bloc.dart';
 import '../../application/notification/notification_bloc.dart';
-import '../../application/schedule/assign_schedule_form_bloc.dart';
+import '../../application/schedule/assign_schedule_form/assign_schedule_form_bloc.dart';
+import '../../application/schedule/schedule_bloc.dart';
 import '../../infrastructure/schedule/schedule_repository.dart';
 import '../../infrastructure/secure_storage/secure_storage_repository.dart';
 import '../core/app_widgets.dart';
@@ -23,10 +25,10 @@ class AssignScheduleScreen extends StatelessWidget {
         storage: RepositoryProvider.of<SecureStorageRepository>(context),
       ),
       child: BlocConsumer<AssignScheduleFormBloc, AssignScheduleFormState>(
-          listenWhen: (previous, current) => previous.scheduleFailureOrSuccess != current.scheduleFailureOrSuccess,
+          listenWhen: (previous, current) => previous.scheduleFailureOrSchedule != current.scheduleFailureOrSchedule,
           listener: (context, state) {
-            if (state.scheduleFailureOrSuccess != null) {
-              state.scheduleFailureOrSuccess!.fold(
+            if (state.scheduleFailureOrSchedule != null) {
+              state.scheduleFailureOrSchedule!.fold(
                   (failure) => failure.when(
                         serverError: () {
                           showMyDialog(context, title: 'Đăng ký lịch làm việc', text: 'Lỗi server');
@@ -34,18 +36,22 @@ class AssignScheduleScreen extends StatelessWidget {
                         noScheduleStored: () {
                           debugPrint('No schedule store');
                         },
-                      ), (_) {
+                      ), (schedule) {
+                context.read<ScheduleBloc>().add(ScheduleEvent.initialized(schedule));
                 context.read<NotificationBloc>().add(const NotificationEvent.initialize());
                 AutoRouter.of(context).replace(const HomeScreen());
               });
             }
           },
           builder: (context, state) {
-            if (state.scheduleFailureOrSuccess == null && state.isLoading == false) {
-              context.read<AssignScheduleFormBloc>().add(const AssignScheduleFormEvent.workScheduleRequested());
+            if (state.scheduleFailureOrSchedule == null && state.isLoading == false) {
+              final connectivityState = context.watch<ConnectivityBloc>().state;
+              connectivityState.whenHasInternetAccess(context, () {
+                context.read<AssignScheduleFormBloc>().add(const AssignScheduleFormEvent.getSchedule());
+              });
             }
-            if (state.scheduleFailureOrSuccess != null &&
-                context.read<AssignScheduleFormBloc>().state.scheduleFailureOrSuccess!.isLeft()) {
+            if (state.scheduleFailureOrSchedule != null &&
+                context.read<AssignScheduleFormBloc>().state.scheduleFailureOrSchedule!.isLeft()) {
               return const AssignScheduleForm();
             } else {
               return const SafeArea(child: Scaffold(body: Center(child: CircularProgressIndicator())));

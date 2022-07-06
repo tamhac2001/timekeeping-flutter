@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../application/schedule/assign_schedule_form_bloc.dart';
+import '../../../application/schedule/assign_schedule_form/assign_schedule_form_bloc.dart';
 import 'widgets.dart';
 
 class AssignScheduleForm extends StatelessWidget {

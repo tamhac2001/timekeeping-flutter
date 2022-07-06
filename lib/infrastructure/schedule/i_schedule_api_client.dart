@@ -1,13 +1,10 @@
 import 'dto/schedule_dto.dart';
 
 abstract class IScheduleApiClient {
-  Future<ScheduleDto?> fetchData(
-      {required String accessToken, required String employeeId});
+  Future<ScheduleDto?> fetchSchedule({required String accessToken, required String employeeId});
 
   Future<void> createSchedule(
-      {required String accessToken,
-      required String employeeId,
-      required ScheduleDto scheduleDTO});
+      {required String accessToken, required String employeeId, required ScheduleDto scheduleDTO});
 }
 
 class ScheduleException implements Exception {
@@ -15,6 +12,5 @@ class ScheduleException implements Exception {
 
   final String message;
 
-  factory ScheduleException.serverError() =>
-      const ScheduleException._('server-error');
+  factory ScheduleException.serverError() => const ScheduleException._('server-error');
 }

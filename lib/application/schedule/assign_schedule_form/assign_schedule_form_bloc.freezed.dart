@@ -18,7 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$AssignScheduleFormEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() workScheduleRequested,
+    required TResult Function() getSchedule,
     required TResult Function(TimeOfDay time) morningShiftStartTimeChanged,
     required TResult Function(TimeOfDay time) morningShiftEndTimeChanged,
     required TResult Function(TimeOfDay time) afternoonShiftStartTimeChanged,
@@ -27,7 +27,7 @@ mixin _$AssignScheduleFormEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? workScheduleRequested,
+    TResult Function()? getSchedule,
     TResult Function(TimeOfDay time)? morningShiftStartTimeChanged,
     TResult Function(TimeOfDay time)? morningShiftEndTimeChanged,
     TResult Function(TimeOfDay time)? afternoonShiftStartTimeChanged,
@@ -36,7 +36,7 @@ mixin _$AssignScheduleFormEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? workScheduleRequested,
+    TResult Function()? getSchedule,
     TResult Function(TimeOfDay time)? morningShiftStartTimeChanged,
     TResult Function(TimeOfDay time)? morningShiftEndTimeChanged,
     TResult Function(TimeOfDay time)? afternoonShiftStartTimeChanged,
@@ -46,39 +46,38 @@ mixin _$AssignScheduleFormEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(WorkScheduleRequested value)
-        workScheduleRequested,
-    required TResult Function(MorningShiftStartTimeChanged value)
+    required TResult Function(_GetSchedule value) getSchedule,
+    required TResult Function(_MorningShiftStartTimeChanged value)
         morningShiftStartTimeChanged,
-    required TResult Function(MorningShiftEndTimeChanged value)
+    required TResult Function(_MorningShiftEndTimeChanged value)
         morningShiftEndTimeChanged,
-    required TResult Function(AfternoonShiftStartTimeChanged value)
+    required TResult Function(_AfternoonShiftStartTimeChanged value)
         afternoonShiftStartTimeChanged,
-    required TResult Function(FormSubmitted value) formSubmitted,
+    required TResult Function(_FormSubmitted value) formSubmitted,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(WorkScheduleRequested value)? workScheduleRequested,
-    TResult Function(MorningShiftStartTimeChanged value)?
+    TResult Function(_GetSchedule value)? getSchedule,
+    TResult Function(_MorningShiftStartTimeChanged value)?
         morningShiftStartTimeChanged,
-    TResult Function(MorningShiftEndTimeChanged value)?
+    TResult Function(_MorningShiftEndTimeChanged value)?
         morningShiftEndTimeChanged,
-    TResult Function(AfternoonShiftStartTimeChanged value)?
+    TResult Function(_AfternoonShiftStartTimeChanged value)?
         afternoonShiftStartTimeChanged,
-    TResult Function(FormSubmitted value)? formSubmitted,
+    TResult Function(_FormSubmitted value)? formSubmitted,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(WorkScheduleRequested value)? workScheduleRequested,
-    TResult Function(MorningShiftStartTimeChanged value)?
+    TResult Function(_GetSchedule value)? getSchedule,
+    TResult Function(_MorningShiftStartTimeChanged value)?
         morningShiftStartTimeChanged,
-    TResult Function(MorningShiftEndTimeChanged value)?
+    TResult Function(_MorningShiftEndTimeChanged value)?
         morningShiftEndTimeChanged,
-    TResult Function(AfternoonShiftStartTimeChanged value)?
+    TResult Function(_AfternoonShiftStartTimeChanged value)?
         afternoonShiftStartTimeChanged,
-    TResult Function(FormSubmitted value)? formSubmitted,
+    TResult Function(_FormSubmitted value)? formSubmitted,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -102,38 +101,38 @@ class _$AssignScheduleFormEventCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$$WorkScheduleRequestedCopyWith<$Res> {
-  factory _$$WorkScheduleRequestedCopyWith(_$WorkScheduleRequested value,
-          $Res Function(_$WorkScheduleRequested) then) =
-      __$$WorkScheduleRequestedCopyWithImpl<$Res>;
+abstract class _$$_GetScheduleCopyWith<$Res> {
+  factory _$$_GetScheduleCopyWith(
+          _$_GetSchedule value, $Res Function(_$_GetSchedule) then) =
+      __$$_GetScheduleCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$WorkScheduleRequestedCopyWithImpl<$Res>
+class __$$_GetScheduleCopyWithImpl<$Res>
     extends _$AssignScheduleFormEventCopyWithImpl<$Res>
-    implements _$$WorkScheduleRequestedCopyWith<$Res> {
-  __$$WorkScheduleRequestedCopyWithImpl(_$WorkScheduleRequested _value,
-      $Res Function(_$WorkScheduleRequested) _then)
-      : super(_value, (v) => _then(v as _$WorkScheduleRequested));
+    implements _$$_GetScheduleCopyWith<$Res> {
+  __$$_GetScheduleCopyWithImpl(
+      _$_GetSchedule _value, $Res Function(_$_GetSchedule) _then)
+      : super(_value, (v) => _then(v as _$_GetSchedule));
 
   @override
-  _$WorkScheduleRequested get _value => super._value as _$WorkScheduleRequested;
+  _$_GetSchedule get _value => super._value as _$_GetSchedule;
 }
 
 /// @nodoc
 
-class _$WorkScheduleRequested implements WorkScheduleRequested {
-  const _$WorkScheduleRequested();
+class _$_GetSchedule implements _GetSchedule {
+  const _$_GetSchedule();
 
   @override
   String toString() {
-    return 'AssignScheduleFormEvent.workScheduleRequested()';
+    return 'AssignScheduleFormEvent.getSchedule()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$WorkScheduleRequested);
+        (other.runtimeType == runtimeType && other is _$_GetSchedule);
   }
 
   @override
@@ -142,39 +141,39 @@ class _$WorkScheduleRequested implements WorkScheduleRequested {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() workScheduleRequested,
+    required TResult Function() getSchedule,
     required TResult Function(TimeOfDay time) morningShiftStartTimeChanged,
     required TResult Function(TimeOfDay time) morningShiftEndTimeChanged,
     required TResult Function(TimeOfDay time) afternoonShiftStartTimeChanged,
     required TResult Function() formSubmitted,
   }) {
-    return workScheduleRequested();
+    return getSchedule();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? workScheduleRequested,
+    TResult Function()? getSchedule,
     TResult Function(TimeOfDay time)? morningShiftStartTimeChanged,
     TResult Function(TimeOfDay time)? morningShiftEndTimeChanged,
     TResult Function(TimeOfDay time)? afternoonShiftStartTimeChanged,
     TResult Function()? formSubmitted,
   }) {
-    return workScheduleRequested?.call();
+    return getSchedule?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? workScheduleRequested,
+    TResult Function()? getSchedule,
     TResult Function(TimeOfDay time)? morningShiftStartTimeChanged,
     TResult Function(TimeOfDay time)? morningShiftEndTimeChanged,
     TResult Function(TimeOfDay time)? afternoonShiftStartTimeChanged,
     TResult Function()? formSubmitted,
     required TResult orElse(),
   }) {
-    if (workScheduleRequested != null) {
-      return workScheduleRequested();
+    if (getSchedule != null) {
+      return getSchedule();
     }
     return orElse();
   }
@@ -182,85 +181,84 @@ class _$WorkScheduleRequested implements WorkScheduleRequested {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(WorkScheduleRequested value)
-        workScheduleRequested,
-    required TResult Function(MorningShiftStartTimeChanged value)
+    required TResult Function(_GetSchedule value) getSchedule,
+    required TResult Function(_MorningShiftStartTimeChanged value)
         morningShiftStartTimeChanged,
-    required TResult Function(MorningShiftEndTimeChanged value)
+    required TResult Function(_MorningShiftEndTimeChanged value)
         morningShiftEndTimeChanged,
-    required TResult Function(AfternoonShiftStartTimeChanged value)
+    required TResult Function(_AfternoonShiftStartTimeChanged value)
         afternoonShiftStartTimeChanged,
-    required TResult Function(FormSubmitted value) formSubmitted,
+    required TResult Function(_FormSubmitted value) formSubmitted,
   }) {
-    return workScheduleRequested(this);
+    return getSchedule(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(WorkScheduleRequested value)? workScheduleRequested,
-    TResult Function(MorningShiftStartTimeChanged value)?
+    TResult Function(_GetSchedule value)? getSchedule,
+    TResult Function(_MorningShiftStartTimeChanged value)?
         morningShiftStartTimeChanged,
-    TResult Function(MorningShiftEndTimeChanged value)?
+    TResult Function(_MorningShiftEndTimeChanged value)?
         morningShiftEndTimeChanged,
-    TResult Function(AfternoonShiftStartTimeChanged value)?
+    TResult Function(_AfternoonShiftStartTimeChanged value)?
         afternoonShiftStartTimeChanged,
-    TResult Function(FormSubmitted value)? formSubmitted,
+    TResult Function(_FormSubmitted value)? formSubmitted,
   }) {
-    return workScheduleRequested?.call(this);
+    return getSchedule?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(WorkScheduleRequested value)? workScheduleRequested,
-    TResult Function(MorningShiftStartTimeChanged value)?
+    TResult Function(_GetSchedule value)? getSchedule,
+    TResult Function(_MorningShiftStartTimeChanged value)?
         morningShiftStartTimeChanged,
-    TResult Function(MorningShiftEndTimeChanged value)?
+    TResult Function(_MorningShiftEndTimeChanged value)?
         morningShiftEndTimeChanged,
-    TResult Function(AfternoonShiftStartTimeChanged value)?
+    TResult Function(_AfternoonShiftStartTimeChanged value)?
         afternoonShiftStartTimeChanged,
-    TResult Function(FormSubmitted value)? formSubmitted,
+    TResult Function(_FormSubmitted value)? formSubmitted,
     required TResult orElse(),
   }) {
-    if (workScheduleRequested != null) {
-      return workScheduleRequested(this);
+    if (getSchedule != null) {
+      return getSchedule(this);
     }
     return orElse();
   }
 }
 
-abstract class WorkScheduleRequested implements AssignScheduleFormEvent {
-  const factory WorkScheduleRequested() = _$WorkScheduleRequested;
+abstract class _GetSchedule implements AssignScheduleFormEvent {
+  const factory _GetSchedule() = _$_GetSchedule;
 }
 
 /// @nodoc
-abstract class _$$MorningShiftStartTimeChangedCopyWith<$Res> {
-  factory _$$MorningShiftStartTimeChangedCopyWith(
-          _$MorningShiftStartTimeChanged value,
-          $Res Function(_$MorningShiftStartTimeChanged) then) =
-      __$$MorningShiftStartTimeChangedCopyWithImpl<$Res>;
+abstract class _$$_MorningShiftStartTimeChangedCopyWith<$Res> {
+  factory _$$_MorningShiftStartTimeChangedCopyWith(
+          _$_MorningShiftStartTimeChanged value,
+          $Res Function(_$_MorningShiftStartTimeChanged) then) =
+      __$$_MorningShiftStartTimeChangedCopyWithImpl<$Res>;
   $Res call({TimeOfDay time});
 }
 
 /// @nodoc
-class __$$MorningShiftStartTimeChangedCopyWithImpl<$Res>
+class __$$_MorningShiftStartTimeChangedCopyWithImpl<$Res>
     extends _$AssignScheduleFormEventCopyWithImpl<$Res>
-    implements _$$MorningShiftStartTimeChangedCopyWith<$Res> {
-  __$$MorningShiftStartTimeChangedCopyWithImpl(
-      _$MorningShiftStartTimeChanged _value,
-      $Res Function(_$MorningShiftStartTimeChanged) _then)
-      : super(_value, (v) => _then(v as _$MorningShiftStartTimeChanged));
+    implements _$$_MorningShiftStartTimeChangedCopyWith<$Res> {
+  __$$_MorningShiftStartTimeChangedCopyWithImpl(
+      _$_MorningShiftStartTimeChanged _value,
+      $Res Function(_$_MorningShiftStartTimeChanged) _then)
+      : super(_value, (v) => _then(v as _$_MorningShiftStartTimeChanged));
 
   @override
-  _$MorningShiftStartTimeChanged get _value =>
-      super._value as _$MorningShiftStartTimeChanged;
+  _$_MorningShiftStartTimeChanged get _value =>
+      super._value as _$_MorningShiftStartTimeChanged;
 
   @override
   $Res call({
     Object? time = freezed,
   }) {
-    return _then(_$MorningShiftStartTimeChanged(
+    return _then(_$_MorningShiftStartTimeChanged(
       time == freezed
           ? _value.time
           : time // ignore: cast_nullable_to_non_nullable
@@ -271,8 +269,8 @@ class __$$MorningShiftStartTimeChangedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$MorningShiftStartTimeChanged implements MorningShiftStartTimeChanged {
-  const _$MorningShiftStartTimeChanged(this.time);
+class _$_MorningShiftStartTimeChanged implements _MorningShiftStartTimeChanged {
+  const _$_MorningShiftStartTimeChanged(this.time);
 
   @override
   final TimeOfDay time;
@@ -286,7 +284,7 @@ class _$MorningShiftStartTimeChanged implements MorningShiftStartTimeChanged {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$MorningShiftStartTimeChanged &&
+            other is _$_MorningShiftStartTimeChanged &&
             const DeepCollectionEquality().equals(other.time, time));
   }
 
@@ -296,14 +294,14 @@ class _$MorningShiftStartTimeChanged implements MorningShiftStartTimeChanged {
 
   @JsonKey(ignore: true)
   @override
-  _$$MorningShiftStartTimeChangedCopyWith<_$MorningShiftStartTimeChanged>
-      get copyWith => __$$MorningShiftStartTimeChangedCopyWithImpl<
-          _$MorningShiftStartTimeChanged>(this, _$identity);
+  _$$_MorningShiftStartTimeChangedCopyWith<_$_MorningShiftStartTimeChanged>
+      get copyWith => __$$_MorningShiftStartTimeChangedCopyWithImpl<
+          _$_MorningShiftStartTimeChanged>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() workScheduleRequested,
+    required TResult Function() getSchedule,
     required TResult Function(TimeOfDay time) morningShiftStartTimeChanged,
     required TResult Function(TimeOfDay time) morningShiftEndTimeChanged,
     required TResult Function(TimeOfDay time) afternoonShiftStartTimeChanged,
@@ -315,7 +313,7 @@ class _$MorningShiftStartTimeChanged implements MorningShiftStartTimeChanged {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? workScheduleRequested,
+    TResult Function()? getSchedule,
     TResult Function(TimeOfDay time)? morningShiftStartTimeChanged,
     TResult Function(TimeOfDay time)? morningShiftEndTimeChanged,
     TResult Function(TimeOfDay time)? afternoonShiftStartTimeChanged,
@@ -327,7 +325,7 @@ class _$MorningShiftStartTimeChanged implements MorningShiftStartTimeChanged {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? workScheduleRequested,
+    TResult Function()? getSchedule,
     TResult Function(TimeOfDay time)? morningShiftStartTimeChanged,
     TResult Function(TimeOfDay time)? morningShiftEndTimeChanged,
     TResult Function(TimeOfDay time)? afternoonShiftStartTimeChanged,
@@ -343,15 +341,14 @@ class _$MorningShiftStartTimeChanged implements MorningShiftStartTimeChanged {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(WorkScheduleRequested value)
-        workScheduleRequested,
-    required TResult Function(MorningShiftStartTimeChanged value)
+    required TResult Function(_GetSchedule value) getSchedule,
+    required TResult Function(_MorningShiftStartTimeChanged value)
         morningShiftStartTimeChanged,
-    required TResult Function(MorningShiftEndTimeChanged value)
+    required TResult Function(_MorningShiftEndTimeChanged value)
         morningShiftEndTimeChanged,
-    required TResult Function(AfternoonShiftStartTimeChanged value)
+    required TResult Function(_AfternoonShiftStartTimeChanged value)
         afternoonShiftStartTimeChanged,
-    required TResult Function(FormSubmitted value) formSubmitted,
+    required TResult Function(_FormSubmitted value) formSubmitted,
   }) {
     return morningShiftStartTimeChanged(this);
   }
@@ -359,14 +356,14 @@ class _$MorningShiftStartTimeChanged implements MorningShiftStartTimeChanged {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(WorkScheduleRequested value)? workScheduleRequested,
-    TResult Function(MorningShiftStartTimeChanged value)?
+    TResult Function(_GetSchedule value)? getSchedule,
+    TResult Function(_MorningShiftStartTimeChanged value)?
         morningShiftStartTimeChanged,
-    TResult Function(MorningShiftEndTimeChanged value)?
+    TResult Function(_MorningShiftEndTimeChanged value)?
         morningShiftEndTimeChanged,
-    TResult Function(AfternoonShiftStartTimeChanged value)?
+    TResult Function(_AfternoonShiftStartTimeChanged value)?
         afternoonShiftStartTimeChanged,
-    TResult Function(FormSubmitted value)? formSubmitted,
+    TResult Function(_FormSubmitted value)? formSubmitted,
   }) {
     return morningShiftStartTimeChanged?.call(this);
   }
@@ -374,14 +371,14 @@ class _$MorningShiftStartTimeChanged implements MorningShiftStartTimeChanged {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(WorkScheduleRequested value)? workScheduleRequested,
-    TResult Function(MorningShiftStartTimeChanged value)?
+    TResult Function(_GetSchedule value)? getSchedule,
+    TResult Function(_MorningShiftStartTimeChanged value)?
         morningShiftStartTimeChanged,
-    TResult Function(MorningShiftEndTimeChanged value)?
+    TResult Function(_MorningShiftEndTimeChanged value)?
         morningShiftEndTimeChanged,
-    TResult Function(AfternoonShiftStartTimeChanged value)?
+    TResult Function(_AfternoonShiftStartTimeChanged value)?
         afternoonShiftStartTimeChanged,
-    TResult Function(FormSubmitted value)? formSubmitted,
+    TResult Function(_FormSubmitted value)? formSubmitted,
     required TResult orElse(),
   }) {
     if (morningShiftStartTimeChanged != null) {
@@ -391,43 +388,44 @@ class _$MorningShiftStartTimeChanged implements MorningShiftStartTimeChanged {
   }
 }
 
-abstract class MorningShiftStartTimeChanged implements AssignScheduleFormEvent {
-  const factory MorningShiftStartTimeChanged(final TimeOfDay time) =
-      _$MorningShiftStartTimeChanged;
+abstract class _MorningShiftStartTimeChanged
+    implements AssignScheduleFormEvent {
+  const factory _MorningShiftStartTimeChanged(final TimeOfDay time) =
+      _$_MorningShiftStartTimeChanged;
 
   TimeOfDay get time => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$$MorningShiftStartTimeChangedCopyWith<_$MorningShiftStartTimeChanged>
+  _$$_MorningShiftStartTimeChangedCopyWith<_$_MorningShiftStartTimeChanged>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$MorningShiftEndTimeChangedCopyWith<$Res> {
-  factory _$$MorningShiftEndTimeChangedCopyWith(
-          _$MorningShiftEndTimeChanged value,
-          $Res Function(_$MorningShiftEndTimeChanged) then) =
-      __$$MorningShiftEndTimeChangedCopyWithImpl<$Res>;
+abstract class _$$_MorningShiftEndTimeChangedCopyWith<$Res> {
+  factory _$$_MorningShiftEndTimeChangedCopyWith(
+          _$_MorningShiftEndTimeChanged value,
+          $Res Function(_$_MorningShiftEndTimeChanged) then) =
+      __$$_MorningShiftEndTimeChangedCopyWithImpl<$Res>;
   $Res call({TimeOfDay time});
 }
 
 /// @nodoc
-class __$$MorningShiftEndTimeChangedCopyWithImpl<$Res>
+class __$$_MorningShiftEndTimeChangedCopyWithImpl<$Res>
     extends _$AssignScheduleFormEventCopyWithImpl<$Res>
-    implements _$$MorningShiftEndTimeChangedCopyWith<$Res> {
-  __$$MorningShiftEndTimeChangedCopyWithImpl(
-      _$MorningShiftEndTimeChanged _value,
-      $Res Function(_$MorningShiftEndTimeChanged) _then)
-      : super(_value, (v) => _then(v as _$MorningShiftEndTimeChanged));
+    implements _$$_MorningShiftEndTimeChangedCopyWith<$Res> {
+  __$$_MorningShiftEndTimeChangedCopyWithImpl(
+      _$_MorningShiftEndTimeChanged _value,
+      $Res Function(_$_MorningShiftEndTimeChanged) _then)
+      : super(_value, (v) => _then(v as _$_MorningShiftEndTimeChanged));
 
   @override
-  _$MorningShiftEndTimeChanged get _value =>
-      super._value as _$MorningShiftEndTimeChanged;
+  _$_MorningShiftEndTimeChanged get _value =>
+      super._value as _$_MorningShiftEndTimeChanged;
 
   @override
   $Res call({
     Object? time = freezed,
   }) {
-    return _then(_$MorningShiftEndTimeChanged(
+    return _then(_$_MorningShiftEndTimeChanged(
       time == freezed
           ? _value.time
           : time // ignore: cast_nullable_to_non_nullable
@@ -438,8 +436,8 @@ class __$$MorningShiftEndTimeChangedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$MorningShiftEndTimeChanged implements MorningShiftEndTimeChanged {
-  const _$MorningShiftEndTimeChanged(this.time);
+class _$_MorningShiftEndTimeChanged implements _MorningShiftEndTimeChanged {
+  const _$_MorningShiftEndTimeChanged(this.time);
 
   @override
   final TimeOfDay time;
@@ -453,7 +451,7 @@ class _$MorningShiftEndTimeChanged implements MorningShiftEndTimeChanged {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$MorningShiftEndTimeChanged &&
+            other is _$_MorningShiftEndTimeChanged &&
             const DeepCollectionEquality().equals(other.time, time));
   }
 
@@ -463,14 +461,14 @@ class _$MorningShiftEndTimeChanged implements MorningShiftEndTimeChanged {
 
   @JsonKey(ignore: true)
   @override
-  _$$MorningShiftEndTimeChangedCopyWith<_$MorningShiftEndTimeChanged>
-      get copyWith => __$$MorningShiftEndTimeChangedCopyWithImpl<
-          _$MorningShiftEndTimeChanged>(this, _$identity);
+  _$$_MorningShiftEndTimeChangedCopyWith<_$_MorningShiftEndTimeChanged>
+      get copyWith => __$$_MorningShiftEndTimeChangedCopyWithImpl<
+          _$_MorningShiftEndTimeChanged>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() workScheduleRequested,
+    required TResult Function() getSchedule,
     required TResult Function(TimeOfDay time) morningShiftStartTimeChanged,
     required TResult Function(TimeOfDay time) morningShiftEndTimeChanged,
     required TResult Function(TimeOfDay time) afternoonShiftStartTimeChanged,
@@ -482,7 +480,7 @@ class _$MorningShiftEndTimeChanged implements MorningShiftEndTimeChanged {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? workScheduleRequested,
+    TResult Function()? getSchedule,
     TResult Function(TimeOfDay time)? morningShiftStartTimeChanged,
     TResult Function(TimeOfDay time)? morningShiftEndTimeChanged,
     TResult Function(TimeOfDay time)? afternoonShiftStartTimeChanged,
@@ -494,7 +492,7 @@ class _$MorningShiftEndTimeChanged implements MorningShiftEndTimeChanged {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? workScheduleRequested,
+    TResult Function()? getSchedule,
     TResult Function(TimeOfDay time)? morningShiftStartTimeChanged,
     TResult Function(TimeOfDay time)? morningShiftEndTimeChanged,
     TResult Function(TimeOfDay time)? afternoonShiftStartTimeChanged,
@@ -510,15 +508,14 @@ class _$MorningShiftEndTimeChanged implements MorningShiftEndTimeChanged {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(WorkScheduleRequested value)
-        workScheduleRequested,
-    required TResult Function(MorningShiftStartTimeChanged value)
+    required TResult Function(_GetSchedule value) getSchedule,
+    required TResult Function(_MorningShiftStartTimeChanged value)
         morningShiftStartTimeChanged,
-    required TResult Function(MorningShiftEndTimeChanged value)
+    required TResult Function(_MorningShiftEndTimeChanged value)
         morningShiftEndTimeChanged,
-    required TResult Function(AfternoonShiftStartTimeChanged value)
+    required TResult Function(_AfternoonShiftStartTimeChanged value)
         afternoonShiftStartTimeChanged,
-    required TResult Function(FormSubmitted value) formSubmitted,
+    required TResult Function(_FormSubmitted value) formSubmitted,
   }) {
     return morningShiftEndTimeChanged(this);
   }
@@ -526,14 +523,14 @@ class _$MorningShiftEndTimeChanged implements MorningShiftEndTimeChanged {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(WorkScheduleRequested value)? workScheduleRequested,
-    TResult Function(MorningShiftStartTimeChanged value)?
+    TResult Function(_GetSchedule value)? getSchedule,
+    TResult Function(_MorningShiftStartTimeChanged value)?
         morningShiftStartTimeChanged,
-    TResult Function(MorningShiftEndTimeChanged value)?
+    TResult Function(_MorningShiftEndTimeChanged value)?
         morningShiftEndTimeChanged,
-    TResult Function(AfternoonShiftStartTimeChanged value)?
+    TResult Function(_AfternoonShiftStartTimeChanged value)?
         afternoonShiftStartTimeChanged,
-    TResult Function(FormSubmitted value)? formSubmitted,
+    TResult Function(_FormSubmitted value)? formSubmitted,
   }) {
     return morningShiftEndTimeChanged?.call(this);
   }
@@ -541,14 +538,14 @@ class _$MorningShiftEndTimeChanged implements MorningShiftEndTimeChanged {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(WorkScheduleRequested value)? workScheduleRequested,
-    TResult Function(MorningShiftStartTimeChanged value)?
+    TResult Function(_GetSchedule value)? getSchedule,
+    TResult Function(_MorningShiftStartTimeChanged value)?
         morningShiftStartTimeChanged,
-    TResult Function(MorningShiftEndTimeChanged value)?
+    TResult Function(_MorningShiftEndTimeChanged value)?
         morningShiftEndTimeChanged,
-    TResult Function(AfternoonShiftStartTimeChanged value)?
+    TResult Function(_AfternoonShiftStartTimeChanged value)?
         afternoonShiftStartTimeChanged,
-    TResult Function(FormSubmitted value)? formSubmitted,
+    TResult Function(_FormSubmitted value)? formSubmitted,
     required TResult orElse(),
   }) {
     if (morningShiftEndTimeChanged != null) {
@@ -558,43 +555,43 @@ class _$MorningShiftEndTimeChanged implements MorningShiftEndTimeChanged {
   }
 }
 
-abstract class MorningShiftEndTimeChanged implements AssignScheduleFormEvent {
-  const factory MorningShiftEndTimeChanged(final TimeOfDay time) =
-      _$MorningShiftEndTimeChanged;
+abstract class _MorningShiftEndTimeChanged implements AssignScheduleFormEvent {
+  const factory _MorningShiftEndTimeChanged(final TimeOfDay time) =
+      _$_MorningShiftEndTimeChanged;
 
   TimeOfDay get time => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$$MorningShiftEndTimeChangedCopyWith<_$MorningShiftEndTimeChanged>
+  _$$_MorningShiftEndTimeChangedCopyWith<_$_MorningShiftEndTimeChanged>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$AfternoonShiftStartTimeChangedCopyWith<$Res> {
-  factory _$$AfternoonShiftStartTimeChangedCopyWith(
-          _$AfternoonShiftStartTimeChanged value,
-          $Res Function(_$AfternoonShiftStartTimeChanged) then) =
-      __$$AfternoonShiftStartTimeChangedCopyWithImpl<$Res>;
+abstract class _$$_AfternoonShiftStartTimeChangedCopyWith<$Res> {
+  factory _$$_AfternoonShiftStartTimeChangedCopyWith(
+          _$_AfternoonShiftStartTimeChanged value,
+          $Res Function(_$_AfternoonShiftStartTimeChanged) then) =
+      __$$_AfternoonShiftStartTimeChangedCopyWithImpl<$Res>;
   $Res call({TimeOfDay time});
 }
 
 /// @nodoc
-class __$$AfternoonShiftStartTimeChangedCopyWithImpl<$Res>
+class __$$_AfternoonShiftStartTimeChangedCopyWithImpl<$Res>
     extends _$AssignScheduleFormEventCopyWithImpl<$Res>
-    implements _$$AfternoonShiftStartTimeChangedCopyWith<$Res> {
-  __$$AfternoonShiftStartTimeChangedCopyWithImpl(
-      _$AfternoonShiftStartTimeChanged _value,
-      $Res Function(_$AfternoonShiftStartTimeChanged) _then)
-      : super(_value, (v) => _then(v as _$AfternoonShiftStartTimeChanged));
+    implements _$$_AfternoonShiftStartTimeChangedCopyWith<$Res> {
+  __$$_AfternoonShiftStartTimeChangedCopyWithImpl(
+      _$_AfternoonShiftStartTimeChanged _value,
+      $Res Function(_$_AfternoonShiftStartTimeChanged) _then)
+      : super(_value, (v) => _then(v as _$_AfternoonShiftStartTimeChanged));
 
   @override
-  _$AfternoonShiftStartTimeChanged get _value =>
-      super._value as _$AfternoonShiftStartTimeChanged;
+  _$_AfternoonShiftStartTimeChanged get _value =>
+      super._value as _$_AfternoonShiftStartTimeChanged;
 
   @override
   $Res call({
     Object? time = freezed,
   }) {
-    return _then(_$AfternoonShiftStartTimeChanged(
+    return _then(_$_AfternoonShiftStartTimeChanged(
       time == freezed
           ? _value.time
           : time // ignore: cast_nullable_to_non_nullable
@@ -605,9 +602,9 @@ class __$$AfternoonShiftStartTimeChangedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$AfternoonShiftStartTimeChanged
-    implements AfternoonShiftStartTimeChanged {
-  const _$AfternoonShiftStartTimeChanged(this.time);
+class _$_AfternoonShiftStartTimeChanged
+    implements _AfternoonShiftStartTimeChanged {
+  const _$_AfternoonShiftStartTimeChanged(this.time);
 
   @override
   final TimeOfDay time;
@@ -621,7 +618,7 @@ class _$AfternoonShiftStartTimeChanged
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$AfternoonShiftStartTimeChanged &&
+            other is _$_AfternoonShiftStartTimeChanged &&
             const DeepCollectionEquality().equals(other.time, time));
   }
 
@@ -631,14 +628,14 @@ class _$AfternoonShiftStartTimeChanged
 
   @JsonKey(ignore: true)
   @override
-  _$$AfternoonShiftStartTimeChangedCopyWith<_$AfternoonShiftStartTimeChanged>
-      get copyWith => __$$AfternoonShiftStartTimeChangedCopyWithImpl<
-          _$AfternoonShiftStartTimeChanged>(this, _$identity);
+  _$$_AfternoonShiftStartTimeChangedCopyWith<_$_AfternoonShiftStartTimeChanged>
+      get copyWith => __$$_AfternoonShiftStartTimeChangedCopyWithImpl<
+          _$_AfternoonShiftStartTimeChanged>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() workScheduleRequested,
+    required TResult Function() getSchedule,
     required TResult Function(TimeOfDay time) morningShiftStartTimeChanged,
     required TResult Function(TimeOfDay time) morningShiftEndTimeChanged,
     required TResult Function(TimeOfDay time) afternoonShiftStartTimeChanged,
@@ -650,7 +647,7 @@ class _$AfternoonShiftStartTimeChanged
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? workScheduleRequested,
+    TResult Function()? getSchedule,
     TResult Function(TimeOfDay time)? morningShiftStartTimeChanged,
     TResult Function(TimeOfDay time)? morningShiftEndTimeChanged,
     TResult Function(TimeOfDay time)? afternoonShiftStartTimeChanged,
@@ -662,7 +659,7 @@ class _$AfternoonShiftStartTimeChanged
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? workScheduleRequested,
+    TResult Function()? getSchedule,
     TResult Function(TimeOfDay time)? morningShiftStartTimeChanged,
     TResult Function(TimeOfDay time)? morningShiftEndTimeChanged,
     TResult Function(TimeOfDay time)? afternoonShiftStartTimeChanged,
@@ -678,15 +675,14 @@ class _$AfternoonShiftStartTimeChanged
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(WorkScheduleRequested value)
-        workScheduleRequested,
-    required TResult Function(MorningShiftStartTimeChanged value)
+    required TResult Function(_GetSchedule value) getSchedule,
+    required TResult Function(_MorningShiftStartTimeChanged value)
         morningShiftStartTimeChanged,
-    required TResult Function(MorningShiftEndTimeChanged value)
+    required TResult Function(_MorningShiftEndTimeChanged value)
         morningShiftEndTimeChanged,
-    required TResult Function(AfternoonShiftStartTimeChanged value)
+    required TResult Function(_AfternoonShiftStartTimeChanged value)
         afternoonShiftStartTimeChanged,
-    required TResult Function(FormSubmitted value) formSubmitted,
+    required TResult Function(_FormSubmitted value) formSubmitted,
   }) {
     return afternoonShiftStartTimeChanged(this);
   }
@@ -694,14 +690,14 @@ class _$AfternoonShiftStartTimeChanged
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(WorkScheduleRequested value)? workScheduleRequested,
-    TResult Function(MorningShiftStartTimeChanged value)?
+    TResult Function(_GetSchedule value)? getSchedule,
+    TResult Function(_MorningShiftStartTimeChanged value)?
         morningShiftStartTimeChanged,
-    TResult Function(MorningShiftEndTimeChanged value)?
+    TResult Function(_MorningShiftEndTimeChanged value)?
         morningShiftEndTimeChanged,
-    TResult Function(AfternoonShiftStartTimeChanged value)?
+    TResult Function(_AfternoonShiftStartTimeChanged value)?
         afternoonShiftStartTimeChanged,
-    TResult Function(FormSubmitted value)? formSubmitted,
+    TResult Function(_FormSubmitted value)? formSubmitted,
   }) {
     return afternoonShiftStartTimeChanged?.call(this);
   }
@@ -709,14 +705,14 @@ class _$AfternoonShiftStartTimeChanged
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(WorkScheduleRequested value)? workScheduleRequested,
-    TResult Function(MorningShiftStartTimeChanged value)?
+    TResult Function(_GetSchedule value)? getSchedule,
+    TResult Function(_MorningShiftStartTimeChanged value)?
         morningShiftStartTimeChanged,
-    TResult Function(MorningShiftEndTimeChanged value)?
+    TResult Function(_MorningShiftEndTimeChanged value)?
         morningShiftEndTimeChanged,
-    TResult Function(AfternoonShiftStartTimeChanged value)?
+    TResult Function(_AfternoonShiftStartTimeChanged value)?
         afternoonShiftStartTimeChanged,
-    TResult Function(FormSubmitted value)? formSubmitted,
+    TResult Function(_FormSubmitted value)? formSubmitted,
     required TResult orElse(),
   }) {
     if (afternoonShiftStartTimeChanged != null) {
@@ -726,40 +722,40 @@ class _$AfternoonShiftStartTimeChanged
   }
 }
 
-abstract class AfternoonShiftStartTimeChanged
+abstract class _AfternoonShiftStartTimeChanged
     implements AssignScheduleFormEvent {
-  const factory AfternoonShiftStartTimeChanged(final TimeOfDay time) =
-      _$AfternoonShiftStartTimeChanged;
+  const factory _AfternoonShiftStartTimeChanged(final TimeOfDay time) =
+      _$_AfternoonShiftStartTimeChanged;
 
   TimeOfDay get time => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$$AfternoonShiftStartTimeChangedCopyWith<_$AfternoonShiftStartTimeChanged>
+  _$$_AfternoonShiftStartTimeChangedCopyWith<_$_AfternoonShiftStartTimeChanged>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$FormSubmittedCopyWith<$Res> {
-  factory _$$FormSubmittedCopyWith(
-          _$FormSubmitted value, $Res Function(_$FormSubmitted) then) =
-      __$$FormSubmittedCopyWithImpl<$Res>;
+abstract class _$$_FormSubmittedCopyWith<$Res> {
+  factory _$$_FormSubmittedCopyWith(
+          _$_FormSubmitted value, $Res Function(_$_FormSubmitted) then) =
+      __$$_FormSubmittedCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$FormSubmittedCopyWithImpl<$Res>
+class __$$_FormSubmittedCopyWithImpl<$Res>
     extends _$AssignScheduleFormEventCopyWithImpl<$Res>
-    implements _$$FormSubmittedCopyWith<$Res> {
-  __$$FormSubmittedCopyWithImpl(
-      _$FormSubmitted _value, $Res Function(_$FormSubmitted) _then)
-      : super(_value, (v) => _then(v as _$FormSubmitted));
+    implements _$$_FormSubmittedCopyWith<$Res> {
+  __$$_FormSubmittedCopyWithImpl(
+      _$_FormSubmitted _value, $Res Function(_$_FormSubmitted) _then)
+      : super(_value, (v) => _then(v as _$_FormSubmitted));
 
   @override
-  _$FormSubmitted get _value => super._value as _$FormSubmitted;
+  _$_FormSubmitted get _value => super._value as _$_FormSubmitted;
 }
 
 /// @nodoc
 
-class _$FormSubmitted implements FormSubmitted {
-  const _$FormSubmitted();
+class _$_FormSubmitted implements _FormSubmitted {
+  const _$_FormSubmitted();
 
   @override
   String toString() {
@@ -769,7 +765,7 @@ class _$FormSubmitted implements FormSubmitted {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$FormSubmitted);
+        (other.runtimeType == runtimeType && other is _$_FormSubmitted);
   }
 
   @override
@@ -778,7 +774,7 @@ class _$FormSubmitted implements FormSubmitted {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() workScheduleRequested,
+    required TResult Function() getSchedule,
     required TResult Function(TimeOfDay time) morningShiftStartTimeChanged,
     required TResult Function(TimeOfDay time) morningShiftEndTimeChanged,
     required TResult Function(TimeOfDay time) afternoonShiftStartTimeChanged,
@@ -790,7 +786,7 @@ class _$FormSubmitted implements FormSubmitted {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? workScheduleRequested,
+    TResult Function()? getSchedule,
     TResult Function(TimeOfDay time)? morningShiftStartTimeChanged,
     TResult Function(TimeOfDay time)? morningShiftEndTimeChanged,
     TResult Function(TimeOfDay time)? afternoonShiftStartTimeChanged,
@@ -802,7 +798,7 @@ class _$FormSubmitted implements FormSubmitted {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? workScheduleRequested,
+    TResult Function()? getSchedule,
     TResult Function(TimeOfDay time)? morningShiftStartTimeChanged,
     TResult Function(TimeOfDay time)? morningShiftEndTimeChanged,
     TResult Function(TimeOfDay time)? afternoonShiftStartTimeChanged,
@@ -818,15 +814,14 @@ class _$FormSubmitted implements FormSubmitted {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(WorkScheduleRequested value)
-        workScheduleRequested,
-    required TResult Function(MorningShiftStartTimeChanged value)
+    required TResult Function(_GetSchedule value) getSchedule,
+    required TResult Function(_MorningShiftStartTimeChanged value)
         morningShiftStartTimeChanged,
-    required TResult Function(MorningShiftEndTimeChanged value)
+    required TResult Function(_MorningShiftEndTimeChanged value)
         morningShiftEndTimeChanged,
-    required TResult Function(AfternoonShiftStartTimeChanged value)
+    required TResult Function(_AfternoonShiftStartTimeChanged value)
         afternoonShiftStartTimeChanged,
-    required TResult Function(FormSubmitted value) formSubmitted,
+    required TResult Function(_FormSubmitted value) formSubmitted,
   }) {
     return formSubmitted(this);
   }
@@ -834,14 +829,14 @@ class _$FormSubmitted implements FormSubmitted {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(WorkScheduleRequested value)? workScheduleRequested,
-    TResult Function(MorningShiftStartTimeChanged value)?
+    TResult Function(_GetSchedule value)? getSchedule,
+    TResult Function(_MorningShiftStartTimeChanged value)?
         morningShiftStartTimeChanged,
-    TResult Function(MorningShiftEndTimeChanged value)?
+    TResult Function(_MorningShiftEndTimeChanged value)?
         morningShiftEndTimeChanged,
-    TResult Function(AfternoonShiftStartTimeChanged value)?
+    TResult Function(_AfternoonShiftStartTimeChanged value)?
         afternoonShiftStartTimeChanged,
-    TResult Function(FormSubmitted value)? formSubmitted,
+    TResult Function(_FormSubmitted value)? formSubmitted,
   }) {
     return formSubmitted?.call(this);
   }
@@ -849,14 +844,14 @@ class _$FormSubmitted implements FormSubmitted {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(WorkScheduleRequested value)? workScheduleRequested,
-    TResult Function(MorningShiftStartTimeChanged value)?
+    TResult Function(_GetSchedule value)? getSchedule,
+    TResult Function(_MorningShiftStartTimeChanged value)?
         morningShiftStartTimeChanged,
-    TResult Function(MorningShiftEndTimeChanged value)?
+    TResult Function(_MorningShiftEndTimeChanged value)?
         morningShiftEndTimeChanged,
-    TResult Function(AfternoonShiftStartTimeChanged value)?
+    TResult Function(_AfternoonShiftStartTimeChanged value)?
         afternoonShiftStartTimeChanged,
-    TResult Function(FormSubmitted value)? formSubmitted,
+    TResult Function(_FormSubmitted value)? formSubmitted,
     required TResult orElse(),
   }) {
     if (formSubmitted != null) {
@@ -866,16 +861,19 @@ class _$FormSubmitted implements FormSubmitted {
   }
 }
 
-abstract class FormSubmitted implements AssignScheduleFormEvent {
-  const factory FormSubmitted() = _$FormSubmitted;
+abstract class _FormSubmitted implements AssignScheduleFormEvent {
+  const factory _FormSubmitted() = _$_FormSubmitted;
 }
 
 /// @nodoc
 mixin _$AssignScheduleFormState {
-  Schedule get schedule => throw _privateConstructorUsedError;
+  TimeOfDay get morningShiftStart => throw _privateConstructorUsedError;
+  TimeOfDay get morningShiftEnd => throw _privateConstructorUsedError;
+  TimeOfDay get afternoonShiftStart => throw _privateConstructorUsedError;
+  TimeOfDay get afternoonShiftEnd => throw _privateConstructorUsedError;
   bool get isSubmitting => throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
-  Either<ScheduleFailure, Unit>? get scheduleFailureOrSuccess =>
+  Either<ScheduleFailure, Schedule>? get scheduleFailureOrSchedule =>
       throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -889,12 +887,13 @@ abstract class $AssignScheduleFormStateCopyWith<$Res> {
           $Res Function(AssignScheduleFormState) then) =
       _$AssignScheduleFormStateCopyWithImpl<$Res>;
   $Res call(
-      {Schedule schedule,
+      {TimeOfDay morningShiftStart,
+      TimeOfDay morningShiftEnd,
+      TimeOfDay afternoonShiftStart,
+      TimeOfDay afternoonShiftEnd,
       bool isSubmitting,
       bool isLoading,
-      Either<ScheduleFailure, Unit>? scheduleFailureOrSuccess});
-
-  $ScheduleCopyWith<$Res> get schedule;
+      Either<ScheduleFailure, Schedule>? scheduleFailureOrSchedule});
 }
 
 /// @nodoc
@@ -908,16 +907,31 @@ class _$AssignScheduleFormStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? schedule = freezed,
+    Object? morningShiftStart = freezed,
+    Object? morningShiftEnd = freezed,
+    Object? afternoonShiftStart = freezed,
+    Object? afternoonShiftEnd = freezed,
     Object? isSubmitting = freezed,
     Object? isLoading = freezed,
-    Object? scheduleFailureOrSuccess = freezed,
+    Object? scheduleFailureOrSchedule = freezed,
   }) {
     return _then(_value.copyWith(
-      schedule: schedule == freezed
-          ? _value.schedule
-          : schedule // ignore: cast_nullable_to_non_nullable
-              as Schedule,
+      morningShiftStart: morningShiftStart == freezed
+          ? _value.morningShiftStart
+          : morningShiftStart // ignore: cast_nullable_to_non_nullable
+              as TimeOfDay,
+      morningShiftEnd: morningShiftEnd == freezed
+          ? _value.morningShiftEnd
+          : morningShiftEnd // ignore: cast_nullable_to_non_nullable
+              as TimeOfDay,
+      afternoonShiftStart: afternoonShiftStart == freezed
+          ? _value.afternoonShiftStart
+          : afternoonShiftStart // ignore: cast_nullable_to_non_nullable
+              as TimeOfDay,
+      afternoonShiftEnd: afternoonShiftEnd == freezed
+          ? _value.afternoonShiftEnd
+          : afternoonShiftEnd // ignore: cast_nullable_to_non_nullable
+              as TimeOfDay,
       isSubmitting: isSubmitting == freezed
           ? _value.isSubmitting
           : isSubmitting // ignore: cast_nullable_to_non_nullable
@@ -926,18 +940,11 @@ class _$AssignScheduleFormStateCopyWithImpl<$Res>
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      scheduleFailureOrSuccess: scheduleFailureOrSuccess == freezed
-          ? _value.scheduleFailureOrSuccess
-          : scheduleFailureOrSuccess // ignore: cast_nullable_to_non_nullable
-              as Either<ScheduleFailure, Unit>?,
+      scheduleFailureOrSchedule: scheduleFailureOrSchedule == freezed
+          ? _value.scheduleFailureOrSchedule
+          : scheduleFailureOrSchedule // ignore: cast_nullable_to_non_nullable
+              as Either<ScheduleFailure, Schedule>?,
     ));
-  }
-
-  @override
-  $ScheduleCopyWith<$Res> get schedule {
-    return $ScheduleCopyWith<$Res>(_value.schedule, (value) {
-      return _then(_value.copyWith(schedule: value));
-    });
   }
 }
 
@@ -949,13 +956,13 @@ abstract class _$$_AssignScheduleFormStateCopyWith<$Res>
       __$$_AssignScheduleFormStateCopyWithImpl<$Res>;
   @override
   $Res call(
-      {Schedule schedule,
+      {TimeOfDay morningShiftStart,
+      TimeOfDay morningShiftEnd,
+      TimeOfDay afternoonShiftStart,
+      TimeOfDay afternoonShiftEnd,
       bool isSubmitting,
       bool isLoading,
-      Either<ScheduleFailure, Unit>? scheduleFailureOrSuccess});
-
-  @override
-  $ScheduleCopyWith<$Res> get schedule;
+      Either<ScheduleFailure, Schedule>? scheduleFailureOrSchedule});
 }
 
 /// @nodoc
@@ -972,16 +979,31 @@ class __$$_AssignScheduleFormStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? schedule = freezed,
+    Object? morningShiftStart = freezed,
+    Object? morningShiftEnd = freezed,
+    Object? afternoonShiftStart = freezed,
+    Object? afternoonShiftEnd = freezed,
     Object? isSubmitting = freezed,
     Object? isLoading = freezed,
-    Object? scheduleFailureOrSuccess = freezed,
+    Object? scheduleFailureOrSchedule = freezed,
   }) {
     return _then(_$_AssignScheduleFormState(
-      schedule: schedule == freezed
-          ? _value.schedule
-          : schedule // ignore: cast_nullable_to_non_nullable
-              as Schedule,
+      morningShiftStart: morningShiftStart == freezed
+          ? _value.morningShiftStart
+          : morningShiftStart // ignore: cast_nullable_to_non_nullable
+              as TimeOfDay,
+      morningShiftEnd: morningShiftEnd == freezed
+          ? _value.morningShiftEnd
+          : morningShiftEnd // ignore: cast_nullable_to_non_nullable
+              as TimeOfDay,
+      afternoonShiftStart: afternoonShiftStart == freezed
+          ? _value.afternoonShiftStart
+          : afternoonShiftStart // ignore: cast_nullable_to_non_nullable
+              as TimeOfDay,
+      afternoonShiftEnd: afternoonShiftEnd == freezed
+          ? _value.afternoonShiftEnd
+          : afternoonShiftEnd // ignore: cast_nullable_to_non_nullable
+              as TimeOfDay,
       isSubmitting: isSubmitting == freezed
           ? _value.isSubmitting
           : isSubmitting // ignore: cast_nullable_to_non_nullable
@@ -990,10 +1012,10 @@ class __$$_AssignScheduleFormStateCopyWithImpl<$Res>
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      scheduleFailureOrSuccess: scheduleFailureOrSuccess == freezed
-          ? _value.scheduleFailureOrSuccess
-          : scheduleFailureOrSuccess // ignore: cast_nullable_to_non_nullable
-              as Either<ScheduleFailure, Unit>?,
+      scheduleFailureOrSchedule: scheduleFailureOrSchedule == freezed
+          ? _value.scheduleFailureOrSchedule
+          : scheduleFailureOrSchedule // ignore: cast_nullable_to_non_nullable
+              as Either<ScheduleFailure, Schedule>?,
     ));
   }
 }
@@ -1002,23 +1024,32 @@ class __$$_AssignScheduleFormStateCopyWithImpl<$Res>
 
 class _$_AssignScheduleFormState implements _AssignScheduleFormState {
   const _$_AssignScheduleFormState(
-      {required this.schedule,
+      {required this.morningShiftStart,
+      required this.morningShiftEnd,
+      required this.afternoonShiftStart,
+      required this.afternoonShiftEnd,
       required this.isSubmitting,
       required this.isLoading,
-      required this.scheduleFailureOrSuccess});
+      required this.scheduleFailureOrSchedule});
 
   @override
-  final Schedule schedule;
+  final TimeOfDay morningShiftStart;
+  @override
+  final TimeOfDay morningShiftEnd;
+  @override
+  final TimeOfDay afternoonShiftStart;
+  @override
+  final TimeOfDay afternoonShiftEnd;
   @override
   final bool isSubmitting;
   @override
   final bool isLoading;
   @override
-  final Either<ScheduleFailure, Unit>? scheduleFailureOrSuccess;
+  final Either<ScheduleFailure, Schedule>? scheduleFailureOrSchedule;
 
   @override
   String toString() {
-    return 'AssignScheduleFormState(schedule: $schedule, isSubmitting: $isSubmitting, isLoading: $isLoading, scheduleFailureOrSuccess: $scheduleFailureOrSuccess)';
+    return 'AssignScheduleFormState(morningShiftStart: $morningShiftStart, morningShiftEnd: $morningShiftEnd, afternoonShiftStart: $afternoonShiftStart, afternoonShiftEnd: $afternoonShiftEnd, isSubmitting: $isSubmitting, isLoading: $isLoading, scheduleFailureOrSchedule: $scheduleFailureOrSchedule)';
   }
 
   @override
@@ -1026,21 +1057,31 @@ class _$_AssignScheduleFormState implements _AssignScheduleFormState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_AssignScheduleFormState &&
-            const DeepCollectionEquality().equals(other.schedule, schedule) &&
+            const DeepCollectionEquality()
+                .equals(other.morningShiftStart, morningShiftStart) &&
+            const DeepCollectionEquality()
+                .equals(other.morningShiftEnd, morningShiftEnd) &&
+            const DeepCollectionEquality()
+                .equals(other.afternoonShiftStart, afternoonShiftStart) &&
+            const DeepCollectionEquality()
+                .equals(other.afternoonShiftEnd, afternoonShiftEnd) &&
             const DeepCollectionEquality()
                 .equals(other.isSubmitting, isSubmitting) &&
             const DeepCollectionEquality().equals(other.isLoading, isLoading) &&
             const DeepCollectionEquality().equals(
-                other.scheduleFailureOrSuccess, scheduleFailureOrSuccess));
+                other.scheduleFailureOrSchedule, scheduleFailureOrSchedule));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(schedule),
+      const DeepCollectionEquality().hash(morningShiftStart),
+      const DeepCollectionEquality().hash(morningShiftEnd),
+      const DeepCollectionEquality().hash(afternoonShiftStart),
+      const DeepCollectionEquality().hash(afternoonShiftEnd),
       const DeepCollectionEquality().hash(isSubmitting),
       const DeepCollectionEquality().hash(isLoading),
-      const DeepCollectionEquality().hash(scheduleFailureOrSuccess));
+      const DeepCollectionEquality().hash(scheduleFailureOrSchedule));
 
   @JsonKey(ignore: true)
   @override
@@ -1052,20 +1093,29 @@ class _$_AssignScheduleFormState implements _AssignScheduleFormState {
 
 abstract class _AssignScheduleFormState implements AssignScheduleFormState {
   const factory _AssignScheduleFormState(
-      {required final Schedule schedule,
+      {required final TimeOfDay morningShiftStart,
+      required final TimeOfDay morningShiftEnd,
+      required final TimeOfDay afternoonShiftStart,
+      required final TimeOfDay afternoonShiftEnd,
       required final bool isSubmitting,
       required final bool isLoading,
-      required final Either<ScheduleFailure, Unit>?
-          scheduleFailureOrSuccess}) = _$_AssignScheduleFormState;
+      required final Either<ScheduleFailure, Schedule>?
+          scheduleFailureOrSchedule}) = _$_AssignScheduleFormState;
 
   @override
-  Schedule get schedule => throw _privateConstructorUsedError;
+  TimeOfDay get morningShiftStart => throw _privateConstructorUsedError;
+  @override
+  TimeOfDay get morningShiftEnd => throw _privateConstructorUsedError;
+  @override
+  TimeOfDay get afternoonShiftStart => throw _privateConstructorUsedError;
+  @override
+  TimeOfDay get afternoonShiftEnd => throw _privateConstructorUsedError;
   @override
   bool get isSubmitting => throw _privateConstructorUsedError;
   @override
   bool get isLoading => throw _privateConstructorUsedError;
   @override
-  Either<ScheduleFailure, Unit>? get scheduleFailureOrSuccess =>
+  Either<ScheduleFailure, Schedule>? get scheduleFailureOrSchedule =>
       throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
