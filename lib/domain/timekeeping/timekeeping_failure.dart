@@ -5,8 +5,25 @@ part 'timekeeping_failure.freezed.dart';
 
 @freezed
 class TimekeepingFailure with _$TimekeepingFailure {
-  const factory TimekeepingFailure.serverError() = ServerError;
-  const factory TimekeepingFailure.unauthenticated() = Unauthenticated;
-  const factory TimekeepingFailure.qrCodeNotMatch() = QrCodeNotMatch;
-  const factory TimekeepingFailure.timekeepingNotFound() = TimekeepingNotFound;
+  const TimekeepingFailure._();
+
+  const factory TimekeepingFailure.noInternetAccess() = _NoInternetAccess;
+
+  const factory TimekeepingFailure.serverError() = _ServerError;
+
+  const factory TimekeepingFailure.unAuthenticated() = _UnAuthenticated;
+
+  const factory TimekeepingFailure.qrCodeNotMatch() = _QrCodeNotMatch;
+
+  const factory TimekeepingFailure.timekeepingNotFound() = _TimekeepingNotFound;
+
+  @override
+  String toString() {
+    return when(
+        noInternetAccess: () => 'Không có kết nối Internet',
+        serverError: () => 'Lỗi server',
+        unAuthenticated: () => 'Phiên đăng nhập hết hạn',
+        qrCodeNotMatch: () => 'QR Code không hợp lệ',
+        timekeepingNotFound: () => 'Không tìm thấy dữ liệu trong CSDL');
+  }
 }

@@ -5,6 +5,18 @@ part 'absent_failure.freezed.dart';
 
 @freezed
 class AbsentFailure with _$AbsentFailure {
-  const factory AbsentFailure.serverError() = ServerError;
-  const factory AbsentFailure.unAuthenticated() = UnAuthenticated;
+  const AbsentFailure._();
+
+  const factory AbsentFailure.noInternetAccess() = _NoInternetAccess;
+
+  const factory AbsentFailure.serverError() = _ServerError;
+
+  const factory AbsentFailure.unAuthenticated() = _UnAuthenticated;
+
+  String toFailureMessage() {
+    return when(
+        noInternetAccess: () => 'Không có kết nối Internet',
+        serverError: () => 'Lỗi server',
+        unAuthenticated: () => 'Phiên đăng nhập hết hạn');
+  }
 }

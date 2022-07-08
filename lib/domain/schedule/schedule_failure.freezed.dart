@@ -18,39 +18,51 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$ScheduleFailure {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() noInternetAccess,
     required TResult Function() serverError,
+    required TResult Function() unAuthenticated,
     required TResult Function() noScheduleStored,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? noInternetAccess,
     TResult Function()? serverError,
+    TResult Function()? unAuthenticated,
     TResult Function()? noScheduleStored,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? noInternetAccess,
     TResult Function()? serverError,
+    TResult Function()? unAuthenticated,
     TResult Function()? noScheduleStored,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(ServerError value) serverError,
-    required TResult Function(NoScheduleStored value) noScheduleStored,
+    required TResult Function(_NoInternetAccess value) noInternetAccess,
+    required TResult Function(_ServerError value) serverError,
+    required TResult Function(_UnAuthenticated value) unAuthenticated,
+    required TResult Function(_NoScheduleStored value) noScheduleStored,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(ServerError value)? serverError,
-    TResult Function(NoScheduleStored value)? noScheduleStored,
+    TResult Function(_NoInternetAccess value)? noInternetAccess,
+    TResult Function(_ServerError value)? serverError,
+    TResult Function(_UnAuthenticated value)? unAuthenticated,
+    TResult Function(_NoScheduleStored value)? noScheduleStored,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(ServerError value)? serverError,
-    TResult Function(NoScheduleStored value)? noScheduleStored,
+    TResult Function(_NoInternetAccess value)? noInternetAccess,
+    TResult Function(_ServerError value)? serverError,
+    TResult Function(_UnAuthenticated value)? unAuthenticated,
+    TResult Function(_NoScheduleStored value)? noScheduleStored,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -74,28 +86,154 @@ class _$ScheduleFailureCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$$ServerErrorCopyWith<$Res> {
-  factory _$$ServerErrorCopyWith(
-          _$ServerError value, $Res Function(_$ServerError) then) =
-      __$$ServerErrorCopyWithImpl<$Res>;
+abstract class _$$_NoInternetAccessCopyWith<$Res> {
+  factory _$$_NoInternetAccessCopyWith(
+          _$_NoInternetAccess value, $Res Function(_$_NoInternetAccess) then) =
+      __$$_NoInternetAccessCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$ServerErrorCopyWithImpl<$Res>
+class __$$_NoInternetAccessCopyWithImpl<$Res>
     extends _$ScheduleFailureCopyWithImpl<$Res>
-    implements _$$ServerErrorCopyWith<$Res> {
-  __$$ServerErrorCopyWithImpl(
-      _$ServerError _value, $Res Function(_$ServerError) _then)
-      : super(_value, (v) => _then(v as _$ServerError));
+    implements _$$_NoInternetAccessCopyWith<$Res> {
+  __$$_NoInternetAccessCopyWithImpl(
+      _$_NoInternetAccess _value, $Res Function(_$_NoInternetAccess) _then)
+      : super(_value, (v) => _then(v as _$_NoInternetAccess));
 
   @override
-  _$ServerError get _value => super._value as _$ServerError;
+  _$_NoInternetAccess get _value => super._value as _$_NoInternetAccess;
 }
 
 /// @nodoc
 
-class _$ServerError with DiagnosticableTreeMixin implements ServerError {
-  const _$ServerError();
+class _$_NoInternetAccess extends _NoInternetAccess
+    with DiagnosticableTreeMixin {
+  const _$_NoInternetAccess() : super._();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'ScheduleFailure.noInternetAccess()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+        .add(DiagnosticsProperty('type', 'ScheduleFailure.noInternetAccess'));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_NoInternetAccess);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() noInternetAccess,
+    required TResult Function() serverError,
+    required TResult Function() unAuthenticated,
+    required TResult Function() noScheduleStored,
+  }) {
+    return noInternetAccess();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? noInternetAccess,
+    TResult Function()? serverError,
+    TResult Function()? unAuthenticated,
+    TResult Function()? noScheduleStored,
+  }) {
+    return noInternetAccess?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? noInternetAccess,
+    TResult Function()? serverError,
+    TResult Function()? unAuthenticated,
+    TResult Function()? noScheduleStored,
+    required TResult orElse(),
+  }) {
+    if (noInternetAccess != null) {
+      return noInternetAccess();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_NoInternetAccess value) noInternetAccess,
+    required TResult Function(_ServerError value) serverError,
+    required TResult Function(_UnAuthenticated value) unAuthenticated,
+    required TResult Function(_NoScheduleStored value) noScheduleStored,
+  }) {
+    return noInternetAccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_NoInternetAccess value)? noInternetAccess,
+    TResult Function(_ServerError value)? serverError,
+    TResult Function(_UnAuthenticated value)? unAuthenticated,
+    TResult Function(_NoScheduleStored value)? noScheduleStored,
+  }) {
+    return noInternetAccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_NoInternetAccess value)? noInternetAccess,
+    TResult Function(_ServerError value)? serverError,
+    TResult Function(_UnAuthenticated value)? unAuthenticated,
+    TResult Function(_NoScheduleStored value)? noScheduleStored,
+    required TResult orElse(),
+  }) {
+    if (noInternetAccess != null) {
+      return noInternetAccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _NoInternetAccess extends ScheduleFailure {
+  const factory _NoInternetAccess() = _$_NoInternetAccess;
+  const _NoInternetAccess._() : super._();
+}
+
+/// @nodoc
+abstract class _$$_ServerErrorCopyWith<$Res> {
+  factory _$$_ServerErrorCopyWith(
+          _$_ServerError value, $Res Function(_$_ServerError) then) =
+      __$$_ServerErrorCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_ServerErrorCopyWithImpl<$Res>
+    extends _$ScheduleFailureCopyWithImpl<$Res>
+    implements _$$_ServerErrorCopyWith<$Res> {
+  __$$_ServerErrorCopyWithImpl(
+      _$_ServerError _value, $Res Function(_$_ServerError) _then)
+      : super(_value, (v) => _then(v as _$_ServerError));
+
+  @override
+  _$_ServerError get _value => super._value as _$_ServerError;
+}
+
+/// @nodoc
+
+class _$_ServerError extends _ServerError with DiagnosticableTreeMixin {
+  const _$_ServerError() : super._();
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -111,7 +249,7 @@ class _$ServerError with DiagnosticableTreeMixin implements ServerError {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$ServerError);
+        (other.runtimeType == runtimeType && other is _$_ServerError);
   }
 
   @override
@@ -120,7 +258,9 @@ class _$ServerError with DiagnosticableTreeMixin implements ServerError {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() noInternetAccess,
     required TResult Function() serverError,
+    required TResult Function() unAuthenticated,
     required TResult Function() noScheduleStored,
   }) {
     return serverError();
@@ -129,7 +269,9 @@ class _$ServerError with DiagnosticableTreeMixin implements ServerError {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? noInternetAccess,
     TResult Function()? serverError,
+    TResult Function()? unAuthenticated,
     TResult Function()? noScheduleStored,
   }) {
     return serverError?.call();
@@ -138,7 +280,9 @@ class _$ServerError with DiagnosticableTreeMixin implements ServerError {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? noInternetAccess,
     TResult Function()? serverError,
+    TResult Function()? unAuthenticated,
     TResult Function()? noScheduleStored,
     required TResult orElse(),
   }) {
@@ -151,8 +295,10 @@ class _$ServerError with DiagnosticableTreeMixin implements ServerError {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(ServerError value) serverError,
-    required TResult Function(NoScheduleStored value) noScheduleStored,
+    required TResult Function(_NoInternetAccess value) noInternetAccess,
+    required TResult Function(_ServerError value) serverError,
+    required TResult Function(_UnAuthenticated value) unAuthenticated,
+    required TResult Function(_NoScheduleStored value) noScheduleStored,
   }) {
     return serverError(this);
   }
@@ -160,8 +306,10 @@ class _$ServerError with DiagnosticableTreeMixin implements ServerError {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(ServerError value)? serverError,
-    TResult Function(NoScheduleStored value)? noScheduleStored,
+    TResult Function(_NoInternetAccess value)? noInternetAccess,
+    TResult Function(_ServerError value)? serverError,
+    TResult Function(_UnAuthenticated value)? unAuthenticated,
+    TResult Function(_NoScheduleStored value)? noScheduleStored,
   }) {
     return serverError?.call(this);
   }
@@ -169,8 +317,10 @@ class _$ServerError with DiagnosticableTreeMixin implements ServerError {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(ServerError value)? serverError,
-    TResult Function(NoScheduleStored value)? noScheduleStored,
+    TResult Function(_NoInternetAccess value)? noInternetAccess,
+    TResult Function(_ServerError value)? serverError,
+    TResult Function(_UnAuthenticated value)? unAuthenticated,
+    TResult Function(_NoScheduleStored value)? noScheduleStored,
     required TResult orElse(),
   }) {
     if (serverError != null) {
@@ -180,35 +330,160 @@ class _$ServerError with DiagnosticableTreeMixin implements ServerError {
   }
 }
 
-abstract class ServerError implements ScheduleFailure {
-  const factory ServerError() = _$ServerError;
+abstract class _ServerError extends ScheduleFailure {
+  const factory _ServerError() = _$_ServerError;
+  const _ServerError._() : super._();
 }
 
 /// @nodoc
-abstract class _$$NoScheduleStoredCopyWith<$Res> {
-  factory _$$NoScheduleStoredCopyWith(
-          _$NoScheduleStored value, $Res Function(_$NoScheduleStored) then) =
-      __$$NoScheduleStoredCopyWithImpl<$Res>;
+abstract class _$$_UnAuthenticatedCopyWith<$Res> {
+  factory _$$_UnAuthenticatedCopyWith(
+          _$_UnAuthenticated value, $Res Function(_$_UnAuthenticated) then) =
+      __$$_UnAuthenticatedCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$NoScheduleStoredCopyWithImpl<$Res>
+class __$$_UnAuthenticatedCopyWithImpl<$Res>
     extends _$ScheduleFailureCopyWithImpl<$Res>
-    implements _$$NoScheduleStoredCopyWith<$Res> {
-  __$$NoScheduleStoredCopyWithImpl(
-      _$NoScheduleStored _value, $Res Function(_$NoScheduleStored) _then)
-      : super(_value, (v) => _then(v as _$NoScheduleStored));
+    implements _$$_UnAuthenticatedCopyWith<$Res> {
+  __$$_UnAuthenticatedCopyWithImpl(
+      _$_UnAuthenticated _value, $Res Function(_$_UnAuthenticated) _then)
+      : super(_value, (v) => _then(v as _$_UnAuthenticated));
 
   @override
-  _$NoScheduleStored get _value => super._value as _$NoScheduleStored;
+  _$_UnAuthenticated get _value => super._value as _$_UnAuthenticated;
 }
 
 /// @nodoc
 
-class _$NoScheduleStored
-    with DiagnosticableTreeMixin
-    implements NoScheduleStored {
-  const _$NoScheduleStored();
+class _$_UnAuthenticated extends _UnAuthenticated with DiagnosticableTreeMixin {
+  const _$_UnAuthenticated() : super._();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'ScheduleFailure.unAuthenticated()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+        .add(DiagnosticsProperty('type', 'ScheduleFailure.unAuthenticated'));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_UnAuthenticated);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() noInternetAccess,
+    required TResult Function() serverError,
+    required TResult Function() unAuthenticated,
+    required TResult Function() noScheduleStored,
+  }) {
+    return unAuthenticated();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? noInternetAccess,
+    TResult Function()? serverError,
+    TResult Function()? unAuthenticated,
+    TResult Function()? noScheduleStored,
+  }) {
+    return unAuthenticated?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? noInternetAccess,
+    TResult Function()? serverError,
+    TResult Function()? unAuthenticated,
+    TResult Function()? noScheduleStored,
+    required TResult orElse(),
+  }) {
+    if (unAuthenticated != null) {
+      return unAuthenticated();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_NoInternetAccess value) noInternetAccess,
+    required TResult Function(_ServerError value) serverError,
+    required TResult Function(_UnAuthenticated value) unAuthenticated,
+    required TResult Function(_NoScheduleStored value) noScheduleStored,
+  }) {
+    return unAuthenticated(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_NoInternetAccess value)? noInternetAccess,
+    TResult Function(_ServerError value)? serverError,
+    TResult Function(_UnAuthenticated value)? unAuthenticated,
+    TResult Function(_NoScheduleStored value)? noScheduleStored,
+  }) {
+    return unAuthenticated?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_NoInternetAccess value)? noInternetAccess,
+    TResult Function(_ServerError value)? serverError,
+    TResult Function(_UnAuthenticated value)? unAuthenticated,
+    TResult Function(_NoScheduleStored value)? noScheduleStored,
+    required TResult orElse(),
+  }) {
+    if (unAuthenticated != null) {
+      return unAuthenticated(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UnAuthenticated extends ScheduleFailure {
+  const factory _UnAuthenticated() = _$_UnAuthenticated;
+  const _UnAuthenticated._() : super._();
+}
+
+/// @nodoc
+abstract class _$$_NoScheduleStoredCopyWith<$Res> {
+  factory _$$_NoScheduleStoredCopyWith(
+          _$_NoScheduleStored value, $Res Function(_$_NoScheduleStored) then) =
+      __$$_NoScheduleStoredCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_NoScheduleStoredCopyWithImpl<$Res>
+    extends _$ScheduleFailureCopyWithImpl<$Res>
+    implements _$$_NoScheduleStoredCopyWith<$Res> {
+  __$$_NoScheduleStoredCopyWithImpl(
+      _$_NoScheduleStored _value, $Res Function(_$_NoScheduleStored) _then)
+      : super(_value, (v) => _then(v as _$_NoScheduleStored));
+
+  @override
+  _$_NoScheduleStored get _value => super._value as _$_NoScheduleStored;
+}
+
+/// @nodoc
+
+class _$_NoScheduleStored extends _NoScheduleStored
+    with DiagnosticableTreeMixin {
+  const _$_NoScheduleStored() : super._();
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -225,7 +500,7 @@ class _$NoScheduleStored
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$NoScheduleStored);
+        (other.runtimeType == runtimeType && other is _$_NoScheduleStored);
   }
 
   @override
@@ -234,7 +509,9 @@ class _$NoScheduleStored
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() noInternetAccess,
     required TResult Function() serverError,
+    required TResult Function() unAuthenticated,
     required TResult Function() noScheduleStored,
   }) {
     return noScheduleStored();
@@ -243,7 +520,9 @@ class _$NoScheduleStored
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? noInternetAccess,
     TResult Function()? serverError,
+    TResult Function()? unAuthenticated,
     TResult Function()? noScheduleStored,
   }) {
     return noScheduleStored?.call();
@@ -252,7 +531,9 @@ class _$NoScheduleStored
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? noInternetAccess,
     TResult Function()? serverError,
+    TResult Function()? unAuthenticated,
     TResult Function()? noScheduleStored,
     required TResult orElse(),
   }) {
@@ -265,8 +546,10 @@ class _$NoScheduleStored
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(ServerError value) serverError,
-    required TResult Function(NoScheduleStored value) noScheduleStored,
+    required TResult Function(_NoInternetAccess value) noInternetAccess,
+    required TResult Function(_ServerError value) serverError,
+    required TResult Function(_UnAuthenticated value) unAuthenticated,
+    required TResult Function(_NoScheduleStored value) noScheduleStored,
   }) {
     return noScheduleStored(this);
   }
@@ -274,8 +557,10 @@ class _$NoScheduleStored
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(ServerError value)? serverError,
-    TResult Function(NoScheduleStored value)? noScheduleStored,
+    TResult Function(_NoInternetAccess value)? noInternetAccess,
+    TResult Function(_ServerError value)? serverError,
+    TResult Function(_UnAuthenticated value)? unAuthenticated,
+    TResult Function(_NoScheduleStored value)? noScheduleStored,
   }) {
     return noScheduleStored?.call(this);
   }
@@ -283,8 +568,10 @@ class _$NoScheduleStored
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(ServerError value)? serverError,
-    TResult Function(NoScheduleStored value)? noScheduleStored,
+    TResult Function(_NoInternetAccess value)? noInternetAccess,
+    TResult Function(_ServerError value)? serverError,
+    TResult Function(_UnAuthenticated value)? unAuthenticated,
+    TResult Function(_NoScheduleStored value)? noScheduleStored,
     required TResult orElse(),
   }) {
     if (noScheduleStored != null) {
@@ -294,6 +581,7 @@ class _$NoScheduleStored
   }
 }
 
-abstract class NoScheduleStored implements ScheduleFailure {
-  const factory NoScheduleStored() = _$NoScheduleStored;
+abstract class _NoScheduleStored extends ScheduleFailure {
+  const factory _NoScheduleStored() = _$_NoScheduleStored;
+  const _NoScheduleStored._() : super._();
 }

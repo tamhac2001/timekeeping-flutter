@@ -18,18 +18,21 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$AbsentFailure {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() noInternetAccess,
     required TResult Function() serverError,
     required TResult Function() unAuthenticated,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? noInternetAccess,
     TResult Function()? serverError,
     TResult Function()? unAuthenticated,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? noInternetAccess,
     TResult Function()? serverError,
     TResult Function()? unAuthenticated,
     required TResult orElse(),
@@ -37,20 +40,23 @@ mixin _$AbsentFailure {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(ServerError value) serverError,
-    required TResult Function(UnAuthenticated value) unAuthenticated,
+    required TResult Function(_NoInternetAccess value) noInternetAccess,
+    required TResult Function(_ServerError value) serverError,
+    required TResult Function(_UnAuthenticated value) unAuthenticated,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(ServerError value)? serverError,
-    TResult Function(UnAuthenticated value)? unAuthenticated,
+    TResult Function(_NoInternetAccess value)? noInternetAccess,
+    TResult Function(_ServerError value)? serverError,
+    TResult Function(_UnAuthenticated value)? unAuthenticated,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(ServerError value)? serverError,
-    TResult Function(UnAuthenticated value)? unAuthenticated,
+    TResult Function(_NoInternetAccess value)? noInternetAccess,
+    TResult Function(_ServerError value)? serverError,
+    TResult Function(_UnAuthenticated value)? unAuthenticated,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -74,28 +80,148 @@ class _$AbsentFailureCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$$ServerErrorCopyWith<$Res> {
-  factory _$$ServerErrorCopyWith(
-          _$ServerError value, $Res Function(_$ServerError) then) =
-      __$$ServerErrorCopyWithImpl<$Res>;
+abstract class _$$_NoInternetAccessCopyWith<$Res> {
+  factory _$$_NoInternetAccessCopyWith(
+          _$_NoInternetAccess value, $Res Function(_$_NoInternetAccess) then) =
+      __$$_NoInternetAccessCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$ServerErrorCopyWithImpl<$Res>
+class __$$_NoInternetAccessCopyWithImpl<$Res>
     extends _$AbsentFailureCopyWithImpl<$Res>
-    implements _$$ServerErrorCopyWith<$Res> {
-  __$$ServerErrorCopyWithImpl(
-      _$ServerError _value, $Res Function(_$ServerError) _then)
-      : super(_value, (v) => _then(v as _$ServerError));
+    implements _$$_NoInternetAccessCopyWith<$Res> {
+  __$$_NoInternetAccessCopyWithImpl(
+      _$_NoInternetAccess _value, $Res Function(_$_NoInternetAccess) _then)
+      : super(_value, (v) => _then(v as _$_NoInternetAccess));
 
   @override
-  _$ServerError get _value => super._value as _$ServerError;
+  _$_NoInternetAccess get _value => super._value as _$_NoInternetAccess;
 }
 
 /// @nodoc
 
-class _$ServerError with DiagnosticableTreeMixin implements ServerError {
-  const _$ServerError();
+class _$_NoInternetAccess extends _NoInternetAccess
+    with DiagnosticableTreeMixin {
+  const _$_NoInternetAccess() : super._();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'AbsentFailure.noInternetAccess()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+        .add(DiagnosticsProperty('type', 'AbsentFailure.noInternetAccess'));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_NoInternetAccess);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() noInternetAccess,
+    required TResult Function() serverError,
+    required TResult Function() unAuthenticated,
+  }) {
+    return noInternetAccess();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? noInternetAccess,
+    TResult Function()? serverError,
+    TResult Function()? unAuthenticated,
+  }) {
+    return noInternetAccess?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? noInternetAccess,
+    TResult Function()? serverError,
+    TResult Function()? unAuthenticated,
+    required TResult orElse(),
+  }) {
+    if (noInternetAccess != null) {
+      return noInternetAccess();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_NoInternetAccess value) noInternetAccess,
+    required TResult Function(_ServerError value) serverError,
+    required TResult Function(_UnAuthenticated value) unAuthenticated,
+  }) {
+    return noInternetAccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_NoInternetAccess value)? noInternetAccess,
+    TResult Function(_ServerError value)? serverError,
+    TResult Function(_UnAuthenticated value)? unAuthenticated,
+  }) {
+    return noInternetAccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_NoInternetAccess value)? noInternetAccess,
+    TResult Function(_ServerError value)? serverError,
+    TResult Function(_UnAuthenticated value)? unAuthenticated,
+    required TResult orElse(),
+  }) {
+    if (noInternetAccess != null) {
+      return noInternetAccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _NoInternetAccess extends AbsentFailure {
+  const factory _NoInternetAccess() = _$_NoInternetAccess;
+  const _NoInternetAccess._() : super._();
+}
+
+/// @nodoc
+abstract class _$$_ServerErrorCopyWith<$Res> {
+  factory _$$_ServerErrorCopyWith(
+          _$_ServerError value, $Res Function(_$_ServerError) then) =
+      __$$_ServerErrorCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_ServerErrorCopyWithImpl<$Res>
+    extends _$AbsentFailureCopyWithImpl<$Res>
+    implements _$$_ServerErrorCopyWith<$Res> {
+  __$$_ServerErrorCopyWithImpl(
+      _$_ServerError _value, $Res Function(_$_ServerError) _then)
+      : super(_value, (v) => _then(v as _$_ServerError));
+
+  @override
+  _$_ServerError get _value => super._value as _$_ServerError;
+}
+
+/// @nodoc
+
+class _$_ServerError extends _ServerError with DiagnosticableTreeMixin {
+  const _$_ServerError() : super._();
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -111,7 +237,7 @@ class _$ServerError with DiagnosticableTreeMixin implements ServerError {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$ServerError);
+        (other.runtimeType == runtimeType && other is _$_ServerError);
   }
 
   @override
@@ -120,6 +246,7 @@ class _$ServerError with DiagnosticableTreeMixin implements ServerError {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() noInternetAccess,
     required TResult Function() serverError,
     required TResult Function() unAuthenticated,
   }) {
@@ -129,6 +256,7 @@ class _$ServerError with DiagnosticableTreeMixin implements ServerError {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? noInternetAccess,
     TResult Function()? serverError,
     TResult Function()? unAuthenticated,
   }) {
@@ -138,6 +266,7 @@ class _$ServerError with DiagnosticableTreeMixin implements ServerError {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? noInternetAccess,
     TResult Function()? serverError,
     TResult Function()? unAuthenticated,
     required TResult orElse(),
@@ -151,8 +280,9 @@ class _$ServerError with DiagnosticableTreeMixin implements ServerError {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(ServerError value) serverError,
-    required TResult Function(UnAuthenticated value) unAuthenticated,
+    required TResult Function(_NoInternetAccess value) noInternetAccess,
+    required TResult Function(_ServerError value) serverError,
+    required TResult Function(_UnAuthenticated value) unAuthenticated,
   }) {
     return serverError(this);
   }
@@ -160,8 +290,9 @@ class _$ServerError with DiagnosticableTreeMixin implements ServerError {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(ServerError value)? serverError,
-    TResult Function(UnAuthenticated value)? unAuthenticated,
+    TResult Function(_NoInternetAccess value)? noInternetAccess,
+    TResult Function(_ServerError value)? serverError,
+    TResult Function(_UnAuthenticated value)? unAuthenticated,
   }) {
     return serverError?.call(this);
   }
@@ -169,8 +300,9 @@ class _$ServerError with DiagnosticableTreeMixin implements ServerError {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(ServerError value)? serverError,
-    TResult Function(UnAuthenticated value)? unAuthenticated,
+    TResult Function(_NoInternetAccess value)? noInternetAccess,
+    TResult Function(_ServerError value)? serverError,
+    TResult Function(_UnAuthenticated value)? unAuthenticated,
     required TResult orElse(),
   }) {
     if (serverError != null) {
@@ -180,35 +312,34 @@ class _$ServerError with DiagnosticableTreeMixin implements ServerError {
   }
 }
 
-abstract class ServerError implements AbsentFailure {
-  const factory ServerError() = _$ServerError;
+abstract class _ServerError extends AbsentFailure {
+  const factory _ServerError() = _$_ServerError;
+  const _ServerError._() : super._();
 }
 
 /// @nodoc
-abstract class _$$UnAuthenticatedCopyWith<$Res> {
-  factory _$$UnAuthenticatedCopyWith(
-          _$UnAuthenticated value, $Res Function(_$UnAuthenticated) then) =
-      __$$UnAuthenticatedCopyWithImpl<$Res>;
+abstract class _$$_UnAuthenticatedCopyWith<$Res> {
+  factory _$$_UnAuthenticatedCopyWith(
+          _$_UnAuthenticated value, $Res Function(_$_UnAuthenticated) then) =
+      __$$_UnAuthenticatedCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$UnAuthenticatedCopyWithImpl<$Res>
+class __$$_UnAuthenticatedCopyWithImpl<$Res>
     extends _$AbsentFailureCopyWithImpl<$Res>
-    implements _$$UnAuthenticatedCopyWith<$Res> {
-  __$$UnAuthenticatedCopyWithImpl(
-      _$UnAuthenticated _value, $Res Function(_$UnAuthenticated) _then)
-      : super(_value, (v) => _then(v as _$UnAuthenticated));
+    implements _$$_UnAuthenticatedCopyWith<$Res> {
+  __$$_UnAuthenticatedCopyWithImpl(
+      _$_UnAuthenticated _value, $Res Function(_$_UnAuthenticated) _then)
+      : super(_value, (v) => _then(v as _$_UnAuthenticated));
 
   @override
-  _$UnAuthenticated get _value => super._value as _$UnAuthenticated;
+  _$_UnAuthenticated get _value => super._value as _$_UnAuthenticated;
 }
 
 /// @nodoc
 
-class _$UnAuthenticated
-    with DiagnosticableTreeMixin
-    implements UnAuthenticated {
-  const _$UnAuthenticated();
+class _$_UnAuthenticated extends _UnAuthenticated with DiagnosticableTreeMixin {
+  const _$_UnAuthenticated() : super._();
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -225,7 +356,7 @@ class _$UnAuthenticated
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$UnAuthenticated);
+        (other.runtimeType == runtimeType && other is _$_UnAuthenticated);
   }
 
   @override
@@ -234,6 +365,7 @@ class _$UnAuthenticated
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() noInternetAccess,
     required TResult Function() serverError,
     required TResult Function() unAuthenticated,
   }) {
@@ -243,6 +375,7 @@ class _$UnAuthenticated
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? noInternetAccess,
     TResult Function()? serverError,
     TResult Function()? unAuthenticated,
   }) {
@@ -252,6 +385,7 @@ class _$UnAuthenticated
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? noInternetAccess,
     TResult Function()? serverError,
     TResult Function()? unAuthenticated,
     required TResult orElse(),
@@ -265,8 +399,9 @@ class _$UnAuthenticated
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(ServerError value) serverError,
-    required TResult Function(UnAuthenticated value) unAuthenticated,
+    required TResult Function(_NoInternetAccess value) noInternetAccess,
+    required TResult Function(_ServerError value) serverError,
+    required TResult Function(_UnAuthenticated value) unAuthenticated,
   }) {
     return unAuthenticated(this);
   }
@@ -274,8 +409,9 @@ class _$UnAuthenticated
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(ServerError value)? serverError,
-    TResult Function(UnAuthenticated value)? unAuthenticated,
+    TResult Function(_NoInternetAccess value)? noInternetAccess,
+    TResult Function(_ServerError value)? serverError,
+    TResult Function(_UnAuthenticated value)? unAuthenticated,
   }) {
     return unAuthenticated?.call(this);
   }
@@ -283,8 +419,9 @@ class _$UnAuthenticated
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(ServerError value)? serverError,
-    TResult Function(UnAuthenticated value)? unAuthenticated,
+    TResult Function(_NoInternetAccess value)? noInternetAccess,
+    TResult Function(_ServerError value)? serverError,
+    TResult Function(_UnAuthenticated value)? unAuthenticated,
     required TResult orElse(),
   }) {
     if (unAuthenticated != null) {
@@ -294,6 +431,7 @@ class _$UnAuthenticated
   }
 }
 
-abstract class UnAuthenticated implements AbsentFailure {
-  const factory UnAuthenticated() = _$UnAuthenticated;
+abstract class _UnAuthenticated extends AbsentFailure {
+  const factory _UnAuthenticated() = _$_UnAuthenticated;
+  const _UnAuthenticated._() : super._();
 }

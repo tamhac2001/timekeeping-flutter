@@ -5,7 +5,21 @@ part 'schedule_failure.freezed.dart';
 
 @freezed
 class ScheduleFailure with _$ScheduleFailure {
-  const factory ScheduleFailure.serverError() = ServerError;
+  const ScheduleFailure._();
 
-  const factory ScheduleFailure.noScheduleStored() = NoScheduleStored;
+  const factory ScheduleFailure.noInternetAccess() = _NoInternetAccess;
+
+  const factory ScheduleFailure.serverError() = _ServerError;
+
+  const factory ScheduleFailure.unAuthenticated() = _UnAuthenticated;
+
+  const factory ScheduleFailure.noScheduleStored() = _NoScheduleStored;
+
+  String toFailureMessage() {
+    return when(
+        noInternetAccess: () => 'Không có kết nối Internet',
+        serverError: () => 'Lỗi server',
+        unAuthenticated: () => 'Phiên đăng nhập hết hạn',
+        noScheduleStored: () => 'Không tìm thấy lịch làm việc');
+  }
 }

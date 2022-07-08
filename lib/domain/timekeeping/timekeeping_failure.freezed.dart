@@ -18,24 +18,27 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$TimekeepingFailure {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() noInternetAccess,
     required TResult Function() serverError,
-    required TResult Function() unauthenticated,
+    required TResult Function() unAuthenticated,
     required TResult Function() qrCodeNotMatch,
     required TResult Function() timekeepingNotFound,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? noInternetAccess,
     TResult Function()? serverError,
-    TResult Function()? unauthenticated,
+    TResult Function()? unAuthenticated,
     TResult Function()? qrCodeNotMatch,
     TResult Function()? timekeepingNotFound,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? noInternetAccess,
     TResult Function()? serverError,
-    TResult Function()? unauthenticated,
+    TResult Function()? unAuthenticated,
     TResult Function()? qrCodeNotMatch,
     TResult Function()? timekeepingNotFound,
     required TResult orElse(),
@@ -43,26 +46,29 @@ mixin _$TimekeepingFailure {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(ServerError value) serverError,
-    required TResult Function(Unauthenticated value) unauthenticated,
-    required TResult Function(QrCodeNotMatch value) qrCodeNotMatch,
-    required TResult Function(TimekeepingNotFound value) timekeepingNotFound,
+    required TResult Function(_NoInternetAccess value) noInternetAccess,
+    required TResult Function(_ServerError value) serverError,
+    required TResult Function(_UnAuthenticated value) unAuthenticated,
+    required TResult Function(_QrCodeNotMatch value) qrCodeNotMatch,
+    required TResult Function(_TimekeepingNotFound value) timekeepingNotFound,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(ServerError value)? serverError,
-    TResult Function(Unauthenticated value)? unauthenticated,
-    TResult Function(QrCodeNotMatch value)? qrCodeNotMatch,
-    TResult Function(TimekeepingNotFound value)? timekeepingNotFound,
+    TResult Function(_NoInternetAccess value)? noInternetAccess,
+    TResult Function(_ServerError value)? serverError,
+    TResult Function(_UnAuthenticated value)? unAuthenticated,
+    TResult Function(_QrCodeNotMatch value)? qrCodeNotMatch,
+    TResult Function(_TimekeepingNotFound value)? timekeepingNotFound,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(ServerError value)? serverError,
-    TResult Function(Unauthenticated value)? unauthenticated,
-    TResult Function(QrCodeNotMatch value)? qrCodeNotMatch,
-    TResult Function(TimekeepingNotFound value)? timekeepingNotFound,
+    TResult Function(_NoInternetAccess value)? noInternetAccess,
+    TResult Function(_ServerError value)? serverError,
+    TResult Function(_UnAuthenticated value)? unAuthenticated,
+    TResult Function(_QrCodeNotMatch value)? qrCodeNotMatch,
+    TResult Function(_TimekeepingNotFound value)? timekeepingNotFound,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -86,45 +92,33 @@ class _$TimekeepingFailureCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$$ServerErrorCopyWith<$Res> {
-  factory _$$ServerErrorCopyWith(
-          _$ServerError value, $Res Function(_$ServerError) then) =
-      __$$ServerErrorCopyWithImpl<$Res>;
+abstract class _$$_NoInternetAccessCopyWith<$Res> {
+  factory _$$_NoInternetAccessCopyWith(
+          _$_NoInternetAccess value, $Res Function(_$_NoInternetAccess) then) =
+      __$$_NoInternetAccessCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$ServerErrorCopyWithImpl<$Res>
+class __$$_NoInternetAccessCopyWithImpl<$Res>
     extends _$TimekeepingFailureCopyWithImpl<$Res>
-    implements _$$ServerErrorCopyWith<$Res> {
-  __$$ServerErrorCopyWithImpl(
-      _$ServerError _value, $Res Function(_$ServerError) _then)
-      : super(_value, (v) => _then(v as _$ServerError));
+    implements _$$_NoInternetAccessCopyWith<$Res> {
+  __$$_NoInternetAccessCopyWithImpl(
+      _$_NoInternetAccess _value, $Res Function(_$_NoInternetAccess) _then)
+      : super(_value, (v) => _then(v as _$_NoInternetAccess));
 
   @override
-  _$ServerError get _value => super._value as _$ServerError;
+  _$_NoInternetAccess get _value => super._value as _$_NoInternetAccess;
 }
 
 /// @nodoc
 
-class _$ServerError with DiagnosticableTreeMixin implements ServerError {
-  const _$ServerError();
-
-  @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'TimekeepingFailure.serverError()';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-        .add(DiagnosticsProperty('type', 'TimekeepingFailure.serverError'));
-  }
+class _$_NoInternetAccess extends _NoInternetAccess {
+  const _$_NoInternetAccess() : super._();
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$ServerError);
+        (other.runtimeType == runtimeType && other is _$_NoInternetAccess);
   }
 
   @override
@@ -133,8 +127,128 @@ class _$ServerError with DiagnosticableTreeMixin implements ServerError {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() noInternetAccess,
     required TResult Function() serverError,
-    required TResult Function() unauthenticated,
+    required TResult Function() unAuthenticated,
+    required TResult Function() qrCodeNotMatch,
+    required TResult Function() timekeepingNotFound,
+  }) {
+    return noInternetAccess();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? noInternetAccess,
+    TResult Function()? serverError,
+    TResult Function()? unAuthenticated,
+    TResult Function()? qrCodeNotMatch,
+    TResult Function()? timekeepingNotFound,
+  }) {
+    return noInternetAccess?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? noInternetAccess,
+    TResult Function()? serverError,
+    TResult Function()? unAuthenticated,
+    TResult Function()? qrCodeNotMatch,
+    TResult Function()? timekeepingNotFound,
+    required TResult orElse(),
+  }) {
+    if (noInternetAccess != null) {
+      return noInternetAccess();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_NoInternetAccess value) noInternetAccess,
+    required TResult Function(_ServerError value) serverError,
+    required TResult Function(_UnAuthenticated value) unAuthenticated,
+    required TResult Function(_QrCodeNotMatch value) qrCodeNotMatch,
+    required TResult Function(_TimekeepingNotFound value) timekeepingNotFound,
+  }) {
+    return noInternetAccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_NoInternetAccess value)? noInternetAccess,
+    TResult Function(_ServerError value)? serverError,
+    TResult Function(_UnAuthenticated value)? unAuthenticated,
+    TResult Function(_QrCodeNotMatch value)? qrCodeNotMatch,
+    TResult Function(_TimekeepingNotFound value)? timekeepingNotFound,
+  }) {
+    return noInternetAccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_NoInternetAccess value)? noInternetAccess,
+    TResult Function(_ServerError value)? serverError,
+    TResult Function(_UnAuthenticated value)? unAuthenticated,
+    TResult Function(_QrCodeNotMatch value)? qrCodeNotMatch,
+    TResult Function(_TimekeepingNotFound value)? timekeepingNotFound,
+    required TResult orElse(),
+  }) {
+    if (noInternetAccess != null) {
+      return noInternetAccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _NoInternetAccess extends TimekeepingFailure {
+  const factory _NoInternetAccess() = _$_NoInternetAccess;
+  const _NoInternetAccess._() : super._();
+}
+
+/// @nodoc
+abstract class _$$_ServerErrorCopyWith<$Res> {
+  factory _$$_ServerErrorCopyWith(
+          _$_ServerError value, $Res Function(_$_ServerError) then) =
+      __$$_ServerErrorCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_ServerErrorCopyWithImpl<$Res>
+    extends _$TimekeepingFailureCopyWithImpl<$Res>
+    implements _$$_ServerErrorCopyWith<$Res> {
+  __$$_ServerErrorCopyWithImpl(
+      _$_ServerError _value, $Res Function(_$_ServerError) _then)
+      : super(_value, (v) => _then(v as _$_ServerError));
+
+  @override
+  _$_ServerError get _value => super._value as _$_ServerError;
+}
+
+/// @nodoc
+
+class _$_ServerError extends _ServerError {
+  const _$_ServerError() : super._();
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_ServerError);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() noInternetAccess,
+    required TResult Function() serverError,
+    required TResult Function() unAuthenticated,
     required TResult Function() qrCodeNotMatch,
     required TResult Function() timekeepingNotFound,
   }) {
@@ -144,8 +258,9 @@ class _$ServerError with DiagnosticableTreeMixin implements ServerError {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? noInternetAccess,
     TResult Function()? serverError,
-    TResult Function()? unauthenticated,
+    TResult Function()? unAuthenticated,
     TResult Function()? qrCodeNotMatch,
     TResult Function()? timekeepingNotFound,
   }) {
@@ -155,8 +270,9 @@ class _$ServerError with DiagnosticableTreeMixin implements ServerError {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? noInternetAccess,
     TResult Function()? serverError,
-    TResult Function()? unauthenticated,
+    TResult Function()? unAuthenticated,
     TResult Function()? qrCodeNotMatch,
     TResult Function()? timekeepingNotFound,
     required TResult orElse(),
@@ -170,10 +286,11 @@ class _$ServerError with DiagnosticableTreeMixin implements ServerError {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(ServerError value) serverError,
-    required TResult Function(Unauthenticated value) unauthenticated,
-    required TResult Function(QrCodeNotMatch value) qrCodeNotMatch,
-    required TResult Function(TimekeepingNotFound value) timekeepingNotFound,
+    required TResult Function(_NoInternetAccess value) noInternetAccess,
+    required TResult Function(_ServerError value) serverError,
+    required TResult Function(_UnAuthenticated value) unAuthenticated,
+    required TResult Function(_QrCodeNotMatch value) qrCodeNotMatch,
+    required TResult Function(_TimekeepingNotFound value) timekeepingNotFound,
   }) {
     return serverError(this);
   }
@@ -181,10 +298,11 @@ class _$ServerError with DiagnosticableTreeMixin implements ServerError {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(ServerError value)? serverError,
-    TResult Function(Unauthenticated value)? unauthenticated,
-    TResult Function(QrCodeNotMatch value)? qrCodeNotMatch,
-    TResult Function(TimekeepingNotFound value)? timekeepingNotFound,
+    TResult Function(_NoInternetAccess value)? noInternetAccess,
+    TResult Function(_ServerError value)? serverError,
+    TResult Function(_UnAuthenticated value)? unAuthenticated,
+    TResult Function(_QrCodeNotMatch value)? qrCodeNotMatch,
+    TResult Function(_TimekeepingNotFound value)? timekeepingNotFound,
   }) {
     return serverError?.call(this);
   }
@@ -192,10 +310,11 @@ class _$ServerError with DiagnosticableTreeMixin implements ServerError {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(ServerError value)? serverError,
-    TResult Function(Unauthenticated value)? unauthenticated,
-    TResult Function(QrCodeNotMatch value)? qrCodeNotMatch,
-    TResult Function(TimekeepingNotFound value)? timekeepingNotFound,
+    TResult Function(_NoInternetAccess value)? noInternetAccess,
+    TResult Function(_ServerError value)? serverError,
+    TResult Function(_UnAuthenticated value)? unAuthenticated,
+    TResult Function(_QrCodeNotMatch value)? qrCodeNotMatch,
+    TResult Function(_TimekeepingNotFound value)? timekeepingNotFound,
     required TResult orElse(),
   }) {
     if (serverError != null) {
@@ -205,52 +324,39 @@ class _$ServerError with DiagnosticableTreeMixin implements ServerError {
   }
 }
 
-abstract class ServerError implements TimekeepingFailure {
-  const factory ServerError() = _$ServerError;
+abstract class _ServerError extends TimekeepingFailure {
+  const factory _ServerError() = _$_ServerError;
+  const _ServerError._() : super._();
 }
 
 /// @nodoc
-abstract class _$$UnauthenticatedCopyWith<$Res> {
-  factory _$$UnauthenticatedCopyWith(
-          _$Unauthenticated value, $Res Function(_$Unauthenticated) then) =
-      __$$UnauthenticatedCopyWithImpl<$Res>;
+abstract class _$$_UnAuthenticatedCopyWith<$Res> {
+  factory _$$_UnAuthenticatedCopyWith(
+          _$_UnAuthenticated value, $Res Function(_$_UnAuthenticated) then) =
+      __$$_UnAuthenticatedCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$UnauthenticatedCopyWithImpl<$Res>
+class __$$_UnAuthenticatedCopyWithImpl<$Res>
     extends _$TimekeepingFailureCopyWithImpl<$Res>
-    implements _$$UnauthenticatedCopyWith<$Res> {
-  __$$UnauthenticatedCopyWithImpl(
-      _$Unauthenticated _value, $Res Function(_$Unauthenticated) _then)
-      : super(_value, (v) => _then(v as _$Unauthenticated));
+    implements _$$_UnAuthenticatedCopyWith<$Res> {
+  __$$_UnAuthenticatedCopyWithImpl(
+      _$_UnAuthenticated _value, $Res Function(_$_UnAuthenticated) _then)
+      : super(_value, (v) => _then(v as _$_UnAuthenticated));
 
   @override
-  _$Unauthenticated get _value => super._value as _$Unauthenticated;
+  _$_UnAuthenticated get _value => super._value as _$_UnAuthenticated;
 }
 
 /// @nodoc
 
-class _$Unauthenticated
-    with DiagnosticableTreeMixin
-    implements Unauthenticated {
-  const _$Unauthenticated();
-
-  @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'TimekeepingFailure.unauthenticated()';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-        .add(DiagnosticsProperty('type', 'TimekeepingFailure.unauthenticated'));
-  }
+class _$_UnAuthenticated extends _UnAuthenticated {
+  const _$_UnAuthenticated() : super._();
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$Unauthenticated);
+        (other.runtimeType == runtimeType && other is _$_UnAuthenticated);
   }
 
   @override
@@ -259,36 +365,39 @@ class _$Unauthenticated
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() noInternetAccess,
     required TResult Function() serverError,
-    required TResult Function() unauthenticated,
+    required TResult Function() unAuthenticated,
     required TResult Function() qrCodeNotMatch,
     required TResult Function() timekeepingNotFound,
   }) {
-    return unauthenticated();
+    return unAuthenticated();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? noInternetAccess,
     TResult Function()? serverError,
-    TResult Function()? unauthenticated,
+    TResult Function()? unAuthenticated,
     TResult Function()? qrCodeNotMatch,
     TResult Function()? timekeepingNotFound,
   }) {
-    return unauthenticated?.call();
+    return unAuthenticated?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? noInternetAccess,
     TResult Function()? serverError,
-    TResult Function()? unauthenticated,
+    TResult Function()? unAuthenticated,
     TResult Function()? qrCodeNotMatch,
     TResult Function()? timekeepingNotFound,
     required TResult orElse(),
   }) {
-    if (unauthenticated != null) {
-      return unauthenticated();
+    if (unAuthenticated != null) {
+      return unAuthenticated();
     }
     return orElse();
   }
@@ -296,85 +405,77 @@ class _$Unauthenticated
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(ServerError value) serverError,
-    required TResult Function(Unauthenticated value) unauthenticated,
-    required TResult Function(QrCodeNotMatch value) qrCodeNotMatch,
-    required TResult Function(TimekeepingNotFound value) timekeepingNotFound,
+    required TResult Function(_NoInternetAccess value) noInternetAccess,
+    required TResult Function(_ServerError value) serverError,
+    required TResult Function(_UnAuthenticated value) unAuthenticated,
+    required TResult Function(_QrCodeNotMatch value) qrCodeNotMatch,
+    required TResult Function(_TimekeepingNotFound value) timekeepingNotFound,
   }) {
-    return unauthenticated(this);
+    return unAuthenticated(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(ServerError value)? serverError,
-    TResult Function(Unauthenticated value)? unauthenticated,
-    TResult Function(QrCodeNotMatch value)? qrCodeNotMatch,
-    TResult Function(TimekeepingNotFound value)? timekeepingNotFound,
+    TResult Function(_NoInternetAccess value)? noInternetAccess,
+    TResult Function(_ServerError value)? serverError,
+    TResult Function(_UnAuthenticated value)? unAuthenticated,
+    TResult Function(_QrCodeNotMatch value)? qrCodeNotMatch,
+    TResult Function(_TimekeepingNotFound value)? timekeepingNotFound,
   }) {
-    return unauthenticated?.call(this);
+    return unAuthenticated?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(ServerError value)? serverError,
-    TResult Function(Unauthenticated value)? unauthenticated,
-    TResult Function(QrCodeNotMatch value)? qrCodeNotMatch,
-    TResult Function(TimekeepingNotFound value)? timekeepingNotFound,
+    TResult Function(_NoInternetAccess value)? noInternetAccess,
+    TResult Function(_ServerError value)? serverError,
+    TResult Function(_UnAuthenticated value)? unAuthenticated,
+    TResult Function(_QrCodeNotMatch value)? qrCodeNotMatch,
+    TResult Function(_TimekeepingNotFound value)? timekeepingNotFound,
     required TResult orElse(),
   }) {
-    if (unauthenticated != null) {
-      return unauthenticated(this);
+    if (unAuthenticated != null) {
+      return unAuthenticated(this);
     }
     return orElse();
   }
 }
 
-abstract class Unauthenticated implements TimekeepingFailure {
-  const factory Unauthenticated() = _$Unauthenticated;
+abstract class _UnAuthenticated extends TimekeepingFailure {
+  const factory _UnAuthenticated() = _$_UnAuthenticated;
+  const _UnAuthenticated._() : super._();
 }
 
 /// @nodoc
-abstract class _$$QrCodeNotMatchCopyWith<$Res> {
-  factory _$$QrCodeNotMatchCopyWith(
-          _$QrCodeNotMatch value, $Res Function(_$QrCodeNotMatch) then) =
-      __$$QrCodeNotMatchCopyWithImpl<$Res>;
+abstract class _$$_QrCodeNotMatchCopyWith<$Res> {
+  factory _$$_QrCodeNotMatchCopyWith(
+          _$_QrCodeNotMatch value, $Res Function(_$_QrCodeNotMatch) then) =
+      __$$_QrCodeNotMatchCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$QrCodeNotMatchCopyWithImpl<$Res>
+class __$$_QrCodeNotMatchCopyWithImpl<$Res>
     extends _$TimekeepingFailureCopyWithImpl<$Res>
-    implements _$$QrCodeNotMatchCopyWith<$Res> {
-  __$$QrCodeNotMatchCopyWithImpl(
-      _$QrCodeNotMatch _value, $Res Function(_$QrCodeNotMatch) _then)
-      : super(_value, (v) => _then(v as _$QrCodeNotMatch));
+    implements _$$_QrCodeNotMatchCopyWith<$Res> {
+  __$$_QrCodeNotMatchCopyWithImpl(
+      _$_QrCodeNotMatch _value, $Res Function(_$_QrCodeNotMatch) _then)
+      : super(_value, (v) => _then(v as _$_QrCodeNotMatch));
 
   @override
-  _$QrCodeNotMatch get _value => super._value as _$QrCodeNotMatch;
+  _$_QrCodeNotMatch get _value => super._value as _$_QrCodeNotMatch;
 }
 
 /// @nodoc
 
-class _$QrCodeNotMatch with DiagnosticableTreeMixin implements QrCodeNotMatch {
-  const _$QrCodeNotMatch();
-
-  @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'TimekeepingFailure.qrCodeNotMatch()';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-        .add(DiagnosticsProperty('type', 'TimekeepingFailure.qrCodeNotMatch'));
-  }
+class _$_QrCodeNotMatch extends _QrCodeNotMatch {
+  const _$_QrCodeNotMatch() : super._();
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$QrCodeNotMatch);
+        (other.runtimeType == runtimeType && other is _$_QrCodeNotMatch);
   }
 
   @override
@@ -383,8 +484,9 @@ class _$QrCodeNotMatch with DiagnosticableTreeMixin implements QrCodeNotMatch {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() noInternetAccess,
     required TResult Function() serverError,
-    required TResult Function() unauthenticated,
+    required TResult Function() unAuthenticated,
     required TResult Function() qrCodeNotMatch,
     required TResult Function() timekeepingNotFound,
   }) {
@@ -394,8 +496,9 @@ class _$QrCodeNotMatch with DiagnosticableTreeMixin implements QrCodeNotMatch {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? noInternetAccess,
     TResult Function()? serverError,
-    TResult Function()? unauthenticated,
+    TResult Function()? unAuthenticated,
     TResult Function()? qrCodeNotMatch,
     TResult Function()? timekeepingNotFound,
   }) {
@@ -405,8 +508,9 @@ class _$QrCodeNotMatch with DiagnosticableTreeMixin implements QrCodeNotMatch {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? noInternetAccess,
     TResult Function()? serverError,
-    TResult Function()? unauthenticated,
+    TResult Function()? unAuthenticated,
     TResult Function()? qrCodeNotMatch,
     TResult Function()? timekeepingNotFound,
     required TResult orElse(),
@@ -420,10 +524,11 @@ class _$QrCodeNotMatch with DiagnosticableTreeMixin implements QrCodeNotMatch {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(ServerError value) serverError,
-    required TResult Function(Unauthenticated value) unauthenticated,
-    required TResult Function(QrCodeNotMatch value) qrCodeNotMatch,
-    required TResult Function(TimekeepingNotFound value) timekeepingNotFound,
+    required TResult Function(_NoInternetAccess value) noInternetAccess,
+    required TResult Function(_ServerError value) serverError,
+    required TResult Function(_UnAuthenticated value) unAuthenticated,
+    required TResult Function(_QrCodeNotMatch value) qrCodeNotMatch,
+    required TResult Function(_TimekeepingNotFound value) timekeepingNotFound,
   }) {
     return qrCodeNotMatch(this);
   }
@@ -431,10 +536,11 @@ class _$QrCodeNotMatch with DiagnosticableTreeMixin implements QrCodeNotMatch {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(ServerError value)? serverError,
-    TResult Function(Unauthenticated value)? unauthenticated,
-    TResult Function(QrCodeNotMatch value)? qrCodeNotMatch,
-    TResult Function(TimekeepingNotFound value)? timekeepingNotFound,
+    TResult Function(_NoInternetAccess value)? noInternetAccess,
+    TResult Function(_ServerError value)? serverError,
+    TResult Function(_UnAuthenticated value)? unAuthenticated,
+    TResult Function(_QrCodeNotMatch value)? qrCodeNotMatch,
+    TResult Function(_TimekeepingNotFound value)? timekeepingNotFound,
   }) {
     return qrCodeNotMatch?.call(this);
   }
@@ -442,10 +548,11 @@ class _$QrCodeNotMatch with DiagnosticableTreeMixin implements QrCodeNotMatch {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(ServerError value)? serverError,
-    TResult Function(Unauthenticated value)? unauthenticated,
-    TResult Function(QrCodeNotMatch value)? qrCodeNotMatch,
-    TResult Function(TimekeepingNotFound value)? timekeepingNotFound,
+    TResult Function(_NoInternetAccess value)? noInternetAccess,
+    TResult Function(_ServerError value)? serverError,
+    TResult Function(_UnAuthenticated value)? unAuthenticated,
+    TResult Function(_QrCodeNotMatch value)? qrCodeNotMatch,
+    TResult Function(_TimekeepingNotFound value)? timekeepingNotFound,
     required TResult orElse(),
   }) {
     if (qrCodeNotMatch != null) {
@@ -455,52 +562,39 @@ class _$QrCodeNotMatch with DiagnosticableTreeMixin implements QrCodeNotMatch {
   }
 }
 
-abstract class QrCodeNotMatch implements TimekeepingFailure {
-  const factory QrCodeNotMatch() = _$QrCodeNotMatch;
+abstract class _QrCodeNotMatch extends TimekeepingFailure {
+  const factory _QrCodeNotMatch() = _$_QrCodeNotMatch;
+  const _QrCodeNotMatch._() : super._();
 }
 
 /// @nodoc
-abstract class _$$TimekeepingNotFoundCopyWith<$Res> {
-  factory _$$TimekeepingNotFoundCopyWith(_$TimekeepingNotFound value,
-          $Res Function(_$TimekeepingNotFound) then) =
-      __$$TimekeepingNotFoundCopyWithImpl<$Res>;
+abstract class _$$_TimekeepingNotFoundCopyWith<$Res> {
+  factory _$$_TimekeepingNotFoundCopyWith(_$_TimekeepingNotFound value,
+          $Res Function(_$_TimekeepingNotFound) then) =
+      __$$_TimekeepingNotFoundCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$TimekeepingNotFoundCopyWithImpl<$Res>
+class __$$_TimekeepingNotFoundCopyWithImpl<$Res>
     extends _$TimekeepingFailureCopyWithImpl<$Res>
-    implements _$$TimekeepingNotFoundCopyWith<$Res> {
-  __$$TimekeepingNotFoundCopyWithImpl(
-      _$TimekeepingNotFound _value, $Res Function(_$TimekeepingNotFound) _then)
-      : super(_value, (v) => _then(v as _$TimekeepingNotFound));
+    implements _$$_TimekeepingNotFoundCopyWith<$Res> {
+  __$$_TimekeepingNotFoundCopyWithImpl(_$_TimekeepingNotFound _value,
+      $Res Function(_$_TimekeepingNotFound) _then)
+      : super(_value, (v) => _then(v as _$_TimekeepingNotFound));
 
   @override
-  _$TimekeepingNotFound get _value => super._value as _$TimekeepingNotFound;
+  _$_TimekeepingNotFound get _value => super._value as _$_TimekeepingNotFound;
 }
 
 /// @nodoc
 
-class _$TimekeepingNotFound
-    with DiagnosticableTreeMixin
-    implements TimekeepingNotFound {
-  const _$TimekeepingNotFound();
-
-  @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'TimekeepingFailure.timekeepingNotFound()';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties.add(
-        DiagnosticsProperty('type', 'TimekeepingFailure.timekeepingNotFound'));
-  }
+class _$_TimekeepingNotFound extends _TimekeepingNotFound {
+  const _$_TimekeepingNotFound() : super._();
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$TimekeepingNotFound);
+        (other.runtimeType == runtimeType && other is _$_TimekeepingNotFound);
   }
 
   @override
@@ -509,8 +603,9 @@ class _$TimekeepingNotFound
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() noInternetAccess,
     required TResult Function() serverError,
-    required TResult Function() unauthenticated,
+    required TResult Function() unAuthenticated,
     required TResult Function() qrCodeNotMatch,
     required TResult Function() timekeepingNotFound,
   }) {
@@ -520,8 +615,9 @@ class _$TimekeepingNotFound
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? noInternetAccess,
     TResult Function()? serverError,
-    TResult Function()? unauthenticated,
+    TResult Function()? unAuthenticated,
     TResult Function()? qrCodeNotMatch,
     TResult Function()? timekeepingNotFound,
   }) {
@@ -531,8 +627,9 @@ class _$TimekeepingNotFound
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? noInternetAccess,
     TResult Function()? serverError,
-    TResult Function()? unauthenticated,
+    TResult Function()? unAuthenticated,
     TResult Function()? qrCodeNotMatch,
     TResult Function()? timekeepingNotFound,
     required TResult orElse(),
@@ -546,10 +643,11 @@ class _$TimekeepingNotFound
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(ServerError value) serverError,
-    required TResult Function(Unauthenticated value) unauthenticated,
-    required TResult Function(QrCodeNotMatch value) qrCodeNotMatch,
-    required TResult Function(TimekeepingNotFound value) timekeepingNotFound,
+    required TResult Function(_NoInternetAccess value) noInternetAccess,
+    required TResult Function(_ServerError value) serverError,
+    required TResult Function(_UnAuthenticated value) unAuthenticated,
+    required TResult Function(_QrCodeNotMatch value) qrCodeNotMatch,
+    required TResult Function(_TimekeepingNotFound value) timekeepingNotFound,
   }) {
     return timekeepingNotFound(this);
   }
@@ -557,10 +655,11 @@ class _$TimekeepingNotFound
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(ServerError value)? serverError,
-    TResult Function(Unauthenticated value)? unauthenticated,
-    TResult Function(QrCodeNotMatch value)? qrCodeNotMatch,
-    TResult Function(TimekeepingNotFound value)? timekeepingNotFound,
+    TResult Function(_NoInternetAccess value)? noInternetAccess,
+    TResult Function(_ServerError value)? serverError,
+    TResult Function(_UnAuthenticated value)? unAuthenticated,
+    TResult Function(_QrCodeNotMatch value)? qrCodeNotMatch,
+    TResult Function(_TimekeepingNotFound value)? timekeepingNotFound,
   }) {
     return timekeepingNotFound?.call(this);
   }
@@ -568,10 +667,11 @@ class _$TimekeepingNotFound
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(ServerError value)? serverError,
-    TResult Function(Unauthenticated value)? unauthenticated,
-    TResult Function(QrCodeNotMatch value)? qrCodeNotMatch,
-    TResult Function(TimekeepingNotFound value)? timekeepingNotFound,
+    TResult Function(_NoInternetAccess value)? noInternetAccess,
+    TResult Function(_ServerError value)? serverError,
+    TResult Function(_UnAuthenticated value)? unAuthenticated,
+    TResult Function(_QrCodeNotMatch value)? qrCodeNotMatch,
+    TResult Function(_TimekeepingNotFound value)? timekeepingNotFound,
     required TResult orElse(),
   }) {
     if (timekeepingNotFound != null) {
@@ -581,6 +681,7 @@ class _$TimekeepingNotFound
   }
 }
 
-abstract class TimekeepingNotFound implements TimekeepingFailure {
-  const factory TimekeepingNotFound() = _$TimekeepingNotFound;
+abstract class _TimekeepingNotFound extends TimekeepingFailure {
+  const factory _TimekeepingNotFound() = _$_TimekeepingNotFound;
+  const _TimekeepingNotFound._() : super._();
 }
