@@ -14,16 +14,54 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-Reason _$ReasonFromJson(Map<String, dynamic> json) {
-  return _Reason.fromJson(json);
-}
-
 /// @nodoc
 mixin _$Reason {
-  @JsonKey(name: 'reason')
   String get value => throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String value) ill,
+    required TResult Function(String value) personal,
+    required TResult Function(String value) others,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String value)? ill,
+    TResult Function(String value)? personal,
+    TResult Function(String value)? others,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String value)? ill,
+    TResult Function(String value)? personal,
+    TResult Function(String value)? others,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Ill value) ill,
+    required TResult Function(_Personal value) personal,
+    required TResult Function(_Others value) others,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Ill value)? ill,
+    TResult Function(_Personal value)? personal,
+    TResult Function(_Others value)? others,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Ill value)? ill,
+    TResult Function(_Personal value)? personal,
+    TResult Function(_Others value)? others,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $ReasonCopyWith<Reason> get copyWith => throw _privateConstructorUsedError;
 }
@@ -32,7 +70,7 @@ mixin _$Reason {
 abstract class $ReasonCopyWith<$Res> {
   factory $ReasonCopyWith(Reason value, $Res Function(Reason) then) =
       _$ReasonCopyWithImpl<$Res>;
-  $Res call({@JsonKey(name: 'reason') String value});
+  $Res call({String value});
 }
 
 /// @nodoc
@@ -57,27 +95,27 @@ class _$ReasonCopyWithImpl<$Res> implements $ReasonCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$$_ReasonCopyWith<$Res> implements $ReasonCopyWith<$Res> {
-  factory _$$_ReasonCopyWith(_$_Reason value, $Res Function(_$_Reason) then) =
-      __$$_ReasonCopyWithImpl<$Res>;
+abstract class _$$_IllCopyWith<$Res> implements $ReasonCopyWith<$Res> {
+  factory _$$_IllCopyWith(_$_Ill value, $Res Function(_$_Ill) then) =
+      __$$_IllCopyWithImpl<$Res>;
   @override
-  $Res call({@JsonKey(name: 'reason') String value});
+  $Res call({String value});
 }
 
 /// @nodoc
-class __$$_ReasonCopyWithImpl<$Res> extends _$ReasonCopyWithImpl<$Res>
-    implements _$$_ReasonCopyWith<$Res> {
-  __$$_ReasonCopyWithImpl(_$_Reason _value, $Res Function(_$_Reason) _then)
-      : super(_value, (v) => _then(v as _$_Reason));
+class __$$_IllCopyWithImpl<$Res> extends _$ReasonCopyWithImpl<$Res>
+    implements _$$_IllCopyWith<$Res> {
+  __$$_IllCopyWithImpl(_$_Ill _value, $Res Function(_$_Ill) _then)
+      : super(_value, (v) => _then(v as _$_Ill));
 
   @override
-  _$_Reason get _value => super._value as _$_Reason;
+  _$_Ill get _value => super._value as _$_Ill;
 
   @override
   $Res call({
     Object? value = freezed,
   }) {
-    return _then(_$_Reason(
+    return _then(_$_Ill(
       value: value == freezed
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
@@ -88,27 +126,23 @@ class __$$_ReasonCopyWithImpl<$Res> extends _$ReasonCopyWithImpl<$Res>
 
 /// @nodoc
 
-@JsonSerializable(fieldRename: FieldRename.snake, explicitToJson: true)
-class _$_Reason with DiagnosticableTreeMixin implements _Reason {
-  const _$_Reason({@JsonKey(name: 'reason') required this.value});
-
-  factory _$_Reason.fromJson(Map<String, dynamic> json) =>
-      _$$_ReasonFromJson(json);
+class _$_Ill with DiagnosticableTreeMixin implements _Ill {
+  const _$_Ill({this.value = 'bệnh'});
 
   @override
-  @JsonKey(name: 'reason')
+  @JsonKey()
   final String value;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'Reason(value: $value)';
+    return 'Reason.ill(value: $value)';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty('type', 'Reason'))
+      ..add(DiagnosticsProperty('type', 'Reason.ill'))
       ..add(DiagnosticsProperty('value', value));
   }
 
@@ -116,37 +150,394 @@ class _$_Reason with DiagnosticableTreeMixin implements _Reason {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Reason &&
+            other is _$_Ill &&
             const DeepCollectionEquality().equals(other.value, value));
   }
 
-  @JsonKey(ignore: true)
   @override
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(value));
 
   @JsonKey(ignore: true)
   @override
-  _$$_ReasonCopyWith<_$_Reason> get copyWith =>
-      __$$_ReasonCopyWithImpl<_$_Reason>(this, _$identity);
+  _$$_IllCopyWith<_$_Ill> get copyWith =>
+      __$$_IllCopyWithImpl<_$_Ill>(this, _$identity);
 
   @override
-  Map<String, dynamic> toJson() {
-    return _$$_ReasonToJson(this);
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String value) ill,
+    required TResult Function(String value) personal,
+    required TResult Function(String value) others,
+  }) {
+    return ill(value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String value)? ill,
+    TResult Function(String value)? personal,
+    TResult Function(String value)? others,
+  }) {
+    return ill?.call(value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String value)? ill,
+    TResult Function(String value)? personal,
+    TResult Function(String value)? others,
+    required TResult orElse(),
+  }) {
+    if (ill != null) {
+      return ill(value);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Ill value) ill,
+    required TResult Function(_Personal value) personal,
+    required TResult Function(_Others value) others,
+  }) {
+    return ill(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Ill value)? ill,
+    TResult Function(_Personal value)? personal,
+    TResult Function(_Others value)? others,
+  }) {
+    return ill?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Ill value)? ill,
+    TResult Function(_Personal value)? personal,
+    TResult Function(_Others value)? others,
+    required TResult orElse(),
+  }) {
+    if (ill != null) {
+      return ill(this);
+    }
+    return orElse();
   }
 }
 
-abstract class _Reason implements Reason {
-  const factory _Reason(
-      {@JsonKey(name: 'reason') required final String value}) = _$_Reason;
-
-  factory _Reason.fromJson(Map<String, dynamic> json) = _$_Reason.fromJson;
+abstract class _Ill implements Reason {
+  const factory _Ill({final String value}) = _$_Ill;
 
   @override
-  @JsonKey(name: 'reason')
   String get value => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$$_ReasonCopyWith<_$_Reason> get copyWith =>
+  _$$_IllCopyWith<_$_Ill> get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_PersonalCopyWith<$Res> implements $ReasonCopyWith<$Res> {
+  factory _$$_PersonalCopyWith(
+          _$_Personal value, $Res Function(_$_Personal) then) =
+      __$$_PersonalCopyWithImpl<$Res>;
+  @override
+  $Res call({String value});
+}
+
+/// @nodoc
+class __$$_PersonalCopyWithImpl<$Res> extends _$ReasonCopyWithImpl<$Res>
+    implements _$$_PersonalCopyWith<$Res> {
+  __$$_PersonalCopyWithImpl(
+      _$_Personal _value, $Res Function(_$_Personal) _then)
+      : super(_value, (v) => _then(v as _$_Personal));
+
+  @override
+  _$_Personal get _value => super._value as _$_Personal;
+
+  @override
+  $Res call({
+    Object? value = freezed,
+  }) {
+    return _then(_$_Personal(
+      value: value == freezed
+          ? _value.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_Personal with DiagnosticableTreeMixin implements _Personal {
+  const _$_Personal({this.value = 'cá nhân'});
+
+  @override
+  @JsonKey()
+  final String value;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'Reason.personal(value: $value)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'Reason.personal'))
+      ..add(DiagnosticsProperty('value', value));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_Personal &&
+            const DeepCollectionEquality().equals(other.value, value));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(value));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_PersonalCopyWith<_$_Personal> get copyWith =>
+      __$$_PersonalCopyWithImpl<_$_Personal>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String value) ill,
+    required TResult Function(String value) personal,
+    required TResult Function(String value) others,
+  }) {
+    return personal(value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String value)? ill,
+    TResult Function(String value)? personal,
+    TResult Function(String value)? others,
+  }) {
+    return personal?.call(value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String value)? ill,
+    TResult Function(String value)? personal,
+    TResult Function(String value)? others,
+    required TResult orElse(),
+  }) {
+    if (personal != null) {
+      return personal(value);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Ill value) ill,
+    required TResult Function(_Personal value) personal,
+    required TResult Function(_Others value) others,
+  }) {
+    return personal(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Ill value)? ill,
+    TResult Function(_Personal value)? personal,
+    TResult Function(_Others value)? others,
+  }) {
+    return personal?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Ill value)? ill,
+    TResult Function(_Personal value)? personal,
+    TResult Function(_Others value)? others,
+    required TResult orElse(),
+  }) {
+    if (personal != null) {
+      return personal(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Personal implements Reason {
+  const factory _Personal({final String value}) = _$_Personal;
+
+  @override
+  String get value => throw _privateConstructorUsedError;
+  @override
+  @JsonKey(ignore: true)
+  _$$_PersonalCopyWith<_$_Personal> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_OthersCopyWith<$Res> implements $ReasonCopyWith<$Res> {
+  factory _$$_OthersCopyWith(_$_Others value, $Res Function(_$_Others) then) =
+      __$$_OthersCopyWithImpl<$Res>;
+  @override
+  $Res call({String value});
+}
+
+/// @nodoc
+class __$$_OthersCopyWithImpl<$Res> extends _$ReasonCopyWithImpl<$Res>
+    implements _$$_OthersCopyWith<$Res> {
+  __$$_OthersCopyWithImpl(_$_Others _value, $Res Function(_$_Others) _then)
+      : super(_value, (v) => _then(v as _$_Others));
+
+  @override
+  _$_Others get _value => super._value as _$_Others;
+
+  @override
+  $Res call({
+    Object? value = freezed,
+  }) {
+    return _then(_$_Others(
+      value: value == freezed
+          ? _value.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_Others with DiagnosticableTreeMixin implements _Others {
+  const _$_Others({this.value = 'khác'});
+
+  @override
+  @JsonKey()
+  final String value;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'Reason.others(value: $value)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'Reason.others'))
+      ..add(DiagnosticsProperty('value', value));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_Others &&
+            const DeepCollectionEquality().equals(other.value, value));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(value));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_OthersCopyWith<_$_Others> get copyWith =>
+      __$$_OthersCopyWithImpl<_$_Others>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String value) ill,
+    required TResult Function(String value) personal,
+    required TResult Function(String value) others,
+  }) {
+    return others(value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String value)? ill,
+    TResult Function(String value)? personal,
+    TResult Function(String value)? others,
+  }) {
+    return others?.call(value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String value)? ill,
+    TResult Function(String value)? personal,
+    TResult Function(String value)? others,
+    required TResult orElse(),
+  }) {
+    if (others != null) {
+      return others(value);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Ill value) ill,
+    required TResult Function(_Personal value) personal,
+    required TResult Function(_Others value) others,
+  }) {
+    return others(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Ill value)? ill,
+    TResult Function(_Personal value)? personal,
+    TResult Function(_Others value)? others,
+  }) {
+    return others?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Ill value)? ill,
+    TResult Function(_Personal value)? personal,
+    TResult Function(_Others value)? others,
+    required TResult orElse(),
+  }) {
+    if (others != null) {
+      return others(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Others implements Reason {
+  const factory _Others({final String value}) = _$_Others;
+
+  @override
+  String get value => throw _privateConstructorUsedError;
+  @override
+  @JsonKey(ignore: true)
+  _$$_OthersCopyWith<_$_Others> get copyWith =>
       throw _privateConstructorUsedError;
 }

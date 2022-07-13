@@ -50,6 +50,8 @@ dependencies:
   flutter_local_notifications: ^9.6.0
   flutter_native_timezone: ^2.0.0
   jwt_decoder: ^2.0.1
+  connectivity_plus: ^2.3.5
+  bloc_concurrency: ^0.2.0
 
 dev_dependencies:
   flutter_test:

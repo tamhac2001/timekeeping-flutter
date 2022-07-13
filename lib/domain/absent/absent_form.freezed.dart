@@ -20,6 +20,7 @@ mixin _$AbsentForm {
   DateTime get endDate => throw _privateConstructorUsedError;
   Reason get reason => throw _privateConstructorUsedError;
   String get note => throw _privateConstructorUsedError;
+  Status? get status => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $AbsentFormCopyWith<AbsentForm> get copyWith =>
@@ -31,9 +32,15 @@ abstract class $AbsentFormCopyWith<$Res> {
   factory $AbsentFormCopyWith(
           AbsentForm value, $Res Function(AbsentForm) then) =
       _$AbsentFormCopyWithImpl<$Res>;
-  $Res call({DateTime startDate, DateTime endDate, Reason reason, String note});
+  $Res call(
+      {DateTime startDate,
+      DateTime endDate,
+      Reason reason,
+      String note,
+      Status? status});
 
   $ReasonCopyWith<$Res> get reason;
+  $StatusCopyWith<$Res>? get status;
 }
 
 /// @nodoc
@@ -50,6 +57,7 @@ class _$AbsentFormCopyWithImpl<$Res> implements $AbsentFormCopyWith<$Res> {
     Object? endDate = freezed,
     Object? reason = freezed,
     Object? note = freezed,
+    Object? status = freezed,
   }) {
     return _then(_value.copyWith(
       startDate: startDate == freezed
@@ -68,6 +76,10 @@ class _$AbsentFormCopyWithImpl<$Res> implements $AbsentFormCopyWith<$Res> {
           ? _value.note
           : note // ignore: cast_nullable_to_non_nullable
               as String,
+      status: status == freezed
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as Status?,
     ));
   }
 
@@ -75,6 +87,17 @@ class _$AbsentFormCopyWithImpl<$Res> implements $AbsentFormCopyWith<$Res> {
   $ReasonCopyWith<$Res> get reason {
     return $ReasonCopyWith<$Res>(_value.reason, (value) {
       return _then(_value.copyWith(reason: value));
+    });
+  }
+
+  @override
+  $StatusCopyWith<$Res>? get status {
+    if (_value.status == null) {
+      return null;
+    }
+
+    return $StatusCopyWith<$Res>(_value.status!, (value) {
+      return _then(_value.copyWith(status: value));
     });
   }
 }
@@ -86,10 +109,17 @@ abstract class _$$_AbsentFormCopyWith<$Res>
           _$_AbsentForm value, $Res Function(_$_AbsentForm) then) =
       __$$_AbsentFormCopyWithImpl<$Res>;
   @override
-  $Res call({DateTime startDate, DateTime endDate, Reason reason, String note});
+  $Res call(
+      {DateTime startDate,
+      DateTime endDate,
+      Reason reason,
+      String note,
+      Status? status});
 
   @override
   $ReasonCopyWith<$Res> get reason;
+  @override
+  $StatusCopyWith<$Res>? get status;
 }
 
 /// @nodoc
@@ -108,6 +138,7 @@ class __$$_AbsentFormCopyWithImpl<$Res> extends _$AbsentFormCopyWithImpl<$Res>
     Object? endDate = freezed,
     Object? reason = freezed,
     Object? note = freezed,
+    Object? status = freezed,
   }) {
     return _then(_$_AbsentForm(
       startDate: startDate == freezed
@@ -126,6 +157,10 @@ class __$$_AbsentFormCopyWithImpl<$Res> extends _$AbsentFormCopyWithImpl<$Res>
           ? _value.note
           : note // ignore: cast_nullable_to_non_nullable
               as String,
+      status: status == freezed
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as Status?,
     ));
   }
 }
@@ -137,7 +172,8 @@ class _$_AbsentForm with DiagnosticableTreeMixin implements _AbsentForm {
       {required this.startDate,
       required this.endDate,
       required this.reason,
-      required this.note});
+      required this.note,
+      required this.status});
 
   @override
   final DateTime startDate;
@@ -147,10 +183,12 @@ class _$_AbsentForm with DiagnosticableTreeMixin implements _AbsentForm {
   final Reason reason;
   @override
   final String note;
+  @override
+  final Status? status;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'AbsentForm(startDate: $startDate, endDate: $endDate, reason: $reason, note: $note)';
+    return 'AbsentForm(startDate: $startDate, endDate: $endDate, reason: $reason, note: $note, status: $status)';
   }
 
   @override
@@ -161,7 +199,8 @@ class _$_AbsentForm with DiagnosticableTreeMixin implements _AbsentForm {
       ..add(DiagnosticsProperty('startDate', startDate))
       ..add(DiagnosticsProperty('endDate', endDate))
       ..add(DiagnosticsProperty('reason', reason))
-      ..add(DiagnosticsProperty('note', note));
+      ..add(DiagnosticsProperty('note', note))
+      ..add(DiagnosticsProperty('status', status));
   }
 
   @override
@@ -172,7 +211,8 @@ class _$_AbsentForm with DiagnosticableTreeMixin implements _AbsentForm {
             const DeepCollectionEquality().equals(other.startDate, startDate) &&
             const DeepCollectionEquality().equals(other.endDate, endDate) &&
             const DeepCollectionEquality().equals(other.reason, reason) &&
-            const DeepCollectionEquality().equals(other.note, note));
+            const DeepCollectionEquality().equals(other.note, note) &&
+            const DeepCollectionEquality().equals(other.status, status));
   }
 
   @override
@@ -181,7 +221,8 @@ class _$_AbsentForm with DiagnosticableTreeMixin implements _AbsentForm {
       const DeepCollectionEquality().hash(startDate),
       const DeepCollectionEquality().hash(endDate),
       const DeepCollectionEquality().hash(reason),
-      const DeepCollectionEquality().hash(note));
+      const DeepCollectionEquality().hash(note),
+      const DeepCollectionEquality().hash(status));
 
   @JsonKey(ignore: true)
   @override
@@ -194,7 +235,8 @@ abstract class _AbsentForm implements AbsentForm {
       {required final DateTime startDate,
       required final DateTime endDate,
       required final Reason reason,
-      required final String note}) = _$_AbsentForm;
+      required final String note,
+      required final Status? status}) = _$_AbsentForm;
 
   @override
   DateTime get startDate => throw _privateConstructorUsedError;
@@ -204,6 +246,8 @@ abstract class _AbsentForm implements AbsentForm {
   Reason get reason => throw _privateConstructorUsedError;
   @override
   String get note => throw _privateConstructorUsedError;
+  @override
+  Status? get status => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$$_AbsentFormCopyWith<_$_AbsentForm> get copyWith =>

@@ -1,8 +1,10 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:timekeeping/application/profile/profile_screen_bloc.dart';
+import 'package:timekeeping/presentation/core/app_widgets.dart';
 
+import '../../application/employee/profile_screen_bloc.dart';
 import 'widgets.dart';
 
 class ProfileScreen extends StatelessWidget {
@@ -10,74 +12,103 @@ class ProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: Padding(
-          padding: const EdgeInsets.all(32.0),
-          child: Column(
-            children: [
-              Center(
-                child: Stack(children: [
-                  const CircleAvatar(
-                    radius: 75,
-
-                    // backgroundImage: ,
+    return BlocConsumer<ProfileScreenBloc, ProfileScreenState>(
+      listener: (context, state) {
+        if (state.profileChangedSuccessOrFail != null) {
+          // state.profileChangedSuccessOrFail!.fold((failure) => failure.map(timeOutError: showServerErrorDialog, serverError: serverError, unAuthenticated: unAuthenticated, noInternetAccess: noInternetAccess, noEmployeeFound: noEmployeeFound), (r) => null)
+        }
+      },
+      buildWhen: ((previous, current) =>
+          previous.failureOrEmployee != current.failureOrEmployee || previous.isLoading != current.isLoading),
+      builder: (context, state) {
+        if (state.isLoading || state.isSubmitting) return const LoadingScreen();
+        if (state.failureOrEmployee == null) {
+          context.read<ProfileScreenBloc>().add(const ProfileScreenEvent.initialize());
+          return const LoadingScreen();
+        }
+        return state.failureOrEmployee!.fold(
+            (failure) => FailureScreen(
+                failureText: failure.toFailureMessage(),
+                retryCallback: () {
+                  context.read<ProfileScreenBloc>().add(const ProfileScreenEvent.updateEmployee());
+                }),
+            (employee) => SafeArea(
+                  child: Scaffold(
+                    body: Padding(
+                      padding: const EdgeInsets.all(32.0),
+                      child: SingleChildScrollView(
+                        child: Column(
+                          children: [
+                            Center(
+                              child: Stack(children: [
+                                CircleAvatar(
+                                  radius: 75,
+                                  backgroundImage: (employee.avatar == null) ? null : MemoryImage(employee.avatar!),
+                                ),
+                                Positioned(
+                                    right: -10,
+                                    bottom: 0,
+                                    child: IconButton(
+                                      icon: const Icon(Icons.add_a_photo),
+                                      onPressed: () async {
+                                        final imagePicker = ImagePicker();
+                                        await showUpdateAvatarModalPopup(context, fromCameraPressed: () async {
+                                          final imageXFile = await imagePicker.pickImage(
+                                              source: ImageSource.camera, maxHeight: 360, maxWidth: 480);
+                                          if (imageXFile != null) {
+                                            context
+                                                .read<ProfileScreenBloc>()
+                                                .add(ProfileScreenEvent.avatarChanged(await imageXFile.readAsBytes()));
+                                          }
+                                        }, fromGalleryPressed: () async {
+                                          final imageXFile = await imagePicker.pickImage(
+                                              source: ImageSource.gallery, maxHeight: 360, maxWidth: 480);
+                                          if (imageXFile != null) {
+                                            context
+                                                .read<ProfileScreenBloc>()
+                                                .add(ProfileScreenEvent.avatarChanged(await imageXFile.readAsBytes()));
+                                          }
+                                        });
+                                      },
+                                    )),
+                              ]),
+                            ),
+                            const SizedBox(
+                              height: 16.0,
+                            ),
+                            Center(
+                              child: Text(
+                                employee.name,
+                                style: Theme.of(context).textTheme.headline4,
+                              ),
+                            ),
+                            const SizedBox(
+                              height: 32.0,
+                            ),
+                            const EmployeeCodeRow(),
+                            const SizedBox(
+                              height: 16.0,
+                            ),
+                            const EmployeeGenderRow(),
+                            const SizedBox(
+                              height: 16.0,
+                            ),
+                            const EmployeePhoneNumberRow(),
+                            const SizedBox(
+                              height: 16.0,
+                            ),
+                            const EmployeeAddressRow(),
+                            const SizedBox(height: 16.0),
+                            const EmployeeStartDateRow(),
+                            const SizedBox(height: 64.0),
+                            const LogoutButton(),
+                          ],
+                        ),
+                      ),
+                    ),
                   ),
-                  Positioned(
-                      right: -10,
-                      bottom: 0,
-                      child: IconButton(
-                        icon: const Icon(Icons.add_a_photo),
-                        onPressed: () async {
-                          final imagePicker = ImagePicker();
-                          final imageXFile = await imagePicker.pickImage(
-                              source: ImageSource.gallery);
-                          if (imageXFile != null) {
-                            context.read<ProfileScreenBloc>().add(
-                                ProfileScreenEvent.avatarChanged(
-                                    await imageXFile.readAsBytes()));
-                          }
-                        },
-                      )),
-                ]),
-              ),
-              const SizedBox(
-                height: 16.0,
-              ),
-              Center(
-                child: Text(
-                  'Nguyen Van A',
-                  style: Theme.of(context).textTheme.headline4,
-                ),
-              ),
-              const SizedBox(
-                height: 32.0,
-              ),
-              const EmployeeCodeRow(),
-              const SizedBox(
-                height: 16.0,
-              ),
-              const EmployeeGenderRow(),
-              const SizedBox(
-                height: 16.0,
-              ),
-              const EmployeePhoneNumberRow(),
-              const SizedBox(
-                height: 16.0,
-              ),
-              const EmployeeAddressRow(),
-              const SizedBox(
-                height: 16.0,
-              ),
-              const Expanded(child: SizedBox()),
-              const SizedBox(
-                height: 16.0,
-              ),
-              const LogoutButton(),
-            ],
-          ),
-        ),
-      ),
+                ));
+      },
     );
   }
 }

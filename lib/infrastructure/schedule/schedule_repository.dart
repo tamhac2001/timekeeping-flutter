@@ -6,7 +6,7 @@ import '../../domain/schedule/schedule.dart';
 import '../../domain/schedule/schedule_failure.dart';
 import '../secure_storage/secure_storage_repository.dart';
 import 'dto/schedule_dto.dart';
-import 'i_schedule_api_client.dart';
+import 'api/i_schedule_api_client.dart';
 
 class ScheduleRepository {
   ScheduleRepository({
@@ -18,9 +18,8 @@ class ScheduleRepository {
   final IScheduleApiClient _apiClient;
   final SecureStorageRepository _storage;
 
-  Future<Either<ScheduleFailure, Schedule>> scheduleRequest() async {
+  Future<Either<ScheduleFailure, Schedule>> getSchedule({required String employeeId}) async {
     final accessToken = await _storage.accessToken;
-    final employeeId = await _storage.employeeId;
     final morningShiftStart = await _storage.morningShiftStart;
     final morningShiftEnd = await _storage.morningShiftEnd;
     final afternoonShiftStart = await _storage.afternoonShiftStart;
@@ -37,28 +36,20 @@ class ScheduleRepository {
           afternoonShiftEnd: afternoonShiftEnd));
     } else {
       try {
-        final scheduleDTO = await _apiClient
-            .fetchSchedule(accessToken: accessToken!, employeeId: employeeId!)
-            .timeout(timeOutDuration, onTimeout: () => null);
-        if (scheduleDTO == null) {
-          return left(const ScheduleFailure.noScheduleStored());
-        } else {
-          // debugPrint('scheduleRequest:$scheduleDTO');
-          final schedule = Schedule.fromDTO(scheduleDTO);
-          debugPrint(schedule.toString());
-          await _storage.setMorningShiftStart(morningShiftStart: schedule.morningShiftStart);
-          await _storage.setMorningShiftEnd(morningShiftEnd: schedule.morningShiftEnd);
-          await _storage.setAfternoonShiftStart(afternoonShiftStart: schedule.afternoonShiftStart);
-          await _storage.setAfternoonShiftEnd(afternoonShiftEnd: schedule.afternoonShiftEnd);
-          return right(schedule);
-        }
-      } on ScheduleException catch (e) {
-        return left(const ScheduleFailure.serverError());
+        final scheduleDTO = await _apiClient.fetchSchedule(accessToken: accessToken!, employeeId: employeeId);
+        final schedule = Schedule.fromDTO(scheduleDTO);
+        await _storage.setMorningShiftStart(morningShiftStart: schedule.morningShiftStart);
+        await _storage.setMorningShiftEnd(morningShiftEnd: schedule.morningShiftEnd);
+        await _storage.setAfternoonShiftStart(afternoonShiftStart: schedule.afternoonShiftStart);
+        await _storage.setAfternoonShiftEnd(afternoonShiftEnd: schedule.afternoonShiftEnd);
+        return right(schedule);
+      } on ScheduleFailure catch (f) {
+        return left(f);
       }
     }
   }
 
-  Future<Either<ScheduleFailure, Schedule>> assignSchedule({
+  Future<Either<ScheduleFailure, Unit>> assignSchedule({
     required Schedule schedule,
   }) async {
     final accessToken = await _storage.accessToken;
@@ -71,9 +62,9 @@ class ScheduleRepository {
       await _storage.setMorningShiftEnd(morningShiftEnd: schedule.morningShiftEnd);
       await _storage.setAfternoonShiftStart(afternoonShiftStart: schedule.afternoonShiftStart);
       await _storage.setAfternoonShiftEnd(afternoonShiftEnd: schedule.afternoonShiftEnd);
-      return right(schedule);
-    } on ScheduleException catch (e) {
-      return left(const ScheduleFailure.serverError());
+      return right(unit);
+    } on ScheduleFailure catch (f) {
+      return left(f);
     }
   }
 }

@@ -1,11 +1,14 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:timekeeping/domain/schedule/schedule.dart';
 
+import '../../presentation/core/constant/ui_constant.dart' as ui_constant;
 import '../../infrastructure/timekeeping/dto/timekeeping_dto.dart';
-import 'check_in_status.dart';
-import 'check_out_status.dart';
+import '../schedule/schedule.dart';
+import 'afternoon_check_in/afternoon_check_in.dart';
+import 'afternoon_check_out/afternoon_check_out.dart';
+import 'morning_check_in/morning_check_in.dart';
+import 'morning_check_out/morning_check_out.dart';
 
 part 'timekeeping.freezed.dart';
 
@@ -15,80 +18,188 @@ class Timekeeping with _$Timekeeping {
 
   const factory Timekeeping({
     required DateTime date,
-    required CheckInStatus morningShiftStart,
-    required CheckOutStatus morningShiftEnd,
-    required CheckInStatus afternoonShiftStart,
-    required CheckOutStatus afternoonShiftEnd,
+    required MorningCheckIn morningCheckIn,
+    required MorningCheckOut morningCheckOut,
+    required AfternoonCheckIn afternoonCheckIn,
+    required AfternoonCheckOut afternoonCheckOut,
+    bool? hasApprovedAbsentForm,
   }) = _Timekeeping;
 
   factory Timekeeping.fromDto(TimekeepingDto dto, Schedule schedule) {
+    debugPrint(dto.toString());
+    final morningCheckIn =
+        MorningCheckIn(dto.date.toLocal(), dto.morningShiftStart?.toLocal(), schedule.morningShiftStart);
+    if (morningCheckIn.isForgot()) {
+      return Timekeeping.absent(schedule: schedule, dateTime: dto.date.toLocal());
+    }
     return Timekeeping(
-        date: dto.date,
-        morningShiftStart: CheckInStatus(dto.date, dto.morningShiftStart?.toLocal(), schedule.morningShiftStart),
-        morningShiftEnd: CheckOutStatus(dto.date, dto.morningShiftEnd?.toLocal(), schedule.morningShiftEnd),
-        afternoonShiftStart: CheckInStatus(dto.date, dto.afternoonShiftStart?.toLocal(), schedule.afternoonShiftStart),
-        afternoonShiftEnd: CheckOutStatus(dto.date, dto.afternoonShiftEnd?.toLocal(), schedule.afternoonShiftEnd));
+        date: dto.date.toLocal(),
+        morningCheckIn: morningCheckIn,
+        morningCheckOut: MorningCheckOut(dto.date.toLocal(), dto.morningShiftEnd?.toLocal(), schedule.morningShiftEnd),
+        afternoonCheckIn:
+            AfternoonCheckIn(dto.date.toLocal(), dto.afternoonShiftStart?.toLocal(), schedule.afternoonShiftStart),
+        afternoonCheckOut: AfternoonCheckOut(
+            morningCheckIn: morningCheckIn,
+            checkOutTime: dto.afternoonShiftEnd?.toLocal(),
+            scheduledAfternoonShiftEnd: schedule.afternoonShiftEnd));
   }
 
-  factory Timekeeping.absent(Schedule schedule, DateTime dateTime) {
+  factory Timekeeping.absent({required Schedule schedule, required DateTime dateTime, bool? isApproved}) {
     return Timekeeping(
         date: dateTime,
-        morningShiftStart: CheckInStatus.forgot(schedule.morningShiftStart),
-        morningShiftEnd: CheckOutStatus.forgot(schedule.morningShiftEnd),
-        afternoonShiftStart: CheckInStatus.forgot(schedule.afternoonShiftStart),
-        afternoonShiftEnd: CheckOutStatus.forgot(schedule.afternoonShiftEnd));
+        morningCheckIn: MorningCheckIn.forgot(schedule.morningShiftStart),
+        morningCheckOut: MorningCheckOut.forgot(schedule.morningShiftEnd),
+        afternoonCheckIn: AfternoonCheckIn.forgot(schedule.afternoonShiftStart),
+        afternoonCheckOut: AfternoonCheckOut.forgot(schedule.afternoonShiftEnd),
+        hasApprovedAbsentForm: isApproved);
+  }
+
+  bool isAbsent() {
+    return morningCheckIn.isForgot();
+  }
+
+  bool isAbsentWithApprovedAbsentForm() {
+    if (hasApprovedAbsentForm != null && hasApprovedAbsentForm!) {
+      return true;
+    }
+    return false;
+  }
+
+  bool isFinish() {
+    if (isAbsent()) {
+      return true;
+    }
+    if (morningCheckIn.maybeWhen(unknown: (_) => true, orElse: () => false) ||
+        morningCheckOut.maybeWhen(unknown: (_) => true, orElse: () => false) ||
+        afternoonCheckIn.maybeWhen(unknown: (_) => true, orElse: () => false) ||
+        afternoonCheckOut.maybeWhen(unknown: (_) => true, orElse: () => false)) {
+      return false;
+    }
+    return true;
   }
 
   String toWholeDayStatusString() {
-    if (morningShiftStart.maybeWhen(onTime: (_, __) => true, orElse: () => false) &&
-        morningShiftEnd.maybeWhen(onTime: (_, __) => true, orElse: () => false) &&
-        afternoonShiftStart.maybeWhen(onTime: (_, __) => true, orElse: () => false) &&
-        afternoonShiftEnd.maybeWhen(onTime: (_, __) => true, orElse: () => false)) {
+    int forgotCounter = 0;
+    int lateOrEarlyCounter = 0;
+    if (hasApprovedAbsentForm != null) {
+      if (hasApprovedAbsentForm!) {
+        return 'Vắng có phép (Chấp thuận)';
+      } else {
+        return 'Vắng có phép (Chưa chấp thuận)';
+      }
+    } else if (isAbsent()) {
+      return 'Vắng không phép';
+    } else if (morningCheckIn.maybeWhen(onTime: (_, __) => true, orElse: () => false) &&
+        morningCheckOut.maybeWhen(onTime: (_, __) => true, orElse: () => false) &&
+        afternoonCheckIn.maybeWhen(onTime: (_, __) => true, orElse: () => false) &&
+        afternoonCheckOut.maybeWhen(onTime: (_, __) => true, orElse: () => false)) {
       return 'Điểm danh đầy đủ';
-    } else if (morningShiftStart.maybeWhen(forgot: (_) => true, orElse: () => false) &&
-        morningShiftEnd.maybeWhen(forgot: (_) => true, orElse: () => false) &&
-        afternoonShiftStart.maybeWhen(forgot: (_) => true, orElse: () => false) &&
-        afternoonShiftEnd.maybeWhen(forgot: (_) => true, orElse: () => false)) {
-      return 'Vắng';
-    } else if (morningShiftStart.maybeWhen(forgot: (_) => true, orElse: () => false) ||
-        morningShiftEnd.maybeWhen(forgot: (_) => true, orElse: () => false) ||
-        afternoonShiftStart.maybeWhen(forgot: (_) => true, orElse: () => false) ||
-        afternoonShiftEnd.maybeWhen(forgot: (_) => true, orElse: () => false)) {
-      return 'Không điểm danh';
+    } else if (morningCheckIn.maybeWhen(
+            forgot: (_) {
+              forgotCounter++;
+              return true;
+            },
+            orElse: () => false) |
+        morningCheckOut.maybeWhen(
+            forgot: (_) {
+              forgotCounter++;
+              return true;
+            },
+            orElse: () => false) |
+        afternoonCheckIn.maybeWhen(
+            forgot: (_) {
+              forgotCounter++;
+              return true;
+            },
+            orElse: () => false) |
+        afternoonCheckOut.maybeWhen(
+            forgot: (_) {
+              forgotCounter++;
+              return true;
+            },
+            orElse: () => false)) {
+      return 'Không điểm danh $forgotCounter lần';
+    } else if (morningCheckIn.maybeWhen(
+            late: (_, __) {
+              lateOrEarlyCounter++;
+              return true;
+            },
+            orElse: () => false) |
+        morningCheckOut.maybeWhen(
+            early: (_, __) {
+              lateOrEarlyCounter++;
+              return true;
+            },
+            orElse: () => false) |
+        afternoonCheckIn.maybeWhen(
+            late: (_, __) {
+              lateOrEarlyCounter++;
+              return true;
+            },
+            orElse: () => false) |
+        afternoonCheckOut.maybeWhen(
+            early: (_, __) {
+              lateOrEarlyCounter++;
+              return true;
+            },
+            orElse: () => false)) {
+      return 'Điểm danh trễ/sớm $lateOrEarlyCounter lần';
     } else {
-      return 'Điểm danh trễ/sớm';
+      return 'Chưa hoàn thành';
     }
   }
 
   Color toColor() {
-    if (morningShiftStart.maybeWhen(onTime: (_, __) => true, orElse: () => false) &&
-        morningShiftEnd.maybeWhen(onTime: (_, __) => true, orElse: () => false) &&
-        afternoonShiftStart.maybeWhen(onTime: (_, __) => true, orElse: () => false) &&
-        afternoonShiftEnd.maybeWhen(onTime: (_, __) => true, orElse: () => false)) {
-      return Colors.green;
-    } else if (morningShiftStart.maybeWhen(forgot: (_) => true, orElse: () => false) ||
-        morningShiftEnd.maybeWhen(forgot: (_) => true, orElse: () => false) ||
-        afternoonShiftStart.maybeWhen(forgot: (_) => true, orElse: () => false) ||
-        afternoonShiftEnd.maybeWhen(forgot: (_) => true, orElse: () => false)) {
-      return Colors.red;
+    if (hasApprovedAbsentForm != null) {
+      if (hasApprovedAbsentForm!) {
+        return ui_constant.onTimeColor;
+      } else {
+        return ui_constant.forgotColor;
+      }
+    } else if (morningCheckIn.maybeWhen(onTime: (_, __) => true, orElse: () => false) &&
+        morningCheckOut.maybeWhen(onTime: (_, __) => true, orElse: () => false) &&
+        afternoonCheckIn.maybeWhen(onTime: (_, __) => true, orElse: () => false) &&
+        afternoonCheckOut.maybeWhen(onTime: (_, __) => true, orElse: () => false)) {
+      return ui_constant.onTimeColor;
+    } else if (morningCheckIn.maybeWhen(forgot: (_) => true, orElse: () => false) ||
+        morningCheckOut.maybeWhen(forgot: (_) => true, orElse: () => false) ||
+        afternoonCheckIn.maybeWhen(forgot: (_) => true, orElse: () => false) ||
+        afternoonCheckOut.maybeWhen(forgot: (_) => true, orElse: () => false)) {
+      return ui_constant.forgotColor;
+    } else if (morningCheckIn.maybeWhen(late: (_, __) => true, orElse: () => false) ||
+        morningCheckOut.maybeWhen(early: (_, __) => true, orElse: () => false) ||
+        afternoonCheckIn.maybeWhen(late: (_, __) => true, orElse: () => false) ||
+        afternoonCheckOut.maybeWhen(early: (_, __) => true, orElse: () => false)) {
+      return ui_constant.lateColor;
     } else {
-      return Colors.yellow.shade800;
+      return Colors.grey;
     }
   }
 
-  Icon toWholeDayStatusIcon() {
-    if (morningShiftStart.maybeWhen(onTime: (_, __) => true, orElse: () => false) &&
-        morningShiftEnd.maybeWhen(onTime: (_, __) => true, orElse: () => false) &&
-        afternoonShiftStart.maybeWhen(onTime: (_, __) => true, orElse: () => false) &&
-        afternoonShiftEnd.maybeWhen(onTime: (_, __) => true, orElse: () => false)) {
-      return const Icon(Icons.done, color: Colors.green);
-    } else if (morningShiftStart.maybeWhen(forgot: (_) => true, orElse: () => false) ||
-        morningShiftEnd.maybeWhen(forgot: (_) => true, orElse: () => false) ||
-        afternoonShiftStart.maybeWhen(forgot: (_) => true, orElse: () => false) ||
-        afternoonShiftEnd.maybeWhen(forgot: (_) => true, orElse: () => false)) {
-      return const Icon(Icons.thumb_down, color: Colors.red);
+  Icon? toWholeDayStatusIcon() {
+    if (hasApprovedAbsentForm != null) {
+      if (hasApprovedAbsentForm!) {
+        return ui_constant.onTimeIcon;
+      } else {
+        return ui_constant.forgotIcon;
+      }
+    } else if (morningCheckIn.maybeWhen(onTime: (_, __) => true, orElse: () => false) &&
+        morningCheckOut.maybeWhen(onTime: (_, __) => true, orElse: () => false) &&
+        afternoonCheckIn.maybeWhen(onTime: (_, __) => true, orElse: () => false) &&
+        afternoonCheckOut.maybeWhen(onTime: (_, __) => true, orElse: () => false)) {
+      return ui_constant.onTimeIcon;
+    } else if (morningCheckIn.maybeWhen(forgot: (_) => true, orElse: () => false) ||
+        morningCheckOut.maybeWhen(forgot: (_) => true, orElse: () => false) ||
+        afternoonCheckIn.maybeWhen(forgot: (_) => true, orElse: () => false) ||
+        afternoonCheckOut.maybeWhen(forgot: (_) => true, orElse: () => false)) {
+      return ui_constant.forgotIcon;
+    } else if (morningCheckIn.maybeWhen(late: (_, __) => true, orElse: () => false) ||
+        morningCheckOut.maybeWhen(early: (_, __) => true, orElse: () => false) ||
+        afternoonCheckIn.maybeWhen(late: (_, __) => true, orElse: () => false) ||
+        afternoonCheckOut.maybeWhen(early: (_, __) => true, orElse: () => false)) {
+      return ui_constant.lateIcon;
     } else {
-      return Icon(Icons.report_problem, color: Colors.yellow.shade700);
+      return null;
     }
   }
 }

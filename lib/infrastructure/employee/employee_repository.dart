@@ -1,11 +1,13 @@
+import 'dart:convert';
 import 'dart:typed_data';
 
 import 'package:dartz/dartz.dart';
+import 'package:flutter/material.dart';
 import 'package:timekeeping/domain/employee/employee_failure.dart';
 import 'package:timekeeping/infrastructure/secure_storage/secure_storage_repository.dart';
 
 import '../../domain/employee/employee.dart';
-import 'i_employee_api_client.dart';
+import 'api/i_employee_api_client.dart';
 
 class EmployeeRepository {
   final IEmployeeApiClient _apiClient;
@@ -19,25 +21,24 @@ class EmployeeRepository {
 
   Future<Either<EmployeeFailure, Employee>> getEmployee() async {
     try {
+      debugPrint('getEmployee called');
       final accessToken = await _storage.accessToken;
-      final employeeDto = await _apiClient.fetchData(accessToken: accessToken!);
-      _storage.setEmployeeId(employeeDto.id);
-      _storage.setEmployeeStartDate(employeeDto.startDate);
+      final employeeDto = await _apiClient.fetchEmployeeData(accessToken: accessToken!);
+      await _storage.setEmployeeId(employeeDto.id);
+      await _storage.setEmployeeStartDate(employeeDto.startDate);
       return right(Employee.fromEmployeeDto(employeeDto));
-    } on EmployeeException catch (e) {
-      if (e.message == 'server-error') {
-        return left(const EmployeeFailure.serverError());
-      } else {
-        return left(const EmployeeFailure.noEmployeeFound());
-      }
+    } on EmployeeFailure catch (f) {
+      return left(f);
     }
   }
 
-  // Future<String?> get employeeId async {
-  //   final failureOrEmployee = await employee;
-  //   return failureOrEmployee.fold(
-  //       (failure) => null, (employee) => employee.id.toString());
-  // }
-
-  Future<void> updateAvatar(Uint8List avatar) async {}
+  Future<Either<EmployeeFailure, Unit>> updateAvatar(Uint8List avatar) async {
+    try {
+      final accessToken = await _storage.accessToken;
+      await _apiClient.updateAvatar(accessToken: accessToken!, avatar: const Base64Encoder().convert(avatar.toList()));
+      return right(unit);
+    } on EmployeeFailure catch (f) {
+      return left(f);
+    }
+  }
 }

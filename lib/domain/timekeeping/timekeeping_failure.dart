@@ -17,8 +17,7 @@ class TimekeepingFailure with _$TimekeepingFailure {
 
   const factory TimekeepingFailure.timekeepingNotFound() = _TimekeepingNotFound;
 
-  @override
-  String toString() {
+  String toFailureMessage() {
     return when(
         noInternetAccess: () => 'Không có kết nối Internet',
         serverError: () => 'Lỗi server',

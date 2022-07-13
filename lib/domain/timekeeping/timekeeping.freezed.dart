@@ -17,10 +17,11 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$Timekeeping {
   DateTime get date => throw _privateConstructorUsedError;
-  CheckInStatus get morningShiftStart => throw _privateConstructorUsedError;
-  CheckOutStatus get morningShiftEnd => throw _privateConstructorUsedError;
-  CheckInStatus get afternoonShiftStart => throw _privateConstructorUsedError;
-  CheckOutStatus get afternoonShiftEnd => throw _privateConstructorUsedError;
+  MorningCheckIn get morningCheckIn => throw _privateConstructorUsedError;
+  MorningCheckOut get morningCheckOut => throw _privateConstructorUsedError;
+  AfternoonCheckIn get afternoonCheckIn => throw _privateConstructorUsedError;
+  AfternoonCheckOut get afternoonCheckOut => throw _privateConstructorUsedError;
+  bool? get hasApprovedAbsentForm => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $TimekeepingCopyWith<Timekeeping> get copyWith =>
@@ -34,15 +35,16 @@ abstract class $TimekeepingCopyWith<$Res> {
       _$TimekeepingCopyWithImpl<$Res>;
   $Res call(
       {DateTime date,
-      CheckInStatus morningShiftStart,
-      CheckOutStatus morningShiftEnd,
-      CheckInStatus afternoonShiftStart,
-      CheckOutStatus afternoonShiftEnd});
+      MorningCheckIn morningCheckIn,
+      MorningCheckOut morningCheckOut,
+      AfternoonCheckIn afternoonCheckIn,
+      AfternoonCheckOut afternoonCheckOut,
+      bool? hasApprovedAbsentForm});
 
-  $CheckInStatusCopyWith<$Res> get morningShiftStart;
-  $CheckOutStatusCopyWith<$Res> get morningShiftEnd;
-  $CheckInStatusCopyWith<$Res> get afternoonShiftStart;
-  $CheckOutStatusCopyWith<$Res> get afternoonShiftEnd;
+  $MorningCheckInCopyWith<$Res> get morningCheckIn;
+  $MorningCheckOutCopyWith<$Res> get morningCheckOut;
+  $AfternoonCheckInCopyWith<$Res> get afternoonCheckIn;
+  $AfternoonCheckOutCopyWith<$Res> get afternoonCheckOut;
 }
 
 /// @nodoc
@@ -56,60 +58,65 @@ class _$TimekeepingCopyWithImpl<$Res> implements $TimekeepingCopyWith<$Res> {
   @override
   $Res call({
     Object? date = freezed,
-    Object? morningShiftStart = freezed,
-    Object? morningShiftEnd = freezed,
-    Object? afternoonShiftStart = freezed,
-    Object? afternoonShiftEnd = freezed,
+    Object? morningCheckIn = freezed,
+    Object? morningCheckOut = freezed,
+    Object? afternoonCheckIn = freezed,
+    Object? afternoonCheckOut = freezed,
+    Object? hasApprovedAbsentForm = freezed,
   }) {
     return _then(_value.copyWith(
       date: date == freezed
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      morningShiftStart: morningShiftStart == freezed
-          ? _value.morningShiftStart
-          : morningShiftStart // ignore: cast_nullable_to_non_nullable
-              as CheckInStatus,
-      morningShiftEnd: morningShiftEnd == freezed
-          ? _value.morningShiftEnd
-          : morningShiftEnd // ignore: cast_nullable_to_non_nullable
-              as CheckOutStatus,
-      afternoonShiftStart: afternoonShiftStart == freezed
-          ? _value.afternoonShiftStart
-          : afternoonShiftStart // ignore: cast_nullable_to_non_nullable
-              as CheckInStatus,
-      afternoonShiftEnd: afternoonShiftEnd == freezed
-          ? _value.afternoonShiftEnd
-          : afternoonShiftEnd // ignore: cast_nullable_to_non_nullable
-              as CheckOutStatus,
+      morningCheckIn: morningCheckIn == freezed
+          ? _value.morningCheckIn
+          : morningCheckIn // ignore: cast_nullable_to_non_nullable
+              as MorningCheckIn,
+      morningCheckOut: morningCheckOut == freezed
+          ? _value.morningCheckOut
+          : morningCheckOut // ignore: cast_nullable_to_non_nullable
+              as MorningCheckOut,
+      afternoonCheckIn: afternoonCheckIn == freezed
+          ? _value.afternoonCheckIn
+          : afternoonCheckIn // ignore: cast_nullable_to_non_nullable
+              as AfternoonCheckIn,
+      afternoonCheckOut: afternoonCheckOut == freezed
+          ? _value.afternoonCheckOut
+          : afternoonCheckOut // ignore: cast_nullable_to_non_nullable
+              as AfternoonCheckOut,
+      hasApprovedAbsentForm: hasApprovedAbsentForm == freezed
+          ? _value.hasApprovedAbsentForm
+          : hasApprovedAbsentForm // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ));
   }
 
   @override
-  $CheckInStatusCopyWith<$Res> get morningShiftStart {
-    return $CheckInStatusCopyWith<$Res>(_value.morningShiftStart, (value) {
-      return _then(_value.copyWith(morningShiftStart: value));
+  $MorningCheckInCopyWith<$Res> get morningCheckIn {
+    return $MorningCheckInCopyWith<$Res>(_value.morningCheckIn, (value) {
+      return _then(_value.copyWith(morningCheckIn: value));
     });
   }
 
   @override
-  $CheckOutStatusCopyWith<$Res> get morningShiftEnd {
-    return $CheckOutStatusCopyWith<$Res>(_value.morningShiftEnd, (value) {
-      return _then(_value.copyWith(morningShiftEnd: value));
+  $MorningCheckOutCopyWith<$Res> get morningCheckOut {
+    return $MorningCheckOutCopyWith<$Res>(_value.morningCheckOut, (value) {
+      return _then(_value.copyWith(morningCheckOut: value));
     });
   }
 
   @override
-  $CheckInStatusCopyWith<$Res> get afternoonShiftStart {
-    return $CheckInStatusCopyWith<$Res>(_value.afternoonShiftStart, (value) {
-      return _then(_value.copyWith(afternoonShiftStart: value));
+  $AfternoonCheckInCopyWith<$Res> get afternoonCheckIn {
+    return $AfternoonCheckInCopyWith<$Res>(_value.afternoonCheckIn, (value) {
+      return _then(_value.copyWith(afternoonCheckIn: value));
     });
   }
 
   @override
-  $CheckOutStatusCopyWith<$Res> get afternoonShiftEnd {
-    return $CheckOutStatusCopyWith<$Res>(_value.afternoonShiftEnd, (value) {
-      return _then(_value.copyWith(afternoonShiftEnd: value));
+  $AfternoonCheckOutCopyWith<$Res> get afternoonCheckOut {
+    return $AfternoonCheckOutCopyWith<$Res>(_value.afternoonCheckOut, (value) {
+      return _then(_value.copyWith(afternoonCheckOut: value));
     });
   }
 }
@@ -123,19 +130,20 @@ abstract class _$$_TimekeepingCopyWith<$Res>
   @override
   $Res call(
       {DateTime date,
-      CheckInStatus morningShiftStart,
-      CheckOutStatus morningShiftEnd,
-      CheckInStatus afternoonShiftStart,
-      CheckOutStatus afternoonShiftEnd});
+      MorningCheckIn morningCheckIn,
+      MorningCheckOut morningCheckOut,
+      AfternoonCheckIn afternoonCheckIn,
+      AfternoonCheckOut afternoonCheckOut,
+      bool? hasApprovedAbsentForm});
 
   @override
-  $CheckInStatusCopyWith<$Res> get morningShiftStart;
+  $MorningCheckInCopyWith<$Res> get morningCheckIn;
   @override
-  $CheckOutStatusCopyWith<$Res> get morningShiftEnd;
+  $MorningCheckOutCopyWith<$Res> get morningCheckOut;
   @override
-  $CheckInStatusCopyWith<$Res> get afternoonShiftStart;
+  $AfternoonCheckInCopyWith<$Res> get afternoonCheckIn;
   @override
-  $CheckOutStatusCopyWith<$Res> get afternoonShiftEnd;
+  $AfternoonCheckOutCopyWith<$Res> get afternoonCheckOut;
 }
 
 /// @nodoc
@@ -151,32 +159,37 @@ class __$$_TimekeepingCopyWithImpl<$Res> extends _$TimekeepingCopyWithImpl<$Res>
   @override
   $Res call({
     Object? date = freezed,
-    Object? morningShiftStart = freezed,
-    Object? morningShiftEnd = freezed,
-    Object? afternoonShiftStart = freezed,
-    Object? afternoonShiftEnd = freezed,
+    Object? morningCheckIn = freezed,
+    Object? morningCheckOut = freezed,
+    Object? afternoonCheckIn = freezed,
+    Object? afternoonCheckOut = freezed,
+    Object? hasApprovedAbsentForm = freezed,
   }) {
     return _then(_$_Timekeeping(
       date: date == freezed
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      morningShiftStart: morningShiftStart == freezed
-          ? _value.morningShiftStart
-          : morningShiftStart // ignore: cast_nullable_to_non_nullable
-              as CheckInStatus,
-      morningShiftEnd: morningShiftEnd == freezed
-          ? _value.morningShiftEnd
-          : morningShiftEnd // ignore: cast_nullable_to_non_nullable
-              as CheckOutStatus,
-      afternoonShiftStart: afternoonShiftStart == freezed
-          ? _value.afternoonShiftStart
-          : afternoonShiftStart // ignore: cast_nullable_to_non_nullable
-              as CheckInStatus,
-      afternoonShiftEnd: afternoonShiftEnd == freezed
-          ? _value.afternoonShiftEnd
-          : afternoonShiftEnd // ignore: cast_nullable_to_non_nullable
-              as CheckOutStatus,
+      morningCheckIn: morningCheckIn == freezed
+          ? _value.morningCheckIn
+          : morningCheckIn // ignore: cast_nullable_to_non_nullable
+              as MorningCheckIn,
+      morningCheckOut: morningCheckOut == freezed
+          ? _value.morningCheckOut
+          : morningCheckOut // ignore: cast_nullable_to_non_nullable
+              as MorningCheckOut,
+      afternoonCheckIn: afternoonCheckIn == freezed
+          ? _value.afternoonCheckIn
+          : afternoonCheckIn // ignore: cast_nullable_to_non_nullable
+              as AfternoonCheckIn,
+      afternoonCheckOut: afternoonCheckOut == freezed
+          ? _value.afternoonCheckOut
+          : afternoonCheckOut // ignore: cast_nullable_to_non_nullable
+              as AfternoonCheckOut,
+      hasApprovedAbsentForm: hasApprovedAbsentForm == freezed
+          ? _value.hasApprovedAbsentForm
+          : hasApprovedAbsentForm // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ));
   }
 }
@@ -186,26 +199,29 @@ class __$$_TimekeepingCopyWithImpl<$Res> extends _$TimekeepingCopyWithImpl<$Res>
 class _$_Timekeeping extends _Timekeeping with DiagnosticableTreeMixin {
   const _$_Timekeeping(
       {required this.date,
-      required this.morningShiftStart,
-      required this.morningShiftEnd,
-      required this.afternoonShiftStart,
-      required this.afternoonShiftEnd})
+      required this.morningCheckIn,
+      required this.morningCheckOut,
+      required this.afternoonCheckIn,
+      required this.afternoonCheckOut,
+      this.hasApprovedAbsentForm})
       : super._();
 
   @override
   final DateTime date;
   @override
-  final CheckInStatus morningShiftStart;
+  final MorningCheckIn morningCheckIn;
   @override
-  final CheckOutStatus morningShiftEnd;
+  final MorningCheckOut morningCheckOut;
   @override
-  final CheckInStatus afternoonShiftStart;
+  final AfternoonCheckIn afternoonCheckIn;
   @override
-  final CheckOutStatus afternoonShiftEnd;
+  final AfternoonCheckOut afternoonCheckOut;
+  @override
+  final bool? hasApprovedAbsentForm;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'Timekeeping(date: $date, morningShiftStart: $morningShiftStart, morningShiftEnd: $morningShiftEnd, afternoonShiftStart: $afternoonShiftStart, afternoonShiftEnd: $afternoonShiftEnd)';
+    return 'Timekeeping(date: $date, morningCheckIn: $morningCheckIn, morningCheckOut: $morningCheckOut, afternoonCheckIn: $afternoonCheckIn, afternoonCheckOut: $afternoonCheckOut, hasApprovedAbsentForm: $hasApprovedAbsentForm)';
   }
 
   @override
@@ -214,10 +230,12 @@ class _$_Timekeeping extends _Timekeeping with DiagnosticableTreeMixin {
     properties
       ..add(DiagnosticsProperty('type', 'Timekeeping'))
       ..add(DiagnosticsProperty('date', date))
-      ..add(DiagnosticsProperty('morningShiftStart', morningShiftStart))
-      ..add(DiagnosticsProperty('morningShiftEnd', morningShiftEnd))
-      ..add(DiagnosticsProperty('afternoonShiftStart', afternoonShiftStart))
-      ..add(DiagnosticsProperty('afternoonShiftEnd', afternoonShiftEnd));
+      ..add(DiagnosticsProperty('morningCheckIn', morningCheckIn))
+      ..add(DiagnosticsProperty('morningCheckOut', morningCheckOut))
+      ..add(DiagnosticsProperty('afternoonCheckIn', afternoonCheckIn))
+      ..add(DiagnosticsProperty('afternoonCheckOut', afternoonCheckOut))
+      ..add(
+          DiagnosticsProperty('hasApprovedAbsentForm', hasApprovedAbsentForm));
   }
 
   @override
@@ -227,23 +245,26 @@ class _$_Timekeeping extends _Timekeeping with DiagnosticableTreeMixin {
             other is _$_Timekeeping &&
             const DeepCollectionEquality().equals(other.date, date) &&
             const DeepCollectionEquality()
-                .equals(other.morningShiftStart, morningShiftStart) &&
+                .equals(other.morningCheckIn, morningCheckIn) &&
             const DeepCollectionEquality()
-                .equals(other.morningShiftEnd, morningShiftEnd) &&
+                .equals(other.morningCheckOut, morningCheckOut) &&
             const DeepCollectionEquality()
-                .equals(other.afternoonShiftStart, afternoonShiftStart) &&
+                .equals(other.afternoonCheckIn, afternoonCheckIn) &&
             const DeepCollectionEquality()
-                .equals(other.afternoonShiftEnd, afternoonShiftEnd));
+                .equals(other.afternoonCheckOut, afternoonCheckOut) &&
+            const DeepCollectionEquality()
+                .equals(other.hasApprovedAbsentForm, hasApprovedAbsentForm));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(date),
-      const DeepCollectionEquality().hash(morningShiftStart),
-      const DeepCollectionEquality().hash(morningShiftEnd),
-      const DeepCollectionEquality().hash(afternoonShiftStart),
-      const DeepCollectionEquality().hash(afternoonShiftEnd));
+      const DeepCollectionEquality().hash(morningCheckIn),
+      const DeepCollectionEquality().hash(morningCheckOut),
+      const DeepCollectionEquality().hash(afternoonCheckIn),
+      const DeepCollectionEquality().hash(afternoonCheckOut),
+      const DeepCollectionEquality().hash(hasApprovedAbsentForm));
 
   @JsonKey(ignore: true)
   @override
@@ -254,22 +275,25 @@ class _$_Timekeeping extends _Timekeeping with DiagnosticableTreeMixin {
 abstract class _Timekeeping extends Timekeeping {
   const factory _Timekeeping(
       {required final DateTime date,
-      required final CheckInStatus morningShiftStart,
-      required final CheckOutStatus morningShiftEnd,
-      required final CheckInStatus afternoonShiftStart,
-      required final CheckOutStatus afternoonShiftEnd}) = _$_Timekeeping;
+      required final MorningCheckIn morningCheckIn,
+      required final MorningCheckOut morningCheckOut,
+      required final AfternoonCheckIn afternoonCheckIn,
+      required final AfternoonCheckOut afternoonCheckOut,
+      final bool? hasApprovedAbsentForm}) = _$_Timekeeping;
   const _Timekeeping._() : super._();
 
   @override
   DateTime get date => throw _privateConstructorUsedError;
   @override
-  CheckInStatus get morningShiftStart => throw _privateConstructorUsedError;
+  MorningCheckIn get morningCheckIn => throw _privateConstructorUsedError;
   @override
-  CheckOutStatus get morningShiftEnd => throw _privateConstructorUsedError;
+  MorningCheckOut get morningCheckOut => throw _privateConstructorUsedError;
   @override
-  CheckInStatus get afternoonShiftStart => throw _privateConstructorUsedError;
+  AfternoonCheckIn get afternoonCheckIn => throw _privateConstructorUsedError;
   @override
-  CheckOutStatus get afternoonShiftEnd => throw _privateConstructorUsedError;
+  AfternoonCheckOut get afternoonCheckOut => throw _privateConstructorUsedError;
+  @override
+  bool? get hasApprovedAbsentForm => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$$_TimekeepingCopyWith<_$_Timekeeping> get copyWith =>

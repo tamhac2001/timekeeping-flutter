@@ -6,12 +6,9 @@ class ProfileScreenState with _$ProfileScreenState {
     required Either<EmployeeFailure, Employee>? failureOrEmployee,
     required bool isSubmitting,
     required bool isLoading,
-    required Either<ProfileChangedFailure, Unit>? profileChangedSuccessOrFail,
+    required Either<EmployeeFailure, Unit>? profileChangedSuccessOrFail,
   }) = _ProfileScreenState;
 
   factory ProfileScreenState.initial() => const ProfileScreenState(
-      failureOrEmployee: null,
-      isSubmitting: false,
-      isLoading: false,
-      profileChangedSuccessOrFail: null);
+      failureOrEmployee: null, isSubmitting: false, isLoading: false, profileChangedSuccessOrFail: null);
 }

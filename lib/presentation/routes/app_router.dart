@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 
 import '../absent_form/absent_form_screen.dart';
-import '../assign_work_schedule/assign_schedule_screen.dart';
+import '../assign_schedule/assign_schedule_screen.dart';
 import '../check_in_check_out/check_in_check_out_router.dart';
 import '../check_in_check_out/check_in_check_out_screen.dart';
 import '../check_in_check_out/qr_scanner_screen.dart';

@@ -2,13 +2,13 @@ part of 'checkin_checkout_screen_bloc.dart';
 
 @freezed
 class CheckinCheckoutScreenEvent with _$CheckinCheckoutScreenEvent {
-  const factory CheckinCheckoutScreenEvent.clockTick() = ClockTick;
+  const factory CheckinCheckoutScreenEvent.clockTick() = _ClockTick;
 
-  const factory CheckinCheckoutScreenEvent.updateNextCheckTime() = UpdateNextCheckTime;
+  const factory CheckinCheckoutScreenEvent.updateNextCheckTime() = _UpdateNextCheckTime;
 
-  const factory CheckinCheckoutScreenEvent.getSchedule() = GetSchedule;
+  const factory CheckinCheckoutScreenEvent.qrScanning() = _QrScanning;
 
-  const factory CheckinCheckoutScreenEvent.qrScanned(bool isScanning) = QrScanned;
+  const factory CheckinCheckoutScreenEvent.getTimekeeping() = _GetTimekeeping;
 
-  const factory CheckinCheckoutScreenEvent.getTimekeeping() = GetTimekeeping;
+  const factory CheckinCheckoutScreenEvent.updateIsDayOff() = _UpdateIsDayOff;
 }

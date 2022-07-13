@@ -26,6 +26,7 @@ mixin _$EmployeeDto {
   Gender get gender => throw _privateConstructorUsedError;
   String get phoneNumber => throw _privateConstructorUsedError;
   String get address => throw _privateConstructorUsedError;
+  @JsonKey(fromJson: avatarFromJson)
   String? get avatar => throw _privateConstructorUsedError;
   DateTime get startDate => throw _privateConstructorUsedError;
 
@@ -47,7 +48,7 @@ abstract class $EmployeeDtoCopyWith<$Res> {
       Gender gender,
       String phoneNumber,
       String address,
-      String? avatar,
+      @JsonKey(fromJson: avatarFromJson) String? avatar,
       DateTime startDate});
 }
 
@@ -121,7 +122,7 @@ abstract class _$$_EmployeeDtoCopyWith<$Res>
       Gender gender,
       String phoneNumber,
       String address,
-      String? avatar,
+      @JsonKey(fromJson: avatarFromJson) String? avatar,
       DateTime startDate});
 }
 
@@ -185,7 +186,8 @@ class __$$_EmployeeDtoCopyWithImpl<$Res> extends _$EmployeeDtoCopyWithImpl<$Res>
 
 /// @nodoc
 
-@JsonSerializable(fieldRename: FieldRename.snake, explicitToJson: true)
+@JsonSerializable(
+    fieldRename: FieldRename.snake, explicitToJson: true, includeIfNull: false)
 class _$_EmployeeDto with DiagnosticableTreeMixin implements _EmployeeDto {
   const _$_EmployeeDto(
       {required this.id,
@@ -194,7 +196,7 @@ class _$_EmployeeDto with DiagnosticableTreeMixin implements _EmployeeDto {
       required this.gender,
       required this.phoneNumber,
       required this.address,
-      required this.avatar,
+      @JsonKey(fromJson: avatarFromJson) required this.avatar,
       required this.startDate});
 
   factory _$_EmployeeDto.fromJson(Map<String, dynamic> json) =>
@@ -213,6 +215,7 @@ class _$_EmployeeDto with DiagnosticableTreeMixin implements _EmployeeDto {
   @override
   final String address;
   @override
+  @JsonKey(fromJson: avatarFromJson)
   final String? avatar;
   @override
   final DateTime startDate;
@@ -285,7 +288,7 @@ abstract class _EmployeeDto implements EmployeeDto {
       required final Gender gender,
       required final String phoneNumber,
       required final String address,
-      required final String? avatar,
+      @JsonKey(fromJson: avatarFromJson) required final String? avatar,
       required final DateTime startDate}) = _$_EmployeeDto;
 
   factory _EmployeeDto.fromJson(Map<String, dynamic> json) =
@@ -304,6 +307,7 @@ abstract class _EmployeeDto implements EmployeeDto {
   @override
   String get address => throw _privateConstructorUsedError;
   @override
+  @JsonKey(fromJson: avatarFromJson)
   String? get avatar => throw _privateConstructorUsedError;
   @override
   DateTime get startDate => throw _privateConstructorUsedError;

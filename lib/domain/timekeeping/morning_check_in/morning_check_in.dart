@@ -2,61 +2,85 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../utils/extensions.dart';
-import '../../../constants.dart' as constant;
+import '../../../utils/extensions.dart';
+import '../../../presentation/core/constant/ui_constant.dart' as ui_constant;
 
-part 'check_in_status.freezed.dart';
+part 'morning_check_in.freezed.dart';
 
 @freezed
-class CheckInStatus with _$CheckInStatus {
-  const CheckInStatus._();
+class MorningCheckIn with _$MorningCheckIn {
+  static const Duration maxDurationForLateCheckIn = Duration(hours: 2);
 
-  const factory CheckInStatus.unknown(TimeOfDay scheduledTime) = _Unknown;
+  const MorningCheckIn._();
 
-  const factory CheckInStatus.onTime(TimeOfDay scheduledTime, DateTime checkInTime) = _OnTime;
+  const factory MorningCheckIn.unknown(TimeOfDay scheduledTime) = _Unknown;
 
-  const factory CheckInStatus.late(TimeOfDay scheduledTime, DateTime checkInTime) = _Late;
+  const factory MorningCheckIn.onTime(TimeOfDay scheduledTime, DateTime checkInTime) = _OnTime;
 
-  const factory CheckInStatus.forgot(TimeOfDay scheduledTime) = _Forgot;
+  const factory MorningCheckIn.late(TimeOfDay scheduledTime, DateTime checkInTime) = _Late;
 
-  factory CheckInStatus(DateTime checkInDate, DateTime? checkInTime, TimeOfDay scheduledTime) {
+  const factory MorningCheckIn.forgot(TimeOfDay scheduledTime) = _Forgot;
+
+  factory MorningCheckIn(DateTime checkInDate, DateTime? checkInTime, TimeOfDay scheduledTime) {
     if (checkInTime == null) {
-      if (DateTime.now().isAfter(scheduledTime.toCheckInDate(checkInDate).add(const Duration(minutes: 30)))) {
-        return CheckInStatus.forgot(scheduledTime);
+      if (DateTime.now().isAfter(scheduledTime.toCheckInDate(checkInDate).add(maxDurationForLateCheckIn))) {
+        return MorningCheckIn.forgot(scheduledTime);
       } else {
-        return CheckInStatus.unknown(scheduledTime);
+        return MorningCheckIn.unknown(scheduledTime);
       }
     } else {
       if (checkInTime.isAfter(scheduledTime.toCheckInDate(checkInDate))) {
-        return CheckInStatus.late(scheduledTime, checkInTime);
+        return MorningCheckIn.late(scheduledTime, checkInTime);
       } else {
-        return CheckInStatus.onTime(scheduledTime, checkInTime);
+        return MorningCheckIn.onTime(scheduledTime, checkInTime);
       }
     }
   }
 
-  @override
-  String toString() {
+  String toCheckInStatusString() {
     return when(
         unknown: (_) => 'Chưa điểm danh',
         onTime: (_, time) => 'Điểm danh: ${time.toDisplayedTime()}',
-        late: (_, time) => 'Điểm danh trễ: ${time.toDisplayedTime()}',
+        late: (scheduledTime, checkInTime) {
+          final lateDuration = checkInTime.difference(scheduledTime.toCheckInDate(checkInTime));
+          if (lateDuration.inMinutes > 60) {
+            return 'Điểm danh trễ: ${checkInTime.toDisplayedTime()} ';
+          }
+          return 'Điểm danh trễ: ${lateDuration.inMinutes} phút';
+        },
         forgot: (_) => 'Không điểm danh');
+  }
+
+  bool isUnknown() {
+    return maybeWhen(unknown: (_) => true, orElse: () => false);
+  }
+
+  bool isForgot() {
+    return maybeWhen(forgot: (_) => true, orElse: () => false);
+  }
+
+  TimeOfDay latestTimeForCheckIn() =>
+      TimeOfDay.fromDateTime(scheduledTime.toTodayDateTime().add(maxDurationForLateCheckIn));
+
+  Duration? morningCheckInLateDuration() {
+    return maybeWhen(
+        late: (scheduled, checkInTime) => checkInTime.difference(scheduled.toCheckInDate(checkInTime)),
+        orElse: () => null);
   }
 
   Icon? toIcon() {
     return when(
         unknown: (_) => null,
-        onTime: (_, __) => const Icon(Icons.done, color: Colors.green),
-        late: (_, __) => Icon(Icons.report_problem, color: Colors.yellow.shade700),
-        forgot: (_) => const Icon(Icons.thumb_down, color: Colors.red));
+        onTime: (_, __) => ui_constant.onTimeIcon,
+        late: (_, __) => ui_constant.lateIcon,
+        forgot: (_) => ui_constant.forgotIcon);
   }
 
   Color toColor() {
     return when(
-        unknown: (_) => Colors.grey.shade100,
-        onTime: (_, __) => Colors.green,
-        late: (_, __) => Colors.yellow.shade800,
-        forgot: (_) => Colors.red);
+        unknown: (_) => ui_constant.unknownColor,
+        onTime: (_, __) => ui_constant.onTimeColor,
+        late: (_, __) => ui_constant.lateColor,
+        forgot: (_) => ui_constant.forgotColor);
   }
 }

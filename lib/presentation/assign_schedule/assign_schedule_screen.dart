@@ -2,18 +2,18 @@ import 'package:auto_route/auto_route.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:timekeeping/application/cubits/absent_list_cubit.dart';
+import 'package:timekeeping/presentation/assign_schedule/widgets/assign_schedule_form.dart';
 
-import '../../application/connectivity/connectivity_bloc.dart';
 import '../../application/notification/notification_bloc.dart';
-import '../../application/schedule/assign_schedule_form/assign_schedule_form_bloc.dart';
-import '../../application/schedule/schedule_cubit.dart';
+import '../../application/schedule/assign_schedule_form_bloc.dart';
+import '../../application/cubits/schedule/schedule_cubit.dart';
 import '../../domain/schedule/schedule.dart';
 import '../../domain/schedule/schedule_failure.dart';
 import '../../infrastructure/schedule/schedule_repository.dart';
 import '../../infrastructure/secure_storage/secure_storage_repository.dart';
 import '../core/app_widgets.dart';
 import '../routes/app_router.gr.dart';
-import 'widgets/assign_schedule_form.dart';
 
 class AssignScheduleScreen extends StatelessWidget {
   const AssignScheduleScreen({
@@ -27,40 +27,37 @@ class AssignScheduleScreen extends StatelessWidget {
         repository: RepositoryProvider.of<ScheduleRepository>(context),
         storage: RepositoryProvider.of<SecureStorageRepository>(context),
       ),
-      child: BlocConsumer<ScheduleCubit, Either<ScheduleFailure, Schedule>?>(
+      child: BlocConsumer<ScheduleCubit, ScheduleState>(
         listener: (context, state) {
-          if (state != null) {
-            state.fold(
-                (failure) => failure.when(
-                      serverError: () {
-                        showMyDialog(context, title: 'Đăng ký lịch làm việc', text: 'Lỗi server');
-                      },
+          if (state.scheduleFailureOrSchedule != null) {
+            state.scheduleFailureOrSchedule!.fold(
+                (failure) => failure.maybeWhen(
+                      unAuthenticated: () => showTokenExpireDialog(context),
                       noScheduleStored: () {
                         debugPrint('No schedule store');
                       },
+                      orElse: () => null,
                     ), (schedule) {
-              context.read<NotificationBloc>().add(NotificationEvent.initialize(schedule));
               AutoRouter.of(context).replace(const HomeScreen());
             });
           }
         },
         builder: (context, state) {
-          if (state == null) {
-            final connectivityState = context.watch<ConnectivityBloc>().state;
-            connectivityState.whenHasInternetAccess(context, () {
-              context.read<ScheduleCubit>().initialized();
-            }, okButtonPressedOnNoInternetAccessDialog: () {
-              context.read<ScheduleCubit>().initialized();
-            });
-            return const SafeArea(child: Scaffold(body: Center(child: CircularProgressIndicator())));
-          } else {
-            return state.fold(
-              (failure) => failure.when(
-                  serverError: () => const SafeArea(child: Scaffold(body: Center(child: CircularProgressIndicator()))),
-                  noScheduleStored: () => const AssignScheduleForm()),
-              (_) => Container(),
-            );
+          if (state.scheduleFailureOrSchedule == null) {
+            context.read<ScheduleCubit>().scheduleRequest();
+            return const LoadingScreen();
           }
+          if (state.isLoading) return const LoadingScreen();
+          return state.scheduleFailureOrSchedule!.fold(
+            (failure) => failure.maybeWhen(
+              noScheduleStored: () => const AssignScheduleForm(),
+              orElse: () => FailureScreen(
+                  appBarTitle: 'Lịch làm việc',
+                  failureText: failure.toFailureMessage(),
+                  retryCallback: () => context.read<ScheduleCubit>().scheduleRequest()),
+            ),
+            (_) => const LoadingScreen(),
+          );
         },
       ),
     );

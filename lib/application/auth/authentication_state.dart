@@ -4,10 +4,9 @@ part of 'authentication_bloc.dart';
 class AuthenticationState with _$AuthenticationState {
   const AuthenticationState._();
 
-  const factory AuthenticationState.initial() = Initial;
+  const factory AuthenticationState.initial() = _Initial;
 
-  const factory AuthenticationState.authenticated(
-      String accessToken, String employeeId) = Authenticated;
+  const factory AuthenticationState.authenticated() = _Authenticated;
 
-  const factory AuthenticationState.unauthenticated() = Unauthenticated;
+  const factory AuthenticationState.unauthenticated() = _Unauthenticated;
 }

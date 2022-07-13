@@ -18,6 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$AbsentFormEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() getAbsentFormList,
     required TResult Function(DateTime? startDate) startDatePicked,
     required TResult Function(DateTime? endDate) endDatePicked,
     required TResult Function(Reason reason) reasonChanged,
@@ -28,6 +29,7 @@ mixin _$AbsentFormEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? getAbsentFormList,
     TResult Function(DateTime? startDate)? startDatePicked,
     TResult Function(DateTime? endDate)? endDatePicked,
     TResult Function(Reason reason)? reasonChanged,
@@ -38,6 +40,7 @@ mixin _$AbsentFormEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getAbsentFormList,
     TResult Function(DateTime? startDate)? startDatePicked,
     TResult Function(DateTime? endDate)? endDatePicked,
     TResult Function(Reason reason)? reasonChanged,
@@ -49,32 +52,35 @@ mixin _$AbsentFormEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(StartDatePicked value) startDatePicked,
-    required TResult Function(EndDatePicked value) endDatePicked,
-    required TResult Function(ReasonChanged value) reasonChanged,
-    required TResult Function(NoteChanged value) noteChanged,
-    required TResult Function(FormSubmitted value) formSubmitted,
-    required TResult Function(Cancelled value) cancelled,
+    required TResult Function(_GetAbsentFormList value) getAbsentFormList,
+    required TResult Function(_StartDatePicked value) startDatePicked,
+    required TResult Function(_EndDatePicked value) endDatePicked,
+    required TResult Function(_ReasonChanged value) reasonChanged,
+    required TResult Function(_NoteChanged value) noteChanged,
+    required TResult Function(_FormSubmitted value) formSubmitted,
+    required TResult Function(_Cancelled value) cancelled,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(StartDatePicked value)? startDatePicked,
-    TResult Function(EndDatePicked value)? endDatePicked,
-    TResult Function(ReasonChanged value)? reasonChanged,
-    TResult Function(NoteChanged value)? noteChanged,
-    TResult Function(FormSubmitted value)? formSubmitted,
-    TResult Function(Cancelled value)? cancelled,
+    TResult Function(_GetAbsentFormList value)? getAbsentFormList,
+    TResult Function(_StartDatePicked value)? startDatePicked,
+    TResult Function(_EndDatePicked value)? endDatePicked,
+    TResult Function(_ReasonChanged value)? reasonChanged,
+    TResult Function(_NoteChanged value)? noteChanged,
+    TResult Function(_FormSubmitted value)? formSubmitted,
+    TResult Function(_Cancelled value)? cancelled,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(StartDatePicked value)? startDatePicked,
-    TResult Function(EndDatePicked value)? endDatePicked,
-    TResult Function(ReasonChanged value)? reasonChanged,
-    TResult Function(NoteChanged value)? noteChanged,
-    TResult Function(FormSubmitted value)? formSubmitted,
-    TResult Function(Cancelled value)? cancelled,
+    TResult Function(_GetAbsentFormList value)? getAbsentFormList,
+    TResult Function(_StartDatePicked value)? startDatePicked,
+    TResult Function(_EndDatePicked value)? endDatePicked,
+    TResult Function(_ReasonChanged value)? reasonChanged,
+    TResult Function(_NoteChanged value)? noteChanged,
+    TResult Function(_FormSubmitted value)? formSubmitted,
+    TResult Function(_Cancelled value)? cancelled,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -98,29 +104,173 @@ class _$AbsentFormEventCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$$StartDatePickedCopyWith<$Res> {
-  factory _$$StartDatePickedCopyWith(
-          _$StartDatePicked value, $Res Function(_$StartDatePicked) then) =
-      __$$StartDatePickedCopyWithImpl<$Res>;
+abstract class _$$_GetAbsentFormListCopyWith<$Res> {
+  factory _$$_GetAbsentFormListCopyWith(_$_GetAbsentFormList value,
+          $Res Function(_$_GetAbsentFormList) then) =
+      __$$_GetAbsentFormListCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_GetAbsentFormListCopyWithImpl<$Res>
+    extends _$AbsentFormEventCopyWithImpl<$Res>
+    implements _$$_GetAbsentFormListCopyWith<$Res> {
+  __$$_GetAbsentFormListCopyWithImpl(
+      _$_GetAbsentFormList _value, $Res Function(_$_GetAbsentFormList) _then)
+      : super(_value, (v) => _then(v as _$_GetAbsentFormList));
+
+  @override
+  _$_GetAbsentFormList get _value => super._value as _$_GetAbsentFormList;
+}
+
+/// @nodoc
+
+class _$_GetAbsentFormList
+    with DiagnosticableTreeMixin
+    implements _GetAbsentFormList {
+  const _$_GetAbsentFormList();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'AbsentFormEvent.getAbsentFormList()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+        .add(DiagnosticsProperty('type', 'AbsentFormEvent.getAbsentFormList'));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_GetAbsentFormList);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() getAbsentFormList,
+    required TResult Function(DateTime? startDate) startDatePicked,
+    required TResult Function(DateTime? endDate) endDatePicked,
+    required TResult Function(Reason reason) reasonChanged,
+    required TResult Function(String noteChanged) noteChanged,
+    required TResult Function() formSubmitted,
+    required TResult Function() cancelled,
+  }) {
+    return getAbsentFormList();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? getAbsentFormList,
+    TResult Function(DateTime? startDate)? startDatePicked,
+    TResult Function(DateTime? endDate)? endDatePicked,
+    TResult Function(Reason reason)? reasonChanged,
+    TResult Function(String noteChanged)? noteChanged,
+    TResult Function()? formSubmitted,
+    TResult Function()? cancelled,
+  }) {
+    return getAbsentFormList?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getAbsentFormList,
+    TResult Function(DateTime? startDate)? startDatePicked,
+    TResult Function(DateTime? endDate)? endDatePicked,
+    TResult Function(Reason reason)? reasonChanged,
+    TResult Function(String noteChanged)? noteChanged,
+    TResult Function()? formSubmitted,
+    TResult Function()? cancelled,
+    required TResult orElse(),
+  }) {
+    if (getAbsentFormList != null) {
+      return getAbsentFormList();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_GetAbsentFormList value) getAbsentFormList,
+    required TResult Function(_StartDatePicked value) startDatePicked,
+    required TResult Function(_EndDatePicked value) endDatePicked,
+    required TResult Function(_ReasonChanged value) reasonChanged,
+    required TResult Function(_NoteChanged value) noteChanged,
+    required TResult Function(_FormSubmitted value) formSubmitted,
+    required TResult Function(_Cancelled value) cancelled,
+  }) {
+    return getAbsentFormList(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_GetAbsentFormList value)? getAbsentFormList,
+    TResult Function(_StartDatePicked value)? startDatePicked,
+    TResult Function(_EndDatePicked value)? endDatePicked,
+    TResult Function(_ReasonChanged value)? reasonChanged,
+    TResult Function(_NoteChanged value)? noteChanged,
+    TResult Function(_FormSubmitted value)? formSubmitted,
+    TResult Function(_Cancelled value)? cancelled,
+  }) {
+    return getAbsentFormList?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_GetAbsentFormList value)? getAbsentFormList,
+    TResult Function(_StartDatePicked value)? startDatePicked,
+    TResult Function(_EndDatePicked value)? endDatePicked,
+    TResult Function(_ReasonChanged value)? reasonChanged,
+    TResult Function(_NoteChanged value)? noteChanged,
+    TResult Function(_FormSubmitted value)? formSubmitted,
+    TResult Function(_Cancelled value)? cancelled,
+    required TResult orElse(),
+  }) {
+    if (getAbsentFormList != null) {
+      return getAbsentFormList(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _GetAbsentFormList implements AbsentFormEvent {
+  const factory _GetAbsentFormList() = _$_GetAbsentFormList;
+}
+
+/// @nodoc
+abstract class _$$_StartDatePickedCopyWith<$Res> {
+  factory _$$_StartDatePickedCopyWith(
+          _$_StartDatePicked value, $Res Function(_$_StartDatePicked) then) =
+      __$$_StartDatePickedCopyWithImpl<$Res>;
   $Res call({DateTime? startDate});
 }
 
 /// @nodoc
-class __$$StartDatePickedCopyWithImpl<$Res>
+class __$$_StartDatePickedCopyWithImpl<$Res>
     extends _$AbsentFormEventCopyWithImpl<$Res>
-    implements _$$StartDatePickedCopyWith<$Res> {
-  __$$StartDatePickedCopyWithImpl(
-      _$StartDatePicked _value, $Res Function(_$StartDatePicked) _then)
-      : super(_value, (v) => _then(v as _$StartDatePicked));
+    implements _$$_StartDatePickedCopyWith<$Res> {
+  __$$_StartDatePickedCopyWithImpl(
+      _$_StartDatePicked _value, $Res Function(_$_StartDatePicked) _then)
+      : super(_value, (v) => _then(v as _$_StartDatePicked));
 
   @override
-  _$StartDatePicked get _value => super._value as _$StartDatePicked;
+  _$_StartDatePicked get _value => super._value as _$_StartDatePicked;
 
   @override
   $Res call({
     Object? startDate = freezed,
   }) {
-    return _then(_$StartDatePicked(
+    return _then(_$_StartDatePicked(
       startDate == freezed
           ? _value.startDate
           : startDate // ignore: cast_nullable_to_non_nullable
@@ -131,10 +281,10 @@ class __$$StartDatePickedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$StartDatePicked
+class _$_StartDatePicked
     with DiagnosticableTreeMixin
-    implements StartDatePicked {
-  const _$StartDatePicked(this.startDate);
+    implements _StartDatePicked {
+  const _$_StartDatePicked(this.startDate);
 
   @override
   final DateTime? startDate;
@@ -156,7 +306,7 @@ class _$StartDatePicked
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$StartDatePicked &&
+            other is _$_StartDatePicked &&
             const DeepCollectionEquality().equals(other.startDate, startDate));
   }
 
@@ -166,12 +316,13 @@ class _$StartDatePicked
 
   @JsonKey(ignore: true)
   @override
-  _$$StartDatePickedCopyWith<_$StartDatePicked> get copyWith =>
-      __$$StartDatePickedCopyWithImpl<_$StartDatePicked>(this, _$identity);
+  _$$_StartDatePickedCopyWith<_$_StartDatePicked> get copyWith =>
+      __$$_StartDatePickedCopyWithImpl<_$_StartDatePicked>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() getAbsentFormList,
     required TResult Function(DateTime? startDate) startDatePicked,
     required TResult Function(DateTime? endDate) endDatePicked,
     required TResult Function(Reason reason) reasonChanged,
@@ -185,6 +336,7 @@ class _$StartDatePicked
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? getAbsentFormList,
     TResult Function(DateTime? startDate)? startDatePicked,
     TResult Function(DateTime? endDate)? endDatePicked,
     TResult Function(Reason reason)? reasonChanged,
@@ -198,6 +350,7 @@ class _$StartDatePicked
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getAbsentFormList,
     TResult Function(DateTime? startDate)? startDatePicked,
     TResult Function(DateTime? endDate)? endDatePicked,
     TResult Function(Reason reason)? reasonChanged,
@@ -215,12 +368,13 @@ class _$StartDatePicked
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(StartDatePicked value) startDatePicked,
-    required TResult Function(EndDatePicked value) endDatePicked,
-    required TResult Function(ReasonChanged value) reasonChanged,
-    required TResult Function(NoteChanged value) noteChanged,
-    required TResult Function(FormSubmitted value) formSubmitted,
-    required TResult Function(Cancelled value) cancelled,
+    required TResult Function(_GetAbsentFormList value) getAbsentFormList,
+    required TResult Function(_StartDatePicked value) startDatePicked,
+    required TResult Function(_EndDatePicked value) endDatePicked,
+    required TResult Function(_ReasonChanged value) reasonChanged,
+    required TResult Function(_NoteChanged value) noteChanged,
+    required TResult Function(_FormSubmitted value) formSubmitted,
+    required TResult Function(_Cancelled value) cancelled,
   }) {
     return startDatePicked(this);
   }
@@ -228,12 +382,13 @@ class _$StartDatePicked
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(StartDatePicked value)? startDatePicked,
-    TResult Function(EndDatePicked value)? endDatePicked,
-    TResult Function(ReasonChanged value)? reasonChanged,
-    TResult Function(NoteChanged value)? noteChanged,
-    TResult Function(FormSubmitted value)? formSubmitted,
-    TResult Function(Cancelled value)? cancelled,
+    TResult Function(_GetAbsentFormList value)? getAbsentFormList,
+    TResult Function(_StartDatePicked value)? startDatePicked,
+    TResult Function(_EndDatePicked value)? endDatePicked,
+    TResult Function(_ReasonChanged value)? reasonChanged,
+    TResult Function(_NoteChanged value)? noteChanged,
+    TResult Function(_FormSubmitted value)? formSubmitted,
+    TResult Function(_Cancelled value)? cancelled,
   }) {
     return startDatePicked?.call(this);
   }
@@ -241,12 +396,13 @@ class _$StartDatePicked
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(StartDatePicked value)? startDatePicked,
-    TResult Function(EndDatePicked value)? endDatePicked,
-    TResult Function(ReasonChanged value)? reasonChanged,
-    TResult Function(NoteChanged value)? noteChanged,
-    TResult Function(FormSubmitted value)? formSubmitted,
-    TResult Function(Cancelled value)? cancelled,
+    TResult Function(_GetAbsentFormList value)? getAbsentFormList,
+    TResult Function(_StartDatePicked value)? startDatePicked,
+    TResult Function(_EndDatePicked value)? endDatePicked,
+    TResult Function(_ReasonChanged value)? reasonChanged,
+    TResult Function(_NoteChanged value)? noteChanged,
+    TResult Function(_FormSubmitted value)? formSubmitted,
+    TResult Function(_Cancelled value)? cancelled,
     required TResult orElse(),
   }) {
     if (startDatePicked != null) {
@@ -256,39 +412,40 @@ class _$StartDatePicked
   }
 }
 
-abstract class StartDatePicked implements AbsentFormEvent {
-  const factory StartDatePicked(final DateTime? startDate) = _$StartDatePicked;
+abstract class _StartDatePicked implements AbsentFormEvent {
+  const factory _StartDatePicked(final DateTime? startDate) =
+      _$_StartDatePicked;
 
   DateTime? get startDate => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$$StartDatePickedCopyWith<_$StartDatePicked> get copyWith =>
+  _$$_StartDatePickedCopyWith<_$_StartDatePicked> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$EndDatePickedCopyWith<$Res> {
-  factory _$$EndDatePickedCopyWith(
-          _$EndDatePicked value, $Res Function(_$EndDatePicked) then) =
-      __$$EndDatePickedCopyWithImpl<$Res>;
+abstract class _$$_EndDatePickedCopyWith<$Res> {
+  factory _$$_EndDatePickedCopyWith(
+          _$_EndDatePicked value, $Res Function(_$_EndDatePicked) then) =
+      __$$_EndDatePickedCopyWithImpl<$Res>;
   $Res call({DateTime? endDate});
 }
 
 /// @nodoc
-class __$$EndDatePickedCopyWithImpl<$Res>
+class __$$_EndDatePickedCopyWithImpl<$Res>
     extends _$AbsentFormEventCopyWithImpl<$Res>
-    implements _$$EndDatePickedCopyWith<$Res> {
-  __$$EndDatePickedCopyWithImpl(
-      _$EndDatePicked _value, $Res Function(_$EndDatePicked) _then)
-      : super(_value, (v) => _then(v as _$EndDatePicked));
+    implements _$$_EndDatePickedCopyWith<$Res> {
+  __$$_EndDatePickedCopyWithImpl(
+      _$_EndDatePicked _value, $Res Function(_$_EndDatePicked) _then)
+      : super(_value, (v) => _then(v as _$_EndDatePicked));
 
   @override
-  _$EndDatePicked get _value => super._value as _$EndDatePicked;
+  _$_EndDatePicked get _value => super._value as _$_EndDatePicked;
 
   @override
   $Res call({
     Object? endDate = freezed,
   }) {
-    return _then(_$EndDatePicked(
+    return _then(_$_EndDatePicked(
       endDate == freezed
           ? _value.endDate
           : endDate // ignore: cast_nullable_to_non_nullable
@@ -299,8 +456,8 @@ class __$$EndDatePickedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$EndDatePicked with DiagnosticableTreeMixin implements EndDatePicked {
-  const _$EndDatePicked(this.endDate);
+class _$_EndDatePicked with DiagnosticableTreeMixin implements _EndDatePicked {
+  const _$_EndDatePicked(this.endDate);
 
   @override
   final DateTime? endDate;
@@ -322,7 +479,7 @@ class _$EndDatePicked with DiagnosticableTreeMixin implements EndDatePicked {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$EndDatePicked &&
+            other is _$_EndDatePicked &&
             const DeepCollectionEquality().equals(other.endDate, endDate));
   }
 
@@ -332,12 +489,13 @@ class _$EndDatePicked with DiagnosticableTreeMixin implements EndDatePicked {
 
   @JsonKey(ignore: true)
   @override
-  _$$EndDatePickedCopyWith<_$EndDatePicked> get copyWith =>
-      __$$EndDatePickedCopyWithImpl<_$EndDatePicked>(this, _$identity);
+  _$$_EndDatePickedCopyWith<_$_EndDatePicked> get copyWith =>
+      __$$_EndDatePickedCopyWithImpl<_$_EndDatePicked>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() getAbsentFormList,
     required TResult Function(DateTime? startDate) startDatePicked,
     required TResult Function(DateTime? endDate) endDatePicked,
     required TResult Function(Reason reason) reasonChanged,
@@ -351,6 +509,7 @@ class _$EndDatePicked with DiagnosticableTreeMixin implements EndDatePicked {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? getAbsentFormList,
     TResult Function(DateTime? startDate)? startDatePicked,
     TResult Function(DateTime? endDate)? endDatePicked,
     TResult Function(Reason reason)? reasonChanged,
@@ -364,6 +523,7 @@ class _$EndDatePicked with DiagnosticableTreeMixin implements EndDatePicked {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getAbsentFormList,
     TResult Function(DateTime? startDate)? startDatePicked,
     TResult Function(DateTime? endDate)? endDatePicked,
     TResult Function(Reason reason)? reasonChanged,
@@ -381,12 +541,13 @@ class _$EndDatePicked with DiagnosticableTreeMixin implements EndDatePicked {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(StartDatePicked value) startDatePicked,
-    required TResult Function(EndDatePicked value) endDatePicked,
-    required TResult Function(ReasonChanged value) reasonChanged,
-    required TResult Function(NoteChanged value) noteChanged,
-    required TResult Function(FormSubmitted value) formSubmitted,
-    required TResult Function(Cancelled value) cancelled,
+    required TResult Function(_GetAbsentFormList value) getAbsentFormList,
+    required TResult Function(_StartDatePicked value) startDatePicked,
+    required TResult Function(_EndDatePicked value) endDatePicked,
+    required TResult Function(_ReasonChanged value) reasonChanged,
+    required TResult Function(_NoteChanged value) noteChanged,
+    required TResult Function(_FormSubmitted value) formSubmitted,
+    required TResult Function(_Cancelled value) cancelled,
   }) {
     return endDatePicked(this);
   }
@@ -394,12 +555,13 @@ class _$EndDatePicked with DiagnosticableTreeMixin implements EndDatePicked {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(StartDatePicked value)? startDatePicked,
-    TResult Function(EndDatePicked value)? endDatePicked,
-    TResult Function(ReasonChanged value)? reasonChanged,
-    TResult Function(NoteChanged value)? noteChanged,
-    TResult Function(FormSubmitted value)? formSubmitted,
-    TResult Function(Cancelled value)? cancelled,
+    TResult Function(_GetAbsentFormList value)? getAbsentFormList,
+    TResult Function(_StartDatePicked value)? startDatePicked,
+    TResult Function(_EndDatePicked value)? endDatePicked,
+    TResult Function(_ReasonChanged value)? reasonChanged,
+    TResult Function(_NoteChanged value)? noteChanged,
+    TResult Function(_FormSubmitted value)? formSubmitted,
+    TResult Function(_Cancelled value)? cancelled,
   }) {
     return endDatePicked?.call(this);
   }
@@ -407,12 +569,13 @@ class _$EndDatePicked with DiagnosticableTreeMixin implements EndDatePicked {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(StartDatePicked value)? startDatePicked,
-    TResult Function(EndDatePicked value)? endDatePicked,
-    TResult Function(ReasonChanged value)? reasonChanged,
-    TResult Function(NoteChanged value)? noteChanged,
-    TResult Function(FormSubmitted value)? formSubmitted,
-    TResult Function(Cancelled value)? cancelled,
+    TResult Function(_GetAbsentFormList value)? getAbsentFormList,
+    TResult Function(_StartDatePicked value)? startDatePicked,
+    TResult Function(_EndDatePicked value)? endDatePicked,
+    TResult Function(_ReasonChanged value)? reasonChanged,
+    TResult Function(_NoteChanged value)? noteChanged,
+    TResult Function(_FormSubmitted value)? formSubmitted,
+    TResult Function(_Cancelled value)? cancelled,
     required TResult orElse(),
   }) {
     if (endDatePicked != null) {
@@ -422,41 +585,41 @@ class _$EndDatePicked with DiagnosticableTreeMixin implements EndDatePicked {
   }
 }
 
-abstract class EndDatePicked implements AbsentFormEvent {
-  const factory EndDatePicked(final DateTime? endDate) = _$EndDatePicked;
+abstract class _EndDatePicked implements AbsentFormEvent {
+  const factory _EndDatePicked(final DateTime? endDate) = _$_EndDatePicked;
 
   DateTime? get endDate => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$$EndDatePickedCopyWith<_$EndDatePicked> get copyWith =>
+  _$$_EndDatePickedCopyWith<_$_EndDatePicked> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$ReasonChangedCopyWith<$Res> {
-  factory _$$ReasonChangedCopyWith(
-          _$ReasonChanged value, $Res Function(_$ReasonChanged) then) =
-      __$$ReasonChangedCopyWithImpl<$Res>;
+abstract class _$$_ReasonChangedCopyWith<$Res> {
+  factory _$$_ReasonChangedCopyWith(
+          _$_ReasonChanged value, $Res Function(_$_ReasonChanged) then) =
+      __$$_ReasonChangedCopyWithImpl<$Res>;
   $Res call({Reason reason});
 
   $ReasonCopyWith<$Res> get reason;
 }
 
 /// @nodoc
-class __$$ReasonChangedCopyWithImpl<$Res>
+class __$$_ReasonChangedCopyWithImpl<$Res>
     extends _$AbsentFormEventCopyWithImpl<$Res>
-    implements _$$ReasonChangedCopyWith<$Res> {
-  __$$ReasonChangedCopyWithImpl(
-      _$ReasonChanged _value, $Res Function(_$ReasonChanged) _then)
-      : super(_value, (v) => _then(v as _$ReasonChanged));
+    implements _$$_ReasonChangedCopyWith<$Res> {
+  __$$_ReasonChangedCopyWithImpl(
+      _$_ReasonChanged _value, $Res Function(_$_ReasonChanged) _then)
+      : super(_value, (v) => _then(v as _$_ReasonChanged));
 
   @override
-  _$ReasonChanged get _value => super._value as _$ReasonChanged;
+  _$_ReasonChanged get _value => super._value as _$_ReasonChanged;
 
   @override
   $Res call({
     Object? reason = freezed,
   }) {
-    return _then(_$ReasonChanged(
+    return _then(_$_ReasonChanged(
       reason == freezed
           ? _value.reason
           : reason // ignore: cast_nullable_to_non_nullable
@@ -474,8 +637,8 @@ class __$$ReasonChangedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ReasonChanged with DiagnosticableTreeMixin implements ReasonChanged {
-  const _$ReasonChanged(this.reason);
+class _$_ReasonChanged with DiagnosticableTreeMixin implements _ReasonChanged {
+  const _$_ReasonChanged(this.reason);
 
   @override
   final Reason reason;
@@ -497,7 +660,7 @@ class _$ReasonChanged with DiagnosticableTreeMixin implements ReasonChanged {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ReasonChanged &&
+            other is _$_ReasonChanged &&
             const DeepCollectionEquality().equals(other.reason, reason));
   }
 
@@ -507,12 +670,13 @@ class _$ReasonChanged with DiagnosticableTreeMixin implements ReasonChanged {
 
   @JsonKey(ignore: true)
   @override
-  _$$ReasonChangedCopyWith<_$ReasonChanged> get copyWith =>
-      __$$ReasonChangedCopyWithImpl<_$ReasonChanged>(this, _$identity);
+  _$$_ReasonChangedCopyWith<_$_ReasonChanged> get copyWith =>
+      __$$_ReasonChangedCopyWithImpl<_$_ReasonChanged>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() getAbsentFormList,
     required TResult Function(DateTime? startDate) startDatePicked,
     required TResult Function(DateTime? endDate) endDatePicked,
     required TResult Function(Reason reason) reasonChanged,
@@ -526,6 +690,7 @@ class _$ReasonChanged with DiagnosticableTreeMixin implements ReasonChanged {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? getAbsentFormList,
     TResult Function(DateTime? startDate)? startDatePicked,
     TResult Function(DateTime? endDate)? endDatePicked,
     TResult Function(Reason reason)? reasonChanged,
@@ -539,6 +704,7 @@ class _$ReasonChanged with DiagnosticableTreeMixin implements ReasonChanged {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getAbsentFormList,
     TResult Function(DateTime? startDate)? startDatePicked,
     TResult Function(DateTime? endDate)? endDatePicked,
     TResult Function(Reason reason)? reasonChanged,
@@ -556,12 +722,13 @@ class _$ReasonChanged with DiagnosticableTreeMixin implements ReasonChanged {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(StartDatePicked value) startDatePicked,
-    required TResult Function(EndDatePicked value) endDatePicked,
-    required TResult Function(ReasonChanged value) reasonChanged,
-    required TResult Function(NoteChanged value) noteChanged,
-    required TResult Function(FormSubmitted value) formSubmitted,
-    required TResult Function(Cancelled value) cancelled,
+    required TResult Function(_GetAbsentFormList value) getAbsentFormList,
+    required TResult Function(_StartDatePicked value) startDatePicked,
+    required TResult Function(_EndDatePicked value) endDatePicked,
+    required TResult Function(_ReasonChanged value) reasonChanged,
+    required TResult Function(_NoteChanged value) noteChanged,
+    required TResult Function(_FormSubmitted value) formSubmitted,
+    required TResult Function(_Cancelled value) cancelled,
   }) {
     return reasonChanged(this);
   }
@@ -569,12 +736,13 @@ class _$ReasonChanged with DiagnosticableTreeMixin implements ReasonChanged {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(StartDatePicked value)? startDatePicked,
-    TResult Function(EndDatePicked value)? endDatePicked,
-    TResult Function(ReasonChanged value)? reasonChanged,
-    TResult Function(NoteChanged value)? noteChanged,
-    TResult Function(FormSubmitted value)? formSubmitted,
-    TResult Function(Cancelled value)? cancelled,
+    TResult Function(_GetAbsentFormList value)? getAbsentFormList,
+    TResult Function(_StartDatePicked value)? startDatePicked,
+    TResult Function(_EndDatePicked value)? endDatePicked,
+    TResult Function(_ReasonChanged value)? reasonChanged,
+    TResult Function(_NoteChanged value)? noteChanged,
+    TResult Function(_FormSubmitted value)? formSubmitted,
+    TResult Function(_Cancelled value)? cancelled,
   }) {
     return reasonChanged?.call(this);
   }
@@ -582,12 +750,13 @@ class _$ReasonChanged with DiagnosticableTreeMixin implements ReasonChanged {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(StartDatePicked value)? startDatePicked,
-    TResult Function(EndDatePicked value)? endDatePicked,
-    TResult Function(ReasonChanged value)? reasonChanged,
-    TResult Function(NoteChanged value)? noteChanged,
-    TResult Function(FormSubmitted value)? formSubmitted,
-    TResult Function(Cancelled value)? cancelled,
+    TResult Function(_GetAbsentFormList value)? getAbsentFormList,
+    TResult Function(_StartDatePicked value)? startDatePicked,
+    TResult Function(_EndDatePicked value)? endDatePicked,
+    TResult Function(_ReasonChanged value)? reasonChanged,
+    TResult Function(_NoteChanged value)? noteChanged,
+    TResult Function(_FormSubmitted value)? formSubmitted,
+    TResult Function(_Cancelled value)? cancelled,
     required TResult orElse(),
   }) {
     if (reasonChanged != null) {
@@ -597,39 +766,39 @@ class _$ReasonChanged with DiagnosticableTreeMixin implements ReasonChanged {
   }
 }
 
-abstract class ReasonChanged implements AbsentFormEvent {
-  const factory ReasonChanged(final Reason reason) = _$ReasonChanged;
+abstract class _ReasonChanged implements AbsentFormEvent {
+  const factory _ReasonChanged(final Reason reason) = _$_ReasonChanged;
 
   Reason get reason => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$$ReasonChangedCopyWith<_$ReasonChanged> get copyWith =>
+  _$$_ReasonChangedCopyWith<_$_ReasonChanged> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$NoteChangedCopyWith<$Res> {
-  factory _$$NoteChangedCopyWith(
-          _$NoteChanged value, $Res Function(_$NoteChanged) then) =
-      __$$NoteChangedCopyWithImpl<$Res>;
+abstract class _$$_NoteChangedCopyWith<$Res> {
+  factory _$$_NoteChangedCopyWith(
+          _$_NoteChanged value, $Res Function(_$_NoteChanged) then) =
+      __$$_NoteChangedCopyWithImpl<$Res>;
   $Res call({String noteChanged});
 }
 
 /// @nodoc
-class __$$NoteChangedCopyWithImpl<$Res>
+class __$$_NoteChangedCopyWithImpl<$Res>
     extends _$AbsentFormEventCopyWithImpl<$Res>
-    implements _$$NoteChangedCopyWith<$Res> {
-  __$$NoteChangedCopyWithImpl(
-      _$NoteChanged _value, $Res Function(_$NoteChanged) _then)
-      : super(_value, (v) => _then(v as _$NoteChanged));
+    implements _$$_NoteChangedCopyWith<$Res> {
+  __$$_NoteChangedCopyWithImpl(
+      _$_NoteChanged _value, $Res Function(_$_NoteChanged) _then)
+      : super(_value, (v) => _then(v as _$_NoteChanged));
 
   @override
-  _$NoteChanged get _value => super._value as _$NoteChanged;
+  _$_NoteChanged get _value => super._value as _$_NoteChanged;
 
   @override
   $Res call({
     Object? noteChanged = freezed,
   }) {
-    return _then(_$NoteChanged(
+    return _then(_$_NoteChanged(
       noteChanged == freezed
           ? _value.noteChanged
           : noteChanged // ignore: cast_nullable_to_non_nullable
@@ -640,8 +809,8 @@ class __$$NoteChangedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$NoteChanged with DiagnosticableTreeMixin implements NoteChanged {
-  const _$NoteChanged(this.noteChanged);
+class _$_NoteChanged with DiagnosticableTreeMixin implements _NoteChanged {
+  const _$_NoteChanged(this.noteChanged);
 
   @override
   final String noteChanged;
@@ -663,7 +832,7 @@ class _$NoteChanged with DiagnosticableTreeMixin implements NoteChanged {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$NoteChanged &&
+            other is _$_NoteChanged &&
             const DeepCollectionEquality()
                 .equals(other.noteChanged, noteChanged));
   }
@@ -674,12 +843,13 @@ class _$NoteChanged with DiagnosticableTreeMixin implements NoteChanged {
 
   @JsonKey(ignore: true)
   @override
-  _$$NoteChangedCopyWith<_$NoteChanged> get copyWith =>
-      __$$NoteChangedCopyWithImpl<_$NoteChanged>(this, _$identity);
+  _$$_NoteChangedCopyWith<_$_NoteChanged> get copyWith =>
+      __$$_NoteChangedCopyWithImpl<_$_NoteChanged>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() getAbsentFormList,
     required TResult Function(DateTime? startDate) startDatePicked,
     required TResult Function(DateTime? endDate) endDatePicked,
     required TResult Function(Reason reason) reasonChanged,
@@ -693,6 +863,7 @@ class _$NoteChanged with DiagnosticableTreeMixin implements NoteChanged {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? getAbsentFormList,
     TResult Function(DateTime? startDate)? startDatePicked,
     TResult Function(DateTime? endDate)? endDatePicked,
     TResult Function(Reason reason)? reasonChanged,
@@ -706,6 +877,7 @@ class _$NoteChanged with DiagnosticableTreeMixin implements NoteChanged {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getAbsentFormList,
     TResult Function(DateTime? startDate)? startDatePicked,
     TResult Function(DateTime? endDate)? endDatePicked,
     TResult Function(Reason reason)? reasonChanged,
@@ -723,12 +895,13 @@ class _$NoteChanged with DiagnosticableTreeMixin implements NoteChanged {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(StartDatePicked value) startDatePicked,
-    required TResult Function(EndDatePicked value) endDatePicked,
-    required TResult Function(ReasonChanged value) reasonChanged,
-    required TResult Function(NoteChanged value) noteChanged,
-    required TResult Function(FormSubmitted value) formSubmitted,
-    required TResult Function(Cancelled value) cancelled,
+    required TResult Function(_GetAbsentFormList value) getAbsentFormList,
+    required TResult Function(_StartDatePicked value) startDatePicked,
+    required TResult Function(_EndDatePicked value) endDatePicked,
+    required TResult Function(_ReasonChanged value) reasonChanged,
+    required TResult Function(_NoteChanged value) noteChanged,
+    required TResult Function(_FormSubmitted value) formSubmitted,
+    required TResult Function(_Cancelled value) cancelled,
   }) {
     return noteChanged(this);
   }
@@ -736,12 +909,13 @@ class _$NoteChanged with DiagnosticableTreeMixin implements NoteChanged {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(StartDatePicked value)? startDatePicked,
-    TResult Function(EndDatePicked value)? endDatePicked,
-    TResult Function(ReasonChanged value)? reasonChanged,
-    TResult Function(NoteChanged value)? noteChanged,
-    TResult Function(FormSubmitted value)? formSubmitted,
-    TResult Function(Cancelled value)? cancelled,
+    TResult Function(_GetAbsentFormList value)? getAbsentFormList,
+    TResult Function(_StartDatePicked value)? startDatePicked,
+    TResult Function(_EndDatePicked value)? endDatePicked,
+    TResult Function(_ReasonChanged value)? reasonChanged,
+    TResult Function(_NoteChanged value)? noteChanged,
+    TResult Function(_FormSubmitted value)? formSubmitted,
+    TResult Function(_Cancelled value)? cancelled,
   }) {
     return noteChanged?.call(this);
   }
@@ -749,12 +923,13 @@ class _$NoteChanged with DiagnosticableTreeMixin implements NoteChanged {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(StartDatePicked value)? startDatePicked,
-    TResult Function(EndDatePicked value)? endDatePicked,
-    TResult Function(ReasonChanged value)? reasonChanged,
-    TResult Function(NoteChanged value)? noteChanged,
-    TResult Function(FormSubmitted value)? formSubmitted,
-    TResult Function(Cancelled value)? cancelled,
+    TResult Function(_GetAbsentFormList value)? getAbsentFormList,
+    TResult Function(_StartDatePicked value)? startDatePicked,
+    TResult Function(_EndDatePicked value)? endDatePicked,
+    TResult Function(_ReasonChanged value)? reasonChanged,
+    TResult Function(_NoteChanged value)? noteChanged,
+    TResult Function(_FormSubmitted value)? formSubmitted,
+    TResult Function(_Cancelled value)? cancelled,
     required TResult orElse(),
   }) {
     if (noteChanged != null) {
@@ -764,38 +939,38 @@ class _$NoteChanged with DiagnosticableTreeMixin implements NoteChanged {
   }
 }
 
-abstract class NoteChanged implements AbsentFormEvent {
-  const factory NoteChanged(final String noteChanged) = _$NoteChanged;
+abstract class _NoteChanged implements AbsentFormEvent {
+  const factory _NoteChanged(final String noteChanged) = _$_NoteChanged;
 
   String get noteChanged => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$$NoteChangedCopyWith<_$NoteChanged> get copyWith =>
+  _$$_NoteChangedCopyWith<_$_NoteChanged> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$FormSubmittedCopyWith<$Res> {
-  factory _$$FormSubmittedCopyWith(
-          _$FormSubmitted value, $Res Function(_$FormSubmitted) then) =
-      __$$FormSubmittedCopyWithImpl<$Res>;
+abstract class _$$_FormSubmittedCopyWith<$Res> {
+  factory _$$_FormSubmittedCopyWith(
+          _$_FormSubmitted value, $Res Function(_$_FormSubmitted) then) =
+      __$$_FormSubmittedCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$FormSubmittedCopyWithImpl<$Res>
+class __$$_FormSubmittedCopyWithImpl<$Res>
     extends _$AbsentFormEventCopyWithImpl<$Res>
-    implements _$$FormSubmittedCopyWith<$Res> {
-  __$$FormSubmittedCopyWithImpl(
-      _$FormSubmitted _value, $Res Function(_$FormSubmitted) _then)
-      : super(_value, (v) => _then(v as _$FormSubmitted));
+    implements _$$_FormSubmittedCopyWith<$Res> {
+  __$$_FormSubmittedCopyWithImpl(
+      _$_FormSubmitted _value, $Res Function(_$_FormSubmitted) _then)
+      : super(_value, (v) => _then(v as _$_FormSubmitted));
 
   @override
-  _$FormSubmitted get _value => super._value as _$FormSubmitted;
+  _$_FormSubmitted get _value => super._value as _$_FormSubmitted;
 }
 
 /// @nodoc
 
-class _$FormSubmitted with DiagnosticableTreeMixin implements FormSubmitted {
-  const _$FormSubmitted();
+class _$_FormSubmitted with DiagnosticableTreeMixin implements _FormSubmitted {
+  const _$_FormSubmitted();
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -812,7 +987,7 @@ class _$FormSubmitted with DiagnosticableTreeMixin implements FormSubmitted {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$FormSubmitted);
+        (other.runtimeType == runtimeType && other is _$_FormSubmitted);
   }
 
   @override
@@ -821,6 +996,7 @@ class _$FormSubmitted with DiagnosticableTreeMixin implements FormSubmitted {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() getAbsentFormList,
     required TResult Function(DateTime? startDate) startDatePicked,
     required TResult Function(DateTime? endDate) endDatePicked,
     required TResult Function(Reason reason) reasonChanged,
@@ -834,6 +1010,7 @@ class _$FormSubmitted with DiagnosticableTreeMixin implements FormSubmitted {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? getAbsentFormList,
     TResult Function(DateTime? startDate)? startDatePicked,
     TResult Function(DateTime? endDate)? endDatePicked,
     TResult Function(Reason reason)? reasonChanged,
@@ -847,6 +1024,7 @@ class _$FormSubmitted with DiagnosticableTreeMixin implements FormSubmitted {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getAbsentFormList,
     TResult Function(DateTime? startDate)? startDatePicked,
     TResult Function(DateTime? endDate)? endDatePicked,
     TResult Function(Reason reason)? reasonChanged,
@@ -864,12 +1042,13 @@ class _$FormSubmitted with DiagnosticableTreeMixin implements FormSubmitted {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(StartDatePicked value) startDatePicked,
-    required TResult Function(EndDatePicked value) endDatePicked,
-    required TResult Function(ReasonChanged value) reasonChanged,
-    required TResult Function(NoteChanged value) noteChanged,
-    required TResult Function(FormSubmitted value) formSubmitted,
-    required TResult Function(Cancelled value) cancelled,
+    required TResult Function(_GetAbsentFormList value) getAbsentFormList,
+    required TResult Function(_StartDatePicked value) startDatePicked,
+    required TResult Function(_EndDatePicked value) endDatePicked,
+    required TResult Function(_ReasonChanged value) reasonChanged,
+    required TResult Function(_NoteChanged value) noteChanged,
+    required TResult Function(_FormSubmitted value) formSubmitted,
+    required TResult Function(_Cancelled value) cancelled,
   }) {
     return formSubmitted(this);
   }
@@ -877,12 +1056,13 @@ class _$FormSubmitted with DiagnosticableTreeMixin implements FormSubmitted {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(StartDatePicked value)? startDatePicked,
-    TResult Function(EndDatePicked value)? endDatePicked,
-    TResult Function(ReasonChanged value)? reasonChanged,
-    TResult Function(NoteChanged value)? noteChanged,
-    TResult Function(FormSubmitted value)? formSubmitted,
-    TResult Function(Cancelled value)? cancelled,
+    TResult Function(_GetAbsentFormList value)? getAbsentFormList,
+    TResult Function(_StartDatePicked value)? startDatePicked,
+    TResult Function(_EndDatePicked value)? endDatePicked,
+    TResult Function(_ReasonChanged value)? reasonChanged,
+    TResult Function(_NoteChanged value)? noteChanged,
+    TResult Function(_FormSubmitted value)? formSubmitted,
+    TResult Function(_Cancelled value)? cancelled,
   }) {
     return formSubmitted?.call(this);
   }
@@ -890,12 +1070,13 @@ class _$FormSubmitted with DiagnosticableTreeMixin implements FormSubmitted {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(StartDatePicked value)? startDatePicked,
-    TResult Function(EndDatePicked value)? endDatePicked,
-    TResult Function(ReasonChanged value)? reasonChanged,
-    TResult Function(NoteChanged value)? noteChanged,
-    TResult Function(FormSubmitted value)? formSubmitted,
-    TResult Function(Cancelled value)? cancelled,
+    TResult Function(_GetAbsentFormList value)? getAbsentFormList,
+    TResult Function(_StartDatePicked value)? startDatePicked,
+    TResult Function(_EndDatePicked value)? endDatePicked,
+    TResult Function(_ReasonChanged value)? reasonChanged,
+    TResult Function(_NoteChanged value)? noteChanged,
+    TResult Function(_FormSubmitted value)? formSubmitted,
+    TResult Function(_Cancelled value)? cancelled,
     required TResult orElse(),
   }) {
     if (formSubmitted != null) {
@@ -905,33 +1086,33 @@ class _$FormSubmitted with DiagnosticableTreeMixin implements FormSubmitted {
   }
 }
 
-abstract class FormSubmitted implements AbsentFormEvent {
-  const factory FormSubmitted() = _$FormSubmitted;
+abstract class _FormSubmitted implements AbsentFormEvent {
+  const factory _FormSubmitted() = _$_FormSubmitted;
 }
 
 /// @nodoc
-abstract class _$$CancelledCopyWith<$Res> {
-  factory _$$CancelledCopyWith(
-          _$Cancelled value, $Res Function(_$Cancelled) then) =
-      __$$CancelledCopyWithImpl<$Res>;
+abstract class _$$_CancelledCopyWith<$Res> {
+  factory _$$_CancelledCopyWith(
+          _$_Cancelled value, $Res Function(_$_Cancelled) then) =
+      __$$_CancelledCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$CancelledCopyWithImpl<$Res>
+class __$$_CancelledCopyWithImpl<$Res>
     extends _$AbsentFormEventCopyWithImpl<$Res>
-    implements _$$CancelledCopyWith<$Res> {
-  __$$CancelledCopyWithImpl(
-      _$Cancelled _value, $Res Function(_$Cancelled) _then)
-      : super(_value, (v) => _then(v as _$Cancelled));
+    implements _$$_CancelledCopyWith<$Res> {
+  __$$_CancelledCopyWithImpl(
+      _$_Cancelled _value, $Res Function(_$_Cancelled) _then)
+      : super(_value, (v) => _then(v as _$_Cancelled));
 
   @override
-  _$Cancelled get _value => super._value as _$Cancelled;
+  _$_Cancelled get _value => super._value as _$_Cancelled;
 }
 
 /// @nodoc
 
-class _$Cancelled with DiagnosticableTreeMixin implements Cancelled {
-  const _$Cancelled();
+class _$_Cancelled with DiagnosticableTreeMixin implements _Cancelled {
+  const _$_Cancelled();
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -947,7 +1128,7 @@ class _$Cancelled with DiagnosticableTreeMixin implements Cancelled {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$Cancelled);
+        (other.runtimeType == runtimeType && other is _$_Cancelled);
   }
 
   @override
@@ -956,6 +1137,7 @@ class _$Cancelled with DiagnosticableTreeMixin implements Cancelled {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() getAbsentFormList,
     required TResult Function(DateTime? startDate) startDatePicked,
     required TResult Function(DateTime? endDate) endDatePicked,
     required TResult Function(Reason reason) reasonChanged,
@@ -969,6 +1151,7 @@ class _$Cancelled with DiagnosticableTreeMixin implements Cancelled {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? getAbsentFormList,
     TResult Function(DateTime? startDate)? startDatePicked,
     TResult Function(DateTime? endDate)? endDatePicked,
     TResult Function(Reason reason)? reasonChanged,
@@ -982,6 +1165,7 @@ class _$Cancelled with DiagnosticableTreeMixin implements Cancelled {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getAbsentFormList,
     TResult Function(DateTime? startDate)? startDatePicked,
     TResult Function(DateTime? endDate)? endDatePicked,
     TResult Function(Reason reason)? reasonChanged,
@@ -999,12 +1183,13 @@ class _$Cancelled with DiagnosticableTreeMixin implements Cancelled {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(StartDatePicked value) startDatePicked,
-    required TResult Function(EndDatePicked value) endDatePicked,
-    required TResult Function(ReasonChanged value) reasonChanged,
-    required TResult Function(NoteChanged value) noteChanged,
-    required TResult Function(FormSubmitted value) formSubmitted,
-    required TResult Function(Cancelled value) cancelled,
+    required TResult Function(_GetAbsentFormList value) getAbsentFormList,
+    required TResult Function(_StartDatePicked value) startDatePicked,
+    required TResult Function(_EndDatePicked value) endDatePicked,
+    required TResult Function(_ReasonChanged value) reasonChanged,
+    required TResult Function(_NoteChanged value) noteChanged,
+    required TResult Function(_FormSubmitted value) formSubmitted,
+    required TResult Function(_Cancelled value) cancelled,
   }) {
     return cancelled(this);
   }
@@ -1012,12 +1197,13 @@ class _$Cancelled with DiagnosticableTreeMixin implements Cancelled {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(StartDatePicked value)? startDatePicked,
-    TResult Function(EndDatePicked value)? endDatePicked,
-    TResult Function(ReasonChanged value)? reasonChanged,
-    TResult Function(NoteChanged value)? noteChanged,
-    TResult Function(FormSubmitted value)? formSubmitted,
-    TResult Function(Cancelled value)? cancelled,
+    TResult Function(_GetAbsentFormList value)? getAbsentFormList,
+    TResult Function(_StartDatePicked value)? startDatePicked,
+    TResult Function(_EndDatePicked value)? endDatePicked,
+    TResult Function(_ReasonChanged value)? reasonChanged,
+    TResult Function(_NoteChanged value)? noteChanged,
+    TResult Function(_FormSubmitted value)? formSubmitted,
+    TResult Function(_Cancelled value)? cancelled,
   }) {
     return cancelled?.call(this);
   }
@@ -1025,12 +1211,13 @@ class _$Cancelled with DiagnosticableTreeMixin implements Cancelled {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(StartDatePicked value)? startDatePicked,
-    TResult Function(EndDatePicked value)? endDatePicked,
-    TResult Function(ReasonChanged value)? reasonChanged,
-    TResult Function(NoteChanged value)? noteChanged,
-    TResult Function(FormSubmitted value)? formSubmitted,
-    TResult Function(Cancelled value)? cancelled,
+    TResult Function(_GetAbsentFormList value)? getAbsentFormList,
+    TResult Function(_StartDatePicked value)? startDatePicked,
+    TResult Function(_EndDatePicked value)? endDatePicked,
+    TResult Function(_ReasonChanged value)? reasonChanged,
+    TResult Function(_NoteChanged value)? noteChanged,
+    TResult Function(_FormSubmitted value)? formSubmitted,
+    TResult Function(_Cancelled value)? cancelled,
     required TResult orElse(),
   }) {
     if (cancelled != null) {
@@ -1040,16 +1227,21 @@ class _$Cancelled with DiagnosticableTreeMixin implements Cancelled {
   }
 }
 
-abstract class Cancelled implements AbsentFormEvent {
-  const factory Cancelled() = _$Cancelled;
+abstract class _Cancelled implements AbsentFormEvent {
+  const factory _Cancelled() = _$_Cancelled;
 }
 
 /// @nodoc
 mixin _$AbsentFormState {
   AbsentForm get absentForm => throw _privateConstructorUsedError;
-  bool get isSubmitting => throw _privateConstructorUsedError;
   Either<AbsentFailure, Unit>? get failureOrUnit =>
       throw _privateConstructorUsedError;
+  Either<AbsentFailure, List<AbsentForm>>? get absentFailureOrAbsentFormList =>
+      throw _privateConstructorUsedError;
+  List<AbsentForm> get absentFormListAfterToday =>
+      throw _privateConstructorUsedError;
+  bool get isLoading => throw _privateConstructorUsedError;
+  bool get isSubmitting => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $AbsentFormStateCopyWith<AbsentFormState> get copyWith =>
@@ -1063,8 +1255,11 @@ abstract class $AbsentFormStateCopyWith<$Res> {
       _$AbsentFormStateCopyWithImpl<$Res>;
   $Res call(
       {AbsentForm absentForm,
-      bool isSubmitting,
-      Either<AbsentFailure, Unit>? failureOrUnit});
+      Either<AbsentFailure, Unit>? failureOrUnit,
+      Either<AbsentFailure, List<AbsentForm>>? absentFailureOrAbsentFormList,
+      List<AbsentForm> absentFormListAfterToday,
+      bool isLoading,
+      bool isSubmitting});
 
   $AbsentFormCopyWith<$Res> get absentForm;
 }
@@ -1081,22 +1276,37 @@ class _$AbsentFormStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? absentForm = freezed,
-    Object? isSubmitting = freezed,
     Object? failureOrUnit = freezed,
+    Object? absentFailureOrAbsentFormList = freezed,
+    Object? absentFormListAfterToday = freezed,
+    Object? isLoading = freezed,
+    Object? isSubmitting = freezed,
   }) {
     return _then(_value.copyWith(
       absentForm: absentForm == freezed
           ? _value.absentForm
           : absentForm // ignore: cast_nullable_to_non_nullable
               as AbsentForm,
-      isSubmitting: isSubmitting == freezed
-          ? _value.isSubmitting
-          : isSubmitting // ignore: cast_nullable_to_non_nullable
-              as bool,
       failureOrUnit: failureOrUnit == freezed
           ? _value.failureOrUnit
           : failureOrUnit // ignore: cast_nullable_to_non_nullable
               as Either<AbsentFailure, Unit>?,
+      absentFailureOrAbsentFormList: absentFailureOrAbsentFormList == freezed
+          ? _value.absentFailureOrAbsentFormList
+          : absentFailureOrAbsentFormList // ignore: cast_nullable_to_non_nullable
+              as Either<AbsentFailure, List<AbsentForm>>?,
+      absentFormListAfterToday: absentFormListAfterToday == freezed
+          ? _value.absentFormListAfterToday
+          : absentFormListAfterToday // ignore: cast_nullable_to_non_nullable
+              as List<AbsentForm>,
+      isLoading: isLoading == freezed
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isSubmitting: isSubmitting == freezed
+          ? _value.isSubmitting
+          : isSubmitting // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 
@@ -1117,8 +1327,11 @@ abstract class _$$_AbsentFormStateCopyWith<$Res>
   @override
   $Res call(
       {AbsentForm absentForm,
-      bool isSubmitting,
-      Either<AbsentFailure, Unit>? failureOrUnit});
+      Either<AbsentFailure, Unit>? failureOrUnit,
+      Either<AbsentFailure, List<AbsentForm>>? absentFailureOrAbsentFormList,
+      List<AbsentForm> absentFormListAfterToday,
+      bool isLoading,
+      bool isSubmitting});
 
   @override
   $AbsentFormCopyWith<$Res> get absentForm;
@@ -1138,22 +1351,37 @@ class __$$_AbsentFormStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? absentForm = freezed,
-    Object? isSubmitting = freezed,
     Object? failureOrUnit = freezed,
+    Object? absentFailureOrAbsentFormList = freezed,
+    Object? absentFormListAfterToday = freezed,
+    Object? isLoading = freezed,
+    Object? isSubmitting = freezed,
   }) {
     return _then(_$_AbsentFormState(
       absentForm: absentForm == freezed
           ? _value.absentForm
           : absentForm // ignore: cast_nullable_to_non_nullable
               as AbsentForm,
-      isSubmitting: isSubmitting == freezed
-          ? _value.isSubmitting
-          : isSubmitting // ignore: cast_nullable_to_non_nullable
-              as bool,
       failureOrUnit: failureOrUnit == freezed
           ? _value.failureOrUnit
           : failureOrUnit // ignore: cast_nullable_to_non_nullable
               as Either<AbsentFailure, Unit>?,
+      absentFailureOrAbsentFormList: absentFailureOrAbsentFormList == freezed
+          ? _value.absentFailureOrAbsentFormList
+          : absentFailureOrAbsentFormList // ignore: cast_nullable_to_non_nullable
+              as Either<AbsentFailure, List<AbsentForm>>?,
+      absentFormListAfterToday: absentFormListAfterToday == freezed
+          ? _value._absentFormListAfterToday
+          : absentFormListAfterToday // ignore: cast_nullable_to_non_nullable
+              as List<AbsentForm>,
+      isLoading: isLoading == freezed
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isSubmitting: isSubmitting == freezed
+          ? _value.isSubmitting
+          : isSubmitting // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -1165,19 +1393,34 @@ class _$_AbsentFormState
     implements _AbsentFormState {
   const _$_AbsentFormState(
       {required this.absentForm,
-      required this.isSubmitting,
-      required this.failureOrUnit});
+      required this.failureOrUnit,
+      required this.absentFailureOrAbsentFormList,
+      required final List<AbsentForm> absentFormListAfterToday,
+      required this.isLoading,
+      required this.isSubmitting})
+      : _absentFormListAfterToday = absentFormListAfterToday;
 
   @override
   final AbsentForm absentForm;
   @override
-  final bool isSubmitting;
-  @override
   final Either<AbsentFailure, Unit>? failureOrUnit;
+  @override
+  final Either<AbsentFailure, List<AbsentForm>>? absentFailureOrAbsentFormList;
+  final List<AbsentForm> _absentFormListAfterToday;
+  @override
+  List<AbsentForm> get absentFormListAfterToday {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_absentFormListAfterToday);
+  }
+
+  @override
+  final bool isLoading;
+  @override
+  final bool isSubmitting;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'AbsentFormState(absentForm: $absentForm, isSubmitting: $isSubmitting, failureOrUnit: $failureOrUnit)';
+    return 'AbsentFormState(absentForm: $absentForm, failureOrUnit: $failureOrUnit, absentFailureOrAbsentFormList: $absentFailureOrAbsentFormList, absentFormListAfterToday: $absentFormListAfterToday, isLoading: $isLoading, isSubmitting: $isSubmitting)';
   }
 
   @override
@@ -1186,8 +1429,13 @@ class _$_AbsentFormState
     properties
       ..add(DiagnosticsProperty('type', 'AbsentFormState'))
       ..add(DiagnosticsProperty('absentForm', absentForm))
-      ..add(DiagnosticsProperty('isSubmitting', isSubmitting))
-      ..add(DiagnosticsProperty('failureOrUnit', failureOrUnit));
+      ..add(DiagnosticsProperty('failureOrUnit', failureOrUnit))
+      ..add(DiagnosticsProperty(
+          'absentFailureOrAbsentFormList', absentFailureOrAbsentFormList))
+      ..add(DiagnosticsProperty(
+          'absentFormListAfterToday', absentFormListAfterToday))
+      ..add(DiagnosticsProperty('isLoading', isLoading))
+      ..add(DiagnosticsProperty('isSubmitting', isSubmitting));
   }
 
   @override
@@ -1198,17 +1446,26 @@ class _$_AbsentFormState
             const DeepCollectionEquality()
                 .equals(other.absentForm, absentForm) &&
             const DeepCollectionEquality()
-                .equals(other.isSubmitting, isSubmitting) &&
+                .equals(other.failureOrUnit, failureOrUnit) &&
+            const DeepCollectionEquality().equals(
+                other.absentFailureOrAbsentFormList,
+                absentFailureOrAbsentFormList) &&
+            const DeepCollectionEquality().equals(
+                other._absentFormListAfterToday, _absentFormListAfterToday) &&
+            const DeepCollectionEquality().equals(other.isLoading, isLoading) &&
             const DeepCollectionEquality()
-                .equals(other.failureOrUnit, failureOrUnit));
+                .equals(other.isSubmitting, isSubmitting));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(absentForm),
-      const DeepCollectionEquality().hash(isSubmitting),
-      const DeepCollectionEquality().hash(failureOrUnit));
+      const DeepCollectionEquality().hash(failureOrUnit),
+      const DeepCollectionEquality().hash(absentFailureOrAbsentFormList),
+      const DeepCollectionEquality().hash(_absentFormListAfterToday),
+      const DeepCollectionEquality().hash(isLoading),
+      const DeepCollectionEquality().hash(isSubmitting));
 
   @JsonKey(ignore: true)
   @override
@@ -1218,18 +1475,29 @@ class _$_AbsentFormState
 
 abstract class _AbsentFormState implements AbsentFormState {
   const factory _AbsentFormState(
-          {required final AbsentForm absentForm,
-          required final bool isSubmitting,
-          required final Either<AbsentFailure, Unit>? failureOrUnit}) =
-      _$_AbsentFormState;
+      {required final AbsentForm absentForm,
+      required final Either<AbsentFailure, Unit>? failureOrUnit,
+      required final Either<AbsentFailure, List<AbsentForm>>?
+          absentFailureOrAbsentFormList,
+      required final List<AbsentForm> absentFormListAfterToday,
+      required final bool isLoading,
+      required final bool isSubmitting}) = _$_AbsentFormState;
 
   @override
   AbsentForm get absentForm => throw _privateConstructorUsedError;
   @override
-  bool get isSubmitting => throw _privateConstructorUsedError;
-  @override
   Either<AbsentFailure, Unit>? get failureOrUnit =>
       throw _privateConstructorUsedError;
+  @override
+  Either<AbsentFailure, List<AbsentForm>>? get absentFailureOrAbsentFormList =>
+      throw _privateConstructorUsedError;
+  @override
+  List<AbsentForm> get absentFormListAfterToday =>
+      throw _privateConstructorUsedError;
+  @override
+  bool get isLoading => throw _privateConstructorUsedError;
+  @override
+  bool get isSubmitting => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$$_AbsentFormStateCopyWith<_$_AbsentFormState> get copyWith =>

@@ -1,16 +1,44 @@
+import 'dart:convert';
 import 'dart:io';
 
-import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:timekeeping/constants.dart';
-import 'package:timekeeping/infrastructure/absent/api/i_absent_api_client.dart';
-import 'package:timekeeping/infrastructure/absent/dto/absent_form_dto.dart';
+
+import '../../../constants.dart';
+import '../../../domain/absent/absent_failure.dart';
+import '../dto/absent_form_dto.dart';
+import 'i_absent_api_client.dart';
 
 class AbsentApiClient extends IAbsentApiClient {
-  // static const _uri = 'https://curvy-guests-sit-115-75-181-199.loca.lt/absents';
   static const _uri = '$apiEndPoint/absents';
-
   final httpClient = http.Client();
+
+  @override
+  Future<List<AbsentFormDto>> fetchAllAbsentForm({
+    required String accessToken,
+    required String employeeId,
+  }) async {
+    final url = Uri.parse('$_uri/$employeeId');
+    try {
+      final response = await httpClient.get(
+        url,
+        headers: {
+          'Authorization': 'Bearer $accessToken',
+        },
+      ).timeout(timeOutDuration, onTimeout: () {
+        throw const AbsentFailure.serverError();
+      });
+      if (response.statusCode == HttpStatus.internalServerError || response.statusCode == HttpStatus.notFound) {
+        throw const AbsentFailure.serverError();
+      } else if (response.statusCode == HttpStatus.unauthorized) {
+        throw const AbsentFailure.unAuthenticated();
+      }
+      final absentFormDtoList =
+          (jsonDecode(response.body) as List<dynamic>).map((json) => AbsentFormDto.fromJson(json)).toList();
+      return absentFormDtoList;
+    } on SocketException catch (e) {
+      throw const AbsentFailure.noInternetAccess();
+    }
+  }
 
   @override
   Future<void> createAbsentForm({
@@ -19,22 +47,25 @@ class AbsentApiClient extends IAbsentApiClient {
     required AbsentFormDto dto,
   }) async {
     final url = Uri.parse('$_uri/$employeeId/create');
-    debugPrint('${dto.startDate.toIso8601String()} ${dto.endDate.toIso8601String()}');
-    final response = await httpClient
-        .post(
-      url,
-      headers: {
-        'Authorization': 'Bearer $accessToken',
-      },
-      body: dto.toJson(),
-    )
-        .timeout(timeOutDuration, onTimeout: () {
-      throw AbsentFormException.serverError();
-    });
-    if (response.statusCode == HttpStatus.internalServerError || response.statusCode == HttpStatus.notFound) {
-      throw AbsentFormException.serverError();
-    } else if (response.statusCode == HttpStatus.unauthorized) {
-      throw AbsentFormException.unAuthenticated();
+    try {
+      final response = await httpClient
+          .post(
+        url,
+        headers: {
+          'Authorization': 'Bearer $accessToken',
+        },
+        body: dto.toJson(),
+      )
+          .timeout(timeOutDuration, onTimeout: () {
+        throw const AbsentFailure.serverError();
+      });
+      if (response.statusCode == HttpStatus.internalServerError || response.statusCode == HttpStatus.notFound) {
+        throw const AbsentFailure.serverError();
+      } else if (response.statusCode == HttpStatus.unauthorized) {
+        throw const AbsentFailure.unAuthenticated();
+      }
+    } on SocketException catch (e) {
+      throw const AbsentFailure.noInternetAccess();
     }
   }
 }

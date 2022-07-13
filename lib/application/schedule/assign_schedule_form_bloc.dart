@@ -4,11 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:meta/meta.dart';
 
-import '../../../domain/schedule/schedule.dart';
-import '../../../domain/schedule/schedule_failure.dart';
-import '../../../infrastructure/schedule/schedule_repository.dart';
-import '../../../infrastructure/secure_storage/secure_storage_repository.dart';
-import '../../../utils/extensions.dart';
+import '../../domain/schedule/schedule.dart';
+import '../../domain/schedule/schedule_failure.dart';
+import '../../infrastructure/schedule/schedule_repository.dart';
+import '../../infrastructure/secure_storage/secure_storage_repository.dart';
+import '../../utils/extensions.dart';
 
 part 'assign_schedule_form_event.dart';
 
@@ -24,15 +24,9 @@ class AssignScheduleFormBloc extends Bloc<AssignScheduleFormEvent, AssignSchedul
         super(AssignScheduleFormState.initial()) {
     on<AssignScheduleFormEvent>((event, emit) async {
       await event.when(
-        getSchedule: () async {
-          emit(state.copyWith(isLoading: true));
-          final scheduleFailureOrSchedule = await _repository.scheduleRequest();
-          emit(state.copyWith(scheduleFailureOrSchedule: scheduleFailureOrSchedule));
-          emit(state.copyWith(isLoading: false));
-        },
         morningShiftStartTimeChanged: (time) {
           emit(state.copyWith(
-              scheduleFailureOrSchedule: null,
+              scheduleFailureOrUnit: null,
               morningShiftStart: time,
               afternoonShiftEnd: TimeOfDayX.getWorkEndTime(
                 time,
@@ -42,7 +36,7 @@ class AssignScheduleFormBloc extends Bloc<AssignScheduleFormEvent, AssignSchedul
         },
         morningShiftEndTimeChanged: (time) {
           emit(state.copyWith(
-              scheduleFailureOrSchedule: null,
+              scheduleFailureOrUnit: null,
               morningShiftEnd: time,
               afternoonShiftEnd: TimeOfDayX.getWorkEndTime(
                 state.morningShiftStart,
@@ -52,7 +46,7 @@ class AssignScheduleFormBloc extends Bloc<AssignScheduleFormEvent, AssignSchedul
         },
         afternoonShiftStartTimeChanged: (time) {
           emit(state.copyWith(
-              scheduleFailureOrSchedule: null,
+              scheduleFailureOrUnit: null,
               afternoonShiftStart: time,
               afternoonShiftEnd: TimeOfDayX.getWorkEndTime(
                 state.morningShiftStart,
@@ -62,13 +56,13 @@ class AssignScheduleFormBloc extends Bloc<AssignScheduleFormEvent, AssignSchedul
         },
         formSubmitted: () async {
           emit(state.copyWith(isSubmitting: true));
-          final scheduleFailureOrSchedule = await _repository.assignSchedule(
+          final scheduleFailureOrUnit = await _repository.assignSchedule(
               schedule: Schedule(
                   morningShiftStart: state.morningShiftStart,
                   morningShiftEnd: state.morningShiftEnd,
                   afternoonShiftStart: state.afternoonShiftStart,
                   afternoonShiftEnd: state.afternoonShiftEnd));
-          emit(state.copyWith(scheduleFailureOrSchedule: scheduleFailureOrSchedule));
+          emit(state.copyWith(scheduleFailureOrUnit: scheduleFailureOrUnit));
           emit(state.copyWith(isSubmitting: false));
         },
       );

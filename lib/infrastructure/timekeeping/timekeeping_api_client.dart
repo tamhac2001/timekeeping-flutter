@@ -3,58 +3,66 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:timekeeping/infrastructure/timekeeping/i_timekeeping_api_client.dart';
 
 import '../../constants.dart';
+import '../../domain/timekeeping/timekeeping_failure.dart';
 import 'dto/qr_code_dto.dart';
 import 'dto/timekeeping_dto.dart';
+import 'i_timekeeping_api_client.dart';
 
 class TimekeepingApiClient implements ITimekeepingApiClient {
-  // static const _uri = 'https://lazy-taxis-rhyme-115-75-181-199.loca.lt/timekeepings';
   static const _uri = '$apiEndPoint/timekeepings';
 
   final httpClient = http.Client();
 
   @override
-  Future<TimekeepingDto> fetchDataToday({required String accessToken, required String employeeId}) async {
+  Future<TimekeepingDto> fetchTimekeepingToday({required String accessToken, required String employeeId}) async {
     final today = DateTime.now();
     final url = Uri.parse('$_uri/$employeeId?y=${today.year}&m=${today.month}&d=${today.day}');
-    final response = await httpClient.get(
-      url,
-      headers: {
-        'Authorization': 'Bearer $accessToken',
-      },
-    ).timeout(const Duration(seconds: 3), onTimeout: () => throw TimekeepingException.serverError());
-    if (response.statusCode == HttpStatus.internalServerError || response.statusCode == HttpStatus.notFound) {
-      throw TimekeepingException.serverError();
-    } else if (response.statusCode == HttpStatus.unauthorized) {
-      throw TimekeepingException.unauthenticated();
-    } else if (response.statusCode == HttpStatus.forbidden && response.reasonPhrase == 'no-timekeeping-found') {
-      throw TimekeepingException.timekeepingNotFound();
+    try {
+      final response = await httpClient.get(
+        url,
+        headers: {
+          'Authorization': 'Bearer $accessToken',
+        },
+      ).timeout(const Duration(seconds: 3), onTimeout: () => throw const TimekeepingFailure.serverError());
+      if (response.statusCode == HttpStatus.internalServerError || response.statusCode == HttpStatus.notFound) {
+        throw const TimekeepingFailure.serverError();
+      } else if (response.statusCode == HttpStatus.unauthorized) {
+        throw const TimekeepingFailure.unAuthenticated();
+      } else if (response.statusCode == HttpStatus.forbidden) {
+        throw const TimekeepingFailure.timekeepingNotFound();
+      }
+      return TimekeepingDto.fromJson(jsonDecode(response.body));
+    } on SocketException catch (e) {
+      throw const TimekeepingFailure.noInternetAccess();
     }
-    return TimekeepingDto.fromJson(jsonDecode(response.body));
   }
 
   @override
-  Future<List<TimekeepingDto>> fetchDataByMonth(
+  Future<List<TimekeepingDto>> fetchTimekeepingByMonth(
       {required String accessToken, required String employeeId, required int year, required int month}) async {
     final url = Uri.parse('$_uri/$employeeId?y=$year&m=$month');
-    final response = await httpClient.get(
-      url,
-      headers: {
-        'Authorization': 'Bearer $accessToken',
-      },
-    ).timeout(const Duration(seconds: 3), onTimeout: () => throw TimekeepingException.serverError());
-    if (response.statusCode == HttpStatus.internalServerError || response.statusCode == HttpStatus.notFound) {
-      throw TimekeepingException.serverError();
-    } else if (response.statusCode == HttpStatus.unauthorized) {
-      throw TimekeepingException.unauthenticated();
-    } else if (response.statusCode == HttpStatus.forbidden && response.reasonPhrase == 'no-timekeeping-found') {
-      throw TimekeepingException.timekeepingNotFound();
+    try {
+      final response = await httpClient.get(
+        url,
+        headers: {
+          'Authorization': 'Bearer $accessToken',
+        },
+      ).timeout(const Duration(seconds: 3), onTimeout: () => throw const TimekeepingFailure.serverError());
+      if (response.statusCode == HttpStatus.internalServerError || response.statusCode == HttpStatus.notFound) {
+        throw const TimekeepingFailure.serverError();
+      } else if (response.statusCode == HttpStatus.unauthorized) {
+        throw const TimekeepingFailure.unAuthenticated();
+      } else if (response.statusCode == HttpStatus.forbidden && response.reasonPhrase == 'no-timekeeping-found') {
+        throw const TimekeepingFailure.timekeepingNotFound();
+      }
+      List<TimekeepingDto> timekeepingByMonth =
+          (jsonDecode(response.body) as List<dynamic>).map((json) => TimekeepingDto.fromJson(json)).toList();
+      return timekeepingByMonth;
+    } on SocketException catch (e) {
+      throw const TimekeepingFailure.noInternetAccess();
     }
-    List<TimekeepingDto> timekeepingByMonth =
-        (jsonDecode(response.body) as List<dynamic>).map((json) => TimekeepingDto.fromJson(json)).toList();
-    return timekeepingByMonth;
   }
 
   @override
@@ -63,9 +71,9 @@ class TimekeepingApiClient implements ITimekeepingApiClient {
     required String employeeId,
     required QrCodeDto qrCodeDto,
   }) async {
-    final url = Uri.parse('$_uri/$employeeId');
+    final url = Uri.parse('$_uri/$employeeId/check');
     debugPrint(qrCodeDto.toString());
-    final response = await httpClient
+    httpClient
         .post(
           url,
           headers: {
@@ -73,15 +81,19 @@ class TimekeepingApiClient implements ITimekeepingApiClient {
           },
           body: qrCodeDto.toJson(),
         )
-        .timeout(const Duration(seconds: 3), onTimeout: () => throw TimekeepingException.serverError());
-    if (response.statusCode == HttpStatus.internalServerError || response.statusCode == HttpStatus.notFound) {
-      throw TimekeepingException.serverError();
-    }
-    if (response.statusCode == HttpStatus.unauthorized) {
-      throw TimekeepingException.unauthenticated();
-    }
-    if (response.statusCode == HttpStatus.forbidden || response.reasonPhrase == 'qrcode-not-matched') {
-      throw TimekeepingException.qrCodeNotMatched();
-    }
+        .timeout(const Duration(seconds: 3), onTimeout: () => throw const TimekeepingFailure.serverError())
+        .then((response) {
+      if (response.statusCode == HttpStatus.internalServerError || response.statusCode == HttpStatus.notFound) {
+        throw const TimekeepingFailure.serverError();
+      }
+      if (response.statusCode == HttpStatus.unauthorized) {
+        throw const TimekeepingFailure.unAuthenticated();
+      }
+      if (response.statusCode == HttpStatus.forbidden || response.reasonPhrase == 'qrcode-not-matched') {
+        throw const TimekeepingFailure.qrCodeNotMatch();
+      }
+    }).catchError((e) {
+      throw const TimekeepingFailure.noInternetAccess();
+    }, test: (e) => e is SocketException);
   }
 }

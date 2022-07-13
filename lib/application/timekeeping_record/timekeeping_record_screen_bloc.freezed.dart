@@ -20,8 +20,6 @@ mixin _$TimekeepingRecordScreenEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() toPreviousMonth,
     required TResult Function() toNextMonth,
-    required TResult Function() getEmployeeStartDate,
-    required TResult Function() getSchedule,
     required TResult Function() getTimekeepingRecords,
   }) =>
       throw _privateConstructorUsedError;
@@ -29,8 +27,6 @@ mixin _$TimekeepingRecordScreenEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? toPreviousMonth,
     TResult Function()? toNextMonth,
-    TResult Function()? getEmployeeStartDate,
-    TResult Function()? getSchedule,
     TResult Function()? getTimekeepingRecords,
   }) =>
       throw _privateConstructorUsedError;
@@ -38,8 +34,6 @@ mixin _$TimekeepingRecordScreenEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? toPreviousMonth,
     TResult Function()? toNextMonth,
-    TResult Function()? getEmployeeStartDate,
-    TResult Function()? getSchedule,
     TResult Function()? getTimekeepingRecords,
     required TResult orElse(),
   }) =>
@@ -48,8 +42,6 @@ mixin _$TimekeepingRecordScreenEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_ToPreviousMonth value) toPreviousMonth,
     required TResult Function(_ToNextMonth value) toNextMonth,
-    required TResult Function(_GetEmployeeStartDate value) getEmployeeStartDate,
-    required TResult Function(_GetSchedule value) getSchedule,
     required TResult Function(_GetTimekeepingRecords value)
         getTimekeepingRecords,
   }) =>
@@ -58,8 +50,6 @@ mixin _$TimekeepingRecordScreenEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_ToPreviousMonth value)? toPreviousMonth,
     TResult Function(_ToNextMonth value)? toNextMonth,
-    TResult Function(_GetEmployeeStartDate value)? getEmployeeStartDate,
-    TResult Function(_GetSchedule value)? getSchedule,
     TResult Function(_GetTimekeepingRecords value)? getTimekeepingRecords,
   }) =>
       throw _privateConstructorUsedError;
@@ -67,8 +57,6 @@ mixin _$TimekeepingRecordScreenEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ToPreviousMonth value)? toPreviousMonth,
     TResult Function(_ToNextMonth value)? toNextMonth,
-    TResult Function(_GetEmployeeStartDate value)? getEmployeeStartDate,
-    TResult Function(_GetSchedule value)? getSchedule,
     TResult Function(_GetTimekeepingRecords value)? getTimekeepingRecords,
     required TResult orElse(),
   }) =>
@@ -145,8 +133,6 @@ class _$_ToPreviousMonth
   TResult when<TResult extends Object?>({
     required TResult Function() toPreviousMonth,
     required TResult Function() toNextMonth,
-    required TResult Function() getEmployeeStartDate,
-    required TResult Function() getSchedule,
     required TResult Function() getTimekeepingRecords,
   }) {
     return toPreviousMonth();
@@ -157,8 +143,6 @@ class _$_ToPreviousMonth
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? toPreviousMonth,
     TResult Function()? toNextMonth,
-    TResult Function()? getEmployeeStartDate,
-    TResult Function()? getSchedule,
     TResult Function()? getTimekeepingRecords,
   }) {
     return toPreviousMonth?.call();
@@ -169,8 +153,6 @@ class _$_ToPreviousMonth
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? toPreviousMonth,
     TResult Function()? toNextMonth,
-    TResult Function()? getEmployeeStartDate,
-    TResult Function()? getSchedule,
     TResult Function()? getTimekeepingRecords,
     required TResult orElse(),
   }) {
@@ -185,8 +167,6 @@ class _$_ToPreviousMonth
   TResult map<TResult extends Object?>({
     required TResult Function(_ToPreviousMonth value) toPreviousMonth,
     required TResult Function(_ToNextMonth value) toNextMonth,
-    required TResult Function(_GetEmployeeStartDate value) getEmployeeStartDate,
-    required TResult Function(_GetSchedule value) getSchedule,
     required TResult Function(_GetTimekeepingRecords value)
         getTimekeepingRecords,
   }) {
@@ -198,8 +178,6 @@ class _$_ToPreviousMonth
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_ToPreviousMonth value)? toPreviousMonth,
     TResult Function(_ToNextMonth value)? toNextMonth,
-    TResult Function(_GetEmployeeStartDate value)? getEmployeeStartDate,
-    TResult Function(_GetSchedule value)? getSchedule,
     TResult Function(_GetTimekeepingRecords value)? getTimekeepingRecords,
   }) {
     return toPreviousMonth?.call(this);
@@ -210,8 +188,6 @@ class _$_ToPreviousMonth
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ToPreviousMonth value)? toPreviousMonth,
     TResult Function(_ToNextMonth value)? toNextMonth,
-    TResult Function(_GetEmployeeStartDate value)? getEmployeeStartDate,
-    TResult Function(_GetSchedule value)? getSchedule,
     TResult Function(_GetTimekeepingRecords value)? getTimekeepingRecords,
     required TResult orElse(),
   }) {
@@ -276,8 +252,6 @@ class _$_ToNextMonth with DiagnosticableTreeMixin implements _ToNextMonth {
   TResult when<TResult extends Object?>({
     required TResult Function() toPreviousMonth,
     required TResult Function() toNextMonth,
-    required TResult Function() getEmployeeStartDate,
-    required TResult Function() getSchedule,
     required TResult Function() getTimekeepingRecords,
   }) {
     return toNextMonth();
@@ -288,8 +262,6 @@ class _$_ToNextMonth with DiagnosticableTreeMixin implements _ToNextMonth {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? toPreviousMonth,
     TResult Function()? toNextMonth,
-    TResult Function()? getEmployeeStartDate,
-    TResult Function()? getSchedule,
     TResult Function()? getTimekeepingRecords,
   }) {
     return toNextMonth?.call();
@@ -300,8 +272,6 @@ class _$_ToNextMonth with DiagnosticableTreeMixin implements _ToNextMonth {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? toPreviousMonth,
     TResult Function()? toNextMonth,
-    TResult Function()? getEmployeeStartDate,
-    TResult Function()? getSchedule,
     TResult Function()? getTimekeepingRecords,
     required TResult orElse(),
   }) {
@@ -316,8 +286,6 @@ class _$_ToNextMonth with DiagnosticableTreeMixin implements _ToNextMonth {
   TResult map<TResult extends Object?>({
     required TResult Function(_ToPreviousMonth value) toPreviousMonth,
     required TResult Function(_ToNextMonth value) toNextMonth,
-    required TResult Function(_GetEmployeeStartDate value) getEmployeeStartDate,
-    required TResult Function(_GetSchedule value) getSchedule,
     required TResult Function(_GetTimekeepingRecords value)
         getTimekeepingRecords,
   }) {
@@ -329,8 +297,6 @@ class _$_ToNextMonth with DiagnosticableTreeMixin implements _ToNextMonth {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_ToPreviousMonth value)? toPreviousMonth,
     TResult Function(_ToNextMonth value)? toNextMonth,
-    TResult Function(_GetEmployeeStartDate value)? getEmployeeStartDate,
-    TResult Function(_GetSchedule value)? getSchedule,
     TResult Function(_GetTimekeepingRecords value)? getTimekeepingRecords,
   }) {
     return toNextMonth?.call(this);
@@ -341,8 +307,6 @@ class _$_ToNextMonth with DiagnosticableTreeMixin implements _ToNextMonth {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ToPreviousMonth value)? toPreviousMonth,
     TResult Function(_ToNextMonth value)? toNextMonth,
-    TResult Function(_GetEmployeeStartDate value)? getEmployeeStartDate,
-    TResult Function(_GetSchedule value)? getSchedule,
     TResult Function(_GetTimekeepingRecords value)? getTimekeepingRecords,
     required TResult orElse(),
   }) {
@@ -355,270 +319,6 @@ class _$_ToNextMonth with DiagnosticableTreeMixin implements _ToNextMonth {
 
 abstract class _ToNextMonth implements TimekeepingRecordScreenEvent {
   const factory _ToNextMonth() = _$_ToNextMonth;
-}
-
-/// @nodoc
-abstract class _$$_GetEmployeeStartDateCopyWith<$Res> {
-  factory _$$_GetEmployeeStartDateCopyWith(_$_GetEmployeeStartDate value,
-          $Res Function(_$_GetEmployeeStartDate) then) =
-      __$$_GetEmployeeStartDateCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$_GetEmployeeStartDateCopyWithImpl<$Res>
-    extends _$TimekeepingRecordScreenEventCopyWithImpl<$Res>
-    implements _$$_GetEmployeeStartDateCopyWith<$Res> {
-  __$$_GetEmployeeStartDateCopyWithImpl(_$_GetEmployeeStartDate _value,
-      $Res Function(_$_GetEmployeeStartDate) _then)
-      : super(_value, (v) => _then(v as _$_GetEmployeeStartDate));
-
-  @override
-  _$_GetEmployeeStartDate get _value => super._value as _$_GetEmployeeStartDate;
-}
-
-/// @nodoc
-
-class _$_GetEmployeeStartDate
-    with DiagnosticableTreeMixin
-    implements _GetEmployeeStartDate {
-  const _$_GetEmployeeStartDate();
-
-  @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'TimekeepingRecordScreenEvent.getEmployeeStartDate()';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty(
-        'type', 'TimekeepingRecordScreenEvent.getEmployeeStartDate'));
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_GetEmployeeStartDate);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() toPreviousMonth,
-    required TResult Function() toNextMonth,
-    required TResult Function() getEmployeeStartDate,
-    required TResult Function() getSchedule,
-    required TResult Function() getTimekeepingRecords,
-  }) {
-    return getEmployeeStartDate();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? toPreviousMonth,
-    TResult Function()? toNextMonth,
-    TResult Function()? getEmployeeStartDate,
-    TResult Function()? getSchedule,
-    TResult Function()? getTimekeepingRecords,
-  }) {
-    return getEmployeeStartDate?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? toPreviousMonth,
-    TResult Function()? toNextMonth,
-    TResult Function()? getEmployeeStartDate,
-    TResult Function()? getSchedule,
-    TResult Function()? getTimekeepingRecords,
-    required TResult orElse(),
-  }) {
-    if (getEmployeeStartDate != null) {
-      return getEmployeeStartDate();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_ToPreviousMonth value) toPreviousMonth,
-    required TResult Function(_ToNextMonth value) toNextMonth,
-    required TResult Function(_GetEmployeeStartDate value) getEmployeeStartDate,
-    required TResult Function(_GetSchedule value) getSchedule,
-    required TResult Function(_GetTimekeepingRecords value)
-        getTimekeepingRecords,
-  }) {
-    return getEmployeeStartDate(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_ToPreviousMonth value)? toPreviousMonth,
-    TResult Function(_ToNextMonth value)? toNextMonth,
-    TResult Function(_GetEmployeeStartDate value)? getEmployeeStartDate,
-    TResult Function(_GetSchedule value)? getSchedule,
-    TResult Function(_GetTimekeepingRecords value)? getTimekeepingRecords,
-  }) {
-    return getEmployeeStartDate?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_ToPreviousMonth value)? toPreviousMonth,
-    TResult Function(_ToNextMonth value)? toNextMonth,
-    TResult Function(_GetEmployeeStartDate value)? getEmployeeStartDate,
-    TResult Function(_GetSchedule value)? getSchedule,
-    TResult Function(_GetTimekeepingRecords value)? getTimekeepingRecords,
-    required TResult orElse(),
-  }) {
-    if (getEmployeeStartDate != null) {
-      return getEmployeeStartDate(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _GetEmployeeStartDate implements TimekeepingRecordScreenEvent {
-  const factory _GetEmployeeStartDate() = _$_GetEmployeeStartDate;
-}
-
-/// @nodoc
-abstract class _$$_GetScheduleCopyWith<$Res> {
-  factory _$$_GetScheduleCopyWith(
-          _$_GetSchedule value, $Res Function(_$_GetSchedule) then) =
-      __$$_GetScheduleCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$_GetScheduleCopyWithImpl<$Res>
-    extends _$TimekeepingRecordScreenEventCopyWithImpl<$Res>
-    implements _$$_GetScheduleCopyWith<$Res> {
-  __$$_GetScheduleCopyWithImpl(
-      _$_GetSchedule _value, $Res Function(_$_GetSchedule) _then)
-      : super(_value, (v) => _then(v as _$_GetSchedule));
-
-  @override
-  _$_GetSchedule get _value => super._value as _$_GetSchedule;
-}
-
-/// @nodoc
-
-class _$_GetSchedule with DiagnosticableTreeMixin implements _GetSchedule {
-  const _$_GetSchedule();
-
-  @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'TimekeepingRecordScreenEvent.getSchedule()';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty(
-        'type', 'TimekeepingRecordScreenEvent.getSchedule'));
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_GetSchedule);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() toPreviousMonth,
-    required TResult Function() toNextMonth,
-    required TResult Function() getEmployeeStartDate,
-    required TResult Function() getSchedule,
-    required TResult Function() getTimekeepingRecords,
-  }) {
-    return getSchedule();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? toPreviousMonth,
-    TResult Function()? toNextMonth,
-    TResult Function()? getEmployeeStartDate,
-    TResult Function()? getSchedule,
-    TResult Function()? getTimekeepingRecords,
-  }) {
-    return getSchedule?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? toPreviousMonth,
-    TResult Function()? toNextMonth,
-    TResult Function()? getEmployeeStartDate,
-    TResult Function()? getSchedule,
-    TResult Function()? getTimekeepingRecords,
-    required TResult orElse(),
-  }) {
-    if (getSchedule != null) {
-      return getSchedule();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_ToPreviousMonth value) toPreviousMonth,
-    required TResult Function(_ToNextMonth value) toNextMonth,
-    required TResult Function(_GetEmployeeStartDate value) getEmployeeStartDate,
-    required TResult Function(_GetSchedule value) getSchedule,
-    required TResult Function(_GetTimekeepingRecords value)
-        getTimekeepingRecords,
-  }) {
-    return getSchedule(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_ToPreviousMonth value)? toPreviousMonth,
-    TResult Function(_ToNextMonth value)? toNextMonth,
-    TResult Function(_GetEmployeeStartDate value)? getEmployeeStartDate,
-    TResult Function(_GetSchedule value)? getSchedule,
-    TResult Function(_GetTimekeepingRecords value)? getTimekeepingRecords,
-  }) {
-    return getSchedule?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_ToPreviousMonth value)? toPreviousMonth,
-    TResult Function(_ToNextMonth value)? toNextMonth,
-    TResult Function(_GetEmployeeStartDate value)? getEmployeeStartDate,
-    TResult Function(_GetSchedule value)? getSchedule,
-    TResult Function(_GetTimekeepingRecords value)? getTimekeepingRecords,
-    required TResult orElse(),
-  }) {
-    if (getSchedule != null) {
-      return getSchedule(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _GetSchedule implements TimekeepingRecordScreenEvent {
-  const factory _GetSchedule() = _$_GetSchedule;
 }
 
 /// @nodoc
@@ -674,8 +374,6 @@ class _$_GetTimekeepingRecords
   TResult when<TResult extends Object?>({
     required TResult Function() toPreviousMonth,
     required TResult Function() toNextMonth,
-    required TResult Function() getEmployeeStartDate,
-    required TResult Function() getSchedule,
     required TResult Function() getTimekeepingRecords,
   }) {
     return getTimekeepingRecords();
@@ -686,8 +384,6 @@ class _$_GetTimekeepingRecords
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? toPreviousMonth,
     TResult Function()? toNextMonth,
-    TResult Function()? getEmployeeStartDate,
-    TResult Function()? getSchedule,
     TResult Function()? getTimekeepingRecords,
   }) {
     return getTimekeepingRecords?.call();
@@ -698,8 +394,6 @@ class _$_GetTimekeepingRecords
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? toPreviousMonth,
     TResult Function()? toNextMonth,
-    TResult Function()? getEmployeeStartDate,
-    TResult Function()? getSchedule,
     TResult Function()? getTimekeepingRecords,
     required TResult orElse(),
   }) {
@@ -714,8 +408,6 @@ class _$_GetTimekeepingRecords
   TResult map<TResult extends Object?>({
     required TResult Function(_ToPreviousMonth value) toPreviousMonth,
     required TResult Function(_ToNextMonth value) toNextMonth,
-    required TResult Function(_GetEmployeeStartDate value) getEmployeeStartDate,
-    required TResult Function(_GetSchedule value) getSchedule,
     required TResult Function(_GetTimekeepingRecords value)
         getTimekeepingRecords,
   }) {
@@ -727,8 +419,6 @@ class _$_GetTimekeepingRecords
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_ToPreviousMonth value)? toPreviousMonth,
     TResult Function(_ToNextMonth value)? toNextMonth,
-    TResult Function(_GetEmployeeStartDate value)? getEmployeeStartDate,
-    TResult Function(_GetSchedule value)? getSchedule,
     TResult Function(_GetTimekeepingRecords value)? getTimekeepingRecords,
   }) {
     return getTimekeepingRecords?.call(this);
@@ -739,8 +429,6 @@ class _$_GetTimekeepingRecords
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ToPreviousMonth value)? toPreviousMonth,
     TResult Function(_ToNextMonth value)? toNextMonth,
-    TResult Function(_GetEmployeeStartDate value)? getEmployeeStartDate,
-    TResult Function(_GetSchedule value)? getSchedule,
     TResult Function(_GetTimekeepingRecords value)? getTimekeepingRecords,
     required TResult orElse(),
   }) {
@@ -757,9 +445,6 @@ abstract class _GetTimekeepingRecords implements TimekeepingRecordScreenEvent {
 
 /// @nodoc
 mixin _$TimekeepingRecordScreenState {
-  DateTime get thisMonth => throw _privateConstructorUsedError;
-  DateTime get employeeStartDate => throw _privateConstructorUsedError;
-  Schedule get schedule => throw _privateConstructorUsedError;
   DateTime get timePicked => throw _privateConstructorUsedError;
   Either<TimekeepingFailure, List<Timekeeping>>?
       get failureOrTimekeepingListByMonth => throw _privateConstructorUsedError;
@@ -779,16 +464,11 @@ abstract class $TimekeepingRecordScreenStateCopyWith<$Res> {
           $Res Function(TimekeepingRecordScreenState) then) =
       _$TimekeepingRecordScreenStateCopyWithImpl<$Res>;
   $Res call(
-      {DateTime thisMonth,
-      DateTime employeeStartDate,
-      Schedule schedule,
-      DateTime timePicked,
+      {DateTime timePicked,
       Either<TimekeepingFailure, List<Timekeeping>>?
           failureOrTimekeepingListByMonth,
       List<Timekeeping> displayedTimekeepingRecords,
       bool isLoading});
-
-  $ScheduleCopyWith<$Res> get schedule;
 }
 
 /// @nodoc
@@ -802,27 +482,12 @@ class _$TimekeepingRecordScreenStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? thisMonth = freezed,
-    Object? employeeStartDate = freezed,
-    Object? schedule = freezed,
     Object? timePicked = freezed,
     Object? failureOrTimekeepingListByMonth = freezed,
     Object? displayedTimekeepingRecords = freezed,
     Object? isLoading = freezed,
   }) {
     return _then(_value.copyWith(
-      thisMonth: thisMonth == freezed
-          ? _value.thisMonth
-          : thisMonth // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      employeeStartDate: employeeStartDate == freezed
-          ? _value.employeeStartDate
-          : employeeStartDate // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      schedule: schedule == freezed
-          ? _value.schedule
-          : schedule // ignore: cast_nullable_to_non_nullable
-              as Schedule,
       timePicked: timePicked == freezed
           ? _value.timePicked
           : timePicked // ignore: cast_nullable_to_non_nullable
@@ -842,13 +507,6 @@ class _$TimekeepingRecordScreenStateCopyWithImpl<$Res>
               as bool,
     ));
   }
-
-  @override
-  $ScheduleCopyWith<$Res> get schedule {
-    return $ScheduleCopyWith<$Res>(_value.schedule, (value) {
-      return _then(_value.copyWith(schedule: value));
-    });
-  }
 }
 
 /// @nodoc
@@ -860,17 +518,11 @@ abstract class _$$_TimekeepingRecordScreenStateCopyWith<$Res>
       __$$_TimekeepingRecordScreenStateCopyWithImpl<$Res>;
   @override
   $Res call(
-      {DateTime thisMonth,
-      DateTime employeeStartDate,
-      Schedule schedule,
-      DateTime timePicked,
+      {DateTime timePicked,
       Either<TimekeepingFailure, List<Timekeeping>>?
           failureOrTimekeepingListByMonth,
       List<Timekeeping> displayedTimekeepingRecords,
       bool isLoading});
-
-  @override
-  $ScheduleCopyWith<$Res> get schedule;
 }
 
 /// @nodoc
@@ -888,27 +540,12 @@ class __$$_TimekeepingRecordScreenStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? thisMonth = freezed,
-    Object? employeeStartDate = freezed,
-    Object? schedule = freezed,
     Object? timePicked = freezed,
     Object? failureOrTimekeepingListByMonth = freezed,
     Object? displayedTimekeepingRecords = freezed,
     Object? isLoading = freezed,
   }) {
     return _then(_$_TimekeepingRecordScreenState(
-      thisMonth: thisMonth == freezed
-          ? _value.thisMonth
-          : thisMonth // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      employeeStartDate: employeeStartDate == freezed
-          ? _value.employeeStartDate
-          : employeeStartDate // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      schedule: schedule == freezed
-          ? _value.schedule
-          : schedule // ignore: cast_nullable_to_non_nullable
-              as Schedule,
       timePicked: timePicked == freezed
           ? _value.timePicked
           : timePicked // ignore: cast_nullable_to_non_nullable
@@ -936,21 +573,12 @@ class _$_TimekeepingRecordScreenState
     with DiagnosticableTreeMixin
     implements _TimekeepingRecordScreenState {
   const _$_TimekeepingRecordScreenState(
-      {required this.thisMonth,
-      required this.employeeStartDate,
-      required this.schedule,
-      required this.timePicked,
+      {required this.timePicked,
       required this.failureOrTimekeepingListByMonth,
       required final List<Timekeeping> displayedTimekeepingRecords,
       required this.isLoading})
       : _displayedTimekeepingRecords = displayedTimekeepingRecords;
 
-  @override
-  final DateTime thisMonth;
-  @override
-  final DateTime employeeStartDate;
-  @override
-  final Schedule schedule;
   @override
   final DateTime timePicked;
   @override
@@ -968,7 +596,7 @@ class _$_TimekeepingRecordScreenState
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'TimekeepingRecordScreenState(thisMonth: $thisMonth, employeeStartDate: $employeeStartDate, schedule: $schedule, timePicked: $timePicked, failureOrTimekeepingListByMonth: $failureOrTimekeepingListByMonth, displayedTimekeepingRecords: $displayedTimekeepingRecords, isLoading: $isLoading)';
+    return 'TimekeepingRecordScreenState(timePicked: $timePicked, failureOrTimekeepingListByMonth: $failureOrTimekeepingListByMonth, displayedTimekeepingRecords: $displayedTimekeepingRecords, isLoading: $isLoading)';
   }
 
   @override
@@ -976,9 +604,6 @@ class _$_TimekeepingRecordScreenState
     super.debugFillProperties(properties);
     properties
       ..add(DiagnosticsProperty('type', 'TimekeepingRecordScreenState'))
-      ..add(DiagnosticsProperty('thisMonth', thisMonth))
-      ..add(DiagnosticsProperty('employeeStartDate', employeeStartDate))
-      ..add(DiagnosticsProperty('schedule', schedule))
       ..add(DiagnosticsProperty('timePicked', timePicked))
       ..add(DiagnosticsProperty(
           'failureOrTimekeepingListByMonth', failureOrTimekeepingListByMonth))
@@ -992,10 +617,6 @@ class _$_TimekeepingRecordScreenState
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_TimekeepingRecordScreenState &&
-            const DeepCollectionEquality().equals(other.thisMonth, thisMonth) &&
-            const DeepCollectionEquality()
-                .equals(other.employeeStartDate, employeeStartDate) &&
-            const DeepCollectionEquality().equals(other.schedule, schedule) &&
             const DeepCollectionEquality()
                 .equals(other.timePicked, timePicked) &&
             const DeepCollectionEquality().equals(
@@ -1010,9 +631,6 @@ class _$_TimekeepingRecordScreenState
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(thisMonth),
-      const DeepCollectionEquality().hash(employeeStartDate),
-      const DeepCollectionEquality().hash(schedule),
       const DeepCollectionEquality().hash(timePicked),
       const DeepCollectionEquality().hash(failureOrTimekeepingListByMonth),
       const DeepCollectionEquality().hash(_displayedTimekeepingRecords),
@@ -1028,21 +646,12 @@ class _$_TimekeepingRecordScreenState
 abstract class _TimekeepingRecordScreenState
     implements TimekeepingRecordScreenState {
   const factory _TimekeepingRecordScreenState(
-      {required final DateTime thisMonth,
-      required final DateTime employeeStartDate,
-      required final Schedule schedule,
-      required final DateTime timePicked,
+      {required final DateTime timePicked,
       required final Either<TimekeepingFailure, List<Timekeeping>>?
           failureOrTimekeepingListByMonth,
       required final List<Timekeeping> displayedTimekeepingRecords,
       required final bool isLoading}) = _$_TimekeepingRecordScreenState;
 
-  @override
-  DateTime get thisMonth => throw _privateConstructorUsedError;
-  @override
-  DateTime get employeeStartDate => throw _privateConstructorUsedError;
-  @override
-  Schedule get schedule => throw _privateConstructorUsedError;
   @override
   DateTime get timePicked => throw _privateConstructorUsedError;
   @override

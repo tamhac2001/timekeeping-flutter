@@ -14,7 +14,7 @@ import 'package:auto_route/auto_route.dart' as _i11;
 import 'package:flutter/material.dart' as _i12;
 
 import '../absent_form/absent_form_screen.dart' as _i7;
-import '../assign_work_schedule/assign_schedule_screen.dart' as _i3;
+import '../assign_schedule/assign_schedule_screen.dart' as _i3;
 import '../check_in_check_out/check_in_check_out_router.dart' as _i5;
 import '../check_in_check_out/check_in_check_out_screen.dart' as _i9;
 import '../check_in_check_out/qr_scanner_screen.dart' as _i10;
@@ -55,10 +55,8 @@ class AppRouter extends _i11.RootStackRouter {
           routeData: routeData, child: const _i6.TimekeepingRecordScreen());
     },
     AbsentFormScreen.name: (routeData) {
-      final args = routeData.argsAs<AbsentFormScreenArgs>(
-          orElse: () => const AbsentFormScreenArgs());
       return _i11.MaterialPageX<dynamic>(
-          routeData: routeData, child: _i7.AbsentFormScreen(key: args.key));
+          routeData: routeData, child: const _i7.AbsentFormScreen());
     },
     ProfileScreen.name: (routeData) {
       return _i11.MaterialPageX<dynamic>(
@@ -155,23 +153,10 @@ class TimekeepingRecordScreen extends _i11.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i7.AbsentFormScreen]
-class AbsentFormScreen extends _i11.PageRouteInfo<AbsentFormScreenArgs> {
-  AbsentFormScreen({_i12.Key? key})
-      : super(AbsentFormScreen.name,
-            path: 'absent_form', args: AbsentFormScreenArgs(key: key));
+class AbsentFormScreen extends _i11.PageRouteInfo<void> {
+  const AbsentFormScreen() : super(AbsentFormScreen.name, path: 'absent_form');
 
   static const String name = 'AbsentFormScreen';
-}
-
-class AbsentFormScreenArgs {
-  const AbsentFormScreenArgs({this.key});
-
-  final _i12.Key? key;
-
-  @override
-  String toString() {
-    return 'AbsentFormScreenArgs{key: $key}';
-  }
 }
 
 /// generated route for

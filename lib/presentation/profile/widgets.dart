@@ -1,14 +1,19 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:timekeeping/application/cubits/absent_list_cubit.dart';
+import 'package:timekeeping/application/cubits/employee_cubit.dart';
+import 'package:timekeeping/application/notification/notification_bloc.dart';
+import 'package:timekeeping/application/cubits/schedule/schedule_cubit.dart';
 import 'package:timekeeping/presentation/core/app_widgets.dart';
+import 'package:timekeeping/utils/extensions.dart';
 
 import '../../application/auth/authentication_bloc.dart';
-import '../../application/profile/profile_screen_bloc.dart';
+import '../../application/employee/profile_screen_bloc.dart';
 import '../routes/app_router.gr.dart';
 
-class EmployeeAddressRow extends StatelessWidget {
-  const EmployeeAddressRow({
+class EmployeeCodeRow extends StatelessWidget {
+  const EmployeeCodeRow({
     Key? key,
   }) : super(key: key);
 
@@ -20,49 +25,17 @@ class EmployeeAddressRow extends StatelessWidget {
           children: [
             Expanded(
                 child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: const [
-                NormalText('Địa chỉ'),
+                NormalText('Mã nhân viên'),
               ],
             )),
             Expanded(
                 child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 NormalText(
-                  state.failureOrEmployee!
-                      .fold((l) => '', (employee) => employee.address),
-                ),
-              ],
-            )),
-          ],
-        );
-      },
-    );
-  }
-}
-
-class EmployeePhoneNumberRow extends StatelessWidget {
-  const EmployeePhoneNumberRow({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return BlocBuilder<ProfileScreenBloc, ProfileScreenState>(
-      builder: (context, state) {
-        return Row(
-          children: [
-            Expanded(
-                child: Column(
-              children: const [
-                NormalText('Số điện thoại'),
-              ],
-            )),
-            Expanded(
-                child: Column(
-              children: [
-                NormalText(
-                  state.failureOrEmployee!
-                      .fold((l) => '', (employee) => employee.phoneNumber),
+                  state.failureOrEmployee!.fold((l) => '', (employee) => employee.code),
                 ),
               ],
             )),
@@ -86,16 +59,17 @@ class EmployeeGenderRow extends StatelessWidget {
           children: [
             Expanded(
                 child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: const [
-                NormalText('Ngay sinh'),
+                NormalText('Giới tính'),
               ],
             )),
             Expanded(
                 child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 NormalText(
-                  state.failureOrEmployee!
-                      .fold((l) => '', (employee) => employee.gender.name),
+                  state.failureOrEmployee!.fold((l) => '', (employee) => employee.gender.name),
                 ),
               ],
             )),
@@ -106,8 +80,8 @@ class EmployeeGenderRow extends StatelessWidget {
   }
 }
 
-class EmployeeCodeRow extends StatelessWidget {
-  const EmployeeCodeRow({
+class EmployeePhoneNumberRow extends StatelessWidget {
+  const EmployeePhoneNumberRow({
     Key? key,
   }) : super(key: key);
 
@@ -119,16 +93,86 @@ class EmployeeCodeRow extends StatelessWidget {
           children: [
             Expanded(
                 child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: const [
-                NormalText('Mã nhân viên'),
+                NormalText('Số điện thoại'),
               ],
             )),
             Expanded(
                 child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                NormalText(
+                  state.failureOrEmployee!.fold((l) => '', (employee) => employee.phoneNumber),
+                ),
+              ],
+            )),
+          ],
+        );
+      },
+    );
+  }
+}
+
+class EmployeeAddressRow extends StatelessWidget {
+  const EmployeeAddressRow({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<ProfileScreenBloc, ProfileScreenState>(
+      builder: (context, state) {
+        return Row(
+          children: [
+            Expanded(
+                child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: const [
+                NormalText('Địa chỉ'),
+              ],
+            )),
+            Expanded(
+                child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                NormalText(
+                  state.failureOrEmployee!.fold((l) => '', (employee) => employee.address),
+                ),
+              ],
+            )),
+          ],
+        );
+      },
+    );
+  }
+}
+
+class EmployeeStartDateRow extends StatelessWidget {
+  const EmployeeStartDateRow({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<ProfileScreenBloc, ProfileScreenState>(
+      builder: (context, state) {
+        return Row(
+          children: [
+            Expanded(
+                child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: const [
+                NormalText('Ngày bắt đầu làm'),
+              ],
+            )),
+            Expanded(
+                child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 NormalText(
                   state.failureOrEmployee!
-                      .fold((l) => '', (employee) => employee.code),
+                      .fold((l) => '', (employee) => employee.startDate.toLocal().toDisplayedDate()),
                 ),
               ],
             )),
@@ -147,11 +191,13 @@ class LogoutButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-        onPressed: () async {
-          context
-              .read<AuthenticationBloc>()
-              .add(const AuthenticationEvent.logout());
-          AutoRouter.of(context).replaceAll([const SplashScreen()]);
+        onPressed: () {
+          context.read<AuthenticationBloc>().add(const AuthenticationEvent.logout());
+          context.read<ScheduleCubit>().resetState();
+          context.read<AbsentListCubit>().resetState();
+          context.read<EmployeeCubit>().resetState();
+          context.read<NotificationBloc>().add(const NotificationEvent.resetState());
+          AutoRouter.of(context).replace(const LoginScreen());
         },
         child: const Text('Đăng xuất'));
   }

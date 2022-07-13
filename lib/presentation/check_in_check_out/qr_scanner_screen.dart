@@ -7,6 +7,7 @@ import 'package:mobile_scanner/mobile_scanner.dart';
 import 'package:timekeeping/application/checkin_checkout/checkin_checkout_screen_bloc.dart';
 
 import '../../application/checkin_checkout/qr_scan_screen_bloc.dart';
+import '../../application/schedule/assign_schedule_form_bloc.dart';
 import '../core/app_widgets.dart';
 import '../routes/app_router.gr.dart';
 
@@ -55,28 +56,27 @@ class QrScannerScreen extends StatelessWidget {
           if (state.failureOrUnit != null) {
             state.failureOrUnit!.fold(
               (failure) => failure.when(
-                  serverError: () {
-                    AutoRouter.of(context).pop();
-                    showMyDialog(context, title: 'Qr Scanned', text: 'Lỗi server')
-                        .whenComplete(() => context.read<QrScanScreenBloc>().add(const QrScanScreenEvent.reset()));
-                  },
-                  unauthenticated: () {
-                    AutoRouter.of(context).pop();
-                    showMyDialog(context, title: 'Qr Scanned', text: 'Phiên đăng nhập hết hạn')
-                        .then((value) => AutoRouter.of(context).replace(const LoginScreen()));
-                  },
-                  qrCodeNotMatch: () {
-                    AutoRouter.of(context).pop();
-                    showMyDialog(context, title: 'Qr Scanned', text: 'Qr Code không hợp lệ')
-                        .whenComplete(() => context.read<QrScanScreenBloc>().add(const QrScanScreenEvent.reset()));
-                  },
-                  timekeepingNotFound: () {}),
+                noInternetAccess: () {},
+                serverError: () {
+                  AutoRouter.of(context).pop();
+                  showServerErrorDialog(context, title: 'Điểm danh');
+                },
+                unAuthenticated: () {
+                  AutoRouter.of(context).pop();
+                  showTokenExpireDialog(context);
+                },
+                qrCodeNotMatch: () {
+                  AutoRouter.of(context).pop();
+                  showMyDialog(context, title: 'Qr Scanned', text: 'Qr Code không hợp lệ')
+                      .whenComplete(() => context.read<QrScanScreenBloc>().add(const QrScanScreenEvent.reset()));
+                },
+                timekeepingNotFound: () {},
+              ),
               (_) {
                 debugPrint('show dialog called');
+                context.read<CheckinCheckoutScreenBloc>().add(const CheckinCheckoutScreenEvent.getTimekeeping());
                 showMyDialog(context, title: 'Qr Scanned', text: 'Điểm danh thành công').then((_) {
                   AutoRouter.of(context).pop();
-                  context.read<CheckinCheckoutScreenBloc>().add(const CheckinCheckoutScreenEvent.getTimekeeping());
-                  // AutoRouter.of(context).pop();
                   context.read<QrScanScreenBloc>().add(const QrScanScreenEvent.reset());
                 });
               },

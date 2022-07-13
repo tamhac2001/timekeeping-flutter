@@ -14,13 +14,20 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
+AbsentFormDto _$AbsentFormDtoFromJson(Map<String, dynamic> json) {
+  return _AbsentFormDto.fromJson(json);
+}
+
 /// @nodoc
 mixin _$AbsentFormDto {
   DateTime get startDate => throw _privateConstructorUsedError;
   DateTime get endDate => throw _privateConstructorUsedError;
-  ReasonDto get reasonDto => throw _privateConstructorUsedError;
+  String get reason => throw _privateConstructorUsedError;
   String get note => throw _privateConstructorUsedError;
+  @JsonKey(includeIfNull: false)
+  int? get status => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $AbsentFormDtoCopyWith<AbsentFormDto> get copyWith =>
       throw _privateConstructorUsedError;
@@ -32,7 +39,11 @@ abstract class $AbsentFormDtoCopyWith<$Res> {
           AbsentFormDto value, $Res Function(AbsentFormDto) then) =
       _$AbsentFormDtoCopyWithImpl<$Res>;
   $Res call(
-      {DateTime startDate, DateTime endDate, ReasonDto reasonDto, String note});
+      {DateTime startDate,
+      DateTime endDate,
+      String reason,
+      String note,
+      @JsonKey(includeIfNull: false) int? status});
 }
 
 /// @nodoc
@@ -48,8 +59,9 @@ class _$AbsentFormDtoCopyWithImpl<$Res>
   $Res call({
     Object? startDate = freezed,
     Object? endDate = freezed,
-    Object? reasonDto = freezed,
+    Object? reason = freezed,
     Object? note = freezed,
+    Object? status = freezed,
   }) {
     return _then(_value.copyWith(
       startDate: startDate == freezed
@@ -60,14 +72,18 @@ class _$AbsentFormDtoCopyWithImpl<$Res>
           ? _value.endDate
           : endDate // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      reasonDto: reasonDto == freezed
-          ? _value.reasonDto
-          : reasonDto // ignore: cast_nullable_to_non_nullable
-              as ReasonDto,
+      reason: reason == freezed
+          ? _value.reason
+          : reason // ignore: cast_nullable_to_non_nullable
+              as String,
       note: note == freezed
           ? _value.note
           : note // ignore: cast_nullable_to_non_nullable
               as String,
+      status: status == freezed
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as int?,
     ));
   }
 }
@@ -80,7 +96,11 @@ abstract class _$$_AbsentFormDtoCopyWith<$Res>
       __$$_AbsentFormDtoCopyWithImpl<$Res>;
   @override
   $Res call(
-      {DateTime startDate, DateTime endDate, ReasonDto reasonDto, String note});
+      {DateTime startDate,
+      DateTime endDate,
+      String reason,
+      String note,
+      @JsonKey(includeIfNull: false) int? status});
 }
 
 /// @nodoc
@@ -98,8 +118,9 @@ class __$$_AbsentFormDtoCopyWithImpl<$Res>
   $Res call({
     Object? startDate = freezed,
     Object? endDate = freezed,
-    Object? reasonDto = freezed,
+    Object? reason = freezed,
     Object? note = freezed,
+    Object? status = freezed,
   }) {
     return _then(_$_AbsentFormDto(
       startDate: startDate == freezed
@@ -110,40 +131,51 @@ class __$$_AbsentFormDtoCopyWithImpl<$Res>
           ? _value.endDate
           : endDate // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      reasonDto: reasonDto == freezed
-          ? _value.reasonDto
-          : reasonDto // ignore: cast_nullable_to_non_nullable
-              as ReasonDto,
+      reason: reason == freezed
+          ? _value.reason
+          : reason // ignore: cast_nullable_to_non_nullable
+              as String,
       note: note == freezed
           ? _value.note
           : note // ignore: cast_nullable_to_non_nullable
               as String,
+      status: status == freezed
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as int?,
     ));
   }
 }
 
 /// @nodoc
 
-class _$_AbsentFormDto extends _AbsentFormDto with DiagnosticableTreeMixin {
+@JsonSerializable(fieldRename: FieldRename.snake, explicitToJson: true)
+class _$_AbsentFormDto with DiagnosticableTreeMixin implements _AbsentFormDto {
   const _$_AbsentFormDto(
       {required this.startDate,
       required this.endDate,
-      required this.reasonDto,
-      required this.note})
-      : super._();
+      required this.reason,
+      required this.note,
+      @JsonKey(includeIfNull: false) required this.status});
+
+  factory _$_AbsentFormDto.fromJson(Map<String, dynamic> json) =>
+      _$$_AbsentFormDtoFromJson(json);
 
   @override
   final DateTime startDate;
   @override
   final DateTime endDate;
   @override
-  final ReasonDto reasonDto;
+  final String reason;
   @override
   final String note;
+  @override
+  @JsonKey(includeIfNull: false)
+  final int? status;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'AbsentFormDto(startDate: $startDate, endDate: $endDate, reasonDto: $reasonDto, note: $note)';
+    return 'AbsentFormDto(startDate: $startDate, endDate: $endDate, reason: $reason, note: $note, status: $status)';
   }
 
   @override
@@ -153,8 +185,9 @@ class _$_AbsentFormDto extends _AbsentFormDto with DiagnosticableTreeMixin {
       ..add(DiagnosticsProperty('type', 'AbsentFormDto'))
       ..add(DiagnosticsProperty('startDate', startDate))
       ..add(DiagnosticsProperty('endDate', endDate))
-      ..add(DiagnosticsProperty('reasonDto', reasonDto))
-      ..add(DiagnosticsProperty('note', note));
+      ..add(DiagnosticsProperty('reason', reason))
+      ..add(DiagnosticsProperty('note', note))
+      ..add(DiagnosticsProperty('status', status));
   }
 
   @override
@@ -164,40 +197,55 @@ class _$_AbsentFormDto extends _AbsentFormDto with DiagnosticableTreeMixin {
             other is _$_AbsentFormDto &&
             const DeepCollectionEquality().equals(other.startDate, startDate) &&
             const DeepCollectionEquality().equals(other.endDate, endDate) &&
-            const DeepCollectionEquality().equals(other.reasonDto, reasonDto) &&
-            const DeepCollectionEquality().equals(other.note, note));
+            const DeepCollectionEquality().equals(other.reason, reason) &&
+            const DeepCollectionEquality().equals(other.note, note) &&
+            const DeepCollectionEquality().equals(other.status, status));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(startDate),
       const DeepCollectionEquality().hash(endDate),
-      const DeepCollectionEquality().hash(reasonDto),
-      const DeepCollectionEquality().hash(note));
+      const DeepCollectionEquality().hash(reason),
+      const DeepCollectionEquality().hash(note),
+      const DeepCollectionEquality().hash(status));
 
   @JsonKey(ignore: true)
   @override
   _$$_AbsentFormDtoCopyWith<_$_AbsentFormDto> get copyWith =>
       __$$_AbsentFormDtoCopyWithImpl<_$_AbsentFormDto>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_AbsentFormDtoToJson(this);
+  }
 }
 
-abstract class _AbsentFormDto extends AbsentFormDto {
+abstract class _AbsentFormDto implements AbsentFormDto {
   const factory _AbsentFormDto(
-      {required final DateTime startDate,
-      required final DateTime endDate,
-      required final ReasonDto reasonDto,
-      required final String note}) = _$_AbsentFormDto;
-  const _AbsentFormDto._() : super._();
+          {required final DateTime startDate,
+          required final DateTime endDate,
+          required final String reason,
+          required final String note,
+          @JsonKey(includeIfNull: false) required final int? status}) =
+      _$_AbsentFormDto;
+
+  factory _AbsentFormDto.fromJson(Map<String, dynamic> json) =
+      _$_AbsentFormDto.fromJson;
 
   @override
   DateTime get startDate => throw _privateConstructorUsedError;
   @override
   DateTime get endDate => throw _privateConstructorUsedError;
   @override
-  ReasonDto get reasonDto => throw _privateConstructorUsedError;
+  String get reason => throw _privateConstructorUsedError;
   @override
   String get note => throw _privateConstructorUsedError;
+  @override
+  @JsonKey(includeIfNull: false)
+  int? get status => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$$_AbsentFormDtoCopyWith<_$_AbsentFormDto> get copyWith =>

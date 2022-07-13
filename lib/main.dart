@@ -1,20 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_native_timezone/flutter_native_timezone.dart';
-import 'package:timekeeping/application/connectivity/connectivity_bloc.dart';
-import 'package:timekeeping/application/schedule/schedule_bloc.dart';
+
 import 'package:timezone/data/latest_all.dart' as tz;
 import 'package:timezone/timezone.dart' as tz;
 
+import 'application/cubits/absent_list_cubit.dart';
 import 'application/auth/authentication_bloc.dart';
+import 'application/cubits/employee_cubit.dart';
+import 'application/cubits/timekeeping_cubit.dart';
 import 'application/notification/notification_bloc.dart';
+import 'application/cubits/schedule/schedule_cubit.dart';
 import 'infrastructure/absent/absent_repository.dart';
 import 'infrastructure/absent/api/absent_api_client.dart';
-import 'infrastructure/auth/authentication_api_client.dart';
+import 'infrastructure/auth/api/authentication_api_client.dart';
 import 'infrastructure/auth/authentication_repository.dart';
-import 'infrastructure/employee/employee_api_client.dart';
+import 'infrastructure/employee/api/employee_api_client.dart';
 import 'infrastructure/employee/employee_repository.dart';
-import 'infrastructure/schedule/schedule_api_client.dart';
+import 'infrastructure/schedule/api/schedule_api_client.dart';
 import 'infrastructure/schedule/schedule_repository.dart';
 import 'infrastructure/secure_storage/secure_storage_repository.dart';
 
@@ -68,21 +71,30 @@ class MyApp extends StatelessWidget {
       ],
       child: MultiBlocProvider(
         providers: [
-          BlocProvider<ConnectivityBloc>(
-            lazy: false,
-            create: (context) => ConnectivityBloc()..add(const ConnectivityEvent.initialized()),
-          ),
           BlocProvider<AuthenticationBloc>(
+            lazy: false,
             create: (context) => AuthenticationBloc(
-                authenticationRepository: RepositoryProvider.of<AuthenticationRepository>(context),
-                employeeRepository: RepositoryProvider.of<EmployeeRepository>(context)),
+              authenticationRepository: RepositoryProvider.of<AuthenticationRepository>(context),
+            ),
           ),
-          BlocProvider<ScheduleBloc>(create: (context) => ScheduleBloc()),
+          BlocProvider<EmployeeCubit>(
+              create: (context) => EmployeeCubit(repository: RepositoryProvider.of<EmployeeRepository>(context))),
+          BlocProvider<ScheduleCubit>(
+              create: (context) => ScheduleCubit(
+                  repository: RepositoryProvider.of<ScheduleRepository>(context),
+                  employeeCubit: BlocProvider.of<EmployeeCubit>(context))),
+          BlocProvider<AbsentListCubit>(
+              create: (context) => AbsentListCubit(repository: RepositoryProvider.of<AbsentRepository>(context))),
+          BlocProvider<TimekeepingCubit>(
+              create: (context) => TimekeepingCubit(
+                  repository: RepositoryProvider.of<TimekeepingRepository>(context),
+                  scheduleCubit: BlocProvider.of<ScheduleCubit>(context))),
           BlocProvider<NotificationBloc>(
-              create: (context) => NotificationBloc(storage: RepositoryProvider.of<SecureStorageRepository>(context))),
+              create: (context) => NotificationBloc(timekeepingCubit: BlocProvider.of<TimekeepingCubit>(context))),
         ],
         child: MaterialApp.router(
           title: 'Flutter Demo',
+          debugShowCheckedModeBanner: false,
           theme: ThemeData(
               // This is the theme of your application.
               //

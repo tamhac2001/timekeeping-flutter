@@ -112,8 +112,21 @@ class __$$_NoInternetAccessCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_NoInternetAccess extends _NoInternetAccess {
+class _$_NoInternetAccess extends _NoInternetAccess
+    with DiagnosticableTreeMixin {
   const _$_NoInternetAccess() : super._();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'TimekeepingFailure.noInternetAccess()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(
+        DiagnosticsProperty('type', 'TimekeepingFailure.noInternetAccess'));
+  }
 
   @override
   bool operator ==(dynamic other) {
@@ -231,8 +244,20 @@ class __$$_ServerErrorCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ServerError extends _ServerError {
+class _$_ServerError extends _ServerError with DiagnosticableTreeMixin {
   const _$_ServerError() : super._();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'TimekeepingFailure.serverError()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+        .add(DiagnosticsProperty('type', 'TimekeepingFailure.serverError'));
+  }
 
   @override
   bool operator ==(dynamic other) {
@@ -350,8 +375,20 @@ class __$$_UnAuthenticatedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_UnAuthenticated extends _UnAuthenticated {
+class _$_UnAuthenticated extends _UnAuthenticated with DiagnosticableTreeMixin {
   const _$_UnAuthenticated() : super._();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'TimekeepingFailure.unAuthenticated()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+        .add(DiagnosticsProperty('type', 'TimekeepingFailure.unAuthenticated'));
+  }
 
   @override
   bool operator ==(dynamic other) {
@@ -469,8 +506,20 @@ class __$$_QrCodeNotMatchCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_QrCodeNotMatch extends _QrCodeNotMatch {
+class _$_QrCodeNotMatch extends _QrCodeNotMatch with DiagnosticableTreeMixin {
   const _$_QrCodeNotMatch() : super._();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'TimekeepingFailure.qrCodeNotMatch()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+        .add(DiagnosticsProperty('type', 'TimekeepingFailure.qrCodeNotMatch'));
+  }
 
   @override
   bool operator ==(dynamic other) {
@@ -588,8 +637,21 @@ class __$$_TimekeepingNotFoundCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_TimekeepingNotFound extends _TimekeepingNotFound {
+class _$_TimekeepingNotFound extends _TimekeepingNotFound
+    with DiagnosticableTreeMixin {
   const _$_TimekeepingNotFound() : super._();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'TimekeepingFailure.timekeepingNotFound()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(
+        DiagnosticsProperty('type', 'TimekeepingFailure.timekeepingNotFound'));
+  }
 
   @override
   bool operator ==(dynamic other) {

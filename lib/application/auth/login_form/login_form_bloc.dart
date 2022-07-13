@@ -27,12 +27,14 @@ class LoginFormBloc extends Bloc<LoginFormEvent, LoginFormState> {
           emit(state.copyWith(
             email: EmailAddress(email),
             authFailureOrSuccess: null,
+            isSubmitting: false,
           ));
         },
         passwordChanged: (password) {
           emit(state.copyWith(
             password: Password(password),
             authFailureOrSuccess: null,
+            isSubmitting: false,
           ));
         },
         login: () async {
@@ -45,9 +47,11 @@ class LoginFormBloc extends Bloc<LoginFormEvent, LoginFormState> {
             failureOrSuccess = await _authenticationRepository.login(email: state.email, password: state.password);
           }
           emit(state.copyWith(
-            isSubmitting: false,
             showErrorMessages: AutovalidateMode.always,
             authFailureOrSuccess: failureOrSuccess,
+          ));
+          emit(state.copyWith(
+            isSubmitting: false,
           ));
         },
         forgetPassword: () => null,

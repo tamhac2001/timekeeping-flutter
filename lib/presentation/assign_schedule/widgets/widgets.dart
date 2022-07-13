@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:timekeeping/application/cubits/schedule/schedule_cubit.dart';
 
-import '../../../application/schedule/assign_schedule_form/assign_schedule_form_bloc.dart';
+import '../../../application/schedule/assign_schedule_form_bloc.dart';
 import '../../core/app_widgets.dart';
 import '../../../utils/extensions.dart';
 
@@ -133,8 +134,9 @@ class AssignScheduleButton extends StatelessWidget {
             ),
             TextButton(
                 child: const Text('Xác nhận'),
-                onPressed: () {
+                onPressed: () async {
                   context.read<AssignScheduleFormBloc>().add(const AssignScheduleFormEvent.formSubmitted());
+                  await context.read<ScheduleCubit>().scheduleRequest();
                   Navigator.of(context).pop();
                 })
           ]);

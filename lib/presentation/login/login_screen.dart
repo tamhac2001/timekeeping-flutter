@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:timekeeping/presentation/core/app_widgets.dart';
 
 import '../../application/auth/authentication_bloc.dart';
 import '../../application/auth/login_form/login_form_bloc.dart';
@@ -13,36 +14,22 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: BlocProvider(
-        create: (context) =>
-            LoginFormBloc(authenticationRepository: RepositoryProvider.of<AuthenticationRepository>(context)),
-        child: BlocConsumer<AuthenticationBloc, AuthenticationState>(listener: (context, state) {
-          state.when(
-            initial: () {
-              debugPrint('Initial State');
-            },
-            authenticated: (accessToken, employee) async {
-              debugPrint('Authenticated State');
-              // !! IF NO EMPLOYEE LINK WITH THAT ACCOUNT IT WILL NOT WORK
-              AutoRouter.of(context).replace(const AssignScheduleScreen());
-            },
-            unauthenticated: () {
-              debugPrint('Unauthenticated State');
-            },
-          );
-        }, builder: (context, state) {
-          if (state.when(initial: () => true, unauthenticated: () => false, authenticated: (_, __) => false)) {
-            context.read<AuthenticationBloc>().add(const AuthenticationEvent.authRequest());
-          }
+    return BlocProvider(
+      create: (context) =>
+          LoginFormBloc(authenticationRepository: RepositoryProvider.of<AuthenticationRepository>(context)),
+      child: BlocBuilder<AuthenticationBloc, AuthenticationState>(
+        builder: (context, state) {
+          context.read<AuthenticationBloc>().add(const AuthenticationEvent.authRequest());
           return state.when(
-            initial: () => const Center(
-              child: CircularProgressIndicator(),
-            ),
-            authenticated: (_, __) => Container(),
+            initial: () => const LoadingScreen(appBarTitle: null),
+            authenticated: () {
+              // !! IF NO EMPLOYEE LINK WITH THE ACCOUNT IT WILL NOT WORK
+              context.router.replace(const AssignScheduleScreen());
+              return const LoadingScreen(appBarTitle: null);
+            },
             unauthenticated: () => const LoginForm(),
           );
-        }),
+        },
       ),
     );
   }

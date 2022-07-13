@@ -13,6 +13,8 @@ extension TimeOfDayX on TimeOfDay {
     return TimeOfDay.fromDateTime(afternoonShiftStartTime.toTodayDateTime().add(workHour));
   }
 
+  static TimeOfDay empty() => const TimeOfDay(hour: 0, minute: 0);
+
   String toDisplayText() {
     final dt = toTodayDateTime();
     return DateFormat('HH:mm').format(dt);
@@ -31,17 +33,36 @@ extension TimeOfDayX on TimeOfDay {
     return DateTime(checkInDate.year, checkInDate.month, checkInDate.day, hour, minute);
   }
 
-  tz.TZDateTime toTZDateTime() {
+  tz.TZDateTime toTZDateTimeForTodayNotification() {
     final now = tz.TZDateTime.now(tz.local);
     tz.TZDateTime scheduledDate = tz.TZDateTime.local(now.year, now.month, now.day, hour, minute);
-    if (scheduledDate.isBefore(now)) {
-      scheduledDate = scheduledDate.add(const Duration(days: 1));
+    return scheduledDate;
+  }
+
+  tz.TZDateTime toTZDateTimeForDailyNotification() {
+    final now = tz.TZDateTime.now(tz.local);
+    tz.TZDateTime scheduledDate = tz.TZDateTime.local(now.year, now.month, now.day, hour, minute);
+    if (scheduledDate.isAfter(now)) {
+      if (scheduledDate.weekday == 5) {
+        scheduledDate = scheduledDate.add(const Duration(days: 3));
+      } else {
+        scheduledDate = scheduledDate.add(const Duration(days: 1));
+      }
     }
     return scheduledDate;
   }
 }
 
 extension DateTimeX on DateTime {
+  static DateTime today() {
+    final now = DateTime.now();
+    return DateTime(now.year, now.month, now.day);
+  }
+
+  String toDisplayedDate() {
+    return DateFormat('dd-MM-yyyy').format(this);
+  }
+
   String toDisplayedTime() {
     return DateFormat('HH:mm:ss').format(this);
   }

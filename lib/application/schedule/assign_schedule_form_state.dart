@@ -9,7 +9,7 @@ class AssignScheduleFormState with _$AssignScheduleFormState {
     required TimeOfDay afternoonShiftEnd,
     required bool isSubmitting,
     required bool isLoading,
-    required Either<ScheduleFailure, Schedule>? scheduleFailureOrSchedule,
+    required Either<ScheduleFailure, Unit>? scheduleFailureOrUnit,
   }) = _AssignScheduleFormState;
 
   factory AssignScheduleFormState.initial() => const AssignScheduleFormState(
@@ -19,6 +19,6 @@ class AssignScheduleFormState with _$AssignScheduleFormState {
         afternoonShiftEnd: TimeOfDay(hour: 18, minute: 0),
         isSubmitting: false,
         isLoading: false,
-        scheduleFailureOrSchedule: null,
+        scheduleFailureOrUnit: null,
       );
 }

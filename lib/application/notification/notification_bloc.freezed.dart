@@ -19,66 +19,83 @@ mixin _$NotificationEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initialize,
-    required TResult Function() scheduleMorningShiftStart,
-    required TResult Function() scheduleMorningShiftEnd,
-    required TResult Function() scheduleAfternoonShiftStart,
-    required TResult Function() scheduleAfternoonShiftEnd,
+    required TResult Function() setMorningCheckInNotification,
+    required TResult Function() setMorningCheckInLateNotification,
+    required TResult Function() setMorningCheckOutNotification,
+    required TResult Function() setAfternoonCheckInNotification,
+    required TResult Function() setAfternoonCheckOutNotification,
+    required TResult Function() resetState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initialize,
-    TResult Function()? scheduleMorningShiftStart,
-    TResult Function()? scheduleMorningShiftEnd,
-    TResult Function()? scheduleAfternoonShiftStart,
-    TResult Function()? scheduleAfternoonShiftEnd,
+    TResult Function()? setMorningCheckInNotification,
+    TResult Function()? setMorningCheckInLateNotification,
+    TResult Function()? setMorningCheckOutNotification,
+    TResult Function()? setAfternoonCheckInNotification,
+    TResult Function()? setAfternoonCheckOutNotification,
+    TResult Function()? resetState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialize,
-    TResult Function()? scheduleMorningShiftStart,
-    TResult Function()? scheduleMorningShiftEnd,
-    TResult Function()? scheduleAfternoonShiftStart,
-    TResult Function()? scheduleAfternoonShiftEnd,
+    TResult Function()? setMorningCheckInNotification,
+    TResult Function()? setMorningCheckInLateNotification,
+    TResult Function()? setMorningCheckOutNotification,
+    TResult Function()? setAfternoonCheckInNotification,
+    TResult Function()? setAfternoonCheckOutNotification,
+    TResult Function()? resetState,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(Initialize value) initialize,
-    required TResult Function(ScheduleMorningShiftStart value)
-        scheduleMorningShiftStart,
-    required TResult Function(ScheduleMorningShiftEnd value)
-        scheduleMorningShiftEnd,
-    required TResult Function(ScheduleAfternoonShiftStart value)
-        scheduleAfternoonShiftStart,
-    required TResult Function(ScheduleAfternoonShiftEnd value)
-        scheduleAfternoonShiftEnd,
+    required TResult Function(_Initialize value) initialize,
+    required TResult Function(_SetMorningCheckInNotification value)
+        setMorningCheckInNotification,
+    required TResult Function(_SetMorningCheckInLateNotification value)
+        setMorningCheckInLateNotification,
+    required TResult Function(_SetMorningCheckOutNotification value)
+        setMorningCheckOutNotification,
+    required TResult Function(_SetAfternoonCheckInNotification value)
+        setAfternoonCheckInNotification,
+    required TResult Function(_SetAfternoonCheckOutNotification value)
+        setAfternoonCheckOutNotification,
+    required TResult Function(_ResetState value) resetState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(Initialize value)? initialize,
-    TResult Function(ScheduleMorningShiftStart value)?
-        scheduleMorningShiftStart,
-    TResult Function(ScheduleMorningShiftEnd value)? scheduleMorningShiftEnd,
-    TResult Function(ScheduleAfternoonShiftStart value)?
-        scheduleAfternoonShiftStart,
-    TResult Function(ScheduleAfternoonShiftEnd value)?
-        scheduleAfternoonShiftEnd,
+    TResult Function(_Initialize value)? initialize,
+    TResult Function(_SetMorningCheckInNotification value)?
+        setMorningCheckInNotification,
+    TResult Function(_SetMorningCheckInLateNotification value)?
+        setMorningCheckInLateNotification,
+    TResult Function(_SetMorningCheckOutNotification value)?
+        setMorningCheckOutNotification,
+    TResult Function(_SetAfternoonCheckInNotification value)?
+        setAfternoonCheckInNotification,
+    TResult Function(_SetAfternoonCheckOutNotification value)?
+        setAfternoonCheckOutNotification,
+    TResult Function(_ResetState value)? resetState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(Initialize value)? initialize,
-    TResult Function(ScheduleMorningShiftStart value)?
-        scheduleMorningShiftStart,
-    TResult Function(ScheduleMorningShiftEnd value)? scheduleMorningShiftEnd,
-    TResult Function(ScheduleAfternoonShiftStart value)?
-        scheduleAfternoonShiftStart,
-    TResult Function(ScheduleAfternoonShiftEnd value)?
-        scheduleAfternoonShiftEnd,
+    TResult Function(_Initialize value)? initialize,
+    TResult Function(_SetMorningCheckInNotification value)?
+        setMorningCheckInNotification,
+    TResult Function(_SetMorningCheckInLateNotification value)?
+        setMorningCheckInLateNotification,
+    TResult Function(_SetMorningCheckOutNotification value)?
+        setMorningCheckOutNotification,
+    TResult Function(_SetAfternoonCheckInNotification value)?
+        setAfternoonCheckInNotification,
+    TResult Function(_SetAfternoonCheckOutNotification value)?
+        setAfternoonCheckOutNotification,
+    TResult Function(_ResetState value)? resetState,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -102,28 +119,28 @@ class _$NotificationEventCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$$InitializeCopyWith<$Res> {
-  factory _$$InitializeCopyWith(
-          _$Initialize value, $Res Function(_$Initialize) then) =
-      __$$InitializeCopyWithImpl<$Res>;
+abstract class _$$_InitializeCopyWith<$Res> {
+  factory _$$_InitializeCopyWith(
+          _$_Initialize value, $Res Function(_$_Initialize) then) =
+      __$$_InitializeCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$InitializeCopyWithImpl<$Res>
+class __$$_InitializeCopyWithImpl<$Res>
     extends _$NotificationEventCopyWithImpl<$Res>
-    implements _$$InitializeCopyWith<$Res> {
-  __$$InitializeCopyWithImpl(
-      _$Initialize _value, $Res Function(_$Initialize) _then)
-      : super(_value, (v) => _then(v as _$Initialize));
+    implements _$$_InitializeCopyWith<$Res> {
+  __$$_InitializeCopyWithImpl(
+      _$_Initialize _value, $Res Function(_$_Initialize) _then)
+      : super(_value, (v) => _then(v as _$_Initialize));
 
   @override
-  _$Initialize get _value => super._value as _$Initialize;
+  _$_Initialize get _value => super._value as _$_Initialize;
 }
 
 /// @nodoc
 
-class _$Initialize with DiagnosticableTreeMixin implements Initialize {
-  const _$Initialize();
+class _$_Initialize with DiagnosticableTreeMixin implements _Initialize {
+  const _$_Initialize();
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -139,7 +156,7 @@ class _$Initialize with DiagnosticableTreeMixin implements Initialize {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$Initialize);
+        (other.runtimeType == runtimeType && other is _$_Initialize);
   }
 
   @override
@@ -149,10 +166,12 @@ class _$Initialize with DiagnosticableTreeMixin implements Initialize {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initialize,
-    required TResult Function() scheduleMorningShiftStart,
-    required TResult Function() scheduleMorningShiftEnd,
-    required TResult Function() scheduleAfternoonShiftStart,
-    required TResult Function() scheduleAfternoonShiftEnd,
+    required TResult Function() setMorningCheckInNotification,
+    required TResult Function() setMorningCheckInLateNotification,
+    required TResult Function() setMorningCheckOutNotification,
+    required TResult Function() setAfternoonCheckInNotification,
+    required TResult Function() setAfternoonCheckOutNotification,
+    required TResult Function() resetState,
   }) {
     return initialize();
   }
@@ -161,10 +180,12 @@ class _$Initialize with DiagnosticableTreeMixin implements Initialize {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initialize,
-    TResult Function()? scheduleMorningShiftStart,
-    TResult Function()? scheduleMorningShiftEnd,
-    TResult Function()? scheduleAfternoonShiftStart,
-    TResult Function()? scheduleAfternoonShiftEnd,
+    TResult Function()? setMorningCheckInNotification,
+    TResult Function()? setMorningCheckInLateNotification,
+    TResult Function()? setMorningCheckOutNotification,
+    TResult Function()? setAfternoonCheckInNotification,
+    TResult Function()? setAfternoonCheckOutNotification,
+    TResult Function()? resetState,
   }) {
     return initialize?.call();
   }
@@ -173,10 +194,12 @@ class _$Initialize with DiagnosticableTreeMixin implements Initialize {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialize,
-    TResult Function()? scheduleMorningShiftStart,
-    TResult Function()? scheduleMorningShiftEnd,
-    TResult Function()? scheduleAfternoonShiftStart,
-    TResult Function()? scheduleAfternoonShiftEnd,
+    TResult Function()? setMorningCheckInNotification,
+    TResult Function()? setMorningCheckInLateNotification,
+    TResult Function()? setMorningCheckOutNotification,
+    TResult Function()? setAfternoonCheckInNotification,
+    TResult Function()? setAfternoonCheckOutNotification,
+    TResult Function()? resetState,
     required TResult orElse(),
   }) {
     if (initialize != null) {
@@ -188,15 +211,18 @@ class _$Initialize with DiagnosticableTreeMixin implements Initialize {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(Initialize value) initialize,
-    required TResult Function(ScheduleMorningShiftStart value)
-        scheduleMorningShiftStart,
-    required TResult Function(ScheduleMorningShiftEnd value)
-        scheduleMorningShiftEnd,
-    required TResult Function(ScheduleAfternoonShiftStart value)
-        scheduleAfternoonShiftStart,
-    required TResult Function(ScheduleAfternoonShiftEnd value)
-        scheduleAfternoonShiftEnd,
+    required TResult Function(_Initialize value) initialize,
+    required TResult Function(_SetMorningCheckInNotification value)
+        setMorningCheckInNotification,
+    required TResult Function(_SetMorningCheckInLateNotification value)
+        setMorningCheckInLateNotification,
+    required TResult Function(_SetMorningCheckOutNotification value)
+        setMorningCheckOutNotification,
+    required TResult Function(_SetAfternoonCheckInNotification value)
+        setAfternoonCheckInNotification,
+    required TResult Function(_SetAfternoonCheckOutNotification value)
+        setAfternoonCheckOutNotification,
+    required TResult Function(_ResetState value) resetState,
   }) {
     return initialize(this);
   }
@@ -204,14 +230,18 @@ class _$Initialize with DiagnosticableTreeMixin implements Initialize {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(Initialize value)? initialize,
-    TResult Function(ScheduleMorningShiftStart value)?
-        scheduleMorningShiftStart,
-    TResult Function(ScheduleMorningShiftEnd value)? scheduleMorningShiftEnd,
-    TResult Function(ScheduleAfternoonShiftStart value)?
-        scheduleAfternoonShiftStart,
-    TResult Function(ScheduleAfternoonShiftEnd value)?
-        scheduleAfternoonShiftEnd,
+    TResult Function(_Initialize value)? initialize,
+    TResult Function(_SetMorningCheckInNotification value)?
+        setMorningCheckInNotification,
+    TResult Function(_SetMorningCheckInLateNotification value)?
+        setMorningCheckInLateNotification,
+    TResult Function(_SetMorningCheckOutNotification value)?
+        setMorningCheckOutNotification,
+    TResult Function(_SetAfternoonCheckInNotification value)?
+        setAfternoonCheckInNotification,
+    TResult Function(_SetAfternoonCheckOutNotification value)?
+        setAfternoonCheckOutNotification,
+    TResult Function(_ResetState value)? resetState,
   }) {
     return initialize?.call(this);
   }
@@ -219,14 +249,18 @@ class _$Initialize with DiagnosticableTreeMixin implements Initialize {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(Initialize value)? initialize,
-    TResult Function(ScheduleMorningShiftStart value)?
-        scheduleMorningShiftStart,
-    TResult Function(ScheduleMorningShiftEnd value)? scheduleMorningShiftEnd,
-    TResult Function(ScheduleAfternoonShiftStart value)?
-        scheduleAfternoonShiftStart,
-    TResult Function(ScheduleAfternoonShiftEnd value)?
-        scheduleAfternoonShiftEnd,
+    TResult Function(_Initialize value)? initialize,
+    TResult Function(_SetMorningCheckInNotification value)?
+        setMorningCheckInNotification,
+    TResult Function(_SetMorningCheckInLateNotification value)?
+        setMorningCheckInLateNotification,
+    TResult Function(_SetMorningCheckOutNotification value)?
+        setMorningCheckOutNotification,
+    TResult Function(_SetAfternoonCheckInNotification value)?
+        setAfternoonCheckInNotification,
+    TResult Function(_SetAfternoonCheckOutNotification value)?
+        setAfternoonCheckOutNotification,
+    TResult Function(_ResetState value)? resetState,
     required TResult orElse(),
   }) {
     if (initialize != null) {
@@ -236,55 +270,56 @@ class _$Initialize with DiagnosticableTreeMixin implements Initialize {
   }
 }
 
-abstract class Initialize implements NotificationEvent {
-  const factory Initialize() = _$Initialize;
+abstract class _Initialize implements NotificationEvent {
+  const factory _Initialize() = _$_Initialize;
 }
 
 /// @nodoc
-abstract class _$$ScheduleMorningShiftStartCopyWith<$Res> {
-  factory _$$ScheduleMorningShiftStartCopyWith(
-          _$ScheduleMorningShiftStart value,
-          $Res Function(_$ScheduleMorningShiftStart) then) =
-      __$$ScheduleMorningShiftStartCopyWithImpl<$Res>;
+abstract class _$$_SetMorningCheckInNotificationCopyWith<$Res> {
+  factory _$$_SetMorningCheckInNotificationCopyWith(
+          _$_SetMorningCheckInNotification value,
+          $Res Function(_$_SetMorningCheckInNotification) then) =
+      __$$_SetMorningCheckInNotificationCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$ScheduleMorningShiftStartCopyWithImpl<$Res>
+class __$$_SetMorningCheckInNotificationCopyWithImpl<$Res>
     extends _$NotificationEventCopyWithImpl<$Res>
-    implements _$$ScheduleMorningShiftStartCopyWith<$Res> {
-  __$$ScheduleMorningShiftStartCopyWithImpl(_$ScheduleMorningShiftStart _value,
-      $Res Function(_$ScheduleMorningShiftStart) _then)
-      : super(_value, (v) => _then(v as _$ScheduleMorningShiftStart));
+    implements _$$_SetMorningCheckInNotificationCopyWith<$Res> {
+  __$$_SetMorningCheckInNotificationCopyWithImpl(
+      _$_SetMorningCheckInNotification _value,
+      $Res Function(_$_SetMorningCheckInNotification) _then)
+      : super(_value, (v) => _then(v as _$_SetMorningCheckInNotification));
 
   @override
-  _$ScheduleMorningShiftStart get _value =>
-      super._value as _$ScheduleMorningShiftStart;
+  _$_SetMorningCheckInNotification get _value =>
+      super._value as _$_SetMorningCheckInNotification;
 }
 
 /// @nodoc
 
-class _$ScheduleMorningShiftStart
+class _$_SetMorningCheckInNotification
     with DiagnosticableTreeMixin
-    implements ScheduleMorningShiftStart {
-  const _$ScheduleMorningShiftStart();
+    implements _SetMorningCheckInNotification {
+  const _$_SetMorningCheckInNotification();
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'NotificationEvent.scheduleMorningShiftStart()';
+    return 'NotificationEvent.setMorningCheckInNotification()';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties.add(DiagnosticsProperty(
-        'type', 'NotificationEvent.scheduleMorningShiftStart'));
+        'type', 'NotificationEvent.setMorningCheckInNotification'));
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ScheduleMorningShiftStart);
+            other is _$_SetMorningCheckInNotification);
   }
 
   @override
@@ -294,38 +329,44 @@ class _$ScheduleMorningShiftStart
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initialize,
-    required TResult Function() scheduleMorningShiftStart,
-    required TResult Function() scheduleMorningShiftEnd,
-    required TResult Function() scheduleAfternoonShiftStart,
-    required TResult Function() scheduleAfternoonShiftEnd,
+    required TResult Function() setMorningCheckInNotification,
+    required TResult Function() setMorningCheckInLateNotification,
+    required TResult Function() setMorningCheckOutNotification,
+    required TResult Function() setAfternoonCheckInNotification,
+    required TResult Function() setAfternoonCheckOutNotification,
+    required TResult Function() resetState,
   }) {
-    return scheduleMorningShiftStart();
+    return setMorningCheckInNotification();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initialize,
-    TResult Function()? scheduleMorningShiftStart,
-    TResult Function()? scheduleMorningShiftEnd,
-    TResult Function()? scheduleAfternoonShiftStart,
-    TResult Function()? scheduleAfternoonShiftEnd,
+    TResult Function()? setMorningCheckInNotification,
+    TResult Function()? setMorningCheckInLateNotification,
+    TResult Function()? setMorningCheckOutNotification,
+    TResult Function()? setAfternoonCheckInNotification,
+    TResult Function()? setAfternoonCheckOutNotification,
+    TResult Function()? resetState,
   }) {
-    return scheduleMorningShiftStart?.call();
+    return setMorningCheckInNotification?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialize,
-    TResult Function()? scheduleMorningShiftStart,
-    TResult Function()? scheduleMorningShiftEnd,
-    TResult Function()? scheduleAfternoonShiftStart,
-    TResult Function()? scheduleAfternoonShiftEnd,
+    TResult Function()? setMorningCheckInNotification,
+    TResult Function()? setMorningCheckInLateNotification,
+    TResult Function()? setMorningCheckOutNotification,
+    TResult Function()? setAfternoonCheckInNotification,
+    TResult Function()? setAfternoonCheckOutNotification,
+    TResult Function()? resetState,
     required TResult orElse(),
   }) {
-    if (scheduleMorningShiftStart != null) {
-      return scheduleMorningShiftStart();
+    if (setMorningCheckInNotification != null) {
+      return setMorningCheckInNotification();
     }
     return orElse();
   }
@@ -333,102 +374,116 @@ class _$ScheduleMorningShiftStart
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(Initialize value) initialize,
-    required TResult Function(ScheduleMorningShiftStart value)
-        scheduleMorningShiftStart,
-    required TResult Function(ScheduleMorningShiftEnd value)
-        scheduleMorningShiftEnd,
-    required TResult Function(ScheduleAfternoonShiftStart value)
-        scheduleAfternoonShiftStart,
-    required TResult Function(ScheduleAfternoonShiftEnd value)
-        scheduleAfternoonShiftEnd,
+    required TResult Function(_Initialize value) initialize,
+    required TResult Function(_SetMorningCheckInNotification value)
+        setMorningCheckInNotification,
+    required TResult Function(_SetMorningCheckInLateNotification value)
+        setMorningCheckInLateNotification,
+    required TResult Function(_SetMorningCheckOutNotification value)
+        setMorningCheckOutNotification,
+    required TResult Function(_SetAfternoonCheckInNotification value)
+        setAfternoonCheckInNotification,
+    required TResult Function(_SetAfternoonCheckOutNotification value)
+        setAfternoonCheckOutNotification,
+    required TResult Function(_ResetState value) resetState,
   }) {
-    return scheduleMorningShiftStart(this);
+    return setMorningCheckInNotification(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(Initialize value)? initialize,
-    TResult Function(ScheduleMorningShiftStart value)?
-        scheduleMorningShiftStart,
-    TResult Function(ScheduleMorningShiftEnd value)? scheduleMorningShiftEnd,
-    TResult Function(ScheduleAfternoonShiftStart value)?
-        scheduleAfternoonShiftStart,
-    TResult Function(ScheduleAfternoonShiftEnd value)?
-        scheduleAfternoonShiftEnd,
+    TResult Function(_Initialize value)? initialize,
+    TResult Function(_SetMorningCheckInNotification value)?
+        setMorningCheckInNotification,
+    TResult Function(_SetMorningCheckInLateNotification value)?
+        setMorningCheckInLateNotification,
+    TResult Function(_SetMorningCheckOutNotification value)?
+        setMorningCheckOutNotification,
+    TResult Function(_SetAfternoonCheckInNotification value)?
+        setAfternoonCheckInNotification,
+    TResult Function(_SetAfternoonCheckOutNotification value)?
+        setAfternoonCheckOutNotification,
+    TResult Function(_ResetState value)? resetState,
   }) {
-    return scheduleMorningShiftStart?.call(this);
+    return setMorningCheckInNotification?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(Initialize value)? initialize,
-    TResult Function(ScheduleMorningShiftStart value)?
-        scheduleMorningShiftStart,
-    TResult Function(ScheduleMorningShiftEnd value)? scheduleMorningShiftEnd,
-    TResult Function(ScheduleAfternoonShiftStart value)?
-        scheduleAfternoonShiftStart,
-    TResult Function(ScheduleAfternoonShiftEnd value)?
-        scheduleAfternoonShiftEnd,
+    TResult Function(_Initialize value)? initialize,
+    TResult Function(_SetMorningCheckInNotification value)?
+        setMorningCheckInNotification,
+    TResult Function(_SetMorningCheckInLateNotification value)?
+        setMorningCheckInLateNotification,
+    TResult Function(_SetMorningCheckOutNotification value)?
+        setMorningCheckOutNotification,
+    TResult Function(_SetAfternoonCheckInNotification value)?
+        setAfternoonCheckInNotification,
+    TResult Function(_SetAfternoonCheckOutNotification value)?
+        setAfternoonCheckOutNotification,
+    TResult Function(_ResetState value)? resetState,
     required TResult orElse(),
   }) {
-    if (scheduleMorningShiftStart != null) {
-      return scheduleMorningShiftStart(this);
+    if (setMorningCheckInNotification != null) {
+      return setMorningCheckInNotification(this);
     }
     return orElse();
   }
 }
 
-abstract class ScheduleMorningShiftStart implements NotificationEvent {
-  const factory ScheduleMorningShiftStart() = _$ScheduleMorningShiftStart;
+abstract class _SetMorningCheckInNotification implements NotificationEvent {
+  const factory _SetMorningCheckInNotification() =
+      _$_SetMorningCheckInNotification;
 }
 
 /// @nodoc
-abstract class _$$ScheduleMorningShiftEndCopyWith<$Res> {
-  factory _$$ScheduleMorningShiftEndCopyWith(_$ScheduleMorningShiftEnd value,
-          $Res Function(_$ScheduleMorningShiftEnd) then) =
-      __$$ScheduleMorningShiftEndCopyWithImpl<$Res>;
+abstract class _$$_SetMorningCheckInLateNotificationCopyWith<$Res> {
+  factory _$$_SetMorningCheckInLateNotificationCopyWith(
+          _$_SetMorningCheckInLateNotification value,
+          $Res Function(_$_SetMorningCheckInLateNotification) then) =
+      __$$_SetMorningCheckInLateNotificationCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$ScheduleMorningShiftEndCopyWithImpl<$Res>
+class __$$_SetMorningCheckInLateNotificationCopyWithImpl<$Res>
     extends _$NotificationEventCopyWithImpl<$Res>
-    implements _$$ScheduleMorningShiftEndCopyWith<$Res> {
-  __$$ScheduleMorningShiftEndCopyWithImpl(_$ScheduleMorningShiftEnd _value,
-      $Res Function(_$ScheduleMorningShiftEnd) _then)
-      : super(_value, (v) => _then(v as _$ScheduleMorningShiftEnd));
+    implements _$$_SetMorningCheckInLateNotificationCopyWith<$Res> {
+  __$$_SetMorningCheckInLateNotificationCopyWithImpl(
+      _$_SetMorningCheckInLateNotification _value,
+      $Res Function(_$_SetMorningCheckInLateNotification) _then)
+      : super(_value, (v) => _then(v as _$_SetMorningCheckInLateNotification));
 
   @override
-  _$ScheduleMorningShiftEnd get _value =>
-      super._value as _$ScheduleMorningShiftEnd;
+  _$_SetMorningCheckInLateNotification get _value =>
+      super._value as _$_SetMorningCheckInLateNotification;
 }
 
 /// @nodoc
 
-class _$ScheduleMorningShiftEnd
+class _$_SetMorningCheckInLateNotification
     with DiagnosticableTreeMixin
-    implements ScheduleMorningShiftEnd {
-  const _$ScheduleMorningShiftEnd();
+    implements _SetMorningCheckInLateNotification {
+  const _$_SetMorningCheckInLateNotification();
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'NotificationEvent.scheduleMorningShiftEnd()';
+    return 'NotificationEvent.setMorningCheckInLateNotification()';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties.add(DiagnosticsProperty(
-        'type', 'NotificationEvent.scheduleMorningShiftEnd'));
+        'type', 'NotificationEvent.setMorningCheckInLateNotification'));
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ScheduleMorningShiftEnd);
+            other is _$_SetMorningCheckInLateNotification);
   }
 
   @override
@@ -438,38 +493,44 @@ class _$ScheduleMorningShiftEnd
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initialize,
-    required TResult Function() scheduleMorningShiftStart,
-    required TResult Function() scheduleMorningShiftEnd,
-    required TResult Function() scheduleAfternoonShiftStart,
-    required TResult Function() scheduleAfternoonShiftEnd,
+    required TResult Function() setMorningCheckInNotification,
+    required TResult Function() setMorningCheckInLateNotification,
+    required TResult Function() setMorningCheckOutNotification,
+    required TResult Function() setAfternoonCheckInNotification,
+    required TResult Function() setAfternoonCheckOutNotification,
+    required TResult Function() resetState,
   }) {
-    return scheduleMorningShiftEnd();
+    return setMorningCheckInLateNotification();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initialize,
-    TResult Function()? scheduleMorningShiftStart,
-    TResult Function()? scheduleMorningShiftEnd,
-    TResult Function()? scheduleAfternoonShiftStart,
-    TResult Function()? scheduleAfternoonShiftEnd,
+    TResult Function()? setMorningCheckInNotification,
+    TResult Function()? setMorningCheckInLateNotification,
+    TResult Function()? setMorningCheckOutNotification,
+    TResult Function()? setAfternoonCheckInNotification,
+    TResult Function()? setAfternoonCheckOutNotification,
+    TResult Function()? resetState,
   }) {
-    return scheduleMorningShiftEnd?.call();
+    return setMorningCheckInLateNotification?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialize,
-    TResult Function()? scheduleMorningShiftStart,
-    TResult Function()? scheduleMorningShiftEnd,
-    TResult Function()? scheduleAfternoonShiftStart,
-    TResult Function()? scheduleAfternoonShiftEnd,
+    TResult Function()? setMorningCheckInNotification,
+    TResult Function()? setMorningCheckInLateNotification,
+    TResult Function()? setMorningCheckOutNotification,
+    TResult Function()? setAfternoonCheckInNotification,
+    TResult Function()? setAfternoonCheckOutNotification,
+    TResult Function()? resetState,
     required TResult orElse(),
   }) {
-    if (scheduleMorningShiftEnd != null) {
-      return scheduleMorningShiftEnd();
+    if (setMorningCheckInLateNotification != null) {
+      return setMorningCheckInLateNotification();
     }
     return orElse();
   }
@@ -477,104 +538,116 @@ class _$ScheduleMorningShiftEnd
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(Initialize value) initialize,
-    required TResult Function(ScheduleMorningShiftStart value)
-        scheduleMorningShiftStart,
-    required TResult Function(ScheduleMorningShiftEnd value)
-        scheduleMorningShiftEnd,
-    required TResult Function(ScheduleAfternoonShiftStart value)
-        scheduleAfternoonShiftStart,
-    required TResult Function(ScheduleAfternoonShiftEnd value)
-        scheduleAfternoonShiftEnd,
+    required TResult Function(_Initialize value) initialize,
+    required TResult Function(_SetMorningCheckInNotification value)
+        setMorningCheckInNotification,
+    required TResult Function(_SetMorningCheckInLateNotification value)
+        setMorningCheckInLateNotification,
+    required TResult Function(_SetMorningCheckOutNotification value)
+        setMorningCheckOutNotification,
+    required TResult Function(_SetAfternoonCheckInNotification value)
+        setAfternoonCheckInNotification,
+    required TResult Function(_SetAfternoonCheckOutNotification value)
+        setAfternoonCheckOutNotification,
+    required TResult Function(_ResetState value) resetState,
   }) {
-    return scheduleMorningShiftEnd(this);
+    return setMorningCheckInLateNotification(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(Initialize value)? initialize,
-    TResult Function(ScheduleMorningShiftStart value)?
-        scheduleMorningShiftStart,
-    TResult Function(ScheduleMorningShiftEnd value)? scheduleMorningShiftEnd,
-    TResult Function(ScheduleAfternoonShiftStart value)?
-        scheduleAfternoonShiftStart,
-    TResult Function(ScheduleAfternoonShiftEnd value)?
-        scheduleAfternoonShiftEnd,
+    TResult Function(_Initialize value)? initialize,
+    TResult Function(_SetMorningCheckInNotification value)?
+        setMorningCheckInNotification,
+    TResult Function(_SetMorningCheckInLateNotification value)?
+        setMorningCheckInLateNotification,
+    TResult Function(_SetMorningCheckOutNotification value)?
+        setMorningCheckOutNotification,
+    TResult Function(_SetAfternoonCheckInNotification value)?
+        setAfternoonCheckInNotification,
+    TResult Function(_SetAfternoonCheckOutNotification value)?
+        setAfternoonCheckOutNotification,
+    TResult Function(_ResetState value)? resetState,
   }) {
-    return scheduleMorningShiftEnd?.call(this);
+    return setMorningCheckInLateNotification?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(Initialize value)? initialize,
-    TResult Function(ScheduleMorningShiftStart value)?
-        scheduleMorningShiftStart,
-    TResult Function(ScheduleMorningShiftEnd value)? scheduleMorningShiftEnd,
-    TResult Function(ScheduleAfternoonShiftStart value)?
-        scheduleAfternoonShiftStart,
-    TResult Function(ScheduleAfternoonShiftEnd value)?
-        scheduleAfternoonShiftEnd,
+    TResult Function(_Initialize value)? initialize,
+    TResult Function(_SetMorningCheckInNotification value)?
+        setMorningCheckInNotification,
+    TResult Function(_SetMorningCheckInLateNotification value)?
+        setMorningCheckInLateNotification,
+    TResult Function(_SetMorningCheckOutNotification value)?
+        setMorningCheckOutNotification,
+    TResult Function(_SetAfternoonCheckInNotification value)?
+        setAfternoonCheckInNotification,
+    TResult Function(_SetAfternoonCheckOutNotification value)?
+        setAfternoonCheckOutNotification,
+    TResult Function(_ResetState value)? resetState,
     required TResult orElse(),
   }) {
-    if (scheduleMorningShiftEnd != null) {
-      return scheduleMorningShiftEnd(this);
+    if (setMorningCheckInLateNotification != null) {
+      return setMorningCheckInLateNotification(this);
     }
     return orElse();
   }
 }
 
-abstract class ScheduleMorningShiftEnd implements NotificationEvent {
-  const factory ScheduleMorningShiftEnd() = _$ScheduleMorningShiftEnd;
+abstract class _SetMorningCheckInLateNotification implements NotificationEvent {
+  const factory _SetMorningCheckInLateNotification() =
+      _$_SetMorningCheckInLateNotification;
 }
 
 /// @nodoc
-abstract class _$$ScheduleAfternoonShiftStartCopyWith<$Res> {
-  factory _$$ScheduleAfternoonShiftStartCopyWith(
-          _$ScheduleAfternoonShiftStart value,
-          $Res Function(_$ScheduleAfternoonShiftStart) then) =
-      __$$ScheduleAfternoonShiftStartCopyWithImpl<$Res>;
+abstract class _$$_SetMorningCheckOutNotificationCopyWith<$Res> {
+  factory _$$_SetMorningCheckOutNotificationCopyWith(
+          _$_SetMorningCheckOutNotification value,
+          $Res Function(_$_SetMorningCheckOutNotification) then) =
+      __$$_SetMorningCheckOutNotificationCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$ScheduleAfternoonShiftStartCopyWithImpl<$Res>
+class __$$_SetMorningCheckOutNotificationCopyWithImpl<$Res>
     extends _$NotificationEventCopyWithImpl<$Res>
-    implements _$$ScheduleAfternoonShiftStartCopyWith<$Res> {
-  __$$ScheduleAfternoonShiftStartCopyWithImpl(
-      _$ScheduleAfternoonShiftStart _value,
-      $Res Function(_$ScheduleAfternoonShiftStart) _then)
-      : super(_value, (v) => _then(v as _$ScheduleAfternoonShiftStart));
+    implements _$$_SetMorningCheckOutNotificationCopyWith<$Res> {
+  __$$_SetMorningCheckOutNotificationCopyWithImpl(
+      _$_SetMorningCheckOutNotification _value,
+      $Res Function(_$_SetMorningCheckOutNotification) _then)
+      : super(_value, (v) => _then(v as _$_SetMorningCheckOutNotification));
 
   @override
-  _$ScheduleAfternoonShiftStart get _value =>
-      super._value as _$ScheduleAfternoonShiftStart;
+  _$_SetMorningCheckOutNotification get _value =>
+      super._value as _$_SetMorningCheckOutNotification;
 }
 
 /// @nodoc
 
-class _$ScheduleAfternoonShiftStart
+class _$_SetMorningCheckOutNotification
     with DiagnosticableTreeMixin
-    implements ScheduleAfternoonShiftStart {
-  const _$ScheduleAfternoonShiftStart();
+    implements _SetMorningCheckOutNotification {
+  const _$_SetMorningCheckOutNotification();
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'NotificationEvent.scheduleAfternoonShiftStart()';
+    return 'NotificationEvent.setMorningCheckOutNotification()';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties.add(DiagnosticsProperty(
-        'type', 'NotificationEvent.scheduleAfternoonShiftStart'));
+        'type', 'NotificationEvent.setMorningCheckOutNotification'));
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ScheduleAfternoonShiftStart);
+            other is _$_SetMorningCheckOutNotification);
   }
 
   @override
@@ -584,38 +657,44 @@ class _$ScheduleAfternoonShiftStart
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initialize,
-    required TResult Function() scheduleMorningShiftStart,
-    required TResult Function() scheduleMorningShiftEnd,
-    required TResult Function() scheduleAfternoonShiftStart,
-    required TResult Function() scheduleAfternoonShiftEnd,
+    required TResult Function() setMorningCheckInNotification,
+    required TResult Function() setMorningCheckInLateNotification,
+    required TResult Function() setMorningCheckOutNotification,
+    required TResult Function() setAfternoonCheckInNotification,
+    required TResult Function() setAfternoonCheckOutNotification,
+    required TResult Function() resetState,
   }) {
-    return scheduleAfternoonShiftStart();
+    return setMorningCheckOutNotification();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initialize,
-    TResult Function()? scheduleMorningShiftStart,
-    TResult Function()? scheduleMorningShiftEnd,
-    TResult Function()? scheduleAfternoonShiftStart,
-    TResult Function()? scheduleAfternoonShiftEnd,
+    TResult Function()? setMorningCheckInNotification,
+    TResult Function()? setMorningCheckInLateNotification,
+    TResult Function()? setMorningCheckOutNotification,
+    TResult Function()? setAfternoonCheckInNotification,
+    TResult Function()? setAfternoonCheckOutNotification,
+    TResult Function()? resetState,
   }) {
-    return scheduleAfternoonShiftStart?.call();
+    return setMorningCheckOutNotification?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialize,
-    TResult Function()? scheduleMorningShiftStart,
-    TResult Function()? scheduleMorningShiftEnd,
-    TResult Function()? scheduleAfternoonShiftStart,
-    TResult Function()? scheduleAfternoonShiftEnd,
+    TResult Function()? setMorningCheckInNotification,
+    TResult Function()? setMorningCheckInLateNotification,
+    TResult Function()? setMorningCheckOutNotification,
+    TResult Function()? setAfternoonCheckInNotification,
+    TResult Function()? setAfternoonCheckOutNotification,
+    TResult Function()? resetState,
     required TResult orElse(),
   }) {
-    if (scheduleAfternoonShiftStart != null) {
-      return scheduleAfternoonShiftStart();
+    if (setMorningCheckOutNotification != null) {
+      return setMorningCheckOutNotification();
     }
     return orElse();
   }
@@ -623,103 +702,116 @@ class _$ScheduleAfternoonShiftStart
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(Initialize value) initialize,
-    required TResult Function(ScheduleMorningShiftStart value)
-        scheduleMorningShiftStart,
-    required TResult Function(ScheduleMorningShiftEnd value)
-        scheduleMorningShiftEnd,
-    required TResult Function(ScheduleAfternoonShiftStart value)
-        scheduleAfternoonShiftStart,
-    required TResult Function(ScheduleAfternoonShiftEnd value)
-        scheduleAfternoonShiftEnd,
+    required TResult Function(_Initialize value) initialize,
+    required TResult Function(_SetMorningCheckInNotification value)
+        setMorningCheckInNotification,
+    required TResult Function(_SetMorningCheckInLateNotification value)
+        setMorningCheckInLateNotification,
+    required TResult Function(_SetMorningCheckOutNotification value)
+        setMorningCheckOutNotification,
+    required TResult Function(_SetAfternoonCheckInNotification value)
+        setAfternoonCheckInNotification,
+    required TResult Function(_SetAfternoonCheckOutNotification value)
+        setAfternoonCheckOutNotification,
+    required TResult Function(_ResetState value) resetState,
   }) {
-    return scheduleAfternoonShiftStart(this);
+    return setMorningCheckOutNotification(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(Initialize value)? initialize,
-    TResult Function(ScheduleMorningShiftStart value)?
-        scheduleMorningShiftStart,
-    TResult Function(ScheduleMorningShiftEnd value)? scheduleMorningShiftEnd,
-    TResult Function(ScheduleAfternoonShiftStart value)?
-        scheduleAfternoonShiftStart,
-    TResult Function(ScheduleAfternoonShiftEnd value)?
-        scheduleAfternoonShiftEnd,
+    TResult Function(_Initialize value)? initialize,
+    TResult Function(_SetMorningCheckInNotification value)?
+        setMorningCheckInNotification,
+    TResult Function(_SetMorningCheckInLateNotification value)?
+        setMorningCheckInLateNotification,
+    TResult Function(_SetMorningCheckOutNotification value)?
+        setMorningCheckOutNotification,
+    TResult Function(_SetAfternoonCheckInNotification value)?
+        setAfternoonCheckInNotification,
+    TResult Function(_SetAfternoonCheckOutNotification value)?
+        setAfternoonCheckOutNotification,
+    TResult Function(_ResetState value)? resetState,
   }) {
-    return scheduleAfternoonShiftStart?.call(this);
+    return setMorningCheckOutNotification?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(Initialize value)? initialize,
-    TResult Function(ScheduleMorningShiftStart value)?
-        scheduleMorningShiftStart,
-    TResult Function(ScheduleMorningShiftEnd value)? scheduleMorningShiftEnd,
-    TResult Function(ScheduleAfternoonShiftStart value)?
-        scheduleAfternoonShiftStart,
-    TResult Function(ScheduleAfternoonShiftEnd value)?
-        scheduleAfternoonShiftEnd,
+    TResult Function(_Initialize value)? initialize,
+    TResult Function(_SetMorningCheckInNotification value)?
+        setMorningCheckInNotification,
+    TResult Function(_SetMorningCheckInLateNotification value)?
+        setMorningCheckInLateNotification,
+    TResult Function(_SetMorningCheckOutNotification value)?
+        setMorningCheckOutNotification,
+    TResult Function(_SetAfternoonCheckInNotification value)?
+        setAfternoonCheckInNotification,
+    TResult Function(_SetAfternoonCheckOutNotification value)?
+        setAfternoonCheckOutNotification,
+    TResult Function(_ResetState value)? resetState,
     required TResult orElse(),
   }) {
-    if (scheduleAfternoonShiftStart != null) {
-      return scheduleAfternoonShiftStart(this);
+    if (setMorningCheckOutNotification != null) {
+      return setMorningCheckOutNotification(this);
     }
     return orElse();
   }
 }
 
-abstract class ScheduleAfternoonShiftStart implements NotificationEvent {
-  const factory ScheduleAfternoonShiftStart() = _$ScheduleAfternoonShiftStart;
+abstract class _SetMorningCheckOutNotification implements NotificationEvent {
+  const factory _SetMorningCheckOutNotification() =
+      _$_SetMorningCheckOutNotification;
 }
 
 /// @nodoc
-abstract class _$$ScheduleAfternoonShiftEndCopyWith<$Res> {
-  factory _$$ScheduleAfternoonShiftEndCopyWith(
-          _$ScheduleAfternoonShiftEnd value,
-          $Res Function(_$ScheduleAfternoonShiftEnd) then) =
-      __$$ScheduleAfternoonShiftEndCopyWithImpl<$Res>;
+abstract class _$$_SetAfternoonCheckInNotificationCopyWith<$Res> {
+  factory _$$_SetAfternoonCheckInNotificationCopyWith(
+          _$_SetAfternoonCheckInNotification value,
+          $Res Function(_$_SetAfternoonCheckInNotification) then) =
+      __$$_SetAfternoonCheckInNotificationCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$ScheduleAfternoonShiftEndCopyWithImpl<$Res>
+class __$$_SetAfternoonCheckInNotificationCopyWithImpl<$Res>
     extends _$NotificationEventCopyWithImpl<$Res>
-    implements _$$ScheduleAfternoonShiftEndCopyWith<$Res> {
-  __$$ScheduleAfternoonShiftEndCopyWithImpl(_$ScheduleAfternoonShiftEnd _value,
-      $Res Function(_$ScheduleAfternoonShiftEnd) _then)
-      : super(_value, (v) => _then(v as _$ScheduleAfternoonShiftEnd));
+    implements _$$_SetAfternoonCheckInNotificationCopyWith<$Res> {
+  __$$_SetAfternoonCheckInNotificationCopyWithImpl(
+      _$_SetAfternoonCheckInNotification _value,
+      $Res Function(_$_SetAfternoonCheckInNotification) _then)
+      : super(_value, (v) => _then(v as _$_SetAfternoonCheckInNotification));
 
   @override
-  _$ScheduleAfternoonShiftEnd get _value =>
-      super._value as _$ScheduleAfternoonShiftEnd;
+  _$_SetAfternoonCheckInNotification get _value =>
+      super._value as _$_SetAfternoonCheckInNotification;
 }
 
 /// @nodoc
 
-class _$ScheduleAfternoonShiftEnd
+class _$_SetAfternoonCheckInNotification
     with DiagnosticableTreeMixin
-    implements ScheduleAfternoonShiftEnd {
-  const _$ScheduleAfternoonShiftEnd();
+    implements _SetAfternoonCheckInNotification {
+  const _$_SetAfternoonCheckInNotification();
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'NotificationEvent.scheduleAfternoonShiftEnd()';
+    return 'NotificationEvent.setAfternoonCheckInNotification()';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties.add(DiagnosticsProperty(
-        'type', 'NotificationEvent.scheduleAfternoonShiftEnd'));
+        'type', 'NotificationEvent.setAfternoonCheckInNotification'));
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ScheduleAfternoonShiftEnd);
+            other is _$_SetAfternoonCheckInNotification);
   }
 
   @override
@@ -729,38 +821,44 @@ class _$ScheduleAfternoonShiftEnd
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initialize,
-    required TResult Function() scheduleMorningShiftStart,
-    required TResult Function() scheduleMorningShiftEnd,
-    required TResult Function() scheduleAfternoonShiftStart,
-    required TResult Function() scheduleAfternoonShiftEnd,
+    required TResult Function() setMorningCheckInNotification,
+    required TResult Function() setMorningCheckInLateNotification,
+    required TResult Function() setMorningCheckOutNotification,
+    required TResult Function() setAfternoonCheckInNotification,
+    required TResult Function() setAfternoonCheckOutNotification,
+    required TResult Function() resetState,
   }) {
-    return scheduleAfternoonShiftEnd();
+    return setAfternoonCheckInNotification();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initialize,
-    TResult Function()? scheduleMorningShiftStart,
-    TResult Function()? scheduleMorningShiftEnd,
-    TResult Function()? scheduleAfternoonShiftStart,
-    TResult Function()? scheduleAfternoonShiftEnd,
+    TResult Function()? setMorningCheckInNotification,
+    TResult Function()? setMorningCheckInLateNotification,
+    TResult Function()? setMorningCheckOutNotification,
+    TResult Function()? setAfternoonCheckInNotification,
+    TResult Function()? setAfternoonCheckOutNotification,
+    TResult Function()? resetState,
   }) {
-    return scheduleAfternoonShiftEnd?.call();
+    return setAfternoonCheckInNotification?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialize,
-    TResult Function()? scheduleMorningShiftStart,
-    TResult Function()? scheduleMorningShiftEnd,
-    TResult Function()? scheduleAfternoonShiftStart,
-    TResult Function()? scheduleAfternoonShiftEnd,
+    TResult Function()? setMorningCheckInNotification,
+    TResult Function()? setMorningCheckInLateNotification,
+    TResult Function()? setMorningCheckOutNotification,
+    TResult Function()? setAfternoonCheckInNotification,
+    TResult Function()? setAfternoonCheckOutNotification,
+    TResult Function()? resetState,
     required TResult orElse(),
   }) {
-    if (scheduleAfternoonShiftEnd != null) {
-      return scheduleAfternoonShiftEnd();
+    if (setAfternoonCheckInNotification != null) {
+      return setAfternoonCheckInNotification();
     }
     return orElse();
   }
@@ -768,64 +866,402 @@ class _$ScheduleAfternoonShiftEnd
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(Initialize value) initialize,
-    required TResult Function(ScheduleMorningShiftStart value)
-        scheduleMorningShiftStart,
-    required TResult Function(ScheduleMorningShiftEnd value)
-        scheduleMorningShiftEnd,
-    required TResult Function(ScheduleAfternoonShiftStart value)
-        scheduleAfternoonShiftStart,
-    required TResult Function(ScheduleAfternoonShiftEnd value)
-        scheduleAfternoonShiftEnd,
+    required TResult Function(_Initialize value) initialize,
+    required TResult Function(_SetMorningCheckInNotification value)
+        setMorningCheckInNotification,
+    required TResult Function(_SetMorningCheckInLateNotification value)
+        setMorningCheckInLateNotification,
+    required TResult Function(_SetMorningCheckOutNotification value)
+        setMorningCheckOutNotification,
+    required TResult Function(_SetAfternoonCheckInNotification value)
+        setAfternoonCheckInNotification,
+    required TResult Function(_SetAfternoonCheckOutNotification value)
+        setAfternoonCheckOutNotification,
+    required TResult Function(_ResetState value) resetState,
   }) {
-    return scheduleAfternoonShiftEnd(this);
+    return setAfternoonCheckInNotification(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(Initialize value)? initialize,
-    TResult Function(ScheduleMorningShiftStart value)?
-        scheduleMorningShiftStart,
-    TResult Function(ScheduleMorningShiftEnd value)? scheduleMorningShiftEnd,
-    TResult Function(ScheduleAfternoonShiftStart value)?
-        scheduleAfternoonShiftStart,
-    TResult Function(ScheduleAfternoonShiftEnd value)?
-        scheduleAfternoonShiftEnd,
+    TResult Function(_Initialize value)? initialize,
+    TResult Function(_SetMorningCheckInNotification value)?
+        setMorningCheckInNotification,
+    TResult Function(_SetMorningCheckInLateNotification value)?
+        setMorningCheckInLateNotification,
+    TResult Function(_SetMorningCheckOutNotification value)?
+        setMorningCheckOutNotification,
+    TResult Function(_SetAfternoonCheckInNotification value)?
+        setAfternoonCheckInNotification,
+    TResult Function(_SetAfternoonCheckOutNotification value)?
+        setAfternoonCheckOutNotification,
+    TResult Function(_ResetState value)? resetState,
   }) {
-    return scheduleAfternoonShiftEnd?.call(this);
+    return setAfternoonCheckInNotification?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(Initialize value)? initialize,
-    TResult Function(ScheduleMorningShiftStart value)?
-        scheduleMorningShiftStart,
-    TResult Function(ScheduleMorningShiftEnd value)? scheduleMorningShiftEnd,
-    TResult Function(ScheduleAfternoonShiftStart value)?
-        scheduleAfternoonShiftStart,
-    TResult Function(ScheduleAfternoonShiftEnd value)?
-        scheduleAfternoonShiftEnd,
+    TResult Function(_Initialize value)? initialize,
+    TResult Function(_SetMorningCheckInNotification value)?
+        setMorningCheckInNotification,
+    TResult Function(_SetMorningCheckInLateNotification value)?
+        setMorningCheckInLateNotification,
+    TResult Function(_SetMorningCheckOutNotification value)?
+        setMorningCheckOutNotification,
+    TResult Function(_SetAfternoonCheckInNotification value)?
+        setAfternoonCheckInNotification,
+    TResult Function(_SetAfternoonCheckOutNotification value)?
+        setAfternoonCheckOutNotification,
+    TResult Function(_ResetState value)? resetState,
     required TResult orElse(),
   }) {
-    if (scheduleAfternoonShiftEnd != null) {
-      return scheduleAfternoonShiftEnd(this);
+    if (setAfternoonCheckInNotification != null) {
+      return setAfternoonCheckInNotification(this);
     }
     return orElse();
   }
 }
 
-abstract class ScheduleAfternoonShiftEnd implements NotificationEvent {
-  const factory ScheduleAfternoonShiftEnd() = _$ScheduleAfternoonShiftEnd;
+abstract class _SetAfternoonCheckInNotification implements NotificationEvent {
+  const factory _SetAfternoonCheckInNotification() =
+      _$_SetAfternoonCheckInNotification;
+}
+
+/// @nodoc
+abstract class _$$_SetAfternoonCheckOutNotificationCopyWith<$Res> {
+  factory _$$_SetAfternoonCheckOutNotificationCopyWith(
+          _$_SetAfternoonCheckOutNotification value,
+          $Res Function(_$_SetAfternoonCheckOutNotification) then) =
+      __$$_SetAfternoonCheckOutNotificationCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_SetAfternoonCheckOutNotificationCopyWithImpl<$Res>
+    extends _$NotificationEventCopyWithImpl<$Res>
+    implements _$$_SetAfternoonCheckOutNotificationCopyWith<$Res> {
+  __$$_SetAfternoonCheckOutNotificationCopyWithImpl(
+      _$_SetAfternoonCheckOutNotification _value,
+      $Res Function(_$_SetAfternoonCheckOutNotification) _then)
+      : super(_value, (v) => _then(v as _$_SetAfternoonCheckOutNotification));
+
+  @override
+  _$_SetAfternoonCheckOutNotification get _value =>
+      super._value as _$_SetAfternoonCheckOutNotification;
+}
+
+/// @nodoc
+
+class _$_SetAfternoonCheckOutNotification
+    with DiagnosticableTreeMixin
+    implements _SetAfternoonCheckOutNotification {
+  const _$_SetAfternoonCheckOutNotification();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'NotificationEvent.setAfternoonCheckOutNotification()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty(
+        'type', 'NotificationEvent.setAfternoonCheckOutNotification'));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_SetAfternoonCheckOutNotification);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initialize,
+    required TResult Function() setMorningCheckInNotification,
+    required TResult Function() setMorningCheckInLateNotification,
+    required TResult Function() setMorningCheckOutNotification,
+    required TResult Function() setAfternoonCheckInNotification,
+    required TResult Function() setAfternoonCheckOutNotification,
+    required TResult Function() resetState,
+  }) {
+    return setAfternoonCheckOutNotification();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initialize,
+    TResult Function()? setMorningCheckInNotification,
+    TResult Function()? setMorningCheckInLateNotification,
+    TResult Function()? setMorningCheckOutNotification,
+    TResult Function()? setAfternoonCheckInNotification,
+    TResult Function()? setAfternoonCheckOutNotification,
+    TResult Function()? resetState,
+  }) {
+    return setAfternoonCheckOutNotification?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialize,
+    TResult Function()? setMorningCheckInNotification,
+    TResult Function()? setMorningCheckInLateNotification,
+    TResult Function()? setMorningCheckOutNotification,
+    TResult Function()? setAfternoonCheckInNotification,
+    TResult Function()? setAfternoonCheckOutNotification,
+    TResult Function()? resetState,
+    required TResult orElse(),
+  }) {
+    if (setAfternoonCheckOutNotification != null) {
+      return setAfternoonCheckOutNotification();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initialize value) initialize,
+    required TResult Function(_SetMorningCheckInNotification value)
+        setMorningCheckInNotification,
+    required TResult Function(_SetMorningCheckInLateNotification value)
+        setMorningCheckInLateNotification,
+    required TResult Function(_SetMorningCheckOutNotification value)
+        setMorningCheckOutNotification,
+    required TResult Function(_SetAfternoonCheckInNotification value)
+        setAfternoonCheckInNotification,
+    required TResult Function(_SetAfternoonCheckOutNotification value)
+        setAfternoonCheckOutNotification,
+    required TResult Function(_ResetState value) resetState,
+  }) {
+    return setAfternoonCheckOutNotification(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Initialize value)? initialize,
+    TResult Function(_SetMorningCheckInNotification value)?
+        setMorningCheckInNotification,
+    TResult Function(_SetMorningCheckInLateNotification value)?
+        setMorningCheckInLateNotification,
+    TResult Function(_SetMorningCheckOutNotification value)?
+        setMorningCheckOutNotification,
+    TResult Function(_SetAfternoonCheckInNotification value)?
+        setAfternoonCheckInNotification,
+    TResult Function(_SetAfternoonCheckOutNotification value)?
+        setAfternoonCheckOutNotification,
+    TResult Function(_ResetState value)? resetState,
+  }) {
+    return setAfternoonCheckOutNotification?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initialize value)? initialize,
+    TResult Function(_SetMorningCheckInNotification value)?
+        setMorningCheckInNotification,
+    TResult Function(_SetMorningCheckInLateNotification value)?
+        setMorningCheckInLateNotification,
+    TResult Function(_SetMorningCheckOutNotification value)?
+        setMorningCheckOutNotification,
+    TResult Function(_SetAfternoonCheckInNotification value)?
+        setAfternoonCheckInNotification,
+    TResult Function(_SetAfternoonCheckOutNotification value)?
+        setAfternoonCheckOutNotification,
+    TResult Function(_ResetState value)? resetState,
+    required TResult orElse(),
+  }) {
+    if (setAfternoonCheckOutNotification != null) {
+      return setAfternoonCheckOutNotification(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SetAfternoonCheckOutNotification implements NotificationEvent {
+  const factory _SetAfternoonCheckOutNotification() =
+      _$_SetAfternoonCheckOutNotification;
+}
+
+/// @nodoc
+abstract class _$$_ResetStateCopyWith<$Res> {
+  factory _$$_ResetStateCopyWith(
+          _$_ResetState value, $Res Function(_$_ResetState) then) =
+      __$$_ResetStateCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_ResetStateCopyWithImpl<$Res>
+    extends _$NotificationEventCopyWithImpl<$Res>
+    implements _$$_ResetStateCopyWith<$Res> {
+  __$$_ResetStateCopyWithImpl(
+      _$_ResetState _value, $Res Function(_$_ResetState) _then)
+      : super(_value, (v) => _then(v as _$_ResetState));
+
+  @override
+  _$_ResetState get _value => super._value as _$_ResetState;
+}
+
+/// @nodoc
+
+class _$_ResetState with DiagnosticableTreeMixin implements _ResetState {
+  const _$_ResetState();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'NotificationEvent.resetState()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty('type', 'NotificationEvent.resetState'));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_ResetState);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initialize,
+    required TResult Function() setMorningCheckInNotification,
+    required TResult Function() setMorningCheckInLateNotification,
+    required TResult Function() setMorningCheckOutNotification,
+    required TResult Function() setAfternoonCheckInNotification,
+    required TResult Function() setAfternoonCheckOutNotification,
+    required TResult Function() resetState,
+  }) {
+    return resetState();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initialize,
+    TResult Function()? setMorningCheckInNotification,
+    TResult Function()? setMorningCheckInLateNotification,
+    TResult Function()? setMorningCheckOutNotification,
+    TResult Function()? setAfternoonCheckInNotification,
+    TResult Function()? setAfternoonCheckOutNotification,
+    TResult Function()? resetState,
+  }) {
+    return resetState?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialize,
+    TResult Function()? setMorningCheckInNotification,
+    TResult Function()? setMorningCheckInLateNotification,
+    TResult Function()? setMorningCheckOutNotification,
+    TResult Function()? setAfternoonCheckInNotification,
+    TResult Function()? setAfternoonCheckOutNotification,
+    TResult Function()? resetState,
+    required TResult orElse(),
+  }) {
+    if (resetState != null) {
+      return resetState();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initialize value) initialize,
+    required TResult Function(_SetMorningCheckInNotification value)
+        setMorningCheckInNotification,
+    required TResult Function(_SetMorningCheckInLateNotification value)
+        setMorningCheckInLateNotification,
+    required TResult Function(_SetMorningCheckOutNotification value)
+        setMorningCheckOutNotification,
+    required TResult Function(_SetAfternoonCheckInNotification value)
+        setAfternoonCheckInNotification,
+    required TResult Function(_SetAfternoonCheckOutNotification value)
+        setAfternoonCheckOutNotification,
+    required TResult Function(_ResetState value) resetState,
+  }) {
+    return resetState(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Initialize value)? initialize,
+    TResult Function(_SetMorningCheckInNotification value)?
+        setMorningCheckInNotification,
+    TResult Function(_SetMorningCheckInLateNotification value)?
+        setMorningCheckInLateNotification,
+    TResult Function(_SetMorningCheckOutNotification value)?
+        setMorningCheckOutNotification,
+    TResult Function(_SetAfternoonCheckInNotification value)?
+        setAfternoonCheckInNotification,
+    TResult Function(_SetAfternoonCheckOutNotification value)?
+        setAfternoonCheckOutNotification,
+    TResult Function(_ResetState value)? resetState,
+  }) {
+    return resetState?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initialize value)? initialize,
+    TResult Function(_SetMorningCheckInNotification value)?
+        setMorningCheckInNotification,
+    TResult Function(_SetMorningCheckInLateNotification value)?
+        setMorningCheckInLateNotification,
+    TResult Function(_SetMorningCheckOutNotification value)?
+        setMorningCheckOutNotification,
+    TResult Function(_SetAfternoonCheckInNotification value)?
+        setAfternoonCheckInNotification,
+    TResult Function(_SetAfternoonCheckOutNotification value)?
+        setAfternoonCheckOutNotification,
+    TResult Function(_ResetState value)? resetState,
+    required TResult orElse(),
+  }) {
+    if (resetState != null) {
+      return resetState(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ResetState implements NotificationEvent {
+  const factory _ResetState() = _$_ResetState;
 }
 
 /// @nodoc
 mixin _$NotificationState {
-  TimeOfDay get morningShiftStart => throw _privateConstructorUsedError;
-  TimeOfDay get morningShiftEnd => throw _privateConstructorUsedError;
-  TimeOfDay get afternoonShiftStart => throw _privateConstructorUsedError;
-  TimeOfDay get afternoonShiftEnd => throw _privateConstructorUsedError;
+  bool get isMorningCheckInNotificationSet =>
+      throw _privateConstructorUsedError;
+  bool get isMorningCheckInLateNotificationSet =>
+      throw _privateConstructorUsedError;
+  bool get isMorningCheckOutNotificationSet =>
+      throw _privateConstructorUsedError;
+  bool get isAfternoonCheckInNotificationSet =>
+      throw _privateConstructorUsedError;
+  bool get isAfternoonCheckOutNotificationSet =>
+      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $NotificationStateCopyWith<NotificationState> get copyWith =>
@@ -838,10 +1274,11 @@ abstract class $NotificationStateCopyWith<$Res> {
           NotificationState value, $Res Function(NotificationState) then) =
       _$NotificationStateCopyWithImpl<$Res>;
   $Res call(
-      {TimeOfDay morningShiftStart,
-      TimeOfDay morningShiftEnd,
-      TimeOfDay afternoonShiftStart,
-      TimeOfDay afternoonShiftEnd});
+      {bool isMorningCheckInNotificationSet,
+      bool isMorningCheckInLateNotificationSet,
+      bool isMorningCheckOutNotificationSet,
+      bool isAfternoonCheckInNotificationSet,
+      bool isAfternoonCheckOutNotificationSet});
 }
 
 /// @nodoc
@@ -855,28 +1292,38 @@ class _$NotificationStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? morningShiftStart = freezed,
-    Object? morningShiftEnd = freezed,
-    Object? afternoonShiftStart = freezed,
-    Object? afternoonShiftEnd = freezed,
+    Object? isMorningCheckInNotificationSet = freezed,
+    Object? isMorningCheckInLateNotificationSet = freezed,
+    Object? isMorningCheckOutNotificationSet = freezed,
+    Object? isAfternoonCheckInNotificationSet = freezed,
+    Object? isAfternoonCheckOutNotificationSet = freezed,
   }) {
     return _then(_value.copyWith(
-      morningShiftStart: morningShiftStart == freezed
-          ? _value.morningShiftStart
-          : morningShiftStart // ignore: cast_nullable_to_non_nullable
-              as TimeOfDay,
-      morningShiftEnd: morningShiftEnd == freezed
-          ? _value.morningShiftEnd
-          : morningShiftEnd // ignore: cast_nullable_to_non_nullable
-              as TimeOfDay,
-      afternoonShiftStart: afternoonShiftStart == freezed
-          ? _value.afternoonShiftStart
-          : afternoonShiftStart // ignore: cast_nullable_to_non_nullable
-              as TimeOfDay,
-      afternoonShiftEnd: afternoonShiftEnd == freezed
-          ? _value.afternoonShiftEnd
-          : afternoonShiftEnd // ignore: cast_nullable_to_non_nullable
-              as TimeOfDay,
+      isMorningCheckInNotificationSet: isMorningCheckInNotificationSet ==
+              freezed
+          ? _value.isMorningCheckInNotificationSet
+          : isMorningCheckInNotificationSet // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isMorningCheckInLateNotificationSet: isMorningCheckInLateNotificationSet ==
+              freezed
+          ? _value.isMorningCheckInLateNotificationSet
+          : isMorningCheckInLateNotificationSet // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isMorningCheckOutNotificationSet: isMorningCheckOutNotificationSet ==
+              freezed
+          ? _value.isMorningCheckOutNotificationSet
+          : isMorningCheckOutNotificationSet // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isAfternoonCheckInNotificationSet: isAfternoonCheckInNotificationSet ==
+              freezed
+          ? _value.isAfternoonCheckInNotificationSet
+          : isAfternoonCheckInNotificationSet // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isAfternoonCheckOutNotificationSet: isAfternoonCheckOutNotificationSet ==
+              freezed
+          ? _value.isAfternoonCheckOutNotificationSet
+          : isAfternoonCheckOutNotificationSet // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -889,10 +1336,11 @@ abstract class _$$_NotificationStateCopyWith<$Res>
       __$$_NotificationStateCopyWithImpl<$Res>;
   @override
   $Res call(
-      {TimeOfDay morningShiftStart,
-      TimeOfDay morningShiftEnd,
-      TimeOfDay afternoonShiftStart,
-      TimeOfDay afternoonShiftEnd});
+      {bool isMorningCheckInNotificationSet,
+      bool isMorningCheckInLateNotificationSet,
+      bool isMorningCheckOutNotificationSet,
+      bool isAfternoonCheckInNotificationSet,
+      bool isAfternoonCheckOutNotificationSet});
 }
 
 /// @nodoc
@@ -908,28 +1356,38 @@ class __$$_NotificationStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? morningShiftStart = freezed,
-    Object? morningShiftEnd = freezed,
-    Object? afternoonShiftStart = freezed,
-    Object? afternoonShiftEnd = freezed,
+    Object? isMorningCheckInNotificationSet = freezed,
+    Object? isMorningCheckInLateNotificationSet = freezed,
+    Object? isMorningCheckOutNotificationSet = freezed,
+    Object? isAfternoonCheckInNotificationSet = freezed,
+    Object? isAfternoonCheckOutNotificationSet = freezed,
   }) {
     return _then(_$_NotificationState(
-      morningShiftStart: morningShiftStart == freezed
-          ? _value.morningShiftStart
-          : morningShiftStart // ignore: cast_nullable_to_non_nullable
-              as TimeOfDay,
-      morningShiftEnd: morningShiftEnd == freezed
-          ? _value.morningShiftEnd
-          : morningShiftEnd // ignore: cast_nullable_to_non_nullable
-              as TimeOfDay,
-      afternoonShiftStart: afternoonShiftStart == freezed
-          ? _value.afternoonShiftStart
-          : afternoonShiftStart // ignore: cast_nullable_to_non_nullable
-              as TimeOfDay,
-      afternoonShiftEnd: afternoonShiftEnd == freezed
-          ? _value.afternoonShiftEnd
-          : afternoonShiftEnd // ignore: cast_nullable_to_non_nullable
-              as TimeOfDay,
+      isMorningCheckInNotificationSet: isMorningCheckInNotificationSet ==
+              freezed
+          ? _value.isMorningCheckInNotificationSet
+          : isMorningCheckInNotificationSet // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isMorningCheckInLateNotificationSet: isMorningCheckInLateNotificationSet ==
+              freezed
+          ? _value.isMorningCheckInLateNotificationSet
+          : isMorningCheckInLateNotificationSet // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isMorningCheckOutNotificationSet: isMorningCheckOutNotificationSet ==
+              freezed
+          ? _value.isMorningCheckOutNotificationSet
+          : isMorningCheckOutNotificationSet // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isAfternoonCheckInNotificationSet: isAfternoonCheckInNotificationSet ==
+              freezed
+          ? _value.isAfternoonCheckInNotificationSet
+          : isAfternoonCheckInNotificationSet // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isAfternoonCheckOutNotificationSet: isAfternoonCheckOutNotificationSet ==
+              freezed
+          ? _value.isAfternoonCheckOutNotificationSet
+          : isAfternoonCheckOutNotificationSet // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -940,23 +1398,26 @@ class _$_NotificationState
     with DiagnosticableTreeMixin
     implements _NotificationState {
   const _$_NotificationState(
-      {required this.morningShiftStart,
-      required this.morningShiftEnd,
-      required this.afternoonShiftStart,
-      required this.afternoonShiftEnd});
+      {required this.isMorningCheckInNotificationSet,
+      required this.isMorningCheckInLateNotificationSet,
+      required this.isMorningCheckOutNotificationSet,
+      required this.isAfternoonCheckInNotificationSet,
+      required this.isAfternoonCheckOutNotificationSet});
 
   @override
-  final TimeOfDay morningShiftStart;
+  final bool isMorningCheckInNotificationSet;
   @override
-  final TimeOfDay morningShiftEnd;
+  final bool isMorningCheckInLateNotificationSet;
   @override
-  final TimeOfDay afternoonShiftStart;
+  final bool isMorningCheckOutNotificationSet;
   @override
-  final TimeOfDay afternoonShiftEnd;
+  final bool isAfternoonCheckInNotificationSet;
+  @override
+  final bool isAfternoonCheckOutNotificationSet;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'NotificationState(morningShiftStart: $morningShiftStart, morningShiftEnd: $morningShiftEnd, afternoonShiftStart: $afternoonShiftStart, afternoonShiftEnd: $afternoonShiftEnd)';
+    return 'NotificationState(isMorningCheckInNotificationSet: $isMorningCheckInNotificationSet, isMorningCheckInLateNotificationSet: $isMorningCheckInLateNotificationSet, isMorningCheckOutNotificationSet: $isMorningCheckOutNotificationSet, isAfternoonCheckInNotificationSet: $isAfternoonCheckInNotificationSet, isAfternoonCheckOutNotificationSet: $isAfternoonCheckOutNotificationSet)';
   }
 
   @override
@@ -964,10 +1425,16 @@ class _$_NotificationState
     super.debugFillProperties(properties);
     properties
       ..add(DiagnosticsProperty('type', 'NotificationState'))
-      ..add(DiagnosticsProperty('morningShiftStart', morningShiftStart))
-      ..add(DiagnosticsProperty('morningShiftEnd', morningShiftEnd))
-      ..add(DiagnosticsProperty('afternoonShiftStart', afternoonShiftStart))
-      ..add(DiagnosticsProperty('afternoonShiftEnd', afternoonShiftEnd));
+      ..add(DiagnosticsProperty(
+          'isMorningCheckInNotificationSet', isMorningCheckInNotificationSet))
+      ..add(DiagnosticsProperty('isMorningCheckInLateNotificationSet',
+          isMorningCheckInLateNotificationSet))
+      ..add(DiagnosticsProperty(
+          'isMorningCheckOutNotificationSet', isMorningCheckOutNotificationSet))
+      ..add(DiagnosticsProperty('isAfternoonCheckInNotificationSet',
+          isAfternoonCheckInNotificationSet))
+      ..add(DiagnosticsProperty('isAfternoonCheckOutNotificationSet',
+          isAfternoonCheckOutNotificationSet));
   }
 
   @override
@@ -975,23 +1442,31 @@ class _$_NotificationState
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_NotificationState &&
-            const DeepCollectionEquality()
-                .equals(other.morningShiftStart, morningShiftStart) &&
-            const DeepCollectionEquality()
-                .equals(other.morningShiftEnd, morningShiftEnd) &&
-            const DeepCollectionEquality()
-                .equals(other.afternoonShiftStart, afternoonShiftStart) &&
-            const DeepCollectionEquality()
-                .equals(other.afternoonShiftEnd, afternoonShiftEnd));
+            const DeepCollectionEquality().equals(
+                other.isMorningCheckInNotificationSet,
+                isMorningCheckInNotificationSet) &&
+            const DeepCollectionEquality().equals(
+                other.isMorningCheckInLateNotificationSet,
+                isMorningCheckInLateNotificationSet) &&
+            const DeepCollectionEquality().equals(
+                other.isMorningCheckOutNotificationSet,
+                isMorningCheckOutNotificationSet) &&
+            const DeepCollectionEquality().equals(
+                other.isAfternoonCheckInNotificationSet,
+                isAfternoonCheckInNotificationSet) &&
+            const DeepCollectionEquality().equals(
+                other.isAfternoonCheckOutNotificationSet,
+                isAfternoonCheckOutNotificationSet));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(morningShiftStart),
-      const DeepCollectionEquality().hash(morningShiftEnd),
-      const DeepCollectionEquality().hash(afternoonShiftStart),
-      const DeepCollectionEquality().hash(afternoonShiftEnd));
+      const DeepCollectionEquality().hash(isMorningCheckInNotificationSet),
+      const DeepCollectionEquality().hash(isMorningCheckInLateNotificationSet),
+      const DeepCollectionEquality().hash(isMorningCheckOutNotificationSet),
+      const DeepCollectionEquality().hash(isAfternoonCheckInNotificationSet),
+      const DeepCollectionEquality().hash(isAfternoonCheckOutNotificationSet));
 
   @JsonKey(ignore: true)
   @override
@@ -1002,19 +1477,28 @@ class _$_NotificationState
 
 abstract class _NotificationState implements NotificationState {
   const factory _NotificationState(
-      {required final TimeOfDay morningShiftStart,
-      required final TimeOfDay morningShiftEnd,
-      required final TimeOfDay afternoonShiftStart,
-      required final TimeOfDay afternoonShiftEnd}) = _$_NotificationState;
+          {required final bool isMorningCheckInNotificationSet,
+          required final bool isMorningCheckInLateNotificationSet,
+          required final bool isMorningCheckOutNotificationSet,
+          required final bool isAfternoonCheckInNotificationSet,
+          required final bool isAfternoonCheckOutNotificationSet}) =
+      _$_NotificationState;
 
   @override
-  TimeOfDay get morningShiftStart => throw _privateConstructorUsedError;
+  bool get isMorningCheckInNotificationSet =>
+      throw _privateConstructorUsedError;
   @override
-  TimeOfDay get morningShiftEnd => throw _privateConstructorUsedError;
+  bool get isMorningCheckInLateNotificationSet =>
+      throw _privateConstructorUsedError;
   @override
-  TimeOfDay get afternoonShiftStart => throw _privateConstructorUsedError;
+  bool get isMorningCheckOutNotificationSet =>
+      throw _privateConstructorUsedError;
   @override
-  TimeOfDay get afternoonShiftEnd => throw _privateConstructorUsedError;
+  bool get isAfternoonCheckInNotificationSet =>
+      throw _privateConstructorUsedError;
+  @override
+  bool get isAfternoonCheckOutNotificationSet =>
+      throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$$_NotificationStateCopyWith<_$_NotificationState> get copyWith =>

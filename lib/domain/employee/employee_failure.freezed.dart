@@ -18,6 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$EmployeeFailure {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() timeOutError,
     required TResult Function() serverError,
     required TResult Function() unAuthenticated,
     required TResult Function() noInternetAccess,
@@ -26,6 +27,7 @@ mixin _$EmployeeFailure {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? timeOutError,
     TResult Function()? serverError,
     TResult Function()? unAuthenticated,
     TResult Function()? noInternetAccess,
@@ -34,6 +36,7 @@ mixin _$EmployeeFailure {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? timeOutError,
     TResult Function()? serverError,
     TResult Function()? unAuthenticated,
     TResult Function()? noInternetAccess,
@@ -43,6 +46,7 @@ mixin _$EmployeeFailure {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_TimeOutError value) timeOutError,
     required TResult Function(_ServerError value) serverError,
     required TResult Function(_UnAuthenticated value) unAuthenticated,
     required TResult Function(_NoInternetAccess value) noInternetAccess,
@@ -51,6 +55,7 @@ mixin _$EmployeeFailure {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_TimeOutError value)? timeOutError,
     TResult Function(_ServerError value)? serverError,
     TResult Function(_UnAuthenticated value)? unAuthenticated,
     TResult Function(_NoInternetAccess value)? noInternetAccess,
@@ -59,6 +64,7 @@ mixin _$EmployeeFailure {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_TimeOutError value)? timeOutError,
     TResult Function(_ServerError value)? serverError,
     TResult Function(_UnAuthenticated value)? unAuthenticated,
     TResult Function(_NoInternetAccess value)? noInternetAccess,
@@ -83,6 +89,136 @@ class _$EmployeeFailureCopyWithImpl<$Res>
   final EmployeeFailure _value;
   // ignore: unused_field
   final $Res Function(EmployeeFailure) _then;
+}
+
+/// @nodoc
+abstract class _$$_TimeOutErrorCopyWith<$Res> {
+  factory _$$_TimeOutErrorCopyWith(
+          _$_TimeOutError value, $Res Function(_$_TimeOutError) then) =
+      __$$_TimeOutErrorCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_TimeOutErrorCopyWithImpl<$Res>
+    extends _$EmployeeFailureCopyWithImpl<$Res>
+    implements _$$_TimeOutErrorCopyWith<$Res> {
+  __$$_TimeOutErrorCopyWithImpl(
+      _$_TimeOutError _value, $Res Function(_$_TimeOutError) _then)
+      : super(_value, (v) => _then(v as _$_TimeOutError));
+
+  @override
+  _$_TimeOutError get _value => super._value as _$_TimeOutError;
+}
+
+/// @nodoc
+
+class _$_TimeOutError extends _TimeOutError with DiagnosticableTreeMixin {
+  const _$_TimeOutError() : super._();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'EmployeeFailure.timeOutError()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty('type', 'EmployeeFailure.timeOutError'));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_TimeOutError);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() timeOutError,
+    required TResult Function() serverError,
+    required TResult Function() unAuthenticated,
+    required TResult Function() noInternetAccess,
+    required TResult Function() noEmployeeFound,
+  }) {
+    return timeOutError();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? timeOutError,
+    TResult Function()? serverError,
+    TResult Function()? unAuthenticated,
+    TResult Function()? noInternetAccess,
+    TResult Function()? noEmployeeFound,
+  }) {
+    return timeOutError?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? timeOutError,
+    TResult Function()? serverError,
+    TResult Function()? unAuthenticated,
+    TResult Function()? noInternetAccess,
+    TResult Function()? noEmployeeFound,
+    required TResult orElse(),
+  }) {
+    if (timeOutError != null) {
+      return timeOutError();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_TimeOutError value) timeOutError,
+    required TResult Function(_ServerError value) serverError,
+    required TResult Function(_UnAuthenticated value) unAuthenticated,
+    required TResult Function(_NoInternetAccess value) noInternetAccess,
+    required TResult Function(_NoEmployeeFound value) noEmployeeFound,
+  }) {
+    return timeOutError(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_TimeOutError value)? timeOutError,
+    TResult Function(_ServerError value)? serverError,
+    TResult Function(_UnAuthenticated value)? unAuthenticated,
+    TResult Function(_NoInternetAccess value)? noInternetAccess,
+    TResult Function(_NoEmployeeFound value)? noEmployeeFound,
+  }) {
+    return timeOutError?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_TimeOutError value)? timeOutError,
+    TResult Function(_ServerError value)? serverError,
+    TResult Function(_UnAuthenticated value)? unAuthenticated,
+    TResult Function(_NoInternetAccess value)? noInternetAccess,
+    TResult Function(_NoEmployeeFound value)? noEmployeeFound,
+    required TResult orElse(),
+  }) {
+    if (timeOutError != null) {
+      return timeOutError(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _TimeOutError extends EmployeeFailure {
+  const factory _TimeOutError() = _$_TimeOutError;
+  const _TimeOutError._() : super._();
 }
 
 /// @nodoc
@@ -132,6 +268,7 @@ class _$_ServerError extends _ServerError with DiagnosticableTreeMixin {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() timeOutError,
     required TResult Function() serverError,
     required TResult Function() unAuthenticated,
     required TResult Function() noInternetAccess,
@@ -143,6 +280,7 @@ class _$_ServerError extends _ServerError with DiagnosticableTreeMixin {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? timeOutError,
     TResult Function()? serverError,
     TResult Function()? unAuthenticated,
     TResult Function()? noInternetAccess,
@@ -154,6 +292,7 @@ class _$_ServerError extends _ServerError with DiagnosticableTreeMixin {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? timeOutError,
     TResult Function()? serverError,
     TResult Function()? unAuthenticated,
     TResult Function()? noInternetAccess,
@@ -169,6 +308,7 @@ class _$_ServerError extends _ServerError with DiagnosticableTreeMixin {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_TimeOutError value) timeOutError,
     required TResult Function(_ServerError value) serverError,
     required TResult Function(_UnAuthenticated value) unAuthenticated,
     required TResult Function(_NoInternetAccess value) noInternetAccess,
@@ -180,6 +320,7 @@ class _$_ServerError extends _ServerError with DiagnosticableTreeMixin {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_TimeOutError value)? timeOutError,
     TResult Function(_ServerError value)? serverError,
     TResult Function(_UnAuthenticated value)? unAuthenticated,
     TResult Function(_NoInternetAccess value)? noInternetAccess,
@@ -191,6 +332,7 @@ class _$_ServerError extends _ServerError with DiagnosticableTreeMixin {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_TimeOutError value)? timeOutError,
     TResult Function(_ServerError value)? serverError,
     TResult Function(_UnAuthenticated value)? unAuthenticated,
     TResult Function(_NoInternetAccess value)? noInternetAccess,
@@ -257,6 +399,7 @@ class _$_UnAuthenticated extends _UnAuthenticated with DiagnosticableTreeMixin {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() timeOutError,
     required TResult Function() serverError,
     required TResult Function() unAuthenticated,
     required TResult Function() noInternetAccess,
@@ -268,6 +411,7 @@ class _$_UnAuthenticated extends _UnAuthenticated with DiagnosticableTreeMixin {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? timeOutError,
     TResult Function()? serverError,
     TResult Function()? unAuthenticated,
     TResult Function()? noInternetAccess,
@@ -279,6 +423,7 @@ class _$_UnAuthenticated extends _UnAuthenticated with DiagnosticableTreeMixin {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? timeOutError,
     TResult Function()? serverError,
     TResult Function()? unAuthenticated,
     TResult Function()? noInternetAccess,
@@ -294,6 +439,7 @@ class _$_UnAuthenticated extends _UnAuthenticated with DiagnosticableTreeMixin {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_TimeOutError value) timeOutError,
     required TResult Function(_ServerError value) serverError,
     required TResult Function(_UnAuthenticated value) unAuthenticated,
     required TResult Function(_NoInternetAccess value) noInternetAccess,
@@ -305,6 +451,7 @@ class _$_UnAuthenticated extends _UnAuthenticated with DiagnosticableTreeMixin {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_TimeOutError value)? timeOutError,
     TResult Function(_ServerError value)? serverError,
     TResult Function(_UnAuthenticated value)? unAuthenticated,
     TResult Function(_NoInternetAccess value)? noInternetAccess,
@@ -316,6 +463,7 @@ class _$_UnAuthenticated extends _UnAuthenticated with DiagnosticableTreeMixin {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_TimeOutError value)? timeOutError,
     TResult Function(_ServerError value)? serverError,
     TResult Function(_UnAuthenticated value)? unAuthenticated,
     TResult Function(_NoInternetAccess value)? noInternetAccess,
@@ -383,6 +531,7 @@ class _$_NoInternetAccess extends _NoInternetAccess
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() timeOutError,
     required TResult Function() serverError,
     required TResult Function() unAuthenticated,
     required TResult Function() noInternetAccess,
@@ -394,6 +543,7 @@ class _$_NoInternetAccess extends _NoInternetAccess
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? timeOutError,
     TResult Function()? serverError,
     TResult Function()? unAuthenticated,
     TResult Function()? noInternetAccess,
@@ -405,6 +555,7 @@ class _$_NoInternetAccess extends _NoInternetAccess
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? timeOutError,
     TResult Function()? serverError,
     TResult Function()? unAuthenticated,
     TResult Function()? noInternetAccess,
@@ -420,6 +571,7 @@ class _$_NoInternetAccess extends _NoInternetAccess
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_TimeOutError value) timeOutError,
     required TResult Function(_ServerError value) serverError,
     required TResult Function(_UnAuthenticated value) unAuthenticated,
     required TResult Function(_NoInternetAccess value) noInternetAccess,
@@ -431,6 +583,7 @@ class _$_NoInternetAccess extends _NoInternetAccess
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_TimeOutError value)? timeOutError,
     TResult Function(_ServerError value)? serverError,
     TResult Function(_UnAuthenticated value)? unAuthenticated,
     TResult Function(_NoInternetAccess value)? noInternetAccess,
@@ -442,6 +595,7 @@ class _$_NoInternetAccess extends _NoInternetAccess
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_TimeOutError value)? timeOutError,
     TResult Function(_ServerError value)? serverError,
     TResult Function(_UnAuthenticated value)? unAuthenticated,
     TResult Function(_NoInternetAccess value)? noInternetAccess,
@@ -508,6 +662,7 @@ class _$_NoEmployeeFound extends _NoEmployeeFound with DiagnosticableTreeMixin {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() timeOutError,
     required TResult Function() serverError,
     required TResult Function() unAuthenticated,
     required TResult Function() noInternetAccess,
@@ -519,6 +674,7 @@ class _$_NoEmployeeFound extends _NoEmployeeFound with DiagnosticableTreeMixin {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? timeOutError,
     TResult Function()? serverError,
     TResult Function()? unAuthenticated,
     TResult Function()? noInternetAccess,
@@ -530,6 +686,7 @@ class _$_NoEmployeeFound extends _NoEmployeeFound with DiagnosticableTreeMixin {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? timeOutError,
     TResult Function()? serverError,
     TResult Function()? unAuthenticated,
     TResult Function()? noInternetAccess,
@@ -545,6 +702,7 @@ class _$_NoEmployeeFound extends _NoEmployeeFound with DiagnosticableTreeMixin {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_TimeOutError value) timeOutError,
     required TResult Function(_ServerError value) serverError,
     required TResult Function(_UnAuthenticated value) unAuthenticated,
     required TResult Function(_NoInternetAccess value) noInternetAccess,
@@ -556,6 +714,7 @@ class _$_NoEmployeeFound extends _NoEmployeeFound with DiagnosticableTreeMixin {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_TimeOutError value)? timeOutError,
     TResult Function(_ServerError value)? serverError,
     TResult Function(_UnAuthenticated value)? unAuthenticated,
     TResult Function(_NoInternetAccess value)? noInternetAccess,
@@ -567,6 +726,7 @@ class _$_NoEmployeeFound extends _NoEmployeeFound with DiagnosticableTreeMixin {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_TimeOutError value)? timeOutError,
     TResult Function(_ServerError value)? serverError,
     TResult Function(_UnAuthenticated value)? unAuthenticated,
     TResult Function(_NoInternetAccess value)? noInternetAccess,

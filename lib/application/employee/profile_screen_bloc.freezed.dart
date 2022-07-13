@@ -18,39 +18,45 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$ProfileScreenEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() employeeRequest,
+    required TResult Function() initialize,
+    required TResult Function() updateEmployee,
     required TResult Function(Uint8List profilePicture) avatarChanged,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? employeeRequest,
+    TResult Function()? initialize,
+    TResult Function()? updateEmployee,
     TResult Function(Uint8List profilePicture)? avatarChanged,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? employeeRequest,
+    TResult Function()? initialize,
+    TResult Function()? updateEmployee,
     TResult Function(Uint8List profilePicture)? avatarChanged,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(EmployeeRequest value) employeeRequest,
-    required TResult Function(AvatarChanged value) avatarChanged,
+    required TResult Function(_Initialize value) initialize,
+    required TResult Function(_UpdateEmployee value) updateEmployee,
+    required TResult Function(_AvatarChanged value) avatarChanged,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(EmployeeRequest value)? employeeRequest,
-    TResult Function(AvatarChanged value)? avatarChanged,
+    TResult Function(_Initialize value)? initialize,
+    TResult Function(_UpdateEmployee value)? updateEmployee,
+    TResult Function(_AvatarChanged value)? avatarChanged,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(EmployeeRequest value)? employeeRequest,
-    TResult Function(AvatarChanged value)? avatarChanged,
+    TResult Function(_Initialize value)? initialize,
+    TResult Function(_UpdateEmployee value)? updateEmployee,
+    TResult Function(_AvatarChanged value)? avatarChanged,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -74,47 +80,45 @@ class _$ProfileScreenEventCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$$EmployeeRequestCopyWith<$Res> {
-  factory _$$EmployeeRequestCopyWith(
-          _$EmployeeRequest value, $Res Function(_$EmployeeRequest) then) =
-      __$$EmployeeRequestCopyWithImpl<$Res>;
+abstract class _$$_InitializeCopyWith<$Res> {
+  factory _$$_InitializeCopyWith(
+          _$_Initialize value, $Res Function(_$_Initialize) then) =
+      __$$_InitializeCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$EmployeeRequestCopyWithImpl<$Res>
+class __$$_InitializeCopyWithImpl<$Res>
     extends _$ProfileScreenEventCopyWithImpl<$Res>
-    implements _$$EmployeeRequestCopyWith<$Res> {
-  __$$EmployeeRequestCopyWithImpl(
-      _$EmployeeRequest _value, $Res Function(_$EmployeeRequest) _then)
-      : super(_value, (v) => _then(v as _$EmployeeRequest));
+    implements _$$_InitializeCopyWith<$Res> {
+  __$$_InitializeCopyWithImpl(
+      _$_Initialize _value, $Res Function(_$_Initialize) _then)
+      : super(_value, (v) => _then(v as _$_Initialize));
 
   @override
-  _$EmployeeRequest get _value => super._value as _$EmployeeRequest;
+  _$_Initialize get _value => super._value as _$_Initialize;
 }
 
 /// @nodoc
 
-class _$EmployeeRequest
-    with DiagnosticableTreeMixin
-    implements EmployeeRequest {
-  const _$EmployeeRequest();
+class _$_Initialize with DiagnosticableTreeMixin implements _Initialize {
+  const _$_Initialize();
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'ProfileScreenEvent.employeeRequest()';
+    return 'ProfileScreenEvent.initialize()';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-        .add(DiagnosticsProperty('type', 'ProfileScreenEvent.employeeRequest'));
+        .add(DiagnosticsProperty('type', 'ProfileScreenEvent.initialize'));
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$EmployeeRequest);
+        (other.runtimeType == runtimeType && other is _$_Initialize);
   }
 
   @override
@@ -123,30 +127,33 @@ class _$EmployeeRequest
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() employeeRequest,
+    required TResult Function() initialize,
+    required TResult Function() updateEmployee,
     required TResult Function(Uint8List profilePicture) avatarChanged,
   }) {
-    return employeeRequest();
+    return initialize();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? employeeRequest,
+    TResult Function()? initialize,
+    TResult Function()? updateEmployee,
     TResult Function(Uint8List profilePicture)? avatarChanged,
   }) {
-    return employeeRequest?.call();
+    return initialize?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? employeeRequest,
+    TResult Function()? initialize,
+    TResult Function()? updateEmployee,
     TResult Function(Uint8List profilePicture)? avatarChanged,
     required TResult orElse(),
   }) {
-    if (employeeRequest != null) {
-      return employeeRequest();
+    if (initialize != null) {
+      return initialize();
     }
     return orElse();
   }
@@ -154,63 +161,186 @@ class _$EmployeeRequest
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(EmployeeRequest value) employeeRequest,
-    required TResult Function(AvatarChanged value) avatarChanged,
+    required TResult Function(_Initialize value) initialize,
+    required TResult Function(_UpdateEmployee value) updateEmployee,
+    required TResult Function(_AvatarChanged value) avatarChanged,
   }) {
-    return employeeRequest(this);
+    return initialize(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(EmployeeRequest value)? employeeRequest,
-    TResult Function(AvatarChanged value)? avatarChanged,
+    TResult Function(_Initialize value)? initialize,
+    TResult Function(_UpdateEmployee value)? updateEmployee,
+    TResult Function(_AvatarChanged value)? avatarChanged,
   }) {
-    return employeeRequest?.call(this);
+    return initialize?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(EmployeeRequest value)? employeeRequest,
-    TResult Function(AvatarChanged value)? avatarChanged,
+    TResult Function(_Initialize value)? initialize,
+    TResult Function(_UpdateEmployee value)? updateEmployee,
+    TResult Function(_AvatarChanged value)? avatarChanged,
     required TResult orElse(),
   }) {
-    if (employeeRequest != null) {
-      return employeeRequest(this);
+    if (initialize != null) {
+      return initialize(this);
     }
     return orElse();
   }
 }
 
-abstract class EmployeeRequest implements ProfileScreenEvent {
-  const factory EmployeeRequest() = _$EmployeeRequest;
+abstract class _Initialize implements ProfileScreenEvent {
+  const factory _Initialize() = _$_Initialize;
 }
 
 /// @nodoc
-abstract class _$$AvatarChangedCopyWith<$Res> {
-  factory _$$AvatarChangedCopyWith(
-          _$AvatarChanged value, $Res Function(_$AvatarChanged) then) =
-      __$$AvatarChangedCopyWithImpl<$Res>;
+abstract class _$$_UpdateEmployeeCopyWith<$Res> {
+  factory _$$_UpdateEmployeeCopyWith(
+          _$_UpdateEmployee value, $Res Function(_$_UpdateEmployee) then) =
+      __$$_UpdateEmployeeCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_UpdateEmployeeCopyWithImpl<$Res>
+    extends _$ProfileScreenEventCopyWithImpl<$Res>
+    implements _$$_UpdateEmployeeCopyWith<$Res> {
+  __$$_UpdateEmployeeCopyWithImpl(
+      _$_UpdateEmployee _value, $Res Function(_$_UpdateEmployee) _then)
+      : super(_value, (v) => _then(v as _$_UpdateEmployee));
+
+  @override
+  _$_UpdateEmployee get _value => super._value as _$_UpdateEmployee;
+}
+
+/// @nodoc
+
+class _$_UpdateEmployee
+    with DiagnosticableTreeMixin
+    implements _UpdateEmployee {
+  const _$_UpdateEmployee();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'ProfileScreenEvent.updateEmployee()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+        .add(DiagnosticsProperty('type', 'ProfileScreenEvent.updateEmployee'));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_UpdateEmployee);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initialize,
+    required TResult Function() updateEmployee,
+    required TResult Function(Uint8List profilePicture) avatarChanged,
+  }) {
+    return updateEmployee();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initialize,
+    TResult Function()? updateEmployee,
+    TResult Function(Uint8List profilePicture)? avatarChanged,
+  }) {
+    return updateEmployee?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialize,
+    TResult Function()? updateEmployee,
+    TResult Function(Uint8List profilePicture)? avatarChanged,
+    required TResult orElse(),
+  }) {
+    if (updateEmployee != null) {
+      return updateEmployee();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initialize value) initialize,
+    required TResult Function(_UpdateEmployee value) updateEmployee,
+    required TResult Function(_AvatarChanged value) avatarChanged,
+  }) {
+    return updateEmployee(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Initialize value)? initialize,
+    TResult Function(_UpdateEmployee value)? updateEmployee,
+    TResult Function(_AvatarChanged value)? avatarChanged,
+  }) {
+    return updateEmployee?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initialize value)? initialize,
+    TResult Function(_UpdateEmployee value)? updateEmployee,
+    TResult Function(_AvatarChanged value)? avatarChanged,
+    required TResult orElse(),
+  }) {
+    if (updateEmployee != null) {
+      return updateEmployee(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UpdateEmployee implements ProfileScreenEvent {
+  const factory _UpdateEmployee() = _$_UpdateEmployee;
+}
+
+/// @nodoc
+abstract class _$$_AvatarChangedCopyWith<$Res> {
+  factory _$$_AvatarChangedCopyWith(
+          _$_AvatarChanged value, $Res Function(_$_AvatarChanged) then) =
+      __$$_AvatarChangedCopyWithImpl<$Res>;
   $Res call({Uint8List profilePicture});
 }
 
 /// @nodoc
-class __$$AvatarChangedCopyWithImpl<$Res>
+class __$$_AvatarChangedCopyWithImpl<$Res>
     extends _$ProfileScreenEventCopyWithImpl<$Res>
-    implements _$$AvatarChangedCopyWith<$Res> {
-  __$$AvatarChangedCopyWithImpl(
-      _$AvatarChanged _value, $Res Function(_$AvatarChanged) _then)
-      : super(_value, (v) => _then(v as _$AvatarChanged));
+    implements _$$_AvatarChangedCopyWith<$Res> {
+  __$$_AvatarChangedCopyWithImpl(
+      _$_AvatarChanged _value, $Res Function(_$_AvatarChanged) _then)
+      : super(_value, (v) => _then(v as _$_AvatarChanged));
 
   @override
-  _$AvatarChanged get _value => super._value as _$AvatarChanged;
+  _$_AvatarChanged get _value => super._value as _$_AvatarChanged;
 
   @override
   $Res call({
     Object? profilePicture = freezed,
   }) {
-    return _then(_$AvatarChanged(
+    return _then(_$_AvatarChanged(
       profilePicture == freezed
           ? _value.profilePicture
           : profilePicture // ignore: cast_nullable_to_non_nullable
@@ -221,8 +351,8 @@ class __$$AvatarChangedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$AvatarChanged with DiagnosticableTreeMixin implements AvatarChanged {
-  const _$AvatarChanged(this.profilePicture);
+class _$_AvatarChanged with DiagnosticableTreeMixin implements _AvatarChanged {
+  const _$_AvatarChanged(this.profilePicture);
 
   @override
   final Uint8List profilePicture;
@@ -244,7 +374,7 @@ class _$AvatarChanged with DiagnosticableTreeMixin implements AvatarChanged {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$AvatarChanged &&
+            other is _$_AvatarChanged &&
             const DeepCollectionEquality()
                 .equals(other.profilePicture, profilePicture));
   }
@@ -255,13 +385,14 @@ class _$AvatarChanged with DiagnosticableTreeMixin implements AvatarChanged {
 
   @JsonKey(ignore: true)
   @override
-  _$$AvatarChangedCopyWith<_$AvatarChanged> get copyWith =>
-      __$$AvatarChangedCopyWithImpl<_$AvatarChanged>(this, _$identity);
+  _$$_AvatarChangedCopyWith<_$_AvatarChanged> get copyWith =>
+      __$$_AvatarChangedCopyWithImpl<_$_AvatarChanged>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() employeeRequest,
+    required TResult Function() initialize,
+    required TResult Function() updateEmployee,
     required TResult Function(Uint8List profilePicture) avatarChanged,
   }) {
     return avatarChanged(profilePicture);
@@ -270,7 +401,8 @@ class _$AvatarChanged with DiagnosticableTreeMixin implements AvatarChanged {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? employeeRequest,
+    TResult Function()? initialize,
+    TResult Function()? updateEmployee,
     TResult Function(Uint8List profilePicture)? avatarChanged,
   }) {
     return avatarChanged?.call(profilePicture);
@@ -279,7 +411,8 @@ class _$AvatarChanged with DiagnosticableTreeMixin implements AvatarChanged {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? employeeRequest,
+    TResult Function()? initialize,
+    TResult Function()? updateEmployee,
     TResult Function(Uint8List profilePicture)? avatarChanged,
     required TResult orElse(),
   }) {
@@ -292,8 +425,9 @@ class _$AvatarChanged with DiagnosticableTreeMixin implements AvatarChanged {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(EmployeeRequest value) employeeRequest,
-    required TResult Function(AvatarChanged value) avatarChanged,
+    required TResult Function(_Initialize value) initialize,
+    required TResult Function(_UpdateEmployee value) updateEmployee,
+    required TResult Function(_AvatarChanged value) avatarChanged,
   }) {
     return avatarChanged(this);
   }
@@ -301,8 +435,9 @@ class _$AvatarChanged with DiagnosticableTreeMixin implements AvatarChanged {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(EmployeeRequest value)? employeeRequest,
-    TResult Function(AvatarChanged value)? avatarChanged,
+    TResult Function(_Initialize value)? initialize,
+    TResult Function(_UpdateEmployee value)? updateEmployee,
+    TResult Function(_AvatarChanged value)? avatarChanged,
   }) {
     return avatarChanged?.call(this);
   }
@@ -310,8 +445,9 @@ class _$AvatarChanged with DiagnosticableTreeMixin implements AvatarChanged {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(EmployeeRequest value)? employeeRequest,
-    TResult Function(AvatarChanged value)? avatarChanged,
+    TResult Function(_Initialize value)? initialize,
+    TResult Function(_UpdateEmployee value)? updateEmployee,
+    TResult Function(_AvatarChanged value)? avatarChanged,
     required TResult orElse(),
   }) {
     if (avatarChanged != null) {
@@ -321,12 +457,13 @@ class _$AvatarChanged with DiagnosticableTreeMixin implements AvatarChanged {
   }
 }
 
-abstract class AvatarChanged implements ProfileScreenEvent {
-  const factory AvatarChanged(final Uint8List profilePicture) = _$AvatarChanged;
+abstract class _AvatarChanged implements ProfileScreenEvent {
+  const factory _AvatarChanged(final Uint8List profilePicture) =
+      _$_AvatarChanged;
 
   Uint8List get profilePicture => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$$AvatarChangedCopyWith<_$AvatarChanged> get copyWith =>
+  _$$_AvatarChangedCopyWith<_$_AvatarChanged> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -336,7 +473,7 @@ mixin _$ProfileScreenState {
       throw _privateConstructorUsedError;
   bool get isSubmitting => throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
-  Either<ProfileChangedFailure, Unit>? get profileChangedSuccessOrFail =>
+  Either<EmployeeFailure, Unit>? get profileChangedSuccessOrFail =>
       throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -353,7 +490,7 @@ abstract class $ProfileScreenStateCopyWith<$Res> {
       {Either<EmployeeFailure, Employee>? failureOrEmployee,
       bool isSubmitting,
       bool isLoading,
-      Either<ProfileChangedFailure, Unit>? profileChangedSuccessOrFail});
+      Either<EmployeeFailure, Unit>? profileChangedSuccessOrFail});
 }
 
 /// @nodoc
@@ -388,7 +525,7 @@ class _$ProfileScreenStateCopyWithImpl<$Res>
       profileChangedSuccessOrFail: profileChangedSuccessOrFail == freezed
           ? _value.profileChangedSuccessOrFail
           : profileChangedSuccessOrFail // ignore: cast_nullable_to_non_nullable
-              as Either<ProfileChangedFailure, Unit>?,
+              as Either<EmployeeFailure, Unit>?,
     ));
   }
 }
@@ -404,7 +541,7 @@ abstract class _$$_ProfileScreenStateCopyWith<$Res>
       {Either<EmployeeFailure, Employee>? failureOrEmployee,
       bool isSubmitting,
       bool isLoading,
-      Either<ProfileChangedFailure, Unit>? profileChangedSuccessOrFail});
+      Either<EmployeeFailure, Unit>? profileChangedSuccessOrFail});
 }
 
 /// @nodoc
@@ -441,7 +578,7 @@ class __$$_ProfileScreenStateCopyWithImpl<$Res>
       profileChangedSuccessOrFail: profileChangedSuccessOrFail == freezed
           ? _value.profileChangedSuccessOrFail
           : profileChangedSuccessOrFail // ignore: cast_nullable_to_non_nullable
-              as Either<ProfileChangedFailure, Unit>?,
+              as Either<EmployeeFailure, Unit>?,
     ));
   }
 }
@@ -464,7 +601,7 @@ class _$_ProfileScreenState
   @override
   final bool isLoading;
   @override
-  final Either<ProfileChangedFailure, Unit>? profileChangedSuccessOrFail;
+  final Either<EmployeeFailure, Unit>? profileChangedSuccessOrFail;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -518,7 +655,7 @@ abstract class _ProfileScreenState implements ProfileScreenState {
       {required final Either<EmployeeFailure, Employee>? failureOrEmployee,
       required final bool isSubmitting,
       required final bool isLoading,
-      required final Either<ProfileChangedFailure, Unit>?
+      required final Either<EmployeeFailure, Unit>?
           profileChangedSuccessOrFail}) = _$_ProfileScreenState;
 
   @override
@@ -529,7 +666,7 @@ abstract class _ProfileScreenState implements ProfileScreenState {
   @override
   bool get isLoading => throw _privateConstructorUsedError;
   @override
-  Either<ProfileChangedFailure, Unit>? get profileChangedSuccessOrFail =>
+  Either<EmployeeFailure, Unit>? get profileChangedSuccessOrFail =>
       throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)

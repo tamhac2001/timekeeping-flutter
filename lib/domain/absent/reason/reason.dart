@@ -2,20 +2,31 @@ import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'reason.freezed.dart';
-part 'reason.g.dart';
 
 @freezed
 class Reason with _$Reason {
-  @JsonSerializable(fieldRename: FieldRename.snake, explicitToJson: true)
-  const factory Reason({
-    @JsonKey(name: 'reason') required String value,
-  }) = _Reason;
+  factory Reason({
+    required String value,
+  }) {
+    switch (value) {
+      case 'bệnh':
+        return const Reason.ill();
+      case 'cá nhân':
+        return const Reason.personal();
+      default:
+        return const Reason.others();
+    }
+  }
 
-  factory Reason.ill() => const Reason(value: 'bệnh');
+  const factory Reason.ill({
+    @Default('bệnh') String value,
+  }) = _Ill;
 
-  factory Reason.personal() => const Reason(value: 'cá nhân');
+  const factory Reason.personal({
+    @Default('cá nhân') String value,
+  }) = _Personal;
 
-  factory Reason.others() => const Reason(value: 'khác');
-
-  factory Reason.fromJson(Map<String, dynamic> json) => _$ReasonFromJson(json);
+  const factory Reason.others({
+    @Default('khác') String value,
+  }) = _Others;
 }
