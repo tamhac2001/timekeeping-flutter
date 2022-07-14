@@ -21,6 +21,7 @@ mixin _$TimekeepingRecordScreenEvent {
     required TResult Function() toPreviousMonth,
     required TResult Function() toNextMonth,
     required TResult Function() getTimekeepingRecords,
+    required TResult Function() resetState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -28,6 +29,7 @@ mixin _$TimekeepingRecordScreenEvent {
     TResult Function()? toPreviousMonth,
     TResult Function()? toNextMonth,
     TResult Function()? getTimekeepingRecords,
+    TResult Function()? resetState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -35,6 +37,7 @@ mixin _$TimekeepingRecordScreenEvent {
     TResult Function()? toPreviousMonth,
     TResult Function()? toNextMonth,
     TResult Function()? getTimekeepingRecords,
+    TResult Function()? resetState,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -44,6 +47,7 @@ mixin _$TimekeepingRecordScreenEvent {
     required TResult Function(_ToNextMonth value) toNextMonth,
     required TResult Function(_GetTimekeepingRecords value)
         getTimekeepingRecords,
+    required TResult Function(_ResetState value) resetState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -51,6 +55,7 @@ mixin _$TimekeepingRecordScreenEvent {
     TResult Function(_ToPreviousMonth value)? toPreviousMonth,
     TResult Function(_ToNextMonth value)? toNextMonth,
     TResult Function(_GetTimekeepingRecords value)? getTimekeepingRecords,
+    TResult Function(_ResetState value)? resetState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -58,6 +63,7 @@ mixin _$TimekeepingRecordScreenEvent {
     TResult Function(_ToPreviousMonth value)? toPreviousMonth,
     TResult Function(_ToNextMonth value)? toNextMonth,
     TResult Function(_GetTimekeepingRecords value)? getTimekeepingRecords,
+    TResult Function(_ResetState value)? resetState,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -134,6 +140,7 @@ class _$_ToPreviousMonth
     required TResult Function() toPreviousMonth,
     required TResult Function() toNextMonth,
     required TResult Function() getTimekeepingRecords,
+    required TResult Function() resetState,
   }) {
     return toPreviousMonth();
   }
@@ -144,6 +151,7 @@ class _$_ToPreviousMonth
     TResult Function()? toPreviousMonth,
     TResult Function()? toNextMonth,
     TResult Function()? getTimekeepingRecords,
+    TResult Function()? resetState,
   }) {
     return toPreviousMonth?.call();
   }
@@ -154,6 +162,7 @@ class _$_ToPreviousMonth
     TResult Function()? toPreviousMonth,
     TResult Function()? toNextMonth,
     TResult Function()? getTimekeepingRecords,
+    TResult Function()? resetState,
     required TResult orElse(),
   }) {
     if (toPreviousMonth != null) {
@@ -169,6 +178,7 @@ class _$_ToPreviousMonth
     required TResult Function(_ToNextMonth value) toNextMonth,
     required TResult Function(_GetTimekeepingRecords value)
         getTimekeepingRecords,
+    required TResult Function(_ResetState value) resetState,
   }) {
     return toPreviousMonth(this);
   }
@@ -179,6 +189,7 @@ class _$_ToPreviousMonth
     TResult Function(_ToPreviousMonth value)? toPreviousMonth,
     TResult Function(_ToNextMonth value)? toNextMonth,
     TResult Function(_GetTimekeepingRecords value)? getTimekeepingRecords,
+    TResult Function(_ResetState value)? resetState,
   }) {
     return toPreviousMonth?.call(this);
   }
@@ -189,6 +200,7 @@ class _$_ToPreviousMonth
     TResult Function(_ToPreviousMonth value)? toPreviousMonth,
     TResult Function(_ToNextMonth value)? toNextMonth,
     TResult Function(_GetTimekeepingRecords value)? getTimekeepingRecords,
+    TResult Function(_ResetState value)? resetState,
     required TResult orElse(),
   }) {
     if (toPreviousMonth != null) {
@@ -253,6 +265,7 @@ class _$_ToNextMonth with DiagnosticableTreeMixin implements _ToNextMonth {
     required TResult Function() toPreviousMonth,
     required TResult Function() toNextMonth,
     required TResult Function() getTimekeepingRecords,
+    required TResult Function() resetState,
   }) {
     return toNextMonth();
   }
@@ -263,6 +276,7 @@ class _$_ToNextMonth with DiagnosticableTreeMixin implements _ToNextMonth {
     TResult Function()? toPreviousMonth,
     TResult Function()? toNextMonth,
     TResult Function()? getTimekeepingRecords,
+    TResult Function()? resetState,
   }) {
     return toNextMonth?.call();
   }
@@ -273,6 +287,7 @@ class _$_ToNextMonth with DiagnosticableTreeMixin implements _ToNextMonth {
     TResult Function()? toPreviousMonth,
     TResult Function()? toNextMonth,
     TResult Function()? getTimekeepingRecords,
+    TResult Function()? resetState,
     required TResult orElse(),
   }) {
     if (toNextMonth != null) {
@@ -288,6 +303,7 @@ class _$_ToNextMonth with DiagnosticableTreeMixin implements _ToNextMonth {
     required TResult Function(_ToNextMonth value) toNextMonth,
     required TResult Function(_GetTimekeepingRecords value)
         getTimekeepingRecords,
+    required TResult Function(_ResetState value) resetState,
   }) {
     return toNextMonth(this);
   }
@@ -298,6 +314,7 @@ class _$_ToNextMonth with DiagnosticableTreeMixin implements _ToNextMonth {
     TResult Function(_ToPreviousMonth value)? toPreviousMonth,
     TResult Function(_ToNextMonth value)? toNextMonth,
     TResult Function(_GetTimekeepingRecords value)? getTimekeepingRecords,
+    TResult Function(_ResetState value)? resetState,
   }) {
     return toNextMonth?.call(this);
   }
@@ -308,6 +325,7 @@ class _$_ToNextMonth with DiagnosticableTreeMixin implements _ToNextMonth {
     TResult Function(_ToPreviousMonth value)? toPreviousMonth,
     TResult Function(_ToNextMonth value)? toNextMonth,
     TResult Function(_GetTimekeepingRecords value)? getTimekeepingRecords,
+    TResult Function(_ResetState value)? resetState,
     required TResult orElse(),
   }) {
     if (toNextMonth != null) {
@@ -375,6 +393,7 @@ class _$_GetTimekeepingRecords
     required TResult Function() toPreviousMonth,
     required TResult Function() toNextMonth,
     required TResult Function() getTimekeepingRecords,
+    required TResult Function() resetState,
   }) {
     return getTimekeepingRecords();
   }
@@ -385,6 +404,7 @@ class _$_GetTimekeepingRecords
     TResult Function()? toPreviousMonth,
     TResult Function()? toNextMonth,
     TResult Function()? getTimekeepingRecords,
+    TResult Function()? resetState,
   }) {
     return getTimekeepingRecords?.call();
   }
@@ -395,6 +415,7 @@ class _$_GetTimekeepingRecords
     TResult Function()? toPreviousMonth,
     TResult Function()? toNextMonth,
     TResult Function()? getTimekeepingRecords,
+    TResult Function()? resetState,
     required TResult orElse(),
   }) {
     if (getTimekeepingRecords != null) {
@@ -410,6 +431,7 @@ class _$_GetTimekeepingRecords
     required TResult Function(_ToNextMonth value) toNextMonth,
     required TResult Function(_GetTimekeepingRecords value)
         getTimekeepingRecords,
+    required TResult Function(_ResetState value) resetState,
   }) {
     return getTimekeepingRecords(this);
   }
@@ -420,6 +442,7 @@ class _$_GetTimekeepingRecords
     TResult Function(_ToPreviousMonth value)? toPreviousMonth,
     TResult Function(_ToNextMonth value)? toNextMonth,
     TResult Function(_GetTimekeepingRecords value)? getTimekeepingRecords,
+    TResult Function(_ResetState value)? resetState,
   }) {
     return getTimekeepingRecords?.call(this);
   }
@@ -430,6 +453,7 @@ class _$_GetTimekeepingRecords
     TResult Function(_ToPreviousMonth value)? toPreviousMonth,
     TResult Function(_ToNextMonth value)? toNextMonth,
     TResult Function(_GetTimekeepingRecords value)? getTimekeepingRecords,
+    TResult Function(_ResetState value)? resetState,
     required TResult orElse(),
   }) {
     if (getTimekeepingRecords != null) {
@@ -441,6 +465,131 @@ class _$_GetTimekeepingRecords
 
 abstract class _GetTimekeepingRecords implements TimekeepingRecordScreenEvent {
   const factory _GetTimekeepingRecords() = _$_GetTimekeepingRecords;
+}
+
+/// @nodoc
+abstract class _$$_ResetStateCopyWith<$Res> {
+  factory _$$_ResetStateCopyWith(
+          _$_ResetState value, $Res Function(_$_ResetState) then) =
+      __$$_ResetStateCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_ResetStateCopyWithImpl<$Res>
+    extends _$TimekeepingRecordScreenEventCopyWithImpl<$Res>
+    implements _$$_ResetStateCopyWith<$Res> {
+  __$$_ResetStateCopyWithImpl(
+      _$_ResetState _value, $Res Function(_$_ResetState) _then)
+      : super(_value, (v) => _then(v as _$_ResetState));
+
+  @override
+  _$_ResetState get _value => super._value as _$_ResetState;
+}
+
+/// @nodoc
+
+class _$_ResetState with DiagnosticableTreeMixin implements _ResetState {
+  const _$_ResetState();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'TimekeepingRecordScreenEvent.resetState()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(
+        DiagnosticsProperty('type', 'TimekeepingRecordScreenEvent.resetState'));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_ResetState);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() toPreviousMonth,
+    required TResult Function() toNextMonth,
+    required TResult Function() getTimekeepingRecords,
+    required TResult Function() resetState,
+  }) {
+    return resetState();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? toPreviousMonth,
+    TResult Function()? toNextMonth,
+    TResult Function()? getTimekeepingRecords,
+    TResult Function()? resetState,
+  }) {
+    return resetState?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? toPreviousMonth,
+    TResult Function()? toNextMonth,
+    TResult Function()? getTimekeepingRecords,
+    TResult Function()? resetState,
+    required TResult orElse(),
+  }) {
+    if (resetState != null) {
+      return resetState();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_ToPreviousMonth value) toPreviousMonth,
+    required TResult Function(_ToNextMonth value) toNextMonth,
+    required TResult Function(_GetTimekeepingRecords value)
+        getTimekeepingRecords,
+    required TResult Function(_ResetState value) resetState,
+  }) {
+    return resetState(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_ToPreviousMonth value)? toPreviousMonth,
+    TResult Function(_ToNextMonth value)? toNextMonth,
+    TResult Function(_GetTimekeepingRecords value)? getTimekeepingRecords,
+    TResult Function(_ResetState value)? resetState,
+  }) {
+    return resetState?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ToPreviousMonth value)? toPreviousMonth,
+    TResult Function(_ToNextMonth value)? toNextMonth,
+    TResult Function(_GetTimekeepingRecords value)? getTimekeepingRecords,
+    TResult Function(_ResetState value)? resetState,
+    required TResult orElse(),
+  }) {
+    if (resetState != null) {
+      return resetState(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ResetState implements TimekeepingRecordScreenEvent {
+  const factory _ResetState() = _$_ResetState;
 }
 
 /// @nodoc

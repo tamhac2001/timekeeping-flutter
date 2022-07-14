@@ -12,16 +12,8 @@ class AbsentFormState with _$AbsentFormState {
   }) = _AbsentFormState;
 
   factory AbsentFormState.initial() {
-    final now = DateTime.now();
-    final tomorrow = DateTime(now.year, now.month, now.day).add(const Duration(days: 1));
     return AbsentFormState(
-      absentForm: AbsentForm(
-        startDate: tomorrow,
-        endDate: tomorrow,
-        reason: const Reason.ill(),
-        note: '',
-        status: null,
-      ),
+      absentForm: AbsentForm.initial(),
       failureOrUnit: null,
       absentFailureOrAbsentFormList: null,
       absentFormListAfterToday: List.empty(),

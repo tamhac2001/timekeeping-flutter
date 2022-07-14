@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:timekeeping/application/cubits/schedule/schedule_cubit.dart';
@@ -136,8 +137,7 @@ class AssignScheduleButton extends StatelessWidget {
                 child: const Text('Xác nhận'),
                 onPressed: () async {
                   context.read<AssignScheduleFormBloc>().add(const AssignScheduleFormEvent.formSubmitted());
-                  await context.read<ScheduleCubit>().scheduleRequest();
-                  Navigator.of(context).pop();
+                  await context.read<ScheduleCubit>().scheduleRequest().then((value) => context.router.pop());
                 })
           ]);
         },

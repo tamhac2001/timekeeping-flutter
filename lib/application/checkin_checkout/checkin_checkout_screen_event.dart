@@ -11,4 +11,6 @@ class CheckinCheckoutScreenEvent with _$CheckinCheckoutScreenEvent {
   const factory CheckinCheckoutScreenEvent.getTimekeeping() = _GetTimekeeping;
 
   const factory CheckinCheckoutScreenEvent.updateIsDayOff() = _UpdateIsDayOff;
+
+  const factory CheckinCheckoutScreenEvent.resetState() = _ResetState;
 }

@@ -65,6 +65,9 @@ class AssignScheduleFormBloc extends Bloc<AssignScheduleFormEvent, AssignSchedul
           emit(state.copyWith(scheduleFailureOrUnit: scheduleFailureOrUnit));
           emit(state.copyWith(isSubmitting: false));
         },
+        resetState: () async {
+          emit(AssignScheduleFormState.initial());
+        },
       );
     });
   }

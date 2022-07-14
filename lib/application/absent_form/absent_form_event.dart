@@ -15,4 +15,6 @@ class AbsentFormEvent with _$AbsentFormEvent {
   const factory AbsentFormEvent.formSubmitted() = _FormSubmitted;
 
   const factory AbsentFormEvent.cancelled() = _Cancelled;
+
+  const factory AbsentFormEvent.resetState() = _ResetState;
 }

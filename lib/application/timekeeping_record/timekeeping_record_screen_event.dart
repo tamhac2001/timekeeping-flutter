@@ -7,4 +7,6 @@ class TimekeepingRecordScreenEvent with _$TimekeepingRecordScreenEvent {
   const factory TimekeepingRecordScreenEvent.toNextMonth() = _ToNextMonth;
 
   const factory TimekeepingRecordScreenEvent.getTimekeepingRecords() = _GetTimekeepingRecords;
+
+  const factory TimekeepingRecordScreenEvent.resetState() = _ResetState;
 }

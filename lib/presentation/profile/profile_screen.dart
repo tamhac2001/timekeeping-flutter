@@ -110,9 +110,7 @@ class ProfileScreen extends StatelessWidget {
                               height: 16.0,
                             ),
                             const EmployeeGenderRow(),
-                            const SizedBox(
-                              height: 16.0,
-                            ),
+                            const SizedBox(height: 16.0),
                             const EmployeePhoneNumberRow(),
                             const SizedBox(
                               height: 16.0,

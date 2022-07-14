@@ -1,10 +1,12 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:timekeeping/application/absent_form/absent_form_bloc.dart';
 import 'package:timekeeping/application/cubits/absent_list_cubit.dart';
 import 'package:timekeeping/application/cubits/employee_cubit.dart';
-import 'package:timekeeping/application/notification/notification_bloc.dart';
 import 'package:timekeeping/application/cubits/schedule/schedule_cubit.dart';
+import 'package:timekeeping/application/cubits/timekeeping_cubit.dart';
+import 'package:timekeeping/application/notification/notification_bloc.dart';
 import 'package:timekeeping/presentation/core/app_widgets.dart';
 import 'package:timekeeping/utils/extensions.dart';
 
@@ -192,11 +194,17 @@ class LogoutButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
         onPressed: () {
+          Future.delayed(const Duration(seconds: 3));
           context.read<AuthenticationBloc>().add(const AuthenticationEvent.logout());
+          context.read<AbsentFormBloc>().add(const AbsentFormEvent.resetState());
+          // context.read<CheckinCheckoutScreenBloc>().add(const CheckinCheckoutScreenEvent.resetState());
           context.read<ScheduleCubit>().resetState();
           context.read<AbsentListCubit>().resetState();
           context.read<EmployeeCubit>().resetState();
+          context.read<TimekeepingCubit>().resetState();
           context.read<NotificationBloc>().add(const NotificationEvent.resetState());
+          // context.read<AssignScheduleFormBloc>().add(const AssignScheduleFormEvent.resetState());
+          // context.read<TimekeepingRecordScreenBloc>().add(const TimekeepingRecordScreenEvent.resetState());
           AutoRouter.of(context).replace(const LoginScreen());
         },
         child: const Text('Đăng xuất'));

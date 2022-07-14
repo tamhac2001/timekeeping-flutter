@@ -22,6 +22,7 @@ mixin _$AssignScheduleFormEvent {
     required TResult Function(TimeOfDay time) morningShiftEndTimeChanged,
     required TResult Function(TimeOfDay time) afternoonShiftStartTimeChanged,
     required TResult Function() formSubmitted,
+    required TResult Function() resetState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -30,6 +31,7 @@ mixin _$AssignScheduleFormEvent {
     TResult Function(TimeOfDay time)? morningShiftEndTimeChanged,
     TResult Function(TimeOfDay time)? afternoonShiftStartTimeChanged,
     TResult Function()? formSubmitted,
+    TResult Function()? resetState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -38,6 +40,7 @@ mixin _$AssignScheduleFormEvent {
     TResult Function(TimeOfDay time)? morningShiftEndTimeChanged,
     TResult Function(TimeOfDay time)? afternoonShiftStartTimeChanged,
     TResult Function()? formSubmitted,
+    TResult Function()? resetState,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -50,6 +53,7 @@ mixin _$AssignScheduleFormEvent {
     required TResult Function(_AfternoonShiftStartTimeChanged value)
         afternoonShiftStartTimeChanged,
     required TResult Function(_FormSubmitted value) formSubmitted,
+    required TResult Function(_ResetState value) resetState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -61,6 +65,7 @@ mixin _$AssignScheduleFormEvent {
     TResult Function(_AfternoonShiftStartTimeChanged value)?
         afternoonShiftStartTimeChanged,
     TResult Function(_FormSubmitted value)? formSubmitted,
+    TResult Function(_ResetState value)? resetState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -72,6 +77,7 @@ mixin _$AssignScheduleFormEvent {
     TResult Function(_AfternoonShiftStartTimeChanged value)?
         afternoonShiftStartTimeChanged,
     TResult Function(_FormSubmitted value)? formSubmitted,
+    TResult Function(_ResetState value)? resetState,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -167,6 +173,7 @@ class _$_MorningShiftStartTimeChanged implements _MorningShiftStartTimeChanged {
     required TResult Function(TimeOfDay time) morningShiftEndTimeChanged,
     required TResult Function(TimeOfDay time) afternoonShiftStartTimeChanged,
     required TResult Function() formSubmitted,
+    required TResult Function() resetState,
   }) {
     return morningShiftStartTimeChanged(time);
   }
@@ -178,6 +185,7 @@ class _$_MorningShiftStartTimeChanged implements _MorningShiftStartTimeChanged {
     TResult Function(TimeOfDay time)? morningShiftEndTimeChanged,
     TResult Function(TimeOfDay time)? afternoonShiftStartTimeChanged,
     TResult Function()? formSubmitted,
+    TResult Function()? resetState,
   }) {
     return morningShiftStartTimeChanged?.call(time);
   }
@@ -189,6 +197,7 @@ class _$_MorningShiftStartTimeChanged implements _MorningShiftStartTimeChanged {
     TResult Function(TimeOfDay time)? morningShiftEndTimeChanged,
     TResult Function(TimeOfDay time)? afternoonShiftStartTimeChanged,
     TResult Function()? formSubmitted,
+    TResult Function()? resetState,
     required TResult orElse(),
   }) {
     if (morningShiftStartTimeChanged != null) {
@@ -207,6 +216,7 @@ class _$_MorningShiftStartTimeChanged implements _MorningShiftStartTimeChanged {
     required TResult Function(_AfternoonShiftStartTimeChanged value)
         afternoonShiftStartTimeChanged,
     required TResult Function(_FormSubmitted value) formSubmitted,
+    required TResult Function(_ResetState value) resetState,
   }) {
     return morningShiftStartTimeChanged(this);
   }
@@ -221,6 +231,7 @@ class _$_MorningShiftStartTimeChanged implements _MorningShiftStartTimeChanged {
     TResult Function(_AfternoonShiftStartTimeChanged value)?
         afternoonShiftStartTimeChanged,
     TResult Function(_FormSubmitted value)? formSubmitted,
+    TResult Function(_ResetState value)? resetState,
   }) {
     return morningShiftStartTimeChanged?.call(this);
   }
@@ -235,6 +246,7 @@ class _$_MorningShiftStartTimeChanged implements _MorningShiftStartTimeChanged {
     TResult Function(_AfternoonShiftStartTimeChanged value)?
         afternoonShiftStartTimeChanged,
     TResult Function(_FormSubmitted value)? formSubmitted,
+    TResult Function(_ResetState value)? resetState,
     required TResult orElse(),
   }) {
     if (morningShiftStartTimeChanged != null) {
@@ -328,6 +340,7 @@ class _$_MorningShiftEndTimeChanged implements _MorningShiftEndTimeChanged {
     required TResult Function(TimeOfDay time) morningShiftEndTimeChanged,
     required TResult Function(TimeOfDay time) afternoonShiftStartTimeChanged,
     required TResult Function() formSubmitted,
+    required TResult Function() resetState,
   }) {
     return morningShiftEndTimeChanged(time);
   }
@@ -339,6 +352,7 @@ class _$_MorningShiftEndTimeChanged implements _MorningShiftEndTimeChanged {
     TResult Function(TimeOfDay time)? morningShiftEndTimeChanged,
     TResult Function(TimeOfDay time)? afternoonShiftStartTimeChanged,
     TResult Function()? formSubmitted,
+    TResult Function()? resetState,
   }) {
     return morningShiftEndTimeChanged?.call(time);
   }
@@ -350,6 +364,7 @@ class _$_MorningShiftEndTimeChanged implements _MorningShiftEndTimeChanged {
     TResult Function(TimeOfDay time)? morningShiftEndTimeChanged,
     TResult Function(TimeOfDay time)? afternoonShiftStartTimeChanged,
     TResult Function()? formSubmitted,
+    TResult Function()? resetState,
     required TResult orElse(),
   }) {
     if (morningShiftEndTimeChanged != null) {
@@ -368,6 +383,7 @@ class _$_MorningShiftEndTimeChanged implements _MorningShiftEndTimeChanged {
     required TResult Function(_AfternoonShiftStartTimeChanged value)
         afternoonShiftStartTimeChanged,
     required TResult Function(_FormSubmitted value) formSubmitted,
+    required TResult Function(_ResetState value) resetState,
   }) {
     return morningShiftEndTimeChanged(this);
   }
@@ -382,6 +398,7 @@ class _$_MorningShiftEndTimeChanged implements _MorningShiftEndTimeChanged {
     TResult Function(_AfternoonShiftStartTimeChanged value)?
         afternoonShiftStartTimeChanged,
     TResult Function(_FormSubmitted value)? formSubmitted,
+    TResult Function(_ResetState value)? resetState,
   }) {
     return morningShiftEndTimeChanged?.call(this);
   }
@@ -396,6 +413,7 @@ class _$_MorningShiftEndTimeChanged implements _MorningShiftEndTimeChanged {
     TResult Function(_AfternoonShiftStartTimeChanged value)?
         afternoonShiftStartTimeChanged,
     TResult Function(_FormSubmitted value)? formSubmitted,
+    TResult Function(_ResetState value)? resetState,
     required TResult orElse(),
   }) {
     if (morningShiftEndTimeChanged != null) {
@@ -489,6 +507,7 @@ class _$_AfternoonShiftStartTimeChanged
     required TResult Function(TimeOfDay time) morningShiftEndTimeChanged,
     required TResult Function(TimeOfDay time) afternoonShiftStartTimeChanged,
     required TResult Function() formSubmitted,
+    required TResult Function() resetState,
   }) {
     return afternoonShiftStartTimeChanged(time);
   }
@@ -500,6 +519,7 @@ class _$_AfternoonShiftStartTimeChanged
     TResult Function(TimeOfDay time)? morningShiftEndTimeChanged,
     TResult Function(TimeOfDay time)? afternoonShiftStartTimeChanged,
     TResult Function()? formSubmitted,
+    TResult Function()? resetState,
   }) {
     return afternoonShiftStartTimeChanged?.call(time);
   }
@@ -511,6 +531,7 @@ class _$_AfternoonShiftStartTimeChanged
     TResult Function(TimeOfDay time)? morningShiftEndTimeChanged,
     TResult Function(TimeOfDay time)? afternoonShiftStartTimeChanged,
     TResult Function()? formSubmitted,
+    TResult Function()? resetState,
     required TResult orElse(),
   }) {
     if (afternoonShiftStartTimeChanged != null) {
@@ -529,6 +550,7 @@ class _$_AfternoonShiftStartTimeChanged
     required TResult Function(_AfternoonShiftStartTimeChanged value)
         afternoonShiftStartTimeChanged,
     required TResult Function(_FormSubmitted value) formSubmitted,
+    required TResult Function(_ResetState value) resetState,
   }) {
     return afternoonShiftStartTimeChanged(this);
   }
@@ -543,6 +565,7 @@ class _$_AfternoonShiftStartTimeChanged
     TResult Function(_AfternoonShiftStartTimeChanged value)?
         afternoonShiftStartTimeChanged,
     TResult Function(_FormSubmitted value)? formSubmitted,
+    TResult Function(_ResetState value)? resetState,
   }) {
     return afternoonShiftStartTimeChanged?.call(this);
   }
@@ -557,6 +580,7 @@ class _$_AfternoonShiftStartTimeChanged
     TResult Function(_AfternoonShiftStartTimeChanged value)?
         afternoonShiftStartTimeChanged,
     TResult Function(_FormSubmitted value)? formSubmitted,
+    TResult Function(_ResetState value)? resetState,
     required TResult orElse(),
   }) {
     if (afternoonShiftStartTimeChanged != null) {
@@ -622,6 +646,7 @@ class _$_FormSubmitted implements _FormSubmitted {
     required TResult Function(TimeOfDay time) morningShiftEndTimeChanged,
     required TResult Function(TimeOfDay time) afternoonShiftStartTimeChanged,
     required TResult Function() formSubmitted,
+    required TResult Function() resetState,
   }) {
     return formSubmitted();
   }
@@ -633,6 +658,7 @@ class _$_FormSubmitted implements _FormSubmitted {
     TResult Function(TimeOfDay time)? morningShiftEndTimeChanged,
     TResult Function(TimeOfDay time)? afternoonShiftStartTimeChanged,
     TResult Function()? formSubmitted,
+    TResult Function()? resetState,
   }) {
     return formSubmitted?.call();
   }
@@ -644,6 +670,7 @@ class _$_FormSubmitted implements _FormSubmitted {
     TResult Function(TimeOfDay time)? morningShiftEndTimeChanged,
     TResult Function(TimeOfDay time)? afternoonShiftStartTimeChanged,
     TResult Function()? formSubmitted,
+    TResult Function()? resetState,
     required TResult orElse(),
   }) {
     if (formSubmitted != null) {
@@ -662,6 +689,7 @@ class _$_FormSubmitted implements _FormSubmitted {
     required TResult Function(_AfternoonShiftStartTimeChanged value)
         afternoonShiftStartTimeChanged,
     required TResult Function(_FormSubmitted value) formSubmitted,
+    required TResult Function(_ResetState value) resetState,
   }) {
     return formSubmitted(this);
   }
@@ -676,6 +704,7 @@ class _$_FormSubmitted implements _FormSubmitted {
     TResult Function(_AfternoonShiftStartTimeChanged value)?
         afternoonShiftStartTimeChanged,
     TResult Function(_FormSubmitted value)? formSubmitted,
+    TResult Function(_ResetState value)? resetState,
   }) {
     return formSubmitted?.call(this);
   }
@@ -690,6 +719,7 @@ class _$_FormSubmitted implements _FormSubmitted {
     TResult Function(_AfternoonShiftStartTimeChanged value)?
         afternoonShiftStartTimeChanged,
     TResult Function(_FormSubmitted value)? formSubmitted,
+    TResult Function(_ResetState value)? resetState,
     required TResult orElse(),
   }) {
     if (formSubmitted != null) {
@@ -701,6 +731,138 @@ class _$_FormSubmitted implements _FormSubmitted {
 
 abstract class _FormSubmitted implements AssignScheduleFormEvent {
   const factory _FormSubmitted() = _$_FormSubmitted;
+}
+
+/// @nodoc
+abstract class _$$_ResetStateCopyWith<$Res> {
+  factory _$$_ResetStateCopyWith(
+          _$_ResetState value, $Res Function(_$_ResetState) then) =
+      __$$_ResetStateCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_ResetStateCopyWithImpl<$Res>
+    extends _$AssignScheduleFormEventCopyWithImpl<$Res>
+    implements _$$_ResetStateCopyWith<$Res> {
+  __$$_ResetStateCopyWithImpl(
+      _$_ResetState _value, $Res Function(_$_ResetState) _then)
+      : super(_value, (v) => _then(v as _$_ResetState));
+
+  @override
+  _$_ResetState get _value => super._value as _$_ResetState;
+}
+
+/// @nodoc
+
+class _$_ResetState implements _ResetState {
+  const _$_ResetState();
+
+  @override
+  String toString() {
+    return 'AssignScheduleFormEvent.resetState()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_ResetState);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(TimeOfDay time) morningShiftStartTimeChanged,
+    required TResult Function(TimeOfDay time) morningShiftEndTimeChanged,
+    required TResult Function(TimeOfDay time) afternoonShiftStartTimeChanged,
+    required TResult Function() formSubmitted,
+    required TResult Function() resetState,
+  }) {
+    return resetState();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(TimeOfDay time)? morningShiftStartTimeChanged,
+    TResult Function(TimeOfDay time)? morningShiftEndTimeChanged,
+    TResult Function(TimeOfDay time)? afternoonShiftStartTimeChanged,
+    TResult Function()? formSubmitted,
+    TResult Function()? resetState,
+  }) {
+    return resetState?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(TimeOfDay time)? morningShiftStartTimeChanged,
+    TResult Function(TimeOfDay time)? morningShiftEndTimeChanged,
+    TResult Function(TimeOfDay time)? afternoonShiftStartTimeChanged,
+    TResult Function()? formSubmitted,
+    TResult Function()? resetState,
+    required TResult orElse(),
+  }) {
+    if (resetState != null) {
+      return resetState();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_MorningShiftStartTimeChanged value)
+        morningShiftStartTimeChanged,
+    required TResult Function(_MorningShiftEndTimeChanged value)
+        morningShiftEndTimeChanged,
+    required TResult Function(_AfternoonShiftStartTimeChanged value)
+        afternoonShiftStartTimeChanged,
+    required TResult Function(_FormSubmitted value) formSubmitted,
+    required TResult Function(_ResetState value) resetState,
+  }) {
+    return resetState(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_MorningShiftStartTimeChanged value)?
+        morningShiftStartTimeChanged,
+    TResult Function(_MorningShiftEndTimeChanged value)?
+        morningShiftEndTimeChanged,
+    TResult Function(_AfternoonShiftStartTimeChanged value)?
+        afternoonShiftStartTimeChanged,
+    TResult Function(_FormSubmitted value)? formSubmitted,
+    TResult Function(_ResetState value)? resetState,
+  }) {
+    return resetState?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_MorningShiftStartTimeChanged value)?
+        morningShiftStartTimeChanged,
+    TResult Function(_MorningShiftEndTimeChanged value)?
+        morningShiftEndTimeChanged,
+    TResult Function(_AfternoonShiftStartTimeChanged value)?
+        afternoonShiftStartTimeChanged,
+    TResult Function(_FormSubmitted value)? formSubmitted,
+    TResult Function(_ResetState value)? resetState,
+    required TResult orElse(),
+  }) {
+    if (resetState != null) {
+      return resetState(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ResetState implements AssignScheduleFormEvent {
+  const factory _ResetState() = _$_ResetState;
 }
 
 /// @nodoc

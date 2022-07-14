@@ -21,6 +21,7 @@ mixin _$ProfileScreenEvent {
     required TResult Function() initialize,
     required TResult Function() updateEmployee,
     required TResult Function(Uint8List profilePicture) avatarChanged,
+    required TResult Function() resetState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -28,6 +29,7 @@ mixin _$ProfileScreenEvent {
     TResult Function()? initialize,
     TResult Function()? updateEmployee,
     TResult Function(Uint8List profilePicture)? avatarChanged,
+    TResult Function()? resetState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -35,6 +37,7 @@ mixin _$ProfileScreenEvent {
     TResult Function()? initialize,
     TResult Function()? updateEmployee,
     TResult Function(Uint8List profilePicture)? avatarChanged,
+    TResult Function()? resetState,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -43,6 +46,7 @@ mixin _$ProfileScreenEvent {
     required TResult Function(_Initialize value) initialize,
     required TResult Function(_UpdateEmployee value) updateEmployee,
     required TResult Function(_AvatarChanged value) avatarChanged,
+    required TResult Function(_ResetState value) resetState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -50,6 +54,7 @@ mixin _$ProfileScreenEvent {
     TResult Function(_Initialize value)? initialize,
     TResult Function(_UpdateEmployee value)? updateEmployee,
     TResult Function(_AvatarChanged value)? avatarChanged,
+    TResult Function(_ResetState value)? resetState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -57,6 +62,7 @@ mixin _$ProfileScreenEvent {
     TResult Function(_Initialize value)? initialize,
     TResult Function(_UpdateEmployee value)? updateEmployee,
     TResult Function(_AvatarChanged value)? avatarChanged,
+    TResult Function(_ResetState value)? resetState,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -130,6 +136,7 @@ class _$_Initialize with DiagnosticableTreeMixin implements _Initialize {
     required TResult Function() initialize,
     required TResult Function() updateEmployee,
     required TResult Function(Uint8List profilePicture) avatarChanged,
+    required TResult Function() resetState,
   }) {
     return initialize();
   }
@@ -140,6 +147,7 @@ class _$_Initialize with DiagnosticableTreeMixin implements _Initialize {
     TResult Function()? initialize,
     TResult Function()? updateEmployee,
     TResult Function(Uint8List profilePicture)? avatarChanged,
+    TResult Function()? resetState,
   }) {
     return initialize?.call();
   }
@@ -150,6 +158,7 @@ class _$_Initialize with DiagnosticableTreeMixin implements _Initialize {
     TResult Function()? initialize,
     TResult Function()? updateEmployee,
     TResult Function(Uint8List profilePicture)? avatarChanged,
+    TResult Function()? resetState,
     required TResult orElse(),
   }) {
     if (initialize != null) {
@@ -164,6 +173,7 @@ class _$_Initialize with DiagnosticableTreeMixin implements _Initialize {
     required TResult Function(_Initialize value) initialize,
     required TResult Function(_UpdateEmployee value) updateEmployee,
     required TResult Function(_AvatarChanged value) avatarChanged,
+    required TResult Function(_ResetState value) resetState,
   }) {
     return initialize(this);
   }
@@ -174,6 +184,7 @@ class _$_Initialize with DiagnosticableTreeMixin implements _Initialize {
     TResult Function(_Initialize value)? initialize,
     TResult Function(_UpdateEmployee value)? updateEmployee,
     TResult Function(_AvatarChanged value)? avatarChanged,
+    TResult Function(_ResetState value)? resetState,
   }) {
     return initialize?.call(this);
   }
@@ -184,6 +195,7 @@ class _$_Initialize with DiagnosticableTreeMixin implements _Initialize {
     TResult Function(_Initialize value)? initialize,
     TResult Function(_UpdateEmployee value)? updateEmployee,
     TResult Function(_AvatarChanged value)? avatarChanged,
+    TResult Function(_ResetState value)? resetState,
     required TResult orElse(),
   }) {
     if (initialize != null) {
@@ -250,6 +262,7 @@ class _$_UpdateEmployee
     required TResult Function() initialize,
     required TResult Function() updateEmployee,
     required TResult Function(Uint8List profilePicture) avatarChanged,
+    required TResult Function() resetState,
   }) {
     return updateEmployee();
   }
@@ -260,6 +273,7 @@ class _$_UpdateEmployee
     TResult Function()? initialize,
     TResult Function()? updateEmployee,
     TResult Function(Uint8List profilePicture)? avatarChanged,
+    TResult Function()? resetState,
   }) {
     return updateEmployee?.call();
   }
@@ -270,6 +284,7 @@ class _$_UpdateEmployee
     TResult Function()? initialize,
     TResult Function()? updateEmployee,
     TResult Function(Uint8List profilePicture)? avatarChanged,
+    TResult Function()? resetState,
     required TResult orElse(),
   }) {
     if (updateEmployee != null) {
@@ -284,6 +299,7 @@ class _$_UpdateEmployee
     required TResult Function(_Initialize value) initialize,
     required TResult Function(_UpdateEmployee value) updateEmployee,
     required TResult Function(_AvatarChanged value) avatarChanged,
+    required TResult Function(_ResetState value) resetState,
   }) {
     return updateEmployee(this);
   }
@@ -294,6 +310,7 @@ class _$_UpdateEmployee
     TResult Function(_Initialize value)? initialize,
     TResult Function(_UpdateEmployee value)? updateEmployee,
     TResult Function(_AvatarChanged value)? avatarChanged,
+    TResult Function(_ResetState value)? resetState,
   }) {
     return updateEmployee?.call(this);
   }
@@ -304,6 +321,7 @@ class _$_UpdateEmployee
     TResult Function(_Initialize value)? initialize,
     TResult Function(_UpdateEmployee value)? updateEmployee,
     TResult Function(_AvatarChanged value)? avatarChanged,
+    TResult Function(_ResetState value)? resetState,
     required TResult orElse(),
   }) {
     if (updateEmployee != null) {
@@ -394,6 +412,7 @@ class _$_AvatarChanged with DiagnosticableTreeMixin implements _AvatarChanged {
     required TResult Function() initialize,
     required TResult Function() updateEmployee,
     required TResult Function(Uint8List profilePicture) avatarChanged,
+    required TResult Function() resetState,
   }) {
     return avatarChanged(profilePicture);
   }
@@ -404,6 +423,7 @@ class _$_AvatarChanged with DiagnosticableTreeMixin implements _AvatarChanged {
     TResult Function()? initialize,
     TResult Function()? updateEmployee,
     TResult Function(Uint8List profilePicture)? avatarChanged,
+    TResult Function()? resetState,
   }) {
     return avatarChanged?.call(profilePicture);
   }
@@ -414,6 +434,7 @@ class _$_AvatarChanged with DiagnosticableTreeMixin implements _AvatarChanged {
     TResult Function()? initialize,
     TResult Function()? updateEmployee,
     TResult Function(Uint8List profilePicture)? avatarChanged,
+    TResult Function()? resetState,
     required TResult orElse(),
   }) {
     if (avatarChanged != null) {
@@ -428,6 +449,7 @@ class _$_AvatarChanged with DiagnosticableTreeMixin implements _AvatarChanged {
     required TResult Function(_Initialize value) initialize,
     required TResult Function(_UpdateEmployee value) updateEmployee,
     required TResult Function(_AvatarChanged value) avatarChanged,
+    required TResult Function(_ResetState value) resetState,
   }) {
     return avatarChanged(this);
   }
@@ -438,6 +460,7 @@ class _$_AvatarChanged with DiagnosticableTreeMixin implements _AvatarChanged {
     TResult Function(_Initialize value)? initialize,
     TResult Function(_UpdateEmployee value)? updateEmployee,
     TResult Function(_AvatarChanged value)? avatarChanged,
+    TResult Function(_ResetState value)? resetState,
   }) {
     return avatarChanged?.call(this);
   }
@@ -448,6 +471,7 @@ class _$_AvatarChanged with DiagnosticableTreeMixin implements _AvatarChanged {
     TResult Function(_Initialize value)? initialize,
     TResult Function(_UpdateEmployee value)? updateEmployee,
     TResult Function(_AvatarChanged value)? avatarChanged,
+    TResult Function(_ResetState value)? resetState,
     required TResult orElse(),
   }) {
     if (avatarChanged != null) {
@@ -468,13 +492,137 @@ abstract class _AvatarChanged implements ProfileScreenEvent {
 }
 
 /// @nodoc
+abstract class _$$_ResetStateCopyWith<$Res> {
+  factory _$$_ResetStateCopyWith(
+          _$_ResetState value, $Res Function(_$_ResetState) then) =
+      __$$_ResetStateCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_ResetStateCopyWithImpl<$Res>
+    extends _$ProfileScreenEventCopyWithImpl<$Res>
+    implements _$$_ResetStateCopyWith<$Res> {
+  __$$_ResetStateCopyWithImpl(
+      _$_ResetState _value, $Res Function(_$_ResetState) _then)
+      : super(_value, (v) => _then(v as _$_ResetState));
+
+  @override
+  _$_ResetState get _value => super._value as _$_ResetState;
+}
+
+/// @nodoc
+
+class _$_ResetState with DiagnosticableTreeMixin implements _ResetState {
+  const _$_ResetState();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'ProfileScreenEvent.resetState()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+        .add(DiagnosticsProperty('type', 'ProfileScreenEvent.resetState'));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_ResetState);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initialize,
+    required TResult Function() updateEmployee,
+    required TResult Function(Uint8List profilePicture) avatarChanged,
+    required TResult Function() resetState,
+  }) {
+    return resetState();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initialize,
+    TResult Function()? updateEmployee,
+    TResult Function(Uint8List profilePicture)? avatarChanged,
+    TResult Function()? resetState,
+  }) {
+    return resetState?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialize,
+    TResult Function()? updateEmployee,
+    TResult Function(Uint8List profilePicture)? avatarChanged,
+    TResult Function()? resetState,
+    required TResult orElse(),
+  }) {
+    if (resetState != null) {
+      return resetState();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initialize value) initialize,
+    required TResult Function(_UpdateEmployee value) updateEmployee,
+    required TResult Function(_AvatarChanged value) avatarChanged,
+    required TResult Function(_ResetState value) resetState,
+  }) {
+    return resetState(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Initialize value)? initialize,
+    TResult Function(_UpdateEmployee value)? updateEmployee,
+    TResult Function(_AvatarChanged value)? avatarChanged,
+    TResult Function(_ResetState value)? resetState,
+  }) {
+    return resetState?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initialize value)? initialize,
+    TResult Function(_UpdateEmployee value)? updateEmployee,
+    TResult Function(_AvatarChanged value)? avatarChanged,
+    TResult Function(_ResetState value)? resetState,
+    required TResult orElse(),
+  }) {
+    if (resetState != null) {
+      return resetState(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ResetState implements ProfileScreenEvent {
+  const factory _ResetState() = _$_ResetState;
+}
+
+/// @nodoc
 mixin _$ProfileScreenState {
   Either<EmployeeFailure, Employee>? get failureOrEmployee =>
       throw _privateConstructorUsedError;
-  bool get isSubmitting => throw _privateConstructorUsedError;
-  bool get isLoading => throw _privateConstructorUsedError;
   Either<EmployeeFailure, Unit>? get profileChangedSuccessOrFail =>
       throw _privateConstructorUsedError;
+  bool get isSubmitting => throw _privateConstructorUsedError;
+  bool get isLoading => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ProfileScreenStateCopyWith<ProfileScreenState> get copyWith =>
@@ -488,9 +636,9 @@ abstract class $ProfileScreenStateCopyWith<$Res> {
       _$ProfileScreenStateCopyWithImpl<$Res>;
   $Res call(
       {Either<EmployeeFailure, Employee>? failureOrEmployee,
+      Either<EmployeeFailure, Unit>? profileChangedSuccessOrFail,
       bool isSubmitting,
-      bool isLoading,
-      Either<EmployeeFailure, Unit>? profileChangedSuccessOrFail});
+      bool isLoading});
 }
 
 /// @nodoc
@@ -505,15 +653,19 @@ class _$ProfileScreenStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? failureOrEmployee = freezed,
+    Object? profileChangedSuccessOrFail = freezed,
     Object? isSubmitting = freezed,
     Object? isLoading = freezed,
-    Object? profileChangedSuccessOrFail = freezed,
   }) {
     return _then(_value.copyWith(
       failureOrEmployee: failureOrEmployee == freezed
           ? _value.failureOrEmployee
           : failureOrEmployee // ignore: cast_nullable_to_non_nullable
               as Either<EmployeeFailure, Employee>?,
+      profileChangedSuccessOrFail: profileChangedSuccessOrFail == freezed
+          ? _value.profileChangedSuccessOrFail
+          : profileChangedSuccessOrFail // ignore: cast_nullable_to_non_nullable
+              as Either<EmployeeFailure, Unit>?,
       isSubmitting: isSubmitting == freezed
           ? _value.isSubmitting
           : isSubmitting // ignore: cast_nullable_to_non_nullable
@@ -522,10 +674,6 @@ class _$ProfileScreenStateCopyWithImpl<$Res>
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      profileChangedSuccessOrFail: profileChangedSuccessOrFail == freezed
-          ? _value.profileChangedSuccessOrFail
-          : profileChangedSuccessOrFail // ignore: cast_nullable_to_non_nullable
-              as Either<EmployeeFailure, Unit>?,
     ));
   }
 }
@@ -539,9 +687,9 @@ abstract class _$$_ProfileScreenStateCopyWith<$Res>
   @override
   $Res call(
       {Either<EmployeeFailure, Employee>? failureOrEmployee,
+      Either<EmployeeFailure, Unit>? profileChangedSuccessOrFail,
       bool isSubmitting,
-      bool isLoading,
-      Either<EmployeeFailure, Unit>? profileChangedSuccessOrFail});
+      bool isLoading});
 }
 
 /// @nodoc
@@ -558,15 +706,19 @@ class __$$_ProfileScreenStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? failureOrEmployee = freezed,
+    Object? profileChangedSuccessOrFail = freezed,
     Object? isSubmitting = freezed,
     Object? isLoading = freezed,
-    Object? profileChangedSuccessOrFail = freezed,
   }) {
     return _then(_$_ProfileScreenState(
       failureOrEmployee: failureOrEmployee == freezed
           ? _value.failureOrEmployee
           : failureOrEmployee // ignore: cast_nullable_to_non_nullable
               as Either<EmployeeFailure, Employee>?,
+      profileChangedSuccessOrFail: profileChangedSuccessOrFail == freezed
+          ? _value.profileChangedSuccessOrFail
+          : profileChangedSuccessOrFail // ignore: cast_nullable_to_non_nullable
+              as Either<EmployeeFailure, Unit>?,
       isSubmitting: isSubmitting == freezed
           ? _value.isSubmitting
           : isSubmitting // ignore: cast_nullable_to_non_nullable
@@ -575,10 +727,6 @@ class __$$_ProfileScreenStateCopyWithImpl<$Res>
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      profileChangedSuccessOrFail: profileChangedSuccessOrFail == freezed
-          ? _value.profileChangedSuccessOrFail
-          : profileChangedSuccessOrFail // ignore: cast_nullable_to_non_nullable
-              as Either<EmployeeFailure, Unit>?,
     ));
   }
 }
@@ -590,22 +738,22 @@ class _$_ProfileScreenState
     implements _ProfileScreenState {
   const _$_ProfileScreenState(
       {required this.failureOrEmployee,
+      required this.profileChangedSuccessOrFail,
       required this.isSubmitting,
-      required this.isLoading,
-      required this.profileChangedSuccessOrFail});
+      required this.isLoading});
 
   @override
   final Either<EmployeeFailure, Employee>? failureOrEmployee;
   @override
+  final Either<EmployeeFailure, Unit>? profileChangedSuccessOrFail;
+  @override
   final bool isSubmitting;
   @override
   final bool isLoading;
-  @override
-  final Either<EmployeeFailure, Unit>? profileChangedSuccessOrFail;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'ProfileScreenState(failureOrEmployee: $failureOrEmployee, isSubmitting: $isSubmitting, isLoading: $isLoading, profileChangedSuccessOrFail: $profileChangedSuccessOrFail)';
+    return 'ProfileScreenState(failureOrEmployee: $failureOrEmployee, profileChangedSuccessOrFail: $profileChangedSuccessOrFail, isSubmitting: $isSubmitting, isLoading: $isLoading)';
   }
 
   @override
@@ -614,10 +762,10 @@ class _$_ProfileScreenState
     properties
       ..add(DiagnosticsProperty('type', 'ProfileScreenState'))
       ..add(DiagnosticsProperty('failureOrEmployee', failureOrEmployee))
-      ..add(DiagnosticsProperty('isSubmitting', isSubmitting))
-      ..add(DiagnosticsProperty('isLoading', isLoading))
       ..add(DiagnosticsProperty(
-          'profileChangedSuccessOrFail', profileChangedSuccessOrFail));
+          'profileChangedSuccessOrFail', profileChangedSuccessOrFail))
+      ..add(DiagnosticsProperty('isSubmitting', isSubmitting))
+      ..add(DiagnosticsProperty('isLoading', isLoading));
   }
 
   @override
@@ -627,21 +775,21 @@ class _$_ProfileScreenState
             other is _$_ProfileScreenState &&
             const DeepCollectionEquality()
                 .equals(other.failureOrEmployee, failureOrEmployee) &&
-            const DeepCollectionEquality()
-                .equals(other.isSubmitting, isSubmitting) &&
-            const DeepCollectionEquality().equals(other.isLoading, isLoading) &&
             const DeepCollectionEquality().equals(
                 other.profileChangedSuccessOrFail,
-                profileChangedSuccessOrFail));
+                profileChangedSuccessOrFail) &&
+            const DeepCollectionEquality()
+                .equals(other.isSubmitting, isSubmitting) &&
+            const DeepCollectionEquality().equals(other.isLoading, isLoading));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(failureOrEmployee),
+      const DeepCollectionEquality().hash(profileChangedSuccessOrFail),
       const DeepCollectionEquality().hash(isSubmitting),
-      const DeepCollectionEquality().hash(isLoading),
-      const DeepCollectionEquality().hash(profileChangedSuccessOrFail));
+      const DeepCollectionEquality().hash(isLoading));
 
   @JsonKey(ignore: true)
   @override
@@ -653,21 +801,20 @@ class _$_ProfileScreenState
 abstract class _ProfileScreenState implements ProfileScreenState {
   const factory _ProfileScreenState(
       {required final Either<EmployeeFailure, Employee>? failureOrEmployee,
+      required final Either<EmployeeFailure, Unit>? profileChangedSuccessOrFail,
       required final bool isSubmitting,
-      required final bool isLoading,
-      required final Either<EmployeeFailure, Unit>?
-          profileChangedSuccessOrFail}) = _$_ProfileScreenState;
+      required final bool isLoading}) = _$_ProfileScreenState;
 
   @override
   Either<EmployeeFailure, Employee>? get failureOrEmployee =>
       throw _privateConstructorUsedError;
   @override
+  Either<EmployeeFailure, Unit>? get profileChangedSuccessOrFail =>
+      throw _privateConstructorUsedError;
+  @override
   bool get isSubmitting => throw _privateConstructorUsedError;
   @override
   bool get isLoading => throw _privateConstructorUsedError;
-  @override
-  Either<EmployeeFailure, Unit>? get profileChangedSuccessOrFail =>
-      throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$$_ProfileScreenStateCopyWith<_$_ProfileScreenState> get copyWith =>

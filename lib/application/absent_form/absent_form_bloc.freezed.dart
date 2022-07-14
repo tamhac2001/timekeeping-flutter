@@ -25,6 +25,7 @@ mixin _$AbsentFormEvent {
     required TResult Function(String noteChanged) noteChanged,
     required TResult Function() formSubmitted,
     required TResult Function() cancelled,
+    required TResult Function() resetState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -36,6 +37,7 @@ mixin _$AbsentFormEvent {
     TResult Function(String noteChanged)? noteChanged,
     TResult Function()? formSubmitted,
     TResult Function()? cancelled,
+    TResult Function()? resetState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -47,6 +49,7 @@ mixin _$AbsentFormEvent {
     TResult Function(String noteChanged)? noteChanged,
     TResult Function()? formSubmitted,
     TResult Function()? cancelled,
+    TResult Function()? resetState,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -59,6 +62,7 @@ mixin _$AbsentFormEvent {
     required TResult Function(_NoteChanged value) noteChanged,
     required TResult Function(_FormSubmitted value) formSubmitted,
     required TResult Function(_Cancelled value) cancelled,
+    required TResult Function(_ResetState value) resetState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -70,6 +74,7 @@ mixin _$AbsentFormEvent {
     TResult Function(_NoteChanged value)? noteChanged,
     TResult Function(_FormSubmitted value)? formSubmitted,
     TResult Function(_Cancelled value)? cancelled,
+    TResult Function(_ResetState value)? resetState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -81,6 +86,7 @@ mixin _$AbsentFormEvent {
     TResult Function(_NoteChanged value)? noteChanged,
     TResult Function(_FormSubmitted value)? formSubmitted,
     TResult Function(_Cancelled value)? cancelled,
+    TResult Function(_ResetState value)? resetState,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -160,6 +166,7 @@ class _$_GetAbsentFormList
     required TResult Function(String noteChanged) noteChanged,
     required TResult Function() formSubmitted,
     required TResult Function() cancelled,
+    required TResult Function() resetState,
   }) {
     return getAbsentFormList();
   }
@@ -174,6 +181,7 @@ class _$_GetAbsentFormList
     TResult Function(String noteChanged)? noteChanged,
     TResult Function()? formSubmitted,
     TResult Function()? cancelled,
+    TResult Function()? resetState,
   }) {
     return getAbsentFormList?.call();
   }
@@ -188,6 +196,7 @@ class _$_GetAbsentFormList
     TResult Function(String noteChanged)? noteChanged,
     TResult Function()? formSubmitted,
     TResult Function()? cancelled,
+    TResult Function()? resetState,
     required TResult orElse(),
   }) {
     if (getAbsentFormList != null) {
@@ -206,6 +215,7 @@ class _$_GetAbsentFormList
     required TResult Function(_NoteChanged value) noteChanged,
     required TResult Function(_FormSubmitted value) formSubmitted,
     required TResult Function(_Cancelled value) cancelled,
+    required TResult Function(_ResetState value) resetState,
   }) {
     return getAbsentFormList(this);
   }
@@ -220,6 +230,7 @@ class _$_GetAbsentFormList
     TResult Function(_NoteChanged value)? noteChanged,
     TResult Function(_FormSubmitted value)? formSubmitted,
     TResult Function(_Cancelled value)? cancelled,
+    TResult Function(_ResetState value)? resetState,
   }) {
     return getAbsentFormList?.call(this);
   }
@@ -234,6 +245,7 @@ class _$_GetAbsentFormList
     TResult Function(_NoteChanged value)? noteChanged,
     TResult Function(_FormSubmitted value)? formSubmitted,
     TResult Function(_Cancelled value)? cancelled,
+    TResult Function(_ResetState value)? resetState,
     required TResult orElse(),
   }) {
     if (getAbsentFormList != null) {
@@ -329,6 +341,7 @@ class _$_StartDatePicked
     required TResult Function(String noteChanged) noteChanged,
     required TResult Function() formSubmitted,
     required TResult Function() cancelled,
+    required TResult Function() resetState,
   }) {
     return startDatePicked(startDate);
   }
@@ -343,6 +356,7 @@ class _$_StartDatePicked
     TResult Function(String noteChanged)? noteChanged,
     TResult Function()? formSubmitted,
     TResult Function()? cancelled,
+    TResult Function()? resetState,
   }) {
     return startDatePicked?.call(startDate);
   }
@@ -357,6 +371,7 @@ class _$_StartDatePicked
     TResult Function(String noteChanged)? noteChanged,
     TResult Function()? formSubmitted,
     TResult Function()? cancelled,
+    TResult Function()? resetState,
     required TResult orElse(),
   }) {
     if (startDatePicked != null) {
@@ -375,6 +390,7 @@ class _$_StartDatePicked
     required TResult Function(_NoteChanged value) noteChanged,
     required TResult Function(_FormSubmitted value) formSubmitted,
     required TResult Function(_Cancelled value) cancelled,
+    required TResult Function(_ResetState value) resetState,
   }) {
     return startDatePicked(this);
   }
@@ -389,6 +405,7 @@ class _$_StartDatePicked
     TResult Function(_NoteChanged value)? noteChanged,
     TResult Function(_FormSubmitted value)? formSubmitted,
     TResult Function(_Cancelled value)? cancelled,
+    TResult Function(_ResetState value)? resetState,
   }) {
     return startDatePicked?.call(this);
   }
@@ -403,6 +420,7 @@ class _$_StartDatePicked
     TResult Function(_NoteChanged value)? noteChanged,
     TResult Function(_FormSubmitted value)? formSubmitted,
     TResult Function(_Cancelled value)? cancelled,
+    TResult Function(_ResetState value)? resetState,
     required TResult orElse(),
   }) {
     if (startDatePicked != null) {
@@ -502,6 +520,7 @@ class _$_EndDatePicked with DiagnosticableTreeMixin implements _EndDatePicked {
     required TResult Function(String noteChanged) noteChanged,
     required TResult Function() formSubmitted,
     required TResult Function() cancelled,
+    required TResult Function() resetState,
   }) {
     return endDatePicked(endDate);
   }
@@ -516,6 +535,7 @@ class _$_EndDatePicked with DiagnosticableTreeMixin implements _EndDatePicked {
     TResult Function(String noteChanged)? noteChanged,
     TResult Function()? formSubmitted,
     TResult Function()? cancelled,
+    TResult Function()? resetState,
   }) {
     return endDatePicked?.call(endDate);
   }
@@ -530,6 +550,7 @@ class _$_EndDatePicked with DiagnosticableTreeMixin implements _EndDatePicked {
     TResult Function(String noteChanged)? noteChanged,
     TResult Function()? formSubmitted,
     TResult Function()? cancelled,
+    TResult Function()? resetState,
     required TResult orElse(),
   }) {
     if (endDatePicked != null) {
@@ -548,6 +569,7 @@ class _$_EndDatePicked with DiagnosticableTreeMixin implements _EndDatePicked {
     required TResult Function(_NoteChanged value) noteChanged,
     required TResult Function(_FormSubmitted value) formSubmitted,
     required TResult Function(_Cancelled value) cancelled,
+    required TResult Function(_ResetState value) resetState,
   }) {
     return endDatePicked(this);
   }
@@ -562,6 +584,7 @@ class _$_EndDatePicked with DiagnosticableTreeMixin implements _EndDatePicked {
     TResult Function(_NoteChanged value)? noteChanged,
     TResult Function(_FormSubmitted value)? formSubmitted,
     TResult Function(_Cancelled value)? cancelled,
+    TResult Function(_ResetState value)? resetState,
   }) {
     return endDatePicked?.call(this);
   }
@@ -576,6 +599,7 @@ class _$_EndDatePicked with DiagnosticableTreeMixin implements _EndDatePicked {
     TResult Function(_NoteChanged value)? noteChanged,
     TResult Function(_FormSubmitted value)? formSubmitted,
     TResult Function(_Cancelled value)? cancelled,
+    TResult Function(_ResetState value)? resetState,
     required TResult orElse(),
   }) {
     if (endDatePicked != null) {
@@ -683,6 +707,7 @@ class _$_ReasonChanged with DiagnosticableTreeMixin implements _ReasonChanged {
     required TResult Function(String noteChanged) noteChanged,
     required TResult Function() formSubmitted,
     required TResult Function() cancelled,
+    required TResult Function() resetState,
   }) {
     return reasonChanged(reason);
   }
@@ -697,6 +722,7 @@ class _$_ReasonChanged with DiagnosticableTreeMixin implements _ReasonChanged {
     TResult Function(String noteChanged)? noteChanged,
     TResult Function()? formSubmitted,
     TResult Function()? cancelled,
+    TResult Function()? resetState,
   }) {
     return reasonChanged?.call(reason);
   }
@@ -711,6 +737,7 @@ class _$_ReasonChanged with DiagnosticableTreeMixin implements _ReasonChanged {
     TResult Function(String noteChanged)? noteChanged,
     TResult Function()? formSubmitted,
     TResult Function()? cancelled,
+    TResult Function()? resetState,
     required TResult orElse(),
   }) {
     if (reasonChanged != null) {
@@ -729,6 +756,7 @@ class _$_ReasonChanged with DiagnosticableTreeMixin implements _ReasonChanged {
     required TResult Function(_NoteChanged value) noteChanged,
     required TResult Function(_FormSubmitted value) formSubmitted,
     required TResult Function(_Cancelled value) cancelled,
+    required TResult Function(_ResetState value) resetState,
   }) {
     return reasonChanged(this);
   }
@@ -743,6 +771,7 @@ class _$_ReasonChanged with DiagnosticableTreeMixin implements _ReasonChanged {
     TResult Function(_NoteChanged value)? noteChanged,
     TResult Function(_FormSubmitted value)? formSubmitted,
     TResult Function(_Cancelled value)? cancelled,
+    TResult Function(_ResetState value)? resetState,
   }) {
     return reasonChanged?.call(this);
   }
@@ -757,6 +786,7 @@ class _$_ReasonChanged with DiagnosticableTreeMixin implements _ReasonChanged {
     TResult Function(_NoteChanged value)? noteChanged,
     TResult Function(_FormSubmitted value)? formSubmitted,
     TResult Function(_Cancelled value)? cancelled,
+    TResult Function(_ResetState value)? resetState,
     required TResult orElse(),
   }) {
     if (reasonChanged != null) {
@@ -856,6 +886,7 @@ class _$_NoteChanged with DiagnosticableTreeMixin implements _NoteChanged {
     required TResult Function(String noteChanged) noteChanged,
     required TResult Function() formSubmitted,
     required TResult Function() cancelled,
+    required TResult Function() resetState,
   }) {
     return noteChanged(this.noteChanged);
   }
@@ -870,6 +901,7 @@ class _$_NoteChanged with DiagnosticableTreeMixin implements _NoteChanged {
     TResult Function(String noteChanged)? noteChanged,
     TResult Function()? formSubmitted,
     TResult Function()? cancelled,
+    TResult Function()? resetState,
   }) {
     return noteChanged?.call(this.noteChanged);
   }
@@ -884,6 +916,7 @@ class _$_NoteChanged with DiagnosticableTreeMixin implements _NoteChanged {
     TResult Function(String noteChanged)? noteChanged,
     TResult Function()? formSubmitted,
     TResult Function()? cancelled,
+    TResult Function()? resetState,
     required TResult orElse(),
   }) {
     if (noteChanged != null) {
@@ -902,6 +935,7 @@ class _$_NoteChanged with DiagnosticableTreeMixin implements _NoteChanged {
     required TResult Function(_NoteChanged value) noteChanged,
     required TResult Function(_FormSubmitted value) formSubmitted,
     required TResult Function(_Cancelled value) cancelled,
+    required TResult Function(_ResetState value) resetState,
   }) {
     return noteChanged(this);
   }
@@ -916,6 +950,7 @@ class _$_NoteChanged with DiagnosticableTreeMixin implements _NoteChanged {
     TResult Function(_NoteChanged value)? noteChanged,
     TResult Function(_FormSubmitted value)? formSubmitted,
     TResult Function(_Cancelled value)? cancelled,
+    TResult Function(_ResetState value)? resetState,
   }) {
     return noteChanged?.call(this);
   }
@@ -930,6 +965,7 @@ class _$_NoteChanged with DiagnosticableTreeMixin implements _NoteChanged {
     TResult Function(_NoteChanged value)? noteChanged,
     TResult Function(_FormSubmitted value)? formSubmitted,
     TResult Function(_Cancelled value)? cancelled,
+    TResult Function(_ResetState value)? resetState,
     required TResult orElse(),
   }) {
     if (noteChanged != null) {
@@ -1003,6 +1039,7 @@ class _$_FormSubmitted with DiagnosticableTreeMixin implements _FormSubmitted {
     required TResult Function(String noteChanged) noteChanged,
     required TResult Function() formSubmitted,
     required TResult Function() cancelled,
+    required TResult Function() resetState,
   }) {
     return formSubmitted();
   }
@@ -1017,6 +1054,7 @@ class _$_FormSubmitted with DiagnosticableTreeMixin implements _FormSubmitted {
     TResult Function(String noteChanged)? noteChanged,
     TResult Function()? formSubmitted,
     TResult Function()? cancelled,
+    TResult Function()? resetState,
   }) {
     return formSubmitted?.call();
   }
@@ -1031,6 +1069,7 @@ class _$_FormSubmitted with DiagnosticableTreeMixin implements _FormSubmitted {
     TResult Function(String noteChanged)? noteChanged,
     TResult Function()? formSubmitted,
     TResult Function()? cancelled,
+    TResult Function()? resetState,
     required TResult orElse(),
   }) {
     if (formSubmitted != null) {
@@ -1049,6 +1088,7 @@ class _$_FormSubmitted with DiagnosticableTreeMixin implements _FormSubmitted {
     required TResult Function(_NoteChanged value) noteChanged,
     required TResult Function(_FormSubmitted value) formSubmitted,
     required TResult Function(_Cancelled value) cancelled,
+    required TResult Function(_ResetState value) resetState,
   }) {
     return formSubmitted(this);
   }
@@ -1063,6 +1103,7 @@ class _$_FormSubmitted with DiagnosticableTreeMixin implements _FormSubmitted {
     TResult Function(_NoteChanged value)? noteChanged,
     TResult Function(_FormSubmitted value)? formSubmitted,
     TResult Function(_Cancelled value)? cancelled,
+    TResult Function(_ResetState value)? resetState,
   }) {
     return formSubmitted?.call(this);
   }
@@ -1077,6 +1118,7 @@ class _$_FormSubmitted with DiagnosticableTreeMixin implements _FormSubmitted {
     TResult Function(_NoteChanged value)? noteChanged,
     TResult Function(_FormSubmitted value)? formSubmitted,
     TResult Function(_Cancelled value)? cancelled,
+    TResult Function(_ResetState value)? resetState,
     required TResult orElse(),
   }) {
     if (formSubmitted != null) {
@@ -1144,6 +1186,7 @@ class _$_Cancelled with DiagnosticableTreeMixin implements _Cancelled {
     required TResult Function(String noteChanged) noteChanged,
     required TResult Function() formSubmitted,
     required TResult Function() cancelled,
+    required TResult Function() resetState,
   }) {
     return cancelled();
   }
@@ -1158,6 +1201,7 @@ class _$_Cancelled with DiagnosticableTreeMixin implements _Cancelled {
     TResult Function(String noteChanged)? noteChanged,
     TResult Function()? formSubmitted,
     TResult Function()? cancelled,
+    TResult Function()? resetState,
   }) {
     return cancelled?.call();
   }
@@ -1172,6 +1216,7 @@ class _$_Cancelled with DiagnosticableTreeMixin implements _Cancelled {
     TResult Function(String noteChanged)? noteChanged,
     TResult Function()? formSubmitted,
     TResult Function()? cancelled,
+    TResult Function()? resetState,
     required TResult orElse(),
   }) {
     if (cancelled != null) {
@@ -1190,6 +1235,7 @@ class _$_Cancelled with DiagnosticableTreeMixin implements _Cancelled {
     required TResult Function(_NoteChanged value) noteChanged,
     required TResult Function(_FormSubmitted value) formSubmitted,
     required TResult Function(_Cancelled value) cancelled,
+    required TResult Function(_ResetState value) resetState,
   }) {
     return cancelled(this);
   }
@@ -1204,6 +1250,7 @@ class _$_Cancelled with DiagnosticableTreeMixin implements _Cancelled {
     TResult Function(_NoteChanged value)? noteChanged,
     TResult Function(_FormSubmitted value)? formSubmitted,
     TResult Function(_Cancelled value)? cancelled,
+    TResult Function(_ResetState value)? resetState,
   }) {
     return cancelled?.call(this);
   }
@@ -1218,6 +1265,7 @@ class _$_Cancelled with DiagnosticableTreeMixin implements _Cancelled {
     TResult Function(_NoteChanged value)? noteChanged,
     TResult Function(_FormSubmitted value)? formSubmitted,
     TResult Function(_Cancelled value)? cancelled,
+    TResult Function(_ResetState value)? resetState,
     required TResult orElse(),
   }) {
     if (cancelled != null) {
@@ -1229,6 +1277,153 @@ class _$_Cancelled with DiagnosticableTreeMixin implements _Cancelled {
 
 abstract class _Cancelled implements AbsentFormEvent {
   const factory _Cancelled() = _$_Cancelled;
+}
+
+/// @nodoc
+abstract class _$$_ResetStateCopyWith<$Res> {
+  factory _$$_ResetStateCopyWith(
+          _$_ResetState value, $Res Function(_$_ResetState) then) =
+      __$$_ResetStateCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_ResetStateCopyWithImpl<$Res>
+    extends _$AbsentFormEventCopyWithImpl<$Res>
+    implements _$$_ResetStateCopyWith<$Res> {
+  __$$_ResetStateCopyWithImpl(
+      _$_ResetState _value, $Res Function(_$_ResetState) _then)
+      : super(_value, (v) => _then(v as _$_ResetState));
+
+  @override
+  _$_ResetState get _value => super._value as _$_ResetState;
+}
+
+/// @nodoc
+
+class _$_ResetState with DiagnosticableTreeMixin implements _ResetState {
+  const _$_ResetState();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'AbsentFormEvent.resetState()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty('type', 'AbsentFormEvent.resetState'));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_ResetState);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() getAbsentFormList,
+    required TResult Function(DateTime? startDate) startDatePicked,
+    required TResult Function(DateTime? endDate) endDatePicked,
+    required TResult Function(Reason reason) reasonChanged,
+    required TResult Function(String noteChanged) noteChanged,
+    required TResult Function() formSubmitted,
+    required TResult Function() cancelled,
+    required TResult Function() resetState,
+  }) {
+    return resetState();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? getAbsentFormList,
+    TResult Function(DateTime? startDate)? startDatePicked,
+    TResult Function(DateTime? endDate)? endDatePicked,
+    TResult Function(Reason reason)? reasonChanged,
+    TResult Function(String noteChanged)? noteChanged,
+    TResult Function()? formSubmitted,
+    TResult Function()? cancelled,
+    TResult Function()? resetState,
+  }) {
+    return resetState?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getAbsentFormList,
+    TResult Function(DateTime? startDate)? startDatePicked,
+    TResult Function(DateTime? endDate)? endDatePicked,
+    TResult Function(Reason reason)? reasonChanged,
+    TResult Function(String noteChanged)? noteChanged,
+    TResult Function()? formSubmitted,
+    TResult Function()? cancelled,
+    TResult Function()? resetState,
+    required TResult orElse(),
+  }) {
+    if (resetState != null) {
+      return resetState();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_GetAbsentFormList value) getAbsentFormList,
+    required TResult Function(_StartDatePicked value) startDatePicked,
+    required TResult Function(_EndDatePicked value) endDatePicked,
+    required TResult Function(_ReasonChanged value) reasonChanged,
+    required TResult Function(_NoteChanged value) noteChanged,
+    required TResult Function(_FormSubmitted value) formSubmitted,
+    required TResult Function(_Cancelled value) cancelled,
+    required TResult Function(_ResetState value) resetState,
+  }) {
+    return resetState(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_GetAbsentFormList value)? getAbsentFormList,
+    TResult Function(_StartDatePicked value)? startDatePicked,
+    TResult Function(_EndDatePicked value)? endDatePicked,
+    TResult Function(_ReasonChanged value)? reasonChanged,
+    TResult Function(_NoteChanged value)? noteChanged,
+    TResult Function(_FormSubmitted value)? formSubmitted,
+    TResult Function(_Cancelled value)? cancelled,
+    TResult Function(_ResetState value)? resetState,
+  }) {
+    return resetState?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_GetAbsentFormList value)? getAbsentFormList,
+    TResult Function(_StartDatePicked value)? startDatePicked,
+    TResult Function(_EndDatePicked value)? endDatePicked,
+    TResult Function(_ReasonChanged value)? reasonChanged,
+    TResult Function(_NoteChanged value)? noteChanged,
+    TResult Function(_FormSubmitted value)? formSubmitted,
+    TResult Function(_Cancelled value)? cancelled,
+    TResult Function(_ResetState value)? resetState,
+    required TResult orElse(),
+  }) {
+    if (resetState != null) {
+      return resetState(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ResetState implements AbsentFormEvent {
+  const factory _ResetState() = _$_ResetState;
 }
 
 /// @nodoc

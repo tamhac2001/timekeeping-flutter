@@ -162,6 +162,9 @@ class CheckinCheckoutScreenBloc extends Bloc<CheckinCheckoutScreenEvent, Checkin
           emit(state.copyWith(isChecking: true, isLoading: false));
           debugPrint('qr scanning: ${state.isChecking}');
         },
+        resetState: () {
+          emit(CheckinCheckoutScreenState.empty());
+        },
       );
     });
   }

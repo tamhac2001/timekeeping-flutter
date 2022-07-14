@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:timekeeping/constants.dart';
 import 'package:timekeeping/domain/auth/auth_failure.dart';
@@ -9,7 +10,6 @@ import 'package:timekeeping/infrastructure/auth/dto/auth_dto.dart';
 import 'i_authentication_api_client.dart';
 
 class AuthenticationApiClient implements IAuthenticationApiClient {
-  // static const _uri = 'https://lazy-taxis-rhyme-115-75-181-199.loca.lt/auth/signin';
   static const _uri = '$apiEndPoint/auth/signin';
 
   @override
@@ -22,8 +22,10 @@ class AuthenticationApiClient implements IAuthenticationApiClient {
         body: AuthDTO(email: email, password: password).toJson(),
       )
           .timeout(timeOutDuration, onTimeout: () {
+        debugPrint('timeout');
         throw const AuthFailure.serverError();
       });
+      debugPrint('auth response: ${response.statusCode}');
       if (response.statusCode == HttpStatus.internalServerError || response.statusCode == HttpStatus.notFound) {
         throw const AuthFailure.serverError();
       } else if (response.statusCode == HttpStatus.forbidden) {

@@ -154,9 +154,10 @@ class NoteTextField extends StatelessWidget {
                   decoration: const InputDecoration(
                     border: OutlineInputBorder(),
                   ),
-                  minLines: 1,
+                  minLines: 2,
                   maxLines: 10,
                   autocorrect: false,
+                  keyboardType: TextInputType.multiline,
                   onChanged: (note) => context.read<AbsentFormBloc>().add(AbsentFormEvent.noteChanged(note)),
                 ),
               )

@@ -23,6 +23,7 @@ mixin _$CheckinCheckoutScreenEvent {
     required TResult Function() qrScanning,
     required TResult Function() getTimekeeping,
     required TResult Function() updateIsDayOff,
+    required TResult Function() resetState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -32,6 +33,7 @@ mixin _$CheckinCheckoutScreenEvent {
     TResult Function()? qrScanning,
     TResult Function()? getTimekeeping,
     TResult Function()? updateIsDayOff,
+    TResult Function()? resetState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -41,6 +43,7 @@ mixin _$CheckinCheckoutScreenEvent {
     TResult Function()? qrScanning,
     TResult Function()? getTimekeeping,
     TResult Function()? updateIsDayOff,
+    TResult Function()? resetState,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -51,6 +54,7 @@ mixin _$CheckinCheckoutScreenEvent {
     required TResult Function(_QrScanning value) qrScanning,
     required TResult Function(_GetTimekeeping value) getTimekeeping,
     required TResult Function(_UpdateIsDayOff value) updateIsDayOff,
+    required TResult Function(_ResetState value) resetState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -60,6 +64,7 @@ mixin _$CheckinCheckoutScreenEvent {
     TResult Function(_QrScanning value)? qrScanning,
     TResult Function(_GetTimekeeping value)? getTimekeeping,
     TResult Function(_UpdateIsDayOff value)? updateIsDayOff,
+    TResult Function(_ResetState value)? resetState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -69,6 +74,7 @@ mixin _$CheckinCheckoutScreenEvent {
     TResult Function(_QrScanning value)? qrScanning,
     TResult Function(_GetTimekeeping value)? getTimekeeping,
     TResult Function(_UpdateIsDayOff value)? updateIsDayOff,
+    TResult Function(_ResetState value)? resetState,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -144,6 +150,7 @@ class _$_ClockTick with DiagnosticableTreeMixin implements _ClockTick {
     required TResult Function() qrScanning,
     required TResult Function() getTimekeeping,
     required TResult Function() updateIsDayOff,
+    required TResult Function() resetState,
   }) {
     return clockTick();
   }
@@ -156,6 +163,7 @@ class _$_ClockTick with DiagnosticableTreeMixin implements _ClockTick {
     TResult Function()? qrScanning,
     TResult Function()? getTimekeeping,
     TResult Function()? updateIsDayOff,
+    TResult Function()? resetState,
   }) {
     return clockTick?.call();
   }
@@ -168,6 +176,7 @@ class _$_ClockTick with DiagnosticableTreeMixin implements _ClockTick {
     TResult Function()? qrScanning,
     TResult Function()? getTimekeeping,
     TResult Function()? updateIsDayOff,
+    TResult Function()? resetState,
     required TResult orElse(),
   }) {
     if (clockTick != null) {
@@ -184,6 +193,7 @@ class _$_ClockTick with DiagnosticableTreeMixin implements _ClockTick {
     required TResult Function(_QrScanning value) qrScanning,
     required TResult Function(_GetTimekeeping value) getTimekeeping,
     required TResult Function(_UpdateIsDayOff value) updateIsDayOff,
+    required TResult Function(_ResetState value) resetState,
   }) {
     return clockTick(this);
   }
@@ -196,6 +206,7 @@ class _$_ClockTick with DiagnosticableTreeMixin implements _ClockTick {
     TResult Function(_QrScanning value)? qrScanning,
     TResult Function(_GetTimekeeping value)? getTimekeeping,
     TResult Function(_UpdateIsDayOff value)? updateIsDayOff,
+    TResult Function(_ResetState value)? resetState,
   }) {
     return clockTick?.call(this);
   }
@@ -208,6 +219,7 @@ class _$_ClockTick with DiagnosticableTreeMixin implements _ClockTick {
     TResult Function(_QrScanning value)? qrScanning,
     TResult Function(_GetTimekeeping value)? getTimekeeping,
     TResult Function(_UpdateIsDayOff value)? updateIsDayOff,
+    TResult Function(_ResetState value)? resetState,
     required TResult orElse(),
   }) {
     if (clockTick != null) {
@@ -276,6 +288,7 @@ class _$_UpdateNextCheckTime
     required TResult Function() qrScanning,
     required TResult Function() getTimekeeping,
     required TResult Function() updateIsDayOff,
+    required TResult Function() resetState,
   }) {
     return updateNextCheckTime();
   }
@@ -288,6 +301,7 @@ class _$_UpdateNextCheckTime
     TResult Function()? qrScanning,
     TResult Function()? getTimekeeping,
     TResult Function()? updateIsDayOff,
+    TResult Function()? resetState,
   }) {
     return updateNextCheckTime?.call();
   }
@@ -300,6 +314,7 @@ class _$_UpdateNextCheckTime
     TResult Function()? qrScanning,
     TResult Function()? getTimekeeping,
     TResult Function()? updateIsDayOff,
+    TResult Function()? resetState,
     required TResult orElse(),
   }) {
     if (updateNextCheckTime != null) {
@@ -316,6 +331,7 @@ class _$_UpdateNextCheckTime
     required TResult Function(_QrScanning value) qrScanning,
     required TResult Function(_GetTimekeeping value) getTimekeeping,
     required TResult Function(_UpdateIsDayOff value) updateIsDayOff,
+    required TResult Function(_ResetState value) resetState,
   }) {
     return updateNextCheckTime(this);
   }
@@ -328,6 +344,7 @@ class _$_UpdateNextCheckTime
     TResult Function(_QrScanning value)? qrScanning,
     TResult Function(_GetTimekeeping value)? getTimekeeping,
     TResult Function(_UpdateIsDayOff value)? updateIsDayOff,
+    TResult Function(_ResetState value)? resetState,
   }) {
     return updateNextCheckTime?.call(this);
   }
@@ -340,6 +357,7 @@ class _$_UpdateNextCheckTime
     TResult Function(_QrScanning value)? qrScanning,
     TResult Function(_GetTimekeeping value)? getTimekeeping,
     TResult Function(_UpdateIsDayOff value)? updateIsDayOff,
+    TResult Function(_ResetState value)? resetState,
     required TResult orElse(),
   }) {
     if (updateNextCheckTime != null) {
@@ -406,6 +424,7 @@ class _$_QrScanning with DiagnosticableTreeMixin implements _QrScanning {
     required TResult Function() qrScanning,
     required TResult Function() getTimekeeping,
     required TResult Function() updateIsDayOff,
+    required TResult Function() resetState,
   }) {
     return qrScanning();
   }
@@ -418,6 +437,7 @@ class _$_QrScanning with DiagnosticableTreeMixin implements _QrScanning {
     TResult Function()? qrScanning,
     TResult Function()? getTimekeeping,
     TResult Function()? updateIsDayOff,
+    TResult Function()? resetState,
   }) {
     return qrScanning?.call();
   }
@@ -430,6 +450,7 @@ class _$_QrScanning with DiagnosticableTreeMixin implements _QrScanning {
     TResult Function()? qrScanning,
     TResult Function()? getTimekeeping,
     TResult Function()? updateIsDayOff,
+    TResult Function()? resetState,
     required TResult orElse(),
   }) {
     if (qrScanning != null) {
@@ -446,6 +467,7 @@ class _$_QrScanning with DiagnosticableTreeMixin implements _QrScanning {
     required TResult Function(_QrScanning value) qrScanning,
     required TResult Function(_GetTimekeeping value) getTimekeeping,
     required TResult Function(_UpdateIsDayOff value) updateIsDayOff,
+    required TResult Function(_ResetState value) resetState,
   }) {
     return qrScanning(this);
   }
@@ -458,6 +480,7 @@ class _$_QrScanning with DiagnosticableTreeMixin implements _QrScanning {
     TResult Function(_QrScanning value)? qrScanning,
     TResult Function(_GetTimekeeping value)? getTimekeeping,
     TResult Function(_UpdateIsDayOff value)? updateIsDayOff,
+    TResult Function(_ResetState value)? resetState,
   }) {
     return qrScanning?.call(this);
   }
@@ -470,6 +493,7 @@ class _$_QrScanning with DiagnosticableTreeMixin implements _QrScanning {
     TResult Function(_QrScanning value)? qrScanning,
     TResult Function(_GetTimekeeping value)? getTimekeeping,
     TResult Function(_UpdateIsDayOff value)? updateIsDayOff,
+    TResult Function(_ResetState value)? resetState,
     required TResult orElse(),
   }) {
     if (qrScanning != null) {
@@ -538,6 +562,7 @@ class _$_GetTimekeeping
     required TResult Function() qrScanning,
     required TResult Function() getTimekeeping,
     required TResult Function() updateIsDayOff,
+    required TResult Function() resetState,
   }) {
     return getTimekeeping();
   }
@@ -550,6 +575,7 @@ class _$_GetTimekeeping
     TResult Function()? qrScanning,
     TResult Function()? getTimekeeping,
     TResult Function()? updateIsDayOff,
+    TResult Function()? resetState,
   }) {
     return getTimekeeping?.call();
   }
@@ -562,6 +588,7 @@ class _$_GetTimekeeping
     TResult Function()? qrScanning,
     TResult Function()? getTimekeeping,
     TResult Function()? updateIsDayOff,
+    TResult Function()? resetState,
     required TResult orElse(),
   }) {
     if (getTimekeeping != null) {
@@ -578,6 +605,7 @@ class _$_GetTimekeeping
     required TResult Function(_QrScanning value) qrScanning,
     required TResult Function(_GetTimekeeping value) getTimekeeping,
     required TResult Function(_UpdateIsDayOff value) updateIsDayOff,
+    required TResult Function(_ResetState value) resetState,
   }) {
     return getTimekeeping(this);
   }
@@ -590,6 +618,7 @@ class _$_GetTimekeeping
     TResult Function(_QrScanning value)? qrScanning,
     TResult Function(_GetTimekeeping value)? getTimekeeping,
     TResult Function(_UpdateIsDayOff value)? updateIsDayOff,
+    TResult Function(_ResetState value)? resetState,
   }) {
     return getTimekeeping?.call(this);
   }
@@ -602,6 +631,7 @@ class _$_GetTimekeeping
     TResult Function(_QrScanning value)? qrScanning,
     TResult Function(_GetTimekeeping value)? getTimekeeping,
     TResult Function(_UpdateIsDayOff value)? updateIsDayOff,
+    TResult Function(_ResetState value)? resetState,
     required TResult orElse(),
   }) {
     if (getTimekeeping != null) {
@@ -670,6 +700,7 @@ class _$_UpdateIsDayOff
     required TResult Function() qrScanning,
     required TResult Function() getTimekeeping,
     required TResult Function() updateIsDayOff,
+    required TResult Function() resetState,
   }) {
     return updateIsDayOff();
   }
@@ -682,6 +713,7 @@ class _$_UpdateIsDayOff
     TResult Function()? qrScanning,
     TResult Function()? getTimekeeping,
     TResult Function()? updateIsDayOff,
+    TResult Function()? resetState,
   }) {
     return updateIsDayOff?.call();
   }
@@ -694,6 +726,7 @@ class _$_UpdateIsDayOff
     TResult Function()? qrScanning,
     TResult Function()? getTimekeeping,
     TResult Function()? updateIsDayOff,
+    TResult Function()? resetState,
     required TResult orElse(),
   }) {
     if (updateIsDayOff != null) {
@@ -710,6 +743,7 @@ class _$_UpdateIsDayOff
     required TResult Function(_QrScanning value) qrScanning,
     required TResult Function(_GetTimekeeping value) getTimekeeping,
     required TResult Function(_UpdateIsDayOff value) updateIsDayOff,
+    required TResult Function(_ResetState value) resetState,
   }) {
     return updateIsDayOff(this);
   }
@@ -722,6 +756,7 @@ class _$_UpdateIsDayOff
     TResult Function(_QrScanning value)? qrScanning,
     TResult Function(_GetTimekeeping value)? getTimekeeping,
     TResult Function(_UpdateIsDayOff value)? updateIsDayOff,
+    TResult Function(_ResetState value)? resetState,
   }) {
     return updateIsDayOff?.call(this);
   }
@@ -734,6 +769,7 @@ class _$_UpdateIsDayOff
     TResult Function(_QrScanning value)? qrScanning,
     TResult Function(_GetTimekeeping value)? getTimekeeping,
     TResult Function(_UpdateIsDayOff value)? updateIsDayOff,
+    TResult Function(_ResetState value)? resetState,
     required TResult orElse(),
   }) {
     if (updateIsDayOff != null) {
@@ -745,6 +781,142 @@ class _$_UpdateIsDayOff
 
 abstract class _UpdateIsDayOff implements CheckinCheckoutScreenEvent {
   const factory _UpdateIsDayOff() = _$_UpdateIsDayOff;
+}
+
+/// @nodoc
+abstract class _$$_ResetStateCopyWith<$Res> {
+  factory _$$_ResetStateCopyWith(
+          _$_ResetState value, $Res Function(_$_ResetState) then) =
+      __$$_ResetStateCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_ResetStateCopyWithImpl<$Res>
+    extends _$CheckinCheckoutScreenEventCopyWithImpl<$Res>
+    implements _$$_ResetStateCopyWith<$Res> {
+  __$$_ResetStateCopyWithImpl(
+      _$_ResetState _value, $Res Function(_$_ResetState) _then)
+      : super(_value, (v) => _then(v as _$_ResetState));
+
+  @override
+  _$_ResetState get _value => super._value as _$_ResetState;
+}
+
+/// @nodoc
+
+class _$_ResetState with DiagnosticableTreeMixin implements _ResetState {
+  const _$_ResetState();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'CheckinCheckoutScreenEvent.resetState()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(
+        DiagnosticsProperty('type', 'CheckinCheckoutScreenEvent.resetState'));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_ResetState);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() clockTick,
+    required TResult Function() updateNextCheckTime,
+    required TResult Function() qrScanning,
+    required TResult Function() getTimekeeping,
+    required TResult Function() updateIsDayOff,
+    required TResult Function() resetState,
+  }) {
+    return resetState();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? clockTick,
+    TResult Function()? updateNextCheckTime,
+    TResult Function()? qrScanning,
+    TResult Function()? getTimekeeping,
+    TResult Function()? updateIsDayOff,
+    TResult Function()? resetState,
+  }) {
+    return resetState?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? clockTick,
+    TResult Function()? updateNextCheckTime,
+    TResult Function()? qrScanning,
+    TResult Function()? getTimekeeping,
+    TResult Function()? updateIsDayOff,
+    TResult Function()? resetState,
+    required TResult orElse(),
+  }) {
+    if (resetState != null) {
+      return resetState();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_ClockTick value) clockTick,
+    required TResult Function(_UpdateNextCheckTime value) updateNextCheckTime,
+    required TResult Function(_QrScanning value) qrScanning,
+    required TResult Function(_GetTimekeeping value) getTimekeeping,
+    required TResult Function(_UpdateIsDayOff value) updateIsDayOff,
+    required TResult Function(_ResetState value) resetState,
+  }) {
+    return resetState(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_ClockTick value)? clockTick,
+    TResult Function(_UpdateNextCheckTime value)? updateNextCheckTime,
+    TResult Function(_QrScanning value)? qrScanning,
+    TResult Function(_GetTimekeeping value)? getTimekeeping,
+    TResult Function(_UpdateIsDayOff value)? updateIsDayOff,
+    TResult Function(_ResetState value)? resetState,
+  }) {
+    return resetState?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ClockTick value)? clockTick,
+    TResult Function(_UpdateNextCheckTime value)? updateNextCheckTime,
+    TResult Function(_QrScanning value)? qrScanning,
+    TResult Function(_GetTimekeeping value)? getTimekeeping,
+    TResult Function(_UpdateIsDayOff value)? updateIsDayOff,
+    TResult Function(_ResetState value)? resetState,
+    required TResult orElse(),
+  }) {
+    if (resetState != null) {
+      return resetState(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ResetState implements CheckinCheckoutScreenEvent {
+  const factory _ResetState() = _$_ResetState;
 }
 
 /// @nodoc

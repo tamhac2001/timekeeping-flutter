@@ -183,6 +183,9 @@ class TimekeepingRecordScreenBloc extends Bloc<TimekeepingRecordScreenEvent, Tim
           emit(state.copyWith(displayedTimekeepingRecords: timekeepingListByMonth.reversed.toList()));
           emit(state.copyWith(isLoading: false));
         },
+        resetState: () {
+          emit(TimekeepingRecordScreenState.initial());
+        },
       );
     });
   }

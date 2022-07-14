@@ -10,4 +10,6 @@ class AssignScheduleFormEvent with _$AssignScheduleFormEvent {
       _AfternoonShiftStartTimeChanged;
 
   const factory AssignScheduleFormEvent.formSubmitted() = _FormSubmitted;
+
+  const factory AssignScheduleFormEvent.resetState() = _ResetState;
 }

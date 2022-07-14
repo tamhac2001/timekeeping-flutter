@@ -34,4 +34,8 @@ class TimekeepingCubit extends Cubit<Either<TimekeepingFailure, Timekeeping>?> {
       },
     );
   }
+
+  void resetState() {
+    emit(null);
+  }
 }

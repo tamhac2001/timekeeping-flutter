@@ -54,6 +54,9 @@ class ProfileScreenBloc extends Bloc<ProfileScreenEvent, ProfileScreenState> {
           }
           emit(state.copyWith(isSubmitting: false));
         },
+        resetState: () {
+          emit(ProfileScreenState.initial());
+        },
       );
     });
   }

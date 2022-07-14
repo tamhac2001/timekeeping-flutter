@@ -23,4 +23,16 @@ class AbsentForm with _$AbsentForm {
       reason: Reason(value: absentFormDto.reason),
       note: absentFormDto.note,
       status: absentFormDto.status != null ? Status.fromStatusCode(code: absentFormDto.status!) : null);
+
+  factory AbsentForm.initial() {
+    final now = DateTime.now();
+    final tomorrow = DateTime(now.year, now.month, now.day).add(const Duration(days: 1));
+    return AbsentForm(
+      startDate: tomorrow,
+      endDate: tomorrow,
+      reason: const Reason.ill(),
+      note: '',
+      status: null,
+    );
+  }
 }
