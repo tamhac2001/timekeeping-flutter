@@ -23,13 +23,15 @@ class TimekeepingCubit extends Cubit<Either<TimekeepingFailure, Timekeeping>?> {
       await _scheduleCubit.scheduleRequest();
     }
     await _scheduleCubit.state.scheduleFailureOrSchedule!.fold(
-        (failure) async => failure.when(
-            noInternetAccess: () => emit(left(const TimekeepingFailure.noInternetAccess())),
-            serverError: () => emit(left(const TimekeepingFailure.serverError())),
-            unAuthenticated: () => emit(left(const TimekeepingFailure.unAuthenticated())),
-            noScheduleStored: () => emit(left(const TimekeepingFailure.serverError()))), (schedule) async {
-      final timekeepingFailureOrTimekeeping = await _repository.getTimekeepingToday(schedule);
-      emit(timekeepingFailureOrTimekeeping);
-    });
+      (failure) async => failure.when(
+          noInternetAccess: () => emit(left(const TimekeepingFailure.noInternetAccess())),
+          serverError: () => emit(left(const TimekeepingFailure.serverError())),
+          unAuthenticated: () => emit(left(const TimekeepingFailure.unAuthenticated())),
+          noScheduleStored: () => emit(left(const TimekeepingFailure.serverError()))),
+      (schedule) async {
+        final timekeepingFailureOrTimekeeping = await _repository.getTimekeepingToday(schedule);
+        emit(timekeepingFailureOrTimekeeping);
+      },
+    );
   }
 }

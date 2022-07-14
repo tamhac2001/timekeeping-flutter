@@ -43,17 +43,18 @@ class CheckinCheckoutScreenBloc extends Bloc<CheckinCheckoutScreenEvent, Checkin
       await event.when(
         getTimekeeping: () async {
           debugPrint('getTimekeeping called');
-          emit(state.copyWith(isChecking: false, isLoading: true));
+          emit(state.copyWith(isLoading: true));
           if (state.isDayOff == null) {
             add(const CheckinCheckoutScreenEvent.updateIsDayOff());
           }
           if (state.isDayOff == false) {
-            if (_timekeepingCubit.state == null) {
+            if (_timekeepingCubit.state == null || _timekeepingCubit.state!.isLeft()) {
               await _timekeepingCubit.timekeepingRequest();
             }
             if (state.timekeepingFailureOrTimekeeping != null && state.timekeepingFailureOrTimekeeping!.isLeft()) {
               await _timekeepingCubit.timekeepingRequest();
             }
+            debugPrint('state is checking: ${state.isChecking}');
             if (state.isChecking) {
               debugPrint('state is checking timekeeping request');
               await _timekeepingCubit.timekeepingRequest();
@@ -156,9 +157,10 @@ class CheckinCheckoutScreenBloc extends Bloc<CheckinCheckoutScreenEvent, Checkin
           }
           emit(state.copyWith(isLoading: false));
         },
-        qrScanning: () async {
+        qrScanning: () {
           debugPrint('is scanning');
           emit(state.copyWith(isChecking: true, isLoading: false));
+          debugPrint('qr scanning: ${state.isChecking}');
         },
       );
     });

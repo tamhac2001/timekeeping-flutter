@@ -184,7 +184,7 @@ class CheckOutButton extends StatelessWidget {
           },
           child: const Text('Không')),
       TextButton(
-          onPressed: () async {
+          onPressed: () {
             context.read<CheckinCheckoutScreenBloc>().add(const CheckinCheckoutScreenEvent.qrScanning());
             context.router.pop();
             AutoRouter.of(context).push(QrScannerScreen());

@@ -24,7 +24,7 @@ class ScheduleCubit extends Cubit<ScheduleState> {
         super(ScheduleState.initial());
 
   Future<void> scheduleRequest() async {
-    debugPrint('schedule Request called');
+    debugPrint('scheduleRequest called');
     emit(state.copyWith(isLoading: true));
     if (_employeeCubit.state == null || _employeeCubit.state!.isLeft()) {
       await _employeeCubit.employeeRequest();

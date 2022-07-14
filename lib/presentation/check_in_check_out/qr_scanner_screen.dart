@@ -7,9 +7,7 @@ import 'package:mobile_scanner/mobile_scanner.dart';
 import 'package:timekeeping/application/checkin_checkout/checkin_checkout_screen_bloc.dart';
 
 import '../../application/checkin_checkout/qr_scan_screen_bloc.dart';
-import '../../application/schedule/assign_schedule_form_bloc.dart';
 import '../core/app_widgets.dart';
-import '../routes/app_router.gr.dart';
 
 class QrScannerScreen extends StatelessWidget {
   QrScannerScreen({Key? key}) : super(key: key);
@@ -73,7 +71,7 @@ class QrScannerScreen extends StatelessWidget {
                 timekeepingNotFound: () {},
               ),
               (_) {
-                debugPrint('show dialog called');
+                debugPrint('diem danh thanh cong');
                 context.read<CheckinCheckoutScreenBloc>().add(const CheckinCheckoutScreenEvent.getTimekeeping());
                 showMyDialog(context, title: 'Qr Scanned', text: 'Điểm danh thành công').then((_) {
                   AutoRouter.of(context).pop();
