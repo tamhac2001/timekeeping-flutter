@@ -47,7 +47,7 @@ class EmployeeApiClient implements IEmployeeApiClient {
         'Authorization': 'Bearer $accessToken',
       }, body: {
         'avatar': avatar,
-      }).timeout(const Duration(seconds: 3), onTimeout: () => throw const EmployeeFailure.serverError());
+      }).timeout(constant.timeOutDuration, onTimeout: () => throw const EmployeeFailure.timeOutError());
       if (response.statusCode == HttpStatus.internalServerError || response.statusCode == HttpStatus.notFound) {
         throw const EmployeeFailure.serverError();
       } else if (response.statusCode == HttpStatus.unauthorized) {

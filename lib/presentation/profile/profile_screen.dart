@@ -15,11 +15,20 @@ class ProfileScreen extends StatelessWidget {
     return BlocConsumer<ProfileScreenBloc, ProfileScreenState>(
       listener: (context, state) {
         if (state.profileChangedSuccessOrFail != null) {
-          // state.profileChangedSuccessOrFail!.fold((failure) => failure.map(timeOutError: showServerErrorDialog, serverError: serverError, unAuthenticated: unAuthenticated, noInternetAccess: noInternetAccess, noEmployeeFound: noEmployeeFound), (r) => null)
+          state.profileChangedSuccessOrFail!.fold(
+              (failure) => failure.when(
+                  timeOutError: () => showTimeOutDialog(context),
+                  serverError: () => showServerErrorDialog(context, title: 'Cập nhật ảnh đại diện'),
+                  unAuthenticated: () => showTokenExpireDialog(context),
+                  noInternetAccess: () => showNoInternetAccessDialog(context),
+                  noEmployeeFound: () => null),
+              (_) => null);
         }
       },
-      buildWhen: ((previous, current) =>
-          previous.failureOrEmployee != current.failureOrEmployee || previous.isLoading != current.isLoading),
+      buildWhen: (previous, current) =>
+          previous.failureOrEmployee != current.failureOrEmployee ||
+          previous.isLoading != current.isLoading ||
+          previous.isSubmitting != current.isSubmitting,
       builder: (context, state) {
         if (state.isLoading || state.isSubmitting) return const LoadingScreen();
         if (state.failureOrEmployee == null) {
@@ -50,25 +59,36 @@ class ProfileScreen extends StatelessWidget {
                                     bottom: 0,
                                     child: IconButton(
                                       icon: const Icon(Icons.add_a_photo),
+                                      iconSize: 32.0,
                                       onPressed: () async {
                                         final imagePicker = ImagePicker();
-                                        await showUpdateAvatarModalPopup(context, fromCameraPressed: () async {
-                                          final imageXFile = await imagePicker.pickImage(
-                                              source: ImageSource.camera, maxHeight: 360, maxWidth: 480);
-                                          if (imageXFile != null) {
-                                            context
-                                                .read<ProfileScreenBloc>()
-                                                .add(ProfileScreenEvent.avatarChanged(await imageXFile.readAsBytes()));
-                                          }
-                                        }, fromGalleryPressed: () async {
-                                          final imageXFile = await imagePicker.pickImage(
-                                              source: ImageSource.gallery, maxHeight: 360, maxWidth: 480);
-                                          if (imageXFile != null) {
-                                            context
-                                                .read<ProfileScreenBloc>()
-                                                .add(ProfileScreenEvent.avatarChanged(await imageXFile.readAsBytes()));
-                                          }
-                                        });
+                                        await showUpdateAvatarModalPopup(
+                                          context,
+                                          fromCameraPressed: () async {
+                                            await imagePicker
+                                                .pickImage(
+                                              source: ImageSource.camera,
+                                              maxHeight: 360,
+                                              maxWidth: 480,
+                                            )
+                                                .then((imageXFile) async {
+                                              if (imageXFile != null) {
+                                                context.read<ProfileScreenBloc>().add(
+                                                    ProfileScreenEvent.avatarChanged(await imageXFile.readAsBytes()));
+                                              }
+                                            });
+                                          },
+                                          fromGalleryPressed: () async {
+                                            await imagePicker
+                                                .pickImage(source: ImageSource.gallery, maxHeight: 360, maxWidth: 480)
+                                                .then((imageXFile) async {
+                                              if (imageXFile != null) {
+                                                context.read<ProfileScreenBloc>().add(
+                                                    ProfileScreenEvent.avatarChanged(await imageXFile.readAsBytes()));
+                                              }
+                                            });
+                                          },
+                                        );
                                       },
                                     )),
                               ]),

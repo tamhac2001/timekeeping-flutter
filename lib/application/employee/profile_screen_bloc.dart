@@ -30,16 +30,16 @@ class ProfileScreenBloc extends Bloc<ProfileScreenEvent, ProfileScreenState> {
     on<ProfileScreenEvent>((event, emit) async {
       await event.when(
         initialize: () async {
-          debugPrint('profile screen initialize');
           emit(state.copyWith(isLoading: true));
-          if (_employeeCubit.state == null) {
+          if (_employeeCubit.state == null || _employeeCubit.state!.isLeft()) {
             await _employeeCubit.employeeRequest();
           }
           emit(state.copyWith(failureOrEmployee: _employeeCubit.state));
           emit(state.copyWith(isLoading: false));
         },
         updateEmployee: () async {
-          emit(state.copyWith(isLoading: true));
+          debugPrint('profile screen: update employee called');
+          emit(state.copyWith(profileChangedSuccessOrFail: null, isLoading: true));
           await _employeeCubit.employeeRequest();
           emit(state.copyWith(failureOrEmployee: _employeeCubit.state));
           emit(state.copyWith(isLoading: false));
@@ -48,8 +48,10 @@ class ProfileScreenBloc extends Bloc<ProfileScreenEvent, ProfileScreenState> {
           emit(state.copyWith(isSubmitting: true));
           final profileChangeFailureOrUnit = await _employeeRepository.updateAvatar(avatar);
           emit(state.copyWith(profileChangedSuccessOrFail: profileChangeFailureOrUnit));
-          add(const ProfileScreenEvent.updateEmployee());
-
+          if (state.profileChangedSuccessOrFail!.isRight()) {
+            await Future.delayed(const Duration(seconds: 3));
+            add(const ProfileScreenEvent.updateEmployee());
+          }
           emit(state.copyWith(isSubmitting: false));
         },
       );

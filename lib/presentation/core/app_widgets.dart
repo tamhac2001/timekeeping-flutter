@@ -2,7 +2,14 @@ import 'package:auto_route/auto_route.dart';
 import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:timekeeping/presentation/routes/app_router.gr.dart';
+
+import '../../application/auth/authentication_bloc.dart';
+import '../../application/cubits/absent_list_cubit.dart';
+import '../../application/cubits/employee_cubit.dart';
+import '../../application/cubits/schedule/schedule_cubit.dart';
+import '../../application/notification/notification_bloc.dart';
 
 class MyBottomAppBar extends StatelessWidget {
   const MyBottomAppBar({Key? key, required this.initialActiveIndex, required this.onTap}) : super(key: key);
@@ -103,6 +110,17 @@ Future<void> showNoInternetAccessDialog(BuildContext context) async {
   );
 }
 
+Future<void> showTimeOutDialog(BuildContext context) async {
+  return showMyDialog(
+    context,
+    title: 'Timeout',
+    text: 'Lỗi khi cố gắng kết nối đến Server! Vui lòng thử lại sau',
+    okButtonPressed: () {
+      context.router.pop();
+    },
+  );
+}
+
 Future<void> showServerErrorDialog(BuildContext context, {required String title}) async {
   return showMyDialog(
     context,
@@ -121,6 +139,11 @@ Future<void> showTokenExpireDialog(BuildContext context) async {
     text: 'Phiên đăng nhập hết hạn! Vui lòng đăng nhập lại',
     barrierDismissible: false,
     okButtonPressed: () {
+      context.read<AuthenticationBloc>().add(const AuthenticationEvent.logout());
+      context.read<ScheduleCubit>().resetState();
+      context.read<AbsentListCubit>().resetState();
+      context.read<EmployeeCubit>().resetState();
+      context.read<NotificationBloc>().add(const NotificationEvent.resetState());
       context.router.pop();
       context.router.replace(const LoginScreen());
     },

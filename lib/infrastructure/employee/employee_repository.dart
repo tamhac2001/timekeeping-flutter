@@ -24,8 +24,12 @@ class EmployeeRepository {
       debugPrint('getEmployee called');
       final accessToken = await _storage.accessToken;
       final employeeDto = await _apiClient.fetchEmployeeData(accessToken: accessToken!);
-      await _storage.setEmployeeId(employeeDto.id);
-      await _storage.setEmployeeStartDate(employeeDto.startDate);
+      if (await _storage.employeeId == null) {
+        await _storage.setEmployeeId(employeeDto.id);
+      }
+      if (await _storage.employeeStartDate == null) {
+        await _storage.setEmployeeStartDate(employeeDto.startDate);
+      }
       return right(Employee.fromEmployeeDto(employeeDto));
     } on EmployeeFailure catch (f) {
       return left(f);
