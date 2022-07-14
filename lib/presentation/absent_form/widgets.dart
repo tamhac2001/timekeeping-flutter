@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
@@ -192,7 +193,21 @@ class SubmitButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       onPressed: () {
-        context.read<AbsentFormBloc>().add(const AbsentFormEvent.formSubmitted());
+        showMyDialog(context, title: 'Xin nghỉ phép', text: 'Bạn chắc chứ ?', action: [
+          TextButton(
+            autofocus: true,
+            child: const Text('Huỷ'),
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+          ),
+          TextButton(
+              child: const Text('Xác nhận'),
+              onPressed: () async {
+                context.read<AbsentFormBloc>().add(const AbsentFormEvent.formSubmitted());
+                context.router.pop();
+              })
+        ]);
       },
       child: const Text('Xác nhận'),
     );
@@ -227,7 +242,7 @@ class AbsentFormList extends StatelessWidget {
               color: Color(Colors.grey.shade100.value),
               child: ExpansionTile(
                 title: TitleText(absentFormList[index].status!.value, color: absentFormList[index].status!.toColor()),
-                subtitle: Text(
+                subtitle: NormalText(
                     'Từ ${absentFormList[index].startDate.toDisplayedDate()} đến hết ${absentFormList[index].endDate.toDisplayedDate()}'),
                 trailing: absentFormList[index].status!.toIcon(),
                 children: [

@@ -30,7 +30,7 @@ class ProfileScreenBloc extends Bloc<ProfileScreenEvent, ProfileScreenState> {
     on<ProfileScreenEvent>((event, emit) async {
       await event.when(
         initialize: () async {
-          emit(state.copyWith(isLoading: true));
+          emit(state.copyWith(isSigningOut: false, isLoading: true));
           if (_employeeCubit.state == null || _employeeCubit.state!.isLeft()) {
             await _employeeCubit.employeeRequest();
           }
@@ -39,7 +39,7 @@ class ProfileScreenBloc extends Bloc<ProfileScreenEvent, ProfileScreenState> {
         },
         updateEmployee: () async {
           debugPrint('profile screen: update employee called');
-          emit(state.copyWith(profileChangedSuccessOrFail: null, isLoading: true));
+          emit(state.copyWith(profileChangedSuccessOrFail: null, isSigningOut: false, isLoading: true));
           await _employeeCubit.employeeRequest();
           emit(state.copyWith(failureOrEmployee: _employeeCubit.state));
           emit(state.copyWith(isLoading: false));
@@ -56,6 +56,9 @@ class ProfileScreenBloc extends Bloc<ProfileScreenEvent, ProfileScreenState> {
         },
         resetState: () {
           emit(ProfileScreenState.initial());
+        },
+        signOut: () {
+          emit(state.copyWith(isSigningOut: true));
         },
       );
     });

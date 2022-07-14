@@ -28,7 +28,8 @@ class ProfileScreen extends StatelessWidget {
       buildWhen: (previous, current) =>
           previous.failureOrEmployee != current.failureOrEmployee ||
           previous.isLoading != current.isLoading ||
-          previous.isSubmitting != current.isSubmitting,
+          previous.isSubmitting != current.isSubmitting ||
+          previous.isSigningOut != current.isSigningOut,
       builder: (context, state) {
         if (state.isLoading || state.isSubmitting) return const LoadingScreen();
         if (state.failureOrEmployee == null) {
@@ -41,86 +42,90 @@ class ProfileScreen extends StatelessWidget {
                 retryCallback: () {
                   context.read<ProfileScreenBloc>().add(const ProfileScreenEvent.updateEmployee());
                 }),
-            (employee) => SafeArea(
-                  child: Scaffold(
-                    body: Padding(
-                      padding: const EdgeInsets.all(32.0),
-                      child: SingleChildScrollView(
-                        child: Column(
-                          children: [
-                            Center(
-                              child: Stack(children: [
-                                CircleAvatar(
-                                  radius: 75,
-                                  backgroundImage: (employee.avatar == null) ? null : MemoryImage(employee.avatar!),
-                                ),
-                                Positioned(
-                                    right: -10,
-                                    bottom: 0,
-                                    child: IconButton(
-                                      icon: const Icon(Icons.add_a_photo),
-                                      iconSize: 32.0,
-                                      onPressed: () async {
-                                        final imagePicker = ImagePicker();
-                                        await showUpdateAvatarModalPopup(
-                                          context,
-                                          fromCameraPressed: () async {
-                                            await imagePicker
-                                                .pickImage(
-                                              source: ImageSource.camera,
-                                              maxHeight: 360,
-                                              maxWidth: 480,
-                                            )
-                                                .then((imageXFile) async {
-                                              if (imageXFile != null) {
-                                                context.read<ProfileScreenBloc>().add(
-                                                    ProfileScreenEvent.avatarChanged(await imageXFile.readAsBytes()));
-                                              }
-                                            });
-                                          },
-                                          fromGalleryPressed: () async {
-                                            await imagePicker
-                                                .pickImage(source: ImageSource.gallery, maxHeight: 360, maxWidth: 480)
-                                                .then((imageXFile) async {
-                                              if (imageXFile != null) {
-                                                context.read<ProfileScreenBloc>().add(
-                                                    ProfileScreenEvent.avatarChanged(await imageXFile.readAsBytes()));
-                                              }
-                                            });
-                                          },
-                                        );
-                                      },
-                                    )),
-                              ]),
-                            ),
-                            const SizedBox(
-                              height: 16.0,
-                            ),
-                            Center(
-                              child: Text(
-                                employee.name,
-                                style: Theme.of(context).textTheme.headline4,
+            (employee) => IgnorePointer(
+                  ignoring: state.isSigningOut,
+                  child: SafeArea(
+                    child: Scaffold(
+                      body: Padding(
+                        padding: const EdgeInsets.all(32.0),
+                        child: SingleChildScrollView(
+                          child: Column(
+                            children: [
+                              Center(
+                                child: Stack(children: [
+                                  CircleAvatar(
+                                    radius: 75,
+                                    backgroundImage: (employee.avatar == null) ? null : MemoryImage(employee.avatar!),
+                                  ),
+                                  Positioned(
+                                      right: -10,
+                                      bottom: 0,
+                                      child: IconButton(
+                                        icon: const Icon(Icons.add_a_photo),
+                                        iconSize: 32.0,
+                                        onPressed: () async {
+                                          final imagePicker = ImagePicker();
+                                          await showUpdateAvatarModalPopup(
+                                            context,
+                                            fromCameraPressed: () async {
+                                              await imagePicker
+                                                  .pickImage(
+                                                source: ImageSource.camera,
+                                                maxHeight: 360,
+                                                maxWidth: 480,
+                                              )
+                                                  .then((imageXFile) async {
+                                                if (imageXFile != null) {
+                                                  context.read<ProfileScreenBloc>().add(
+                                                      ProfileScreenEvent.avatarChanged(await imageXFile.readAsBytes()));
+                                                }
+                                              });
+                                            },
+                                            fromGalleryPressed: () async {
+                                              await imagePicker
+                                                  .pickImage(source: ImageSource.gallery, maxHeight: 360, maxWidth: 480)
+                                                  .then((imageXFile) async {
+                                                if (imageXFile != null) {
+                                                  context.read<ProfileScreenBloc>().add(
+                                                      ProfileScreenEvent.avatarChanged(await imageXFile.readAsBytes()));
+                                                }
+                                              });
+                                            },
+                                          );
+                                        },
+                                      )),
+                                ]),
                               ),
-                            ),
-                            const SizedBox(
-                              height: 32.0,
-                            ),
-                            const EmployeeCodeRow(),
-                            const SizedBox(
-                              height: 16.0,
-                            ),
-                            const EmployeeGenderRow(),
-                            const SizedBox(height: 16.0),
-                            const EmployeePhoneNumberRow(),
-                            const SizedBox(
-                              height: 16.0,
-                            ),
-                            const EmployeeAddressRow(),
-                            const SizedBox(height: 16.0),
-                            const EmployeeStartDateRow(),
-                            const SizedBox(height: 64.0),
-                            const LogoutButton(),
-                          ],
+                              const SizedBox(
+                                height: 16.0,
+                              ),
+                              Center(
+                                child: Text(
+                                  employee.name,
+                                  style: Theme.of(context).textTheme.headline4,
+                                ),
+                              ),
+                              const SizedBox(
+                                height: 32.0,
+                              ),
+                              const EmployeeCodeRow(),
+                              const SizedBox(
+                                height: 16.0,
+                              ),
+                              const EmployeeGenderRow(),
+                              const SizedBox(height: 16.0),
+                              const EmployeePhoneNumberRow(),
+                              const SizedBox(
+                                height: 16.0,
+                              ),
+                              const EmployeeAddressRow(),
+                              const SizedBox(height: 16.0),
+                              const EmployeeStartDateRow(),
+                              const SizedBox(height: 64.0),
+                              (state.isSigningOut) ? const LinearProgressIndicator() : Container(),
+                              const LogoutButton(),
+                            ],
+                          ),
                         ),
                       ),
                     ),

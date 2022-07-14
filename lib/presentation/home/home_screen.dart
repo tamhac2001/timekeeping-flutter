@@ -45,8 +45,7 @@ class HomeScreen extends StatelessWidget {
               timekeepingRepository: RepositoryProvider.of<TimekeepingRepository>(context),
               scheduleCubit: BlocProvider.of<ScheduleCubit>(context),
               employeeCubit: BlocProvider.of<EmployeeCubit>(context),
-              absentListCubit: BlocProvider.of<AbsentListCubit>(context))
-            ..add(const TimekeepingRecordScreenEvent.getTimekeepingRecords());
+              absentListCubit: BlocProvider.of<AbsentListCubit>(context));
         }),
         BlocProvider<AbsentFormBloc>(
             create: (context) => AbsentFormBloc(

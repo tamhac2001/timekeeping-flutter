@@ -11,7 +11,9 @@ import 'package:timekeeping/presentation/core/app_widgets.dart';
 import 'package:timekeeping/utils/extensions.dart';
 
 import '../../application/auth/authentication_bloc.dart';
+import '../../application/checkin_checkout/checkin_checkout_screen_bloc.dart';
 import '../../application/employee/profile_screen_bloc.dart';
+import '../../application/timekeeping_record/timekeeping_record_screen_bloc.dart';
 import '../routes/app_router.gr.dart';
 
 class EmployeeCodeRow extends StatelessWidget {
@@ -193,19 +195,22 @@ class LogoutButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-        onPressed: () {
-          Future.delayed(const Duration(seconds: 3));
-          context.read<AuthenticationBloc>().add(const AuthenticationEvent.logout());
-          context.read<AbsentFormBloc>().add(const AbsentFormEvent.resetState());
-          // context.read<CheckinCheckoutScreenBloc>().add(const CheckinCheckoutScreenEvent.resetState());
-          context.read<ScheduleCubit>().resetState();
-          context.read<AbsentListCubit>().resetState();
-          context.read<EmployeeCubit>().resetState();
-          context.read<TimekeepingCubit>().resetState();
-          context.read<NotificationBloc>().add(const NotificationEvent.resetState());
-          // context.read<AssignScheduleFormBloc>().add(const AssignScheduleFormEvent.resetState());
-          // context.read<TimekeepingRecordScreenBloc>().add(const TimekeepingRecordScreenEvent.resetState());
-          AutoRouter.of(context).replace(const LoginScreen());
+        onPressed: () async {
+          context.read<ProfileScreenBloc>().add(const ProfileScreenEvent.signOut());
+          await Future.delayed(const Duration(seconds: 10)).then((value) {
+            AutoRouter.of(context).replace(const LoginScreen());
+            // context.read<NotificationBloc>().add(const NotificationEvent.resetState());
+            // context.read<AbsentFormBloc>().add(const AbsentFormEvent.resetState());
+            // context.read<TimekeepingRecordScreenBloc>().add(const TimekeepingRecordScreenEvent.resetState());
+            // // context.read<CheckinCheckoutScreenBloc>().add(const CheckinCheckoutScreenEvent.resetState());
+            // // context.read<AssignScheduleFormBloc>().add(const AssignScheduleFormEvent.resetState());
+            context.read<AuthenticationBloc>().add(const AuthenticationEvent.logout());
+            context.read<TimekeepingCubit>().resetState();
+            context.read<AbsentListCubit>().resetState();
+            context.read<ScheduleCubit>().resetState();
+            context.read<EmployeeCubit>().resetState();
+            // context.read<ProfileScreenBloc>().add(const ProfileScreenEvent.resetState());
+          });
         },
         child: const Text('Đăng xuất'));
   }

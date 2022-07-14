@@ -7,8 +7,13 @@ class ProfileScreenState with _$ProfileScreenState {
     required Either<EmployeeFailure, Unit>? profileChangedSuccessOrFail,
     required bool isSubmitting,
     required bool isLoading,
+    required bool isSigningOut,
   }) = _ProfileScreenState;
 
   factory ProfileScreenState.initial() => const ProfileScreenState(
-      failureOrEmployee: null, isSubmitting: false, isLoading: false, profileChangedSuccessOrFail: null);
+      failureOrEmployee: null,
+      isSubmitting: false,
+      isLoading: false,
+      profileChangedSuccessOrFail: null,
+      isSigningOut: false);
 }

@@ -15,6 +15,9 @@ class MonthNavigator extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<TimekeepingRecordScreenBloc, TimekeepingRecordScreenState>(
       builder: (context, state) {
+        if (context.watch<EmployeeCubit>().state == null) {
+          return const CircularProgressIndicator();
+        }
         final employeeStartDate =
             context.watch<EmployeeCubit>().state!.fold((l) => null, (employee) => employee.startDate);
         final now = DateTime.now();

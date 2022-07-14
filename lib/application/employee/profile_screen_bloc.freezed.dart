@@ -21,6 +21,7 @@ mixin _$ProfileScreenEvent {
     required TResult Function() initialize,
     required TResult Function() updateEmployee,
     required TResult Function(Uint8List profilePicture) avatarChanged,
+    required TResult Function() signOut,
     required TResult Function() resetState,
   }) =>
       throw _privateConstructorUsedError;
@@ -29,6 +30,7 @@ mixin _$ProfileScreenEvent {
     TResult Function()? initialize,
     TResult Function()? updateEmployee,
     TResult Function(Uint8List profilePicture)? avatarChanged,
+    TResult Function()? signOut,
     TResult Function()? resetState,
   }) =>
       throw _privateConstructorUsedError;
@@ -37,6 +39,7 @@ mixin _$ProfileScreenEvent {
     TResult Function()? initialize,
     TResult Function()? updateEmployee,
     TResult Function(Uint8List profilePicture)? avatarChanged,
+    TResult Function()? signOut,
     TResult Function()? resetState,
     required TResult orElse(),
   }) =>
@@ -46,6 +49,7 @@ mixin _$ProfileScreenEvent {
     required TResult Function(_Initialize value) initialize,
     required TResult Function(_UpdateEmployee value) updateEmployee,
     required TResult Function(_AvatarChanged value) avatarChanged,
+    required TResult Function(_SignOut value) signOut,
     required TResult Function(_ResetState value) resetState,
   }) =>
       throw _privateConstructorUsedError;
@@ -54,6 +58,7 @@ mixin _$ProfileScreenEvent {
     TResult Function(_Initialize value)? initialize,
     TResult Function(_UpdateEmployee value)? updateEmployee,
     TResult Function(_AvatarChanged value)? avatarChanged,
+    TResult Function(_SignOut value)? signOut,
     TResult Function(_ResetState value)? resetState,
   }) =>
       throw _privateConstructorUsedError;
@@ -62,6 +67,7 @@ mixin _$ProfileScreenEvent {
     TResult Function(_Initialize value)? initialize,
     TResult Function(_UpdateEmployee value)? updateEmployee,
     TResult Function(_AvatarChanged value)? avatarChanged,
+    TResult Function(_SignOut value)? signOut,
     TResult Function(_ResetState value)? resetState,
     required TResult orElse(),
   }) =>
@@ -136,6 +142,7 @@ class _$_Initialize with DiagnosticableTreeMixin implements _Initialize {
     required TResult Function() initialize,
     required TResult Function() updateEmployee,
     required TResult Function(Uint8List profilePicture) avatarChanged,
+    required TResult Function() signOut,
     required TResult Function() resetState,
   }) {
     return initialize();
@@ -147,6 +154,7 @@ class _$_Initialize with DiagnosticableTreeMixin implements _Initialize {
     TResult Function()? initialize,
     TResult Function()? updateEmployee,
     TResult Function(Uint8List profilePicture)? avatarChanged,
+    TResult Function()? signOut,
     TResult Function()? resetState,
   }) {
     return initialize?.call();
@@ -158,6 +166,7 @@ class _$_Initialize with DiagnosticableTreeMixin implements _Initialize {
     TResult Function()? initialize,
     TResult Function()? updateEmployee,
     TResult Function(Uint8List profilePicture)? avatarChanged,
+    TResult Function()? signOut,
     TResult Function()? resetState,
     required TResult orElse(),
   }) {
@@ -173,6 +182,7 @@ class _$_Initialize with DiagnosticableTreeMixin implements _Initialize {
     required TResult Function(_Initialize value) initialize,
     required TResult Function(_UpdateEmployee value) updateEmployee,
     required TResult Function(_AvatarChanged value) avatarChanged,
+    required TResult Function(_SignOut value) signOut,
     required TResult Function(_ResetState value) resetState,
   }) {
     return initialize(this);
@@ -184,6 +194,7 @@ class _$_Initialize with DiagnosticableTreeMixin implements _Initialize {
     TResult Function(_Initialize value)? initialize,
     TResult Function(_UpdateEmployee value)? updateEmployee,
     TResult Function(_AvatarChanged value)? avatarChanged,
+    TResult Function(_SignOut value)? signOut,
     TResult Function(_ResetState value)? resetState,
   }) {
     return initialize?.call(this);
@@ -195,6 +206,7 @@ class _$_Initialize with DiagnosticableTreeMixin implements _Initialize {
     TResult Function(_Initialize value)? initialize,
     TResult Function(_UpdateEmployee value)? updateEmployee,
     TResult Function(_AvatarChanged value)? avatarChanged,
+    TResult Function(_SignOut value)? signOut,
     TResult Function(_ResetState value)? resetState,
     required TResult orElse(),
   }) {
@@ -262,6 +274,7 @@ class _$_UpdateEmployee
     required TResult Function() initialize,
     required TResult Function() updateEmployee,
     required TResult Function(Uint8List profilePicture) avatarChanged,
+    required TResult Function() signOut,
     required TResult Function() resetState,
   }) {
     return updateEmployee();
@@ -273,6 +286,7 @@ class _$_UpdateEmployee
     TResult Function()? initialize,
     TResult Function()? updateEmployee,
     TResult Function(Uint8List profilePicture)? avatarChanged,
+    TResult Function()? signOut,
     TResult Function()? resetState,
   }) {
     return updateEmployee?.call();
@@ -284,6 +298,7 @@ class _$_UpdateEmployee
     TResult Function()? initialize,
     TResult Function()? updateEmployee,
     TResult Function(Uint8List profilePicture)? avatarChanged,
+    TResult Function()? signOut,
     TResult Function()? resetState,
     required TResult orElse(),
   }) {
@@ -299,6 +314,7 @@ class _$_UpdateEmployee
     required TResult Function(_Initialize value) initialize,
     required TResult Function(_UpdateEmployee value) updateEmployee,
     required TResult Function(_AvatarChanged value) avatarChanged,
+    required TResult Function(_SignOut value) signOut,
     required TResult Function(_ResetState value) resetState,
   }) {
     return updateEmployee(this);
@@ -310,6 +326,7 @@ class _$_UpdateEmployee
     TResult Function(_Initialize value)? initialize,
     TResult Function(_UpdateEmployee value)? updateEmployee,
     TResult Function(_AvatarChanged value)? avatarChanged,
+    TResult Function(_SignOut value)? signOut,
     TResult Function(_ResetState value)? resetState,
   }) {
     return updateEmployee?.call(this);
@@ -321,6 +338,7 @@ class _$_UpdateEmployee
     TResult Function(_Initialize value)? initialize,
     TResult Function(_UpdateEmployee value)? updateEmployee,
     TResult Function(_AvatarChanged value)? avatarChanged,
+    TResult Function(_SignOut value)? signOut,
     TResult Function(_ResetState value)? resetState,
     required TResult orElse(),
   }) {
@@ -412,6 +430,7 @@ class _$_AvatarChanged with DiagnosticableTreeMixin implements _AvatarChanged {
     required TResult Function() initialize,
     required TResult Function() updateEmployee,
     required TResult Function(Uint8List profilePicture) avatarChanged,
+    required TResult Function() signOut,
     required TResult Function() resetState,
   }) {
     return avatarChanged(profilePicture);
@@ -423,6 +442,7 @@ class _$_AvatarChanged with DiagnosticableTreeMixin implements _AvatarChanged {
     TResult Function()? initialize,
     TResult Function()? updateEmployee,
     TResult Function(Uint8List profilePicture)? avatarChanged,
+    TResult Function()? signOut,
     TResult Function()? resetState,
   }) {
     return avatarChanged?.call(profilePicture);
@@ -434,6 +454,7 @@ class _$_AvatarChanged with DiagnosticableTreeMixin implements _AvatarChanged {
     TResult Function()? initialize,
     TResult Function()? updateEmployee,
     TResult Function(Uint8List profilePicture)? avatarChanged,
+    TResult Function()? signOut,
     TResult Function()? resetState,
     required TResult orElse(),
   }) {
@@ -449,6 +470,7 @@ class _$_AvatarChanged with DiagnosticableTreeMixin implements _AvatarChanged {
     required TResult Function(_Initialize value) initialize,
     required TResult Function(_UpdateEmployee value) updateEmployee,
     required TResult Function(_AvatarChanged value) avatarChanged,
+    required TResult Function(_SignOut value) signOut,
     required TResult Function(_ResetState value) resetState,
   }) {
     return avatarChanged(this);
@@ -460,6 +482,7 @@ class _$_AvatarChanged with DiagnosticableTreeMixin implements _AvatarChanged {
     TResult Function(_Initialize value)? initialize,
     TResult Function(_UpdateEmployee value)? updateEmployee,
     TResult Function(_AvatarChanged value)? avatarChanged,
+    TResult Function(_SignOut value)? signOut,
     TResult Function(_ResetState value)? resetState,
   }) {
     return avatarChanged?.call(this);
@@ -471,6 +494,7 @@ class _$_AvatarChanged with DiagnosticableTreeMixin implements _AvatarChanged {
     TResult Function(_Initialize value)? initialize,
     TResult Function(_UpdateEmployee value)? updateEmployee,
     TResult Function(_AvatarChanged value)? avatarChanged,
+    TResult Function(_SignOut value)? signOut,
     TResult Function(_ResetState value)? resetState,
     required TResult orElse(),
   }) {
@@ -489,6 +513,134 @@ abstract class _AvatarChanged implements ProfileScreenEvent {
   @JsonKey(ignore: true)
   _$$_AvatarChangedCopyWith<_$_AvatarChanged> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_SignOutCopyWith<$Res> {
+  factory _$$_SignOutCopyWith(
+          _$_SignOut value, $Res Function(_$_SignOut) then) =
+      __$$_SignOutCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_SignOutCopyWithImpl<$Res>
+    extends _$ProfileScreenEventCopyWithImpl<$Res>
+    implements _$$_SignOutCopyWith<$Res> {
+  __$$_SignOutCopyWithImpl(_$_SignOut _value, $Res Function(_$_SignOut) _then)
+      : super(_value, (v) => _then(v as _$_SignOut));
+
+  @override
+  _$_SignOut get _value => super._value as _$_SignOut;
+}
+
+/// @nodoc
+
+class _$_SignOut with DiagnosticableTreeMixin implements _SignOut {
+  const _$_SignOut();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'ProfileScreenEvent.signOut()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty('type', 'ProfileScreenEvent.signOut'));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_SignOut);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initialize,
+    required TResult Function() updateEmployee,
+    required TResult Function(Uint8List profilePicture) avatarChanged,
+    required TResult Function() signOut,
+    required TResult Function() resetState,
+  }) {
+    return signOut();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initialize,
+    TResult Function()? updateEmployee,
+    TResult Function(Uint8List profilePicture)? avatarChanged,
+    TResult Function()? signOut,
+    TResult Function()? resetState,
+  }) {
+    return signOut?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialize,
+    TResult Function()? updateEmployee,
+    TResult Function(Uint8List profilePicture)? avatarChanged,
+    TResult Function()? signOut,
+    TResult Function()? resetState,
+    required TResult orElse(),
+  }) {
+    if (signOut != null) {
+      return signOut();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initialize value) initialize,
+    required TResult Function(_UpdateEmployee value) updateEmployee,
+    required TResult Function(_AvatarChanged value) avatarChanged,
+    required TResult Function(_SignOut value) signOut,
+    required TResult Function(_ResetState value) resetState,
+  }) {
+    return signOut(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Initialize value)? initialize,
+    TResult Function(_UpdateEmployee value)? updateEmployee,
+    TResult Function(_AvatarChanged value)? avatarChanged,
+    TResult Function(_SignOut value)? signOut,
+    TResult Function(_ResetState value)? resetState,
+  }) {
+    return signOut?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initialize value)? initialize,
+    TResult Function(_UpdateEmployee value)? updateEmployee,
+    TResult Function(_AvatarChanged value)? avatarChanged,
+    TResult Function(_SignOut value)? signOut,
+    TResult Function(_ResetState value)? resetState,
+    required TResult orElse(),
+  }) {
+    if (signOut != null) {
+      return signOut(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SignOut implements ProfileScreenEvent {
+  const factory _SignOut() = _$_SignOut;
 }
 
 /// @nodoc
@@ -542,6 +694,7 @@ class _$_ResetState with DiagnosticableTreeMixin implements _ResetState {
     required TResult Function() initialize,
     required TResult Function() updateEmployee,
     required TResult Function(Uint8List profilePicture) avatarChanged,
+    required TResult Function() signOut,
     required TResult Function() resetState,
   }) {
     return resetState();
@@ -553,6 +706,7 @@ class _$_ResetState with DiagnosticableTreeMixin implements _ResetState {
     TResult Function()? initialize,
     TResult Function()? updateEmployee,
     TResult Function(Uint8List profilePicture)? avatarChanged,
+    TResult Function()? signOut,
     TResult Function()? resetState,
   }) {
     return resetState?.call();
@@ -564,6 +718,7 @@ class _$_ResetState with DiagnosticableTreeMixin implements _ResetState {
     TResult Function()? initialize,
     TResult Function()? updateEmployee,
     TResult Function(Uint8List profilePicture)? avatarChanged,
+    TResult Function()? signOut,
     TResult Function()? resetState,
     required TResult orElse(),
   }) {
@@ -579,6 +734,7 @@ class _$_ResetState with DiagnosticableTreeMixin implements _ResetState {
     required TResult Function(_Initialize value) initialize,
     required TResult Function(_UpdateEmployee value) updateEmployee,
     required TResult Function(_AvatarChanged value) avatarChanged,
+    required TResult Function(_SignOut value) signOut,
     required TResult Function(_ResetState value) resetState,
   }) {
     return resetState(this);
@@ -590,6 +746,7 @@ class _$_ResetState with DiagnosticableTreeMixin implements _ResetState {
     TResult Function(_Initialize value)? initialize,
     TResult Function(_UpdateEmployee value)? updateEmployee,
     TResult Function(_AvatarChanged value)? avatarChanged,
+    TResult Function(_SignOut value)? signOut,
     TResult Function(_ResetState value)? resetState,
   }) {
     return resetState?.call(this);
@@ -601,6 +758,7 @@ class _$_ResetState with DiagnosticableTreeMixin implements _ResetState {
     TResult Function(_Initialize value)? initialize,
     TResult Function(_UpdateEmployee value)? updateEmployee,
     TResult Function(_AvatarChanged value)? avatarChanged,
+    TResult Function(_SignOut value)? signOut,
     TResult Function(_ResetState value)? resetState,
     required TResult orElse(),
   }) {
@@ -623,6 +781,7 @@ mixin _$ProfileScreenState {
       throw _privateConstructorUsedError;
   bool get isSubmitting => throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
+  bool get isSigningOut => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ProfileScreenStateCopyWith<ProfileScreenState> get copyWith =>
@@ -638,7 +797,8 @@ abstract class $ProfileScreenStateCopyWith<$Res> {
       {Either<EmployeeFailure, Employee>? failureOrEmployee,
       Either<EmployeeFailure, Unit>? profileChangedSuccessOrFail,
       bool isSubmitting,
-      bool isLoading});
+      bool isLoading,
+      bool isSigningOut});
 }
 
 /// @nodoc
@@ -656,6 +816,7 @@ class _$ProfileScreenStateCopyWithImpl<$Res>
     Object? profileChangedSuccessOrFail = freezed,
     Object? isSubmitting = freezed,
     Object? isLoading = freezed,
+    Object? isSigningOut = freezed,
   }) {
     return _then(_value.copyWith(
       failureOrEmployee: failureOrEmployee == freezed
@@ -674,6 +835,10 @@ class _$ProfileScreenStateCopyWithImpl<$Res>
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
+      isSigningOut: isSigningOut == freezed
+          ? _value.isSigningOut
+          : isSigningOut // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -689,7 +854,8 @@ abstract class _$$_ProfileScreenStateCopyWith<$Res>
       {Either<EmployeeFailure, Employee>? failureOrEmployee,
       Either<EmployeeFailure, Unit>? profileChangedSuccessOrFail,
       bool isSubmitting,
-      bool isLoading});
+      bool isLoading,
+      bool isSigningOut});
 }
 
 /// @nodoc
@@ -709,6 +875,7 @@ class __$$_ProfileScreenStateCopyWithImpl<$Res>
     Object? profileChangedSuccessOrFail = freezed,
     Object? isSubmitting = freezed,
     Object? isLoading = freezed,
+    Object? isSigningOut = freezed,
   }) {
     return _then(_$_ProfileScreenState(
       failureOrEmployee: failureOrEmployee == freezed
@@ -727,6 +894,10 @@ class __$$_ProfileScreenStateCopyWithImpl<$Res>
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
+      isSigningOut: isSigningOut == freezed
+          ? _value.isSigningOut
+          : isSigningOut // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -740,7 +911,8 @@ class _$_ProfileScreenState
       {required this.failureOrEmployee,
       required this.profileChangedSuccessOrFail,
       required this.isSubmitting,
-      required this.isLoading});
+      required this.isLoading,
+      required this.isSigningOut});
 
   @override
   final Either<EmployeeFailure, Employee>? failureOrEmployee;
@@ -750,10 +922,12 @@ class _$_ProfileScreenState
   final bool isSubmitting;
   @override
   final bool isLoading;
+  @override
+  final bool isSigningOut;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'ProfileScreenState(failureOrEmployee: $failureOrEmployee, profileChangedSuccessOrFail: $profileChangedSuccessOrFail, isSubmitting: $isSubmitting, isLoading: $isLoading)';
+    return 'ProfileScreenState(failureOrEmployee: $failureOrEmployee, profileChangedSuccessOrFail: $profileChangedSuccessOrFail, isSubmitting: $isSubmitting, isLoading: $isLoading, isSigningOut: $isSigningOut)';
   }
 
   @override
@@ -765,7 +939,8 @@ class _$_ProfileScreenState
       ..add(DiagnosticsProperty(
           'profileChangedSuccessOrFail', profileChangedSuccessOrFail))
       ..add(DiagnosticsProperty('isSubmitting', isSubmitting))
-      ..add(DiagnosticsProperty('isLoading', isLoading));
+      ..add(DiagnosticsProperty('isLoading', isLoading))
+      ..add(DiagnosticsProperty('isSigningOut', isSigningOut));
   }
 
   @override
@@ -780,7 +955,9 @@ class _$_ProfileScreenState
                 profileChangedSuccessOrFail) &&
             const DeepCollectionEquality()
                 .equals(other.isSubmitting, isSubmitting) &&
-            const DeepCollectionEquality().equals(other.isLoading, isLoading));
+            const DeepCollectionEquality().equals(other.isLoading, isLoading) &&
+            const DeepCollectionEquality()
+                .equals(other.isSigningOut, isSigningOut));
   }
 
   @override
@@ -789,7 +966,8 @@ class _$_ProfileScreenState
       const DeepCollectionEquality().hash(failureOrEmployee),
       const DeepCollectionEquality().hash(profileChangedSuccessOrFail),
       const DeepCollectionEquality().hash(isSubmitting),
-      const DeepCollectionEquality().hash(isLoading));
+      const DeepCollectionEquality().hash(isLoading),
+      const DeepCollectionEquality().hash(isSigningOut));
 
   @JsonKey(ignore: true)
   @override
@@ -803,7 +981,8 @@ abstract class _ProfileScreenState implements ProfileScreenState {
       {required final Either<EmployeeFailure, Employee>? failureOrEmployee,
       required final Either<EmployeeFailure, Unit>? profileChangedSuccessOrFail,
       required final bool isSubmitting,
-      required final bool isLoading}) = _$_ProfileScreenState;
+      required final bool isLoading,
+      required final bool isSigningOut}) = _$_ProfileScreenState;
 
   @override
   Either<EmployeeFailure, Employee>? get failureOrEmployee =>
@@ -815,6 +994,8 @@ abstract class _ProfileScreenState implements ProfileScreenState {
   bool get isSubmitting => throw _privateConstructorUsedError;
   @override
   bool get isLoading => throw _privateConstructorUsedError;
+  @override
+  bool get isSigningOut => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$$_ProfileScreenStateCopyWith<_$_ProfileScreenState> get copyWith =>

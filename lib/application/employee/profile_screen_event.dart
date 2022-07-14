@@ -8,5 +8,7 @@ class ProfileScreenEvent with _$ProfileScreenEvent {
 
   const factory ProfileScreenEvent.avatarChanged(Uint8List profilePicture) = _AvatarChanged;
 
+  const factory ProfileScreenEvent.signOut() = _SignOut;
+
   const factory ProfileScreenEvent.resetState() = _ResetState;
 }
